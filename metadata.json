@@ -1,0 +1,6 @@
+{
+  "name": "Panyen Lokal",
+  "description": "Plateforme institutionnelle et commerciale de Panyen Lokal - Entreprise agro-industrielle nationale d'Haïti : Huile de Ricin Pure, spiritueux de terroir, chocolat pur cacao et exportations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
