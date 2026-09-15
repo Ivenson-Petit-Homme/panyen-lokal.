@@ -108,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center gap-1 px-1.5 sm:px-2 py-1 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[32px] ${
                   language === 'fr'
                     ? 'bg-[#E9C46A] text-[#1B4332] shadow-xs font-black'
-                    : 'text-[#FDFBF7]/80 hover:text-white hover:bg-[#235841]'
+                    : 'text-white hover:text-white hover:bg-[#235841]'
                 }`}
                 title="Passer le site en Français"
                 aria-label="Français"
@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center gap-1 px-1.5 sm:px-2 py-1 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[32px] ${
                   language === 'en'
                     ? 'bg-[#E9C46A] text-[#1B4332] shadow-xs font-black'
-                    : 'text-[#FDFBF7]/80 hover:text-white hover:bg-[#235841]'
+                    : 'text-white hover:text-white hover:bg-[#235841]'
                 }`}
                 title="Switch site to English"
                 aria-label="English"
@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer border shadow-xs min-h-[36px] ${
                 currentRoute === 'marches-export'
                   ? 'bg-[#E9C46A] text-[#1B4332] border-[#E9C46A] shadow font-black'
-                  : 'bg-[#1a4432] hover:bg-[#235841] text-[#FDFBF7] border-[#2d6a4f] hover:border-[#E9C46A]'
+                  : 'bg-[#1a4432] hover:bg-[#235841] text-white border-[#2d6a4f] hover:border-[#E9C46A]'
               }`}
               title={t('topbar.wholesale_desc')}
             >
@@ -270,14 +270,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                     className={`relative px-2.5 xl:px-3.5 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                       isActive
                         ? 'text-[#1B4332] bg-[#E9C46A] shadow-md font-black'
-                        : 'text-[#FDFBF7] hover:text-[#E9C46A] hover:bg-[#24533E]'
+                        : 'text-[#FDFBF7] hover:text-white hover:bg-[#24533E]'
                     }`}
                   >
                     <span>{link.label}</span>
                     {link.badge && (
                       <span className={`text-[9px] font-black uppercase px-1.5 py-0.2 rounded shrink-0 ${
                         isActive
-                          ? 'bg-[#1B4332] text-[#E9C46A]'
+                          ? 'bg-[#1B4332] text-white'
                           : 'bg-[#E9C46A]/20 text-[#E9C46A] border border-[#E9C46A]/40'
                       }`}>
                         {link.badge}
@@ -292,7 +292,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="btn-mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl bg-[#24533E] text-[#E9C46A] hover:bg-[#2d684e] border border-[#2d6a4f] focus:outline-none cursor-pointer shrink-0 shadow-sm"
+              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl bg-[#24533E] text-white hover:bg-[#2d684e] border border-[#2d6a4f] focus:outline-none cursor-pointer shrink-0 shadow-sm"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -383,20 +383,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                     className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold transition-colors cursor-pointer ${
                       isActive
                         ? 'bg-[#E9C46A] text-[#1B4332] font-black'
-                        : 'text-[#FDFBF7] hover:bg-[#24533E] hover:text-[#E9C46A]'
+                        : 'text-[#FDFBF7] hover:bg-[#24533E] hover:text-white'
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <span>{link.label}</span>
                       {link.badge && (
                         <span className={`text-[9px] font-black px-1.5 py-0.2 rounded ${
-                          isActive ? 'bg-[#1B4332] text-[#E9C46A]' : 'bg-[#E9C46A]/20 text-[#E9C46A]'
+                          isActive ? 'bg-[#1B4332] text-white' : 'bg-[#E9C46A]/20 text-[#E9C46A]'
                         }`}>
                           {link.badge}
                         </span>
                       )}
                     </div>
-                    <ChevronRight className="w-4 h-4 text-[#E9C46A]" />
+                    <ChevronRight className="w-4 h-4 text-white" />
                   </button>
                 );
               })}
@@ -417,9 +417,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               <button
                 onClick={() => handleNavClick('marches-export')}
-                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1a4432] hover:bg-[#235841] text-[#E9C46A] font-bold text-xs border border-[#2d6a4f] cursor-pointer"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1a4432] hover:bg-[#235841] text-white font-bold text-xs border border-[#2d6a4f] cursor-pointer"
               >
-                <FileText className="w-4 h-4 text-[#E9C46A]" />
+                <FileText className="w-4 h-4 text-white" />
                 <span>{t('topbar.wholesale')}</span>
               </button>
             </div>

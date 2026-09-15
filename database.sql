@@ -1,12 +1,15 @@
--- Panyen Lokal S.A. - Database Schema
--- Version: 2.1
--- Created: 2026-08-20
+-- Panyen Lokal S.A. - MySQL Database Schema
+-- Version: 2.1 (MySQL / MariaDB)
+-- Created: 2026-09-14
 
-CREATE DATABASE IF NOT EXISTS panyen_lokal_db;
+-- 1. Create database if it does not exist
+CREATE DATABASE IF NOT EXISTS panyen_lokal_db
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
 USE panyen_lokal_db;
 
--- 1. Table: users
--- Roles: 'user', 'admin'
+-- 2. Users table
 CREATE TABLE IF NOT EXISTS users (
     id VARCHAR(50) PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -23,9 +26,9 @@ CREATE TABLE IF NOT EXISTS users (
     postal_code VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+) ENGINE=InnoDB;
 
--- 2. Table: products
+-- 3. Products table
 CREATE TABLE IF NOT EXISTS products (
     id VARCHAR(50) PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -35,25 +38,25 @@ CREATE TABLE IF NOT EXISTS products (
     short_description TEXT,
     description TEXT,
     image_url VARCHAR(255),
-    is_featured BOOLEAN DEFAULT FALSE,
-    in_stock BOOLEAN DEFAULT TRUE,
+    is_featured TINYINT(1) DEFAULT 0,
+    in_stock TINYINT(1) DEFAULT 1,
     origin VARCHAR(100),
     terroir_location TEXT,
     badge VARCHAR(50),
-    highlights TEXT,
-    ingredients TEXT,
-    usage_instructions TEXT,
-    technical_specs TEXT,
-    certifications TEXT,
-    gallery TEXT,
+    highlights JSON,
+    ingredients JSON,
+    usage_instructions JSON,
+    technical_specs JSON,
+    certifications JSON,
+    gallery JSON,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+) ENGINE=InnoDB;
 
--- 3. Table: product_formats (for pricing per format)
+-- 4. Product Formats table
 CREATE TABLE IF NOT EXISTS product_formats (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    product_id VARCHAR(50),
+    product_id VARCHAR(50) NOT NULL,
     format_name VARCHAR(100) NOT NULL,
     price_usd DECIMAL(10, 2) NOT NULL,
     price_htg DECIMAL(12, 2),
@@ -62,9 +65,9 @@ CREATE TABLE IF NOT EXISTS product_formats (
     moq INT DEFAULT 1,
     weight_kg DECIMAL(8, 2),
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
-);
+) ENGINE=InnoDB;
 
--- 4. Table: orders
+-- 5. Orders table
 CREATE TABLE IF NOT EXISTS orders (
     id VARCHAR(50) PRIMARY KEY,
     order_number VARCHAR(30) UNIQUE NOT NULL,
@@ -87,12 +90,12 @@ CREATE TABLE IF NOT EXISTS orders (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
-);
+) ENGINE=InnoDB;
 
--- 5. Table: order_items
+-- 6. Order Items table
 CREATE TABLE IF NOT EXISTS order_items (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id VARCHAR(50),
+    order_id VARCHAR(50) NOT NULL,
     product_id VARCHAR(50),
     product_title VARCHAR(255),
     selected_format VARCHAR(100),
@@ -100,9 +103,9 @@ CREATE TABLE IF NOT EXISTS order_items (
     unit_price_usd DECIMAL(10, 2),
     total_price_usd DECIMAL(10, 2),
     FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
-);
+) ENGINE=InnoDB;
 
--- 6. Table: b2b_quotes
+-- 7. B2B Quotes table
 CREATE TABLE IF NOT EXISTS b2b_quotes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     reference_number VARCHAR(30) UNIQUE NOT NULL,
@@ -116,10 +119,18 @@ CREATE TABLE IF NOT EXISTS b2b_quotes (
     requirements TEXT,
     status ENUM('nouveau', 'en_etude', 'devis_envoye', 'termine') DEFAULT 'nouveau',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+) ENGINE=InnoDB;
 
--- Initial Demo Admin User (Password is 'admin123' hashed - example)
--- Note: In a real environment, use bcrypt to hash.
--- This is just a placeholder.
+-- ============================================
+-- 8. INSERT ADMIN USER (password: admin123)
+-- Hash bcrypt for 'admin123' generated automatically at server start
+-- ============================================
 INSERT IGNORE INTO users (id, full_name, email, password_hash, role, preferred_region)
-VALUES ('admin-01', 'Admin Panyen Lokal', 'admin@panyenlokal.com', '$2a$10$X7h6nC3m2l1k0j9i8h7g6f5e4d3c2b1a', 'admin', 'haiti');
+VALUES (
+    'admin-01',
+    'Admin Panyen Lokal',
+    'admin@panyenlokal.com',
+    '$2a$10$placeholderplaceholderplaceholderph',
+    'admin',
+    'haiti'
+);

@@ -35,10 +35,10 @@ export const ContactPage: React.FC = () => {
           <img
             src={bgHeader}
             alt="Panyen Lokal Facility"
-            className="w-full h-full object-cover blur-[1px] opacity-85"
+            className="w-full h-full object-cover blur-[2px] opacity-85"
           />
           {/* Dark Overlay for Text Visibility */}
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         <div className="absolute inset-0 z-10 flex items-center">
@@ -62,7 +62,7 @@ export const ContactPage: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-sm sm:text-base text-stone-100 max-w-2xl font-medium drop-shadow-lg"
+              className="text-sm sm:text-base text-white max-w-2xl font-medium drop-shadow-lg"
             >
               {t('contact.subtitle')}
             </motion.p>

@@ -179,7 +179,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
         </div>
         <button
           onClick={() => handleOpenModal()}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#1B4332] hover:bg-[#235841] text-[#E9C46A] rounded-xl text-xs font-black shadow-lg cursor-pointer transition-all border border-[#E9C46A]/30"
+          className="flex items-center gap-2 px-5 py-2.5 bg-[#1B4332] hover:bg-[#235841] text-white rounded-xl text-xs font-black shadow-lg cursor-pointer transition-all border border-white/30"
         >
           <Plus className="w-4 h-4" />
           AJOUTE PWODWI

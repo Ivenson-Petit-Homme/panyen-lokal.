@@ -43,7 +43,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
       <div className="min-h-screen bg-[#FDFBF7] py-20 px-4 text-center">
         <FadeInSection direction="none">
           <div className="max-w-md mx-auto bg-white p-8 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <div className="w-16 h-16 rounded-full bg-[#1B4332] text-[#E9C46A] flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto">
               <User className="w-8 h-8" />
             </div>
             <h2 className="text-2xl font-serif font-bold text-[#1F2937]">{t('account.portal_tag')}</h2>
@@ -85,17 +85,17 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
       <div className="bg-[#1B4332] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#2d6a4f]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-[#E9C46A] text-[#1F2937] flex items-center justify-center font-black text-2xl shadow-lg shrink-0">
+            <div className="w-16 h-16 rounded-2xl bg-[#E9C46A] text-[#1B4332] flex items-center justify-center font-black text-2xl shadow-lg shrink-0">
               {currentUser.fullName.charAt(0).toUpperCase()}
             </div>
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#143527] text-[#E9C46A] text-[11px] font-bold uppercase mb-1 border border-[#E9C46A]/30">
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#143527] text-white text-[11px] font-bold uppercase mb-1 border border-white/30">
                 <span>{t('account.verified_tag')}</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+              <h1 className="text-2xl sm:text-3xl font-serif font-bold text-white drop-shadow-sm">
                 {t('account.welcome_prefix').replace('{name}', currentUser.fullName)}
               </h1>
-              <p className="text-xs text-stone-200">
+              <p className="text-xs text-white opacity-90">
                 {currentUser.email} • {t('account.member_since')} {new Date(currentUser.createdAt).toLocaleDateString(isEn ? 'en-US' : 'fr-FR')}
               </p>
             </div>

@@ -35,10 +35,10 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
           <img
             src={bgHeader}
             alt="Panyen Lokal Agriculture"
-            className="w-full h-full object-cover blur-[1px] opacity-85"
+            className="w-full h-full object-cover blur-[2px] opacity-85"
           />
           {/* Dark Overlay for Text Visibility */}
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         {/* Content Over Image */}
@@ -64,7 +64,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-base sm:text-lg text-stone-100 max-w-2xl font-medium leading-relaxed drop-shadow-lg"
+              className="text-base sm:text-lg text-white max-w-2xl font-medium leading-relaxed drop-shadow-lg"
             >
               {t('about.p_intro')}
             </motion.p>
@@ -126,7 +126,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
 
             <StaggerContainer className="space-y-3 text-xs sm:text-sm text-stone-700" staggerDelay={0.15}>
               <StaggerItem direction="left" className="flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-200">
-                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                   1
                 </div>
                 <div>
@@ -136,7 +136,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
               </StaggerItem>
 
               <StaggerItem direction="left" className="flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-200">
-                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                   2
                 </div>
                 <div>
@@ -146,7 +146,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
               </StaggerItem>
 
               <StaggerItem direction="left" className="flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-200">
-                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                   3
                 </div>
                 <div>
@@ -210,7 +210,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  <MapPin className={`w-3.5 h-3.5 ${isSelected ? 'text-[#E9C46A]' : 'text-[#1B4332]'}`} />
+                  <MapPin className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-[#1B4332]'}`} />
                   <span>{dept.name}</span>
                 </button>
               );
@@ -270,7 +270,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
 
             {/* Visual Terroir representation */}
             <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-center space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-[#1B4332] text-[#E9C46A] flex items-center justify-center mx-auto shadow-md">
+              <div className="w-14 h-14 rounded-2xl bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md">
                 <Sprout className="w-8 h-8" />
               </div>
               <h5 className="font-bold text-[#1F2937] text-sm">

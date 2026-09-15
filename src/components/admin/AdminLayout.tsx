@@ -44,10 +44,10 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         } bg-[#1B4332] text-white transition-all duration-300 flex flex-col shadow-2xl z-30`}
       >
         <div className="p-6 flex items-center justify-between border-b border-white/10">
-          {isSidebarOpen && <span className="font-serif font-black text-lg tracking-tight">ADMIN PANEL</span>}
+          {isSidebarOpen && <span className="font-serif font-black text-lg tracking-tight text-white">ADMIN PANEL</span>}
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="p-1 hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+            className="p-1 hover:bg-white/10 rounded-lg transition-colors cursor-pointer text-white"
           >
             {isSidebarOpen ? <ChevronLeft /> : <Menu />}
           </button>
@@ -64,7 +64,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all cursor-pointer ${
                   isActive
                     ? 'bg-[#E9C46A] text-[#1B4332] font-bold shadow-lg'
-                    : 'text-stone-300 hover:bg-white/5 hover:text-white'
+                    : 'text-white hover:bg-white/5 hover:text-white'
                 }`}
               >
                 <Icon className="w-5 h-5 shrink-0" />
@@ -77,7 +77,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         <div className="p-4 border-t border-white/10 space-y-2">
           <button
             onClick={() => setCurrentRoute('home')}
-            className="w-full flex items-center gap-3 p-3 text-stone-300 hover:text-white transition-colors cursor-pointer"
+            className="w-full flex items-center gap-3 p-3 text-white hover:bg-white/5 transition-colors cursor-pointer"
           >
             <LogOut className="w-5 h-5 rotate-180" />
             {isSidebarOpen && <span>Quitter Admin</span>}
@@ -96,7 +96,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
               <p className="text-xs font-bold text-stone-900">Panyen Lokal Admin</p>
               <p className="text-[10px] text-stone-500">Service Central EKAM</p>
             </div>
-            <div className="w-10 h-10 rounded-full bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-black">
+            <div className="w-10 h-10 rounded-full bg-[#1B4332] text-white flex items-center justify-center font-black">
               A
             </div>
           </div>

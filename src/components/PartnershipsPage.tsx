@@ -46,10 +46,10 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
           <img
             src={bgHeader}
             alt="Panyen Lokal Partners"
-            className="w-full h-full object-cover blur-[1px] opacity-85"
+            className="w-full h-full object-cover blur-[2px] opacity-85"
           />
           {/* Dark Overlay for Text Visibility */}
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         <div className="absolute inset-0 z-10 flex items-center">
@@ -72,7 +72,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-base sm:text-lg text-stone-100 max-w-3xl font-medium leading-relaxed drop-shadow-lg"
+              className="text-base sm:text-lg text-white max-w-3xl font-medium leading-relaxed drop-shadow-lg"
             >
               {t('partners.intro')}
             </motion.p>
@@ -128,7 +128,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
           </StaggerItem>
 
           <StaggerItem className="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-bold shadow-md">
+            <div className="w-12 h-12 rounded-2xl bg-[#1B4332] text-white flex items-center justify-center font-bold shadow-md">
               <Building2 className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-serif font-bold text-[#1F2937]">
@@ -169,7 +169,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
                 animate={{ opacity: 1, scale: 1 }}
                 className="p-8 bg-white rounded-2xl border border-[#2E7D32]/40 text-center space-y-3 shadow-sm"
               >
-                <div className="w-12 h-12 rounded-full bg-[#1B4332] text-[#E9C46A] flex items-center justify-center mx-auto shadow-md">
+                <div className="w-12 h-12 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <h4 className="text-lg font-bold text-[#1F2937]">{t('partners.success_title')}</h4>

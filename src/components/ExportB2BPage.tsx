@@ -127,10 +127,10 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
           <img
             src={bgHeader}
             alt="Panyen Lokal Industrial Complex"
-            className="w-full h-full object-cover blur-[1px] opacity-85"
+            className="w-full h-full object-cover blur-[2px] opacity-85"
           />
           {/* Dark Overlay for Text Visibility */}
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         <div className="absolute inset-0 z-10 flex items-center">
@@ -153,7 +153,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-base sm:text-lg text-stone-100 max-w-3xl font-medium leading-relaxed drop-shadow-lg"
+              className="text-base sm:text-lg text-white max-w-3xl font-medium leading-relaxed drop-shadow-lg"
             >
               {t('export.intro')}
             </motion.p>
@@ -361,7 +361,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                 animate={{ opacity: 1, scale: 1 }}
                 className="p-8 bg-stone-50 rounded-2xl border border-[#2E7D32] text-center space-y-4"
               >
-                <div className="w-14 h-14 rounded-full bg-[#1B4332] text-[#E9C46A] flex items-center justify-center mx-auto shadow-md">
+                <div className="w-14 h-14 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold font-serif text-[#1F2937]">

@@ -88,14 +88,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               product.badge.includes('PHARE') || product.badge.includes('STAR')
                 ? 'bg-[#E9C46A] text-[#1B4332] ring-1 ring-[#1B4332]'
                 : product.badge.includes('NOUVEAUTÉ')
-                ? 'bg-[#1B4332] text-[#E9C46A] border border-[#E9C46A]'
+                ? 'bg-[#1B4332] text-white border border-white'
                 : 'bg-[#1B4332] text-[#FDFBF7] border border-[#2d6a4f]'
             }`}>
               {product.badge}
             </span>
           )}
           {product.slogan && (
-            <span className="bg-[#1B4332]/90 backdrop-blur-sm text-[#E9C46A] text-[10px] italic font-serif px-2 py-0.5 rounded shadow-sm border border-[#2d6a4f]">
+            <span className="bg-[#1B4332]/90 backdrop-blur-sm text-white text-[10px] italic font-serif px-2 py-0.5 rounded shadow-sm border border-[#2d6a4f]">
               "{product.slogan}"
             </span>
           )}
@@ -122,8 +122,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Gallery Image Preview Dots */}
         {imagesList.length > 1 && (
           <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1 bg-[#143527]/90 px-2 py-1 rounded-full border border-[#2d6a4f]">
-            <Images className="w-3 h-3 text-[#E9C46A]" />
-            <span className="text-[10px] font-bold text-[#E9C46A] mr-1">{imagesList.length} photos</span>
+            <Images className="w-3 h-3 text-white" />
+            <span className="text-[10px] font-bold text-white mr-1">{imagesList.length} photos</span>
             {imagesList.map((_, dotIdx) => (
               <button
                 key={dotIdx}
@@ -153,8 +153,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           className="absolute inset-0 bg-[#143527]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs backdrop-blur-xs cursor-pointer"
           title={t('catalog.view_details')}
         >
-          <span className="bg-[#1B4332] hover:bg-[#235841] text-[#E9C46A] border border-[#E9C46A] px-4 py-2 rounded-xl shadow-xl flex items-center gap-1.5 font-bold">
-            <Info className="w-3.5 h-3.5 text-[#E9C46A]" />
+          <span className="bg-[#1B4332] hover:bg-[#235841] text-white border border-white px-4 py-2 rounded-xl shadow-xl flex items-center gap-1.5 font-bold">
+            <Info className="w-3.5 h-3.5 text-white" />
             {t('product.details_btn')} ({imagesList.length})
           </span>
         </button>
@@ -210,7 +210,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                       isSelected
                         ? isExport 
                           ? 'bg-[#E9C46A] text-[#1B4332] font-black shadow-sm ring-2 ring-[#E9C46A]'
-                          : 'bg-[#1B4332] text-[#E9C46A] border border-[#1B4332] font-bold shadow-sm'
+                          : 'bg-[#1B4332] text-white border border-[#1B4332] font-bold shadow-sm'
                         : 'bg-[#FDFBF7] text-[#1F2937] hover:bg-stone-200 border border-stone-200'
                     }`}
                   >

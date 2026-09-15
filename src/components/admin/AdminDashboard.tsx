@@ -137,16 +137,16 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
 
         {/* Stock Status & Alerts */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-[#1B4332] p-6 rounded-3xl text-white shadow-xl h-full">
+          <div className="bg-[#1B4332] p-6 rounded-3xl text-white shadow-xl h-full border border-[#265943]">
             <div className="flex items-center gap-2 mb-6">
               <Package className="w-5 h-5 text-[#E9C46A]" />
-              <h3 className="font-bold uppercase tracking-wider text-sm">État des Stocks</h3>
+              <h3 className="font-bold uppercase tracking-wider text-sm text-white">État des Stocks</h3>
             </div>
 
             <div className="space-y-4">
               {analytics?.stockData?.map((item: any, idx: number) => (
                 <div key={idx} className="space-y-1.5">
-                  <div className="flex justify-between text-xs font-bold">
+                  <div className="flex justify-between text-xs font-bold text-white">
                     <span className="truncate max-w-[150px]">{item.name}</span>
                     <span className={item.in_stock ? 'text-emerald-400' : 'text-red-400'}>
                       {item.in_stock ? 'DISPONIBLE' : 'RUPTURE'}

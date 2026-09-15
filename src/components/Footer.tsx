@@ -226,7 +226,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
         </div>
 
         {/* Barre Juridique Basse */}
-        <div className="mt-12 pt-6 border-t border-[#265943] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FDFBF7]/80">
+        <div className="mt-12 pt-6 border-t border-[#265943] flex flex-col sm:row items-center justify-between gap-4 text-xs text-[#FDFBF7]/80">
           <div>
             © {new Date().getFullYear()} {COMPANY_INFO.name}. {t('footer.rights')}
           </div>

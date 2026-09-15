@@ -31,20 +31,20 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
         <div className="bg-[#1B4332] text-white p-6 relative border-b border-[#2d6a4f]">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 text-white/80 hover:text-white cursor-pointer"
+            className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 text-white cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider mb-2 shadow-sm">
             <Globe2 className="w-3.5 h-3.5" />
             <span>{t('region.tag')}</span>
           </div>
 
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+          <h3 className="text-xl sm:text-2xl font-serif font-bold text-white drop-shadow-sm">
             {t('region.modal_title')}
           </h3>
-          <p className="text-xs text-stone-200 mt-1 leading-relaxed">
+          <p className="text-xs text-white opacity-90 mt-1 leading-relaxed">
             {t('region.desc_long')}
           </p>
         </div>
@@ -75,7 +75,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
                     <div className="flex items-center gap-2">
                       <h4 className="font-bold text-sm text-[#1F2937]">{config.name}</h4>
                       {isSelected && (
-                        <span className="text-[10px] bg-[#1B4332] text-[#E9C46A] px-2 py-0.5 rounded-full font-bold border border-[#2E7D32]">
+                        <span className="text-[10px] bg-[#1B4332] text-white px-2 py-0.5 rounded-full font-bold border border-[#2E7D32]">
                           {t('account.active_region_badge')}
                         </span>
                       )}

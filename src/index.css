@@ -1,79 +1,228 @@
 @import "tailwindcss";
 
 @theme {
+  /* ========== COULEURS DE LA MARQUE ========== */
   --color-brand-bg: #FDFBF7;
   --color-brand-primary: #1B4332;
   --color-brand-buy: #2E7D32;
   --color-brand-accent: #E9C46A;
   --color-brand-text: #1F2937;
+
+  /* ========== POLICE UNIFIÉE STYLE WEBNODE ==========
+     Inter = alternative gratuite de GraphikCommercial (police Webnode)
+     Philosophie : UNE SEULE famille de police pour tout (headings + corps + boutons)
+     — GraphikCommercial est la police officielle de Webnode (payante)
+     — Inter en est la reproduction gratuite la plus fidèle (géométrique, lisible, moderne) */
+  --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, Verdana, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  --font-display: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-heading: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-webnode: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* ========== TYPOGRAPHIE — RÈGLES EXACTES WEBNODE ==========
+     Mesures extraites en direct de webnode.com/fr/ */
+  --font-size-body: 1rem;              /* 16px — taille exacte corps Webnode */
+  --font-size-lead: 1.0625rem;         /* 17px — paragraphe important */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.4;
+  --line-height-normal: 1.625;           /* 26px / 16px = 1.625 — interlignage exact Webnode */
+  --line-height-relaxed: 1.75;
+  --letter-spacing-tight: -0.025em;    /* H1 Webnode : -0.976px sur 39px ≈ -0.025em */
+  --letter-spacing-snug: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.02em;
+  --letter-spacing-button: 0.01em;      /* Boutons Webnode */
 }
 
+/* =====================================================
+   TYPOGRAPHIE GLOBALE (Style Webnode — Police UNIFIÉE)
+   ===================================================== */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+  font-size: 100%;
 }
 
 body {
   background-color: #FDFBF7;
-  color: #1F2937;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #000000;
+  font-family: var(--font-webnode);
+  font-size: var(--font-size-body);       /* 16px — exact Webnode body */
+  line-height: var(--line-height-normal); /* 1.625 — exact 26px Webnode */
+  font-weight: 500;                        /* renforcé pour lisibilité maximum */
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  font-feature-settings: "cv11", "ss01";   /* améliorations Inter */
 }
 
-/* Custom highlight and border helpers for the palette */
-.bg-brand-bg {
-  background-color: #FDFBF7;
+/* ========== HEADINGS — Police UNIFIÉE Inter (style GraphikCommercial Webnode)
+   Webnode utilise LA MÊME famille (GraphikCommercial) pour TOUS les headings.
+   Différenciation : poids (weight), taille, letter-spacing seulement. */
+h1, h2, h3, h4, h5, h6,
+.font-heading,
+.font-display {
+  font-family: var(--font-webnode);
+  color: #000000;
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-snug);
+  line-height: var(--line-height-snug);
+  font-feature-settings: "cv11", "ss01";
 }
 
-.bg-brand-primary {
-  background-color: #1B4332;
+/* H1 — Poids 800 style GraphikCommercial Webnode, tracking très serré */
+h1 {
+  font-size: clamp(2.1rem, 3.8vw + 0.8rem, 2.5rem);  /* ~33.6px → 40px proche 39px Webnode */
+  font-weight: 800;
+  letter-spacing: var(--letter-spacing-tight);  /* -0.025em exact */
+  line-height: 1.15;
+  color: #000000;
 }
 
-.bg-brand-buy {
-  background-color: #2E7D32;
+/* H2 — Poids 700, tracking modéré */
+h2 {
+  font-size: clamp(1.65rem, 2.4vw + 0.6rem, 2.1rem);  /* 26.4px → 33.6px */
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-snug);
+  line-height: 1.22;
+  color: #000000;
 }
 
-.bg-brand-accent {
-  background-color: #E9C46A;
+/* H3 — Poids 600 */
+h3 {
+  font-size: clamp(1.25rem, 1.3vw + 0.75rem, 1.65rem);  /* 20px → 26.4px */
+  font-weight: 700;
+  line-height: 1.32;
+  color: #000000;
 }
 
-.text-brand-primary {
+/* H4 — Poids 600 */
+h4 {
+  font-size: clamp(1.08rem, 0.9vw + 0.75rem, 1.25rem);  /* 17.3px → 20px */
+  font-weight: 700;
+  line-height: 1.42;
+  color: #000000;
+}
+
+/* H5 — Poids 600 */
+h5 {
+  font-size: 1.0625rem;  /* 17px */
+  font-weight: 700;
+  line-height: 1.48;
+  color: #000000;
+}
+
+/* H6 — Poids 600 */
+h6 {
+  font-size: 1rem;       /* 16px */
+  font-weight: 700;
+  line-height: 1.55;
+  color: #000000;
+}
+
+/* ========== PARAGRAPHES & TEXT — Police unifiée ========== */
+p {
+  font-family: var(--font-webnode);
+  font-size: var(--font-size-body);   /* 16px */
+  line-height: var(--line-height-normal);  /* 1.625 */
+  color: #000000;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-feature-settings: "cv11", "ss01";
+}
+
+p.lead,
+.lead-text {
+  font-size: var(--font-size-lead);   /* 17px */
+  line-height: var(--line-height-relaxed);
+  font-weight: 500;
+  color: #000000;
+}
+
+small,
+.text-small {
+  font-size: 0.8125rem;  /* 13px */
+  line-height: 1.52;
+  color: #000000;
+  font-weight: 500;
+}
+
+li {
+  color: #000000;
+}
+
+strong, b {
+  font-weight: 700;
+  color: #000000;
+}
+
+/* ========== LIENS — Police unifiée ========== */
+a {
+  font-family: var(--font-webnode);
   color: #1B4332;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+a:hover {
+  color: #000000;
 }
 
-.text-brand-buy {
-  color: #2E7D32;
+/* ========== LISTES ========== */
+ul, ol {
+  padding-left: 1.5rem;
+  line-height: var(--line-height-normal);
+}
+li {
+  margin-bottom: 0.5rem;
 }
 
-.text-brand-accent {
-  color: #E9C46A;
+/* ========== BOUTONS — Police unifiée style Webnode ========== */
+button,
+.btn,
+[role="button"] {
+  font-family: var(--font-webnode);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-button);
+  font-feature-settings: "cv11", "ss01";
 }
 
-.text-brand-text {
-  color: #1F2937;
+/* ========== CUSTOM HELPERS DE LA PALETTE ========== */
+.bg-brand-bg { background-color: #FDFBF7; }
+.bg-brand-primary { background-color: #1B4332; }
+.bg-brand-buy { background-color: #2E7D32; }
+.bg-brand-accent { background-color: #E9C46A; }
+
+.text-brand-primary { color: #1B4332; }
+.text-brand-buy { color: #2E7D32; }
+.text-brand-accent { color: #E9C46A; }
+.text-brand-text { color: #1F2937; }
+
+.border-brand-primary { border-color: #1B4332; }
+.border-brand-buy { border-color: #2E7D32; }
+.border-brand-accent { border-color: #E9C46A; }
+
+/* ========== HELPERS TYPOGRAPHIQUES UTILES — Style Webnode unifié ========== */
+.font-montserrat { font-family: var(--font-webnode); }  /* compatibilité — tous utilise Inter */
+.font-inter { font-family: var(--font-webnode); }       /* compatibilité — tous utilise Inter */
+.font-webnode { font-family: var(--font-webnode); }
+
+.tracking-webnode-tight { letter-spacing: var(--letter-spacing-tight); }   /* -0.025em H1 Webnode */
+.tracking-webnode { letter-spacing: var(--letter-spacing-snug); }          /* -0.01em standard */
+
+/* Boutons texte style Webnode — Police unifiée Inter */
+.btn-text-uppercase {
+  font-family: var(--font-webnode);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  font-size: 0.8125rem;
 }
 
-.border-brand-primary {
-  border-color: #1B4332;
-}
-
-.border-brand-buy {
-  border-color: #2E7D32;
-}
-
-.border-brand-accent {
-  border-color: #E9C46A;
-}
-
+/* ========== ANIMATIONS ========== */
 @keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
-
-.animate-shimmer {
-  animation: shimmer 1.8s infinite;
-}
+.animate-shimmer { animation: shimmer 1.8s infinite; }

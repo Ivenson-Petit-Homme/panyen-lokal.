@@ -135,7 +135,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   </button>
                   
                   {/* Photo Counter Pill */}
-                  <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-[#143527]/90 border border-[#2d6a4f] text-[10px] font-bold text-[#E9C46A] z-10">
+                  <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-[#143527]/90 border border-[#2d6a4f] text-[10px] font-bold text-white z-10">
                     {activeImageIndex + 1} / {imagesList.length} {t('detail.photos_suffix')}
                   </div>
                 </>
@@ -292,7 +292,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                           }`}
                         >
                           <div className={`font-bold text-xs truncate ${isSelected ? 'text-white' : 'text-[#1F2937]'}`}>{fmt}</div>
-                          <div className={`text-[11px] font-extrabold mt-0.5 ${isSelected ? 'text-[#E9C46A]' : 'text-[#2E7D32]'}`}>
+                          <div className={`text-[11px] font-extrabold mt-0.5 ${isSelected ? 'text-white' : 'text-[#2E7D32]'}`}>
                             ${fmtPrice.priceUSD.toFixed(2)} USD
                           </div>
                         </button>

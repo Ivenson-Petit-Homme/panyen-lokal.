@@ -85,20 +85,20 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
               
               <StaggerContainer className="flex flex-wrap gap-3 pt-2" staggerDelay={0.12}>
                 <StaggerItem direction="none">
-                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-stone-200 flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-[#E9C46A]" />
+                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-white flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-white" />
                     {t('ricin.solvent_free')}
                   </span>
                 </StaggerItem>
                 <StaggerItem direction="none">
-                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-stone-200 flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4 text-[#E9C46A]" />
+                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-white flex items-center gap-1.5">
+                    <Sparkles className="w-4 h-4 text-white" />
                     {t('ricin.ricinoleic_acid')}
                   </span>
                 </StaggerItem>
                 <StaggerItem direction="none">
-                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-stone-200 flex items-center gap-1.5">
-                    <Truck className="w-4 h-4 text-[#E9C46A]" />
+                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-white flex items-center gap-1.5">
+                    <Truck className="w-4 h-4 text-white" />
                     {t('ricin.fob_info')}
                   </span>
                 </StaggerItem>
@@ -385,7 +385,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                       {t('ricin.format_gallon_title')}
                     </h4>
                   </div>
-                  <span className="px-3 py-1 rounded-full bg-[#1B4332] text-[#E9C46A] border border-[#2E7D32] text-xs font-bold">
+                  <span className="px-3 py-1 rounded-full bg-[#1B4332] text-white border border-[#2E7D32] text-xs font-bold">
                     $145.00 USD
                   </span>
                 </div>
@@ -481,7 +481,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
             {/* 4 Steps Extraction Flow */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-bold text-xs">
+                <div className="w-8 h-8 rounded-lg bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs">
                   01
                 </div>
                 <h5 className="font-bold text-sm text-[#1F2937]">{t('ricin.step1_title')}</h5>
@@ -491,7 +491,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
               </div>
 
               <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-bold text-xs">
+                <div className="w-8 h-8 rounded-lg bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs">
                   02
                 </div>
                 <h5 className="font-bold text-sm text-[#1F2937]">{t('ricin.step2_title')}</h5>
@@ -501,7 +501,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
               </div>
 
               <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-bold text-xs">
+                <div className="w-8 h-8 rounded-lg bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs">
                   03
                 </div>
                 <h5 className="font-bold text-sm text-[#1F2937]">{t('ricin.step3_title')}</h5>
@@ -511,7 +511,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
               </div>
 
               <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1B4332] text-[#E9C46A] flex items-center justify-center font-bold text-xs">
+                <div className="w-8 h-8 rounded-lg bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs">
                   04
                 </div>
                 <h5 className="font-bold text-sm text-[#1F2937]">{t('ricin.step4_title')}</h5>

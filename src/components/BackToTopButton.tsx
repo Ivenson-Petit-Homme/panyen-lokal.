@@ -59,7 +59,7 @@ export const BackToTopButton: React.FC = () => {
         >
           {/* Tooltip on Hover (Desktop) */}
           <div className="absolute bottom-full mb-2 right-0 hidden sm:group-hover:flex items-center pointer-events-none transition-all duration-200 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0">
-            <div className="bg-[#143527] text-[#E9C46A] border border-[#2d6a4f] text-[11px] font-bold py-1 px-2.5 rounded-lg shadow-xl whitespace-nowrap flex items-center gap-1.5 backdrop-blur-md">
+            <div className="bg-[#143527] text-white border border-[#2d6a4f] text-[11px] font-bold py-1 px-2.5 rounded-lg shadow-xl whitespace-nowrap flex items-center gap-1.5 backdrop-blur-md">
               <span>{t('nav.back_to_top')}</span>
               <span className="text-[10px] text-stone-300 font-mono">({Math.round(scrollProgress)}%)</span>
             </div>
@@ -101,7 +101,7 @@ export const BackToTopButton: React.FC = () => {
             </svg>
 
             {/* Icon */}
-            <ArrowUp className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-[#E9C46A] group-hover:text-white group-hover:-translate-y-0.5 transition-all duration-200 relative z-10" />
+            <ArrowUp className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white group-hover:-translate-y-0.5 transition-all duration-200 relative z-10" />
           </button>
         </motion.div>
       )}

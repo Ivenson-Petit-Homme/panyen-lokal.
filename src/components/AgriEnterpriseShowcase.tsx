@@ -130,13 +130,13 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                   {t('pres.title')}
                 </h2>
                 
-                <p className="text-xs sm:text-sm text-stone-600 font-semibold flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                  <span className="flex items-center gap-1 text-[#1F2937]">
-                    <MapPin className="w-4 h-4 text-[#2E7D32]" />
+                <p className="text-xs sm:text-sm text-white font-semibold flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                  <span className="flex items-center gap-1 text-white">
+                    <MapPin className="w-4 h-4 text-[#E9C46A]" />
                     {t('pres.location')}
                   </span>
-                  <span>•</span>
-                  <span className="text-[#1F2937] font-bold">
+                  <span className="text-white opacity-50">•</span>
+                  <span className="text-white font-bold">
                     {t('pres.network')}
                   </span>
                 </p>
@@ -150,11 +150,11 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                   {t('pres.subtitle')}
                 </h3>
                 
-                <p className="text-sm sm:text-base text-[#1F2937]/90 leading-relaxed">
+                <p className="text-sm sm:text-base text-white leading-relaxed">
                   <strong>{t('pres.title')}</strong> {t('pres.p1')}
                 </p>
 
-                <p className="text-sm sm:text-base text-[#1F2937]/90 leading-relaxed">
+                <p className="text-sm sm:text-base text-white leading-relaxed">
                   {t('pres.p2')}
                 </p>
 
@@ -225,7 +225,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
             </div>
 
             {/* 4 Chiffres Clés d'Impact */}
-            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-stone-100 text-center" staggerDelay={0.08}>
+              <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-stone-100 text-center" staggerDelay={0.08}>
               <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-200">
                 <motion.span
                   initial={{ opacity: 0, y: 10 }}
@@ -235,7 +235,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 >
                   <Counter value={t('pres.stat1_value')} />
                 </motion.span>
-                <span className="text-xs text-stone-600 font-medium">{t('pres.stat1_label')}</span>
+                <span className="text-xs text-[#1B4332] font-medium">{t('pres.stat1_label')}</span>
               </StaggerItem>
 
               <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-200">
@@ -247,7 +247,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 >
                   <Counter value={t('pres.stat2_value')} />
                 </motion.span>
-                <span className="text-xs text-stone-600 font-medium">{t('pres.stat2_label')}</span>
+                <span className="text-xs text-[#1B4332] font-medium">{t('pres.stat2_label')}</span>
               </StaggerItem>
 
               <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-200">
@@ -259,7 +259,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 >
                   {t('pres.stat3_value')}
                 </motion.span>
-                <span className="text-xs text-stone-600 font-medium">{t('pres.stat3_label')}</span>
+                <span className="text-xs text-[#1B4332] font-medium">{t('pres.stat3_label')}</span>
               </StaggerItem>
 
               <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-200">
@@ -271,7 +271,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 >
                   <Counter value={t('pres.stat4_value')} />
                 </motion.span>
-                <span className="text-xs text-stone-600 font-medium">{t('pres.stat4_label')}</span>
+                <span className="text-xs text-[#1B4332] font-medium">{t('pres.stat4_label')}</span>
               </StaggerItem>
             </StaggerContainer>
           </div>
@@ -320,7 +320,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#E9C46A] bg-[#143527]/90 backdrop-blur-xs px-2.5 py-1 rounded-lg border border-[#E9C46A]/40">
+                    <span className="text-xs font-bold text-white bg-[#143527]/90 backdrop-blur-xs px-2.5 py-1 rounded-lg border border-white/40 shadow">
                       {pillar.tag}
                     </span>
                   </div>
@@ -330,10 +330,10 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#1B4332] text-[#E9C46A] flex items-center justify-center shadow">
-                        <Icon className="w-5 h-5 text-[#E9C46A]" />
+                      <div className="w-10 h-10 rounded-xl bg-[#1B4332] text-white flex items-center justify-center shadow">
+                        <Icon className="w-5 h-5 text-white" />
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-[#1B4332] group-hover:text-[#2E7D32] transition-colors">
+                      <h3 className="text-xl font-serif font-bold text-white group-hover:text-white transition-colors">
                         {pillar.title}
                       </h3>
                     </div>
@@ -400,7 +400,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-2.5 right-2.5 z-10">
-                      <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-[#1B4332]/90 text-[#E9C46A] border border-[#E9C46A]/40 backdrop-blur-xs">
+                      <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-[#1B4332]/90 text-white border border-white/40 backdrop-blur-xs">
                         {prod.badge}
                       </span>
                     </div>
@@ -414,7 +414,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       <h4 className="text-sm font-serif font-bold text-white mt-0.5">
                         {prod.title}
                       </h4>
-                      <p className="text-[11px] text-[#FDFBF7]/80 mt-1 line-clamp-2">
+                      <p className="text-[11px] text-white opacity-90 mt-1 line-clamp-2">
                         {prod.desc}
                       </p>
                     </div>
@@ -497,7 +497,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 </div>
 
                 <div className="absolute top-3 left-3 z-10">
-                  <span className="text-[10px] font-black px-2.5 py-1 rounded-full bg-[#1B4332] text-[#E9C46A] border border-[#E9C46A]/40 shadow">
+                  <span className="text-[10px] font-black px-2.5 py-1 rounded-full bg-[#1B4332] text-white border border-white/40 shadow">
                     {item.categoryLabel}
                   </span>
                 </div>
@@ -580,8 +580,8 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
 
                   <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
-                      <div className="w-9 h-9 rounded-lg bg-[#1B4332] text-[#E9C46A] flex items-center justify-center shadow">
-                        <ServiceIcon className="w-4 h-4 text-[#E9C46A]" />
+                      <div className="w-9 h-9 rounded-lg bg-[#1B4332] text-white flex items-center justify-center shadow">
+                        <ServiceIcon className="w-4 h-4 text-white" />
                       </div>
                       <h3 className="font-serif font-bold text-sm text-[#1B4332] group-hover:text-[#2E7D32] transition-colors">
                         {service.title}
@@ -688,7 +688,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 {t('terroirs.title')}
               </h2>
             </div>
-            <p className="text-xs sm:text-sm text-[#FDFBF7]/80 max-w-md">
+            <p className="text-xs sm:text-sm text-white opacity-90 max-w-md">
               {t('terroirs.desc')}
             </p>
           </FadeInSection>
@@ -709,7 +709,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                     }`}
                   >
                     <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 font-bold text-xs ${
-                      isSelected ? 'bg-[#1B4332] text-[#E9C46A]' : 'bg-[#143527] text-[#E9C46A] border border-[#2d6a4f]'
+                      isSelected ? 'bg-[#1B4332] text-white' : 'bg-[#143527] text-white border border-[#2d6a4f]'
                     }`}>
                       {idx + 1}
                     </div>
@@ -747,17 +747,17 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
                   {terroirs[selectedTerroir].title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#FDFBF7]/90 leading-relaxed">
+                <p className="text-xs sm:text-sm text-white opacity-95 leading-relaxed">
                   {terroirs[selectedTerroir].desc}
                 </p>
 
                 <div className="space-y-2 pt-2">
-                  <span className="text-xs font-bold uppercase text-[#E9C46A] block">
+                  <span className="text-xs font-bold uppercase text-white block">
                     {t('terroirs.crops_label')}
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {terroirs[selectedTerroir].products.map((prod, pIdx) => (
-                      <span key={pIdx} className="px-3 py-1 rounded-lg bg-[#1B4332] text-[#E9C46A] text-xs font-semibold border border-[#2d6a4f]">
+                      <span key={pIdx} className="px-3 py-1 rounded-lg bg-[#1B4332] text-white text-xs font-semibold border border-[#2d6a4f]">
                         🌿 {prod}
                       </span>
                     ))}

@@ -50,7 +50,7 @@ export const AdminQuotes: React.FC<AdminQuotesProps> = ({ currentUser }) => {
               {/* Client Info */}
               <div className="space-y-3 flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-black bg-[#1B4332] text-[#E9C46A] px-2 py-0.5 rounded-full uppercase">
+                  <span className="text-[10px] font-black bg-[#1B4332] text-white px-2 py-0.5 rounded-full uppercase">
                     {quote.reference_number}
                   </span>
                   <span className="text-[10px] text-stone-400 font-bold flex items-center gap-1">

@@ -96,7 +96,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
         {/* Header Heading */}
         <div className="text-center mb-16 space-y-4">
           <FadeInSection direction="down">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1B4332] text-[#E9C46A] text-xs font-black uppercase tracking-widest shadow-md">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1B4332] text-white text-xs font-black uppercase tracking-widest shadow-md">
               <Building2 className="w-4 h-4" />
               <span>{t('official.banner_tag')}</span>
             </div>
@@ -106,11 +106,11 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#1F2937]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-white drop-shadow-md"
           >
             {t('banner.title')}
           </motion.h2>
-          <p className="text-base sm:text-lg text-stone-600 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-base sm:text-lg text-white max-w-3xl mx-auto font-light leading-relaxed opacity-95">
             {t('banner.desc')}
           </p>
         </div>
@@ -228,7 +228,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                           </h4>
                         </div>
                       </div>
-                      <p className="text-xs text-stone-300 leading-relaxed pl-10">
+                      <p className="text-xs text-white leading-relaxed pl-10 opacity-90">
                         {obj.desc}
                       </p>
                     </StaggerItem>
@@ -268,7 +268,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                           {t(p.badgeKey as TranslationKey)}
                         </span>
                       </div>
-                      <p className="text-[11px] text-stone-300 leading-tight">{t(p.descKey as TranslationKey)}</p>
+                      <p className="text-[11px] text-white leading-tight opacity-90">{t(p.descKey as TranslationKey)}</p>
                     </div>
                   </motion.div>
                 ))}

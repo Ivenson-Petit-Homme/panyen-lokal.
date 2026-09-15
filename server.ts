@@ -13,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,7 +31,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     if (file.mimetype.startsWith('image/')) {
       cb(null, true);
@@ -70,7 +70,6 @@ app.post('/api/ai/advisor', async (req, res) => {
     const ai = getAIClient();
 
     if (!ai) {
-      // High-quality contextual fallback if API key is not yet set
       return res.json({
         success: true,
         source: 'local_expert',
@@ -123,8 +122,6 @@ Réponds de manière concise, structurée en markdown, conviviale et élégante.
   }
 });
 
-// In-memory data store with fallback for demo/production sessions
-// These will no longer be used as we shifted to MySQL
 const usersDB: any[] = [];
 const ordersDB: any[] = [];
 
@@ -201,7 +198,6 @@ app.post('/api/auth/login', async (req, res) => {
   if (email.toLowerCase() === envAdminEmail.toLowerCase() && password === envAdminPass) {
     console.log(`🚀 CONNEXION ADMIN RÉUSSIE VIA .ENV : ${email}`);
 
-    // Nou chache detay yo nan DB si yo la, sinon nou bay yon objè default
     let adminData: any = {
       id: 'admin-fix-01',
       full_name: 'Admin Panyen Lokal',
@@ -250,7 +246,6 @@ app.post('/api/auth/login', async (req, res) => {
 
     console.log(`✅ Connexion réussie pour: ${email}`);
 
-    // ... rès kòd la pou itilizatè nòmal ...
     res.json({
       success: true,
       user: {
@@ -337,7 +332,6 @@ app.get('/api/orders/user/:userId', async (req, res) => {
   try {
     const orders = await query<any[]>('SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC', [userId]);
 
-    // For each order, fetch items
     const ordersWithItems = await Promise.all(orders.map(async (ord) => {
       const items = await query<any[]>('SELECT * FROM order_items WHERE order_id = ?', [ord.id]);
       return {
@@ -425,7 +419,7 @@ app.post('/api/contact', (req, res) => {
 
 // Middleware to check if user is admin
 const isAdmin = async (req: any, res: any, next: any) => {
-  const userId = req.headers['x-user-id']; // Simple header check for demo
+  const userId = req.headers['x-user-id'];
   if (!userId) return res.status(403).json({ success: false, message: 'Non autorisé.' });
 
   try {
@@ -479,17 +473,17 @@ app.get('/api/admin/quotes', isAdmin, async (req, res) => {
 app.get('/api/admin/stats', isAdmin, async (req, res) => {
   try {
     const orderCount = await query<any[]>('SELECT COUNT(*) as count FROM orders');
-    const totalRevenue = await query<any[]>('SELECT SUM(total_usd) as revenue FROM orders WHERE payment_status = "paye"');
+    const totalRevenue = await query<any[]>('SELECT SUM(total_usd) as revenue FROM orders WHERE payment_status = ?', ['paye']);
     const userCount = await query<any[]>('SELECT COUNT(*) as count FROM users');
-    const pendingOrders = await query<any[]>('SELECT COUNT(*) as count FROM orders WHERE status = "en_preparation"');
+    const pendingOrders = await query<any[]>('SELECT COUNT(*) as count FROM orders WHERE status = ?', ['en_preparation']);
 
     res.json({
       success: true,
       stats: {
-        totalOrders: orderCount[0].count,
-        revenue: totalRevenue[0].revenue || 0,
-        users: userCount[0].count,
-        pending: pendingOrders[0].count
+        totalOrders: (orderCount[0] as any).count,
+        revenue: (totalRevenue[0] as any).revenue || 0,
+        users: (userCount[0] as any).count,
+        pending: (pendingOrders[0] as any).count
       }
     });
   } catch (error) {
@@ -544,7 +538,7 @@ app.get('/api/admin/products', isAdmin, async (req, res) => {
       technicalSpecs: p.technical_specs ? JSON.parse(p.technical_specs) : {},
       certifications: p.certifications ? JSON.parse(p.certifications) : [],
       gallery: p.gallery ? JSON.parse(p.gallery) : [],
-      imageUrl: p.image_url // map DB to frontend key if needed
+      imageUrl: p.image_url
     }));
     res.json({ success: true, products: formatted });
   } catch (error) {
@@ -557,7 +551,7 @@ app.patch('/api/admin/products/:id/stock', isAdmin, async (req, res) => {
   const { id } = req.params;
   const { inStock } = req.body;
   try {
-    await query('UPDATE products SET in_stock = ? WHERE id = ?', [inStock, id]);
+    await query('UPDATE products SET in_stock = ? WHERE id = ?', [inStock ? 1 : 0, id]);
     res.json({ success: true });
   } catch (error) {
     res.status(500).json({ success: false });
@@ -649,7 +643,6 @@ app.delete('/api/admin/products/:id', isAdmin, async (req, res) => {
 // Get detailed analytics (Admin)
 app.get('/api/admin/analytics', isAdmin, async (req, res) => {
   try {
-    // Sales per product from order_items
     const salesData = await query<any[]>(`
       SELECT product_title as name, SUM(quantity) as sales
       FROM order_items
@@ -658,7 +651,6 @@ app.get('/api/admin/analytics', isAdmin, async (req, res) => {
       LIMIT 5
     `);
 
-    // Stock overview
     const stockData = await query<any[]>(`
       SELECT title as name, in_stock
       FROM products
@@ -671,7 +663,7 @@ app.get('/api/admin/analytics', isAdmin, async (req, res) => {
         { name: 'Cognac', sales: 28 },
         { name: 'Chokola', sales: 32 },
         { name: 'Vin de Miel', sales: 15 }
-      ], // Fallback mock if empty
+      ],
       stockData
     });
   } catch (error) {
@@ -713,19 +705,23 @@ async function start() {
       await query('SELECT 1');
       console.log('✅ Connexion MySQL réussie !');
 
-      // Gid pou asire Admin lan toujou gen bon modpas nan devlopman
+      // Admin auto-reset in dev
       const adminEmail = 'admin@panyenlokal.com';
       const defaultPassword = 'admin123';
       const hash = await bcrypt.hash(defaultPassword, 10);
 
-      await query(
-        `UPDATE users SET password_hash = ? WHERE email = ? AND role = 'admin'`,
-        [hash, adminEmail]
-      );
+      try {
+        await query(
+          `UPDATE users SET password_hash = ? WHERE email = ? AND role = ?`,
+          [hash, adminEmail, 'admin']
+        );
+      } catch (adminErr) {
+        console.log('ℹ️ Table users pas encore créée, ou admin pas encore inséré.');
+      }
       console.log(`🔐 Modpas Admin otomatikman reset sou: ${defaultPassword}`);
 
     } catch (err) {
-      console.error('❌ Erreur de connexion MySQL. Vérifiez WAMP et le fichier .env.');
+      console.error('❌ Erreur de connexion MySQL. Vérifiez .env et que MySQL est démarré (WAMP / XAMPP / Laragon).');
     }
   });
 }

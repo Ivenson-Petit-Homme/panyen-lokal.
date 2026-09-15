@@ -170,22 +170,22 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         <div className="bg-[#1B4332] text-white p-6 relative border-b border-[#2d6a4f]">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
+            className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 text-white cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider mb-2 shadow-sm">
             <Lock className="w-3.5 h-3.5" />
             <span>{t('auth.req_tag')}</span>
           </div>
 
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+          <h3 className="text-xl sm:text-2xl font-serif font-bold text-white drop-shadow-sm">
             {mode === 'login' 
               ? t('auth.login_main_title')
               : t('auth.register_main_title')}
           </h3>
-          <p className="text-xs text-stone-200 mt-1 leading-relaxed">
+          <p className="text-xs text-white opacity-90 mt-1 leading-relaxed">
             {displayNotice}
           </p>
         </div>
@@ -422,7 +422,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Footer Guarantee */}
         <div className="p-4 bg-stone-50 border-t border-stone-200 flex items-center justify-center gap-2 text-[11px] text-stone-500">
-          <ShieldCheck className="w-4 h-4 text-stone-900" />
+          <ShieldCheck className="w-4 h-4 text-[#1B4332]" />
           <span>{t('auth.data_secured')}</span>
         </div>
       </div>

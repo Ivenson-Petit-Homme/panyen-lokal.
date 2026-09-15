@@ -86,9 +86,9 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332]/90 border border-[#E9C46A] text-[#E9C46A] text-xs font-black uppercase tracking-wider backdrop-blur-md shadow-lg"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332]/90 border border-white text-white text-xs font-black uppercase tracking-wider backdrop-blur-md shadow-lg"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#E9C46A]" />
+          <Sparkles className="w-3.5 h-3.5 text-white" />
           <span>{t('hero.tag')}</span>
         </motion.div>
 
@@ -117,7 +117,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-base sm:text-lg text-[#FDFBF7]/90 font-light max-w-2xl mx-auto leading-relaxed drop-shadow"
+          className="text-base sm:text-lg text-white font-light max-w-2xl mx-auto leading-relaxed drop-shadow"
         >
           {t('hero.subtitle')}
         </motion.p>
@@ -159,7 +159,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
             }}
             className="px-6 py-3.5 rounded-xl bg-[#143527]/90 hover:bg-[#1a4432] text-[#FDFBF7] font-bold text-sm border border-[#2d6a4f] hover:border-[#E9C46A] backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
           >
-            <ShoppingBag className="w-4 h-4 text-[#E9C46A]" />
+            <ShoppingBag className="w-4 h-4 text-white" />
             <span>{t('hero.btn.products')}</span>
           </motion.button>
 
@@ -174,9 +174,9 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
               setCurrentRoute('marches-export');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="px-5 py-3.5 rounded-xl bg-[#143527]/90 hover:bg-[#1a4432] text-[#E9C46A] font-bold text-sm border border-[#2d6a4f] hover:border-[#E9C46A] backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
+            className="px-5 py-3.5 rounded-xl bg-[#143527]/90 hover:bg-[#1a4432] text-white font-bold text-sm border border-[#2d6a4f] hover:border-white backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
           >
-            <FileText className="w-4 h-4 text-[#E9C46A]" />
+            <FileText className="w-4 h-4 text-white" />
             <span>{t('hero.btn.export_quote')}</span>
           </motion.button>
         </div>
@@ -194,11 +194,11 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
                 <span className="text-base">📍</span>
                 <span>{t('hero.badge.location')}</span>
               </span>
-              <span className="text-[11px] text-[#FDFBF7]/80 bg-[#1B4332] px-2 py-0.5 rounded font-semibold border border-[#2d6a4f]">
+              <span className="text-[11px] text-white bg-[#1B4332] px-2 py-0.5 rounded font-semibold border border-[#2d6a4f]">
                 {t('hero.badge.address')}
               </span>
             </div>
-            <div className="text-[11px] sm:text-xs text-[#FDFBF7]/90 flex flex-wrap items-center gap-x-3 gap-y-1.5 font-medium">
+            <div className="text-[11px] sm:text-xs text-white flex flex-wrap items-center gap-x-3 gap-y-1.5 font-medium">
               <span className="font-bold text-[#E9C46A]">{t('hero.badge.products_label')}</span>
               <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod1')}</span>
               <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod2')}</span>
