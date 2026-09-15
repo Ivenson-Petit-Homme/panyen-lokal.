@@ -79,17 +79,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="btn-topbar-region"
               onClick={openRegionSelector}
-              className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg bg-[#1a4432] hover:bg-[#235841] text-[#FDFBF7] border border-[#2d6a4f] hover:border-[#E9C46A] transition-colors cursor-pointer text-xs font-semibold shadow-xs min-h-[36px]"
+              className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg bg-[#1a4432] hover:bg-[#235841] text-white border border-[#2d6a4f] hover:border-white transition-colors cursor-pointer text-xs font-semibold shadow-xs min-h-[36px]"
               title={t('topbar.change_region')}
             >
               <span className="text-sm sm:text-base leading-none">{regionInfo.flag}</span>
-              <span className="text-[#E9C46A] font-bold">{regionInfo.name.split(' ')[0]}</span>
-              <span className="text-[10px] sm:text-[11px] text-[#FDFBF7]/80 hidden xs:inline">({regionInfo.currency})</span>
-              <ChevronDown className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#E9C46A]" />
+              <span className="text-white font-bold">{regionInfo.name.split(' ')[0]}</span>
+              <span className="text-[10px] sm:text-[11px] text-white/90 hidden xs:inline">({regionInfo.currency})</span>
+              <ChevronDown className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-white" />
             </button>
 
-            <span className="hidden md:inline-flex items-center gap-1.5 text-[11px] text-[#FDFBF7]/90 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#E9C46A]" />
+            <span className="hidden md:inline-flex items-center gap-1.5 text-[11px] text-white font-medium">
+              <ShieldCheck className="w-3.5 h-3.5 text-white" />
               <span>{t('topbar.certified')}</span>
             </span>
           </div>
@@ -142,11 +142,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer border shadow-xs min-h-[36px] ${
                 currentRoute === 'marches-export'
                   ? 'bg-[#E9C46A] text-[#1B4332] border-[#E9C46A] shadow font-black'
-                  : 'bg-[#1a4432] hover:bg-[#235841] text-white border-[#2d6a4f] hover:border-[#E9C46A]'
+                  : 'bg-[#1a4432] hover:bg-[#235841] text-white border-[#2d6a4f] hover:border-white'
               }`}
               title={t('topbar.wholesale_desc')}
             >
-              <FileText className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <FileText className="w-3.5 h-3.5 text-white" />
               <span className="hidden md:inline">{t('topbar.wholesale')}</span>
             </button>
 
@@ -193,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg text-xs font-bold border transition-all cursor-pointer min-h-[36px] ${
                   currentRoute === 'mon-compte'
                     ? 'bg-[#E9C46A] text-[#1B4332] border-[#E9C46A]'
-                    : 'bg-[#1a4432] hover:bg-[#235841] text-[#FDFBF7] border-[#2d6a4f] hover:border-[#E9C46A]'
+                    : 'bg-[#1a4432] hover:bg-[#235841] text-white border-[#2d6a4f] hover:border-white'
                 }`}
                 title={t('topbar.account')}
               >
@@ -208,10 +208,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 id="btn-topbar-login"
                 onClick={openAuthModal}
-                className="hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold bg-[#1a4432] hover:bg-[#235841] text-[#FDFBF7] border border-[#2d6a4f] hover:border-[#E9C46A] transition-colors cursor-pointer min-h-[36px]"
+                className="hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold bg-[#1a4432] hover:bg-[#235841] text-white border border-[#2d6a4f] hover:border-white transition-colors cursor-pointer min-h-[36px]"
                 title={t('topbar.login')}
               >
-                <User className="w-3.5 h-3.5 text-[#E9C46A]" />
+                <User className="w-3.5 h-3.5 text-white" />
                 <span>{t('topbar.login')}</span>
               </button>
             )}
@@ -252,7 +252,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     PANYEN LOKAL
                   </span>
                 </div>
-                <p className="text-[10px] sm:text-[11px] text-[#E9C46A] tracking-wide font-medium whitespace-nowrap hidden xs:block">
+                <p className="text-[10px] sm:text-[11px] text-white tracking-wide font-medium whitespace-nowrap hidden xs:block">
                   {t('nav.tagline')}
                 </p>
               </div>
@@ -270,7 +270,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     className={`relative px-2.5 xl:px-3.5 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                       isActive
                         ? 'text-[#1B4332] bg-[#E9C46A] shadow-md font-black'
-                        : 'text-[#FDFBF7] hover:text-white hover:bg-[#24533E]'
+                        : 'text-white hover:text-white hover:bg-[#24533E]'
                     }`}
                   >
                     <span>{link.label}</span>
@@ -278,7 +278,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <span className={`text-[9px] font-black uppercase px-1.5 py-0.2 rounded shrink-0 ${
                         isActive
                           ? 'bg-[#1B4332] text-white'
-                          : 'bg-[#E9C46A]/20 text-[#E9C46A] border border-[#E9C46A]/40'
+                          : 'bg-white/20 text-white border border-white/40'
                       }`}>
                         {link.badge}
                       </span>
@@ -313,11 +313,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="flex items-center justify-between gap-2">
                 <button
                   onClick={() => { setMobileMenuOpen(false); openRegionSelector(); }}
-                  className="flex items-center gap-1.5 text-xs text-[#E9C46A] font-bold cursor-pointer"
+                  className="flex items-center gap-1.5 text-xs text-white font-bold cursor-pointer"
                 >
                   <span className="text-base">{regionInfo.flag}</span>
                   <span>{regionInfo.name}</span>
-                  <ChevronDown className="w-3.5 h-3.5" />
+                  <ChevronDown className="w-3.5 h-3.5 text-white" />
                 </button>
 
                 {/* Switcher Langue Mobile */}
@@ -390,7 +390,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <span>{link.label}</span>
                       {link.badge && (
                         <span className={`text-[9px] font-black px-1.5 py-0.2 rounded ${
-                          isActive ? 'bg-[#1B4332] text-white' : 'bg-[#E9C46A]/20 text-[#E9C46A]'
+                          isActive ? 'bg-[#1B4332] text-white' : 'bg-white/20 text-white'
                         }`}>
                           {link.badge}
                         </span>

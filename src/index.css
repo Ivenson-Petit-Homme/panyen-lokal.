@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6,
 .font-heading,
 .font-display {
   font-family: var(--font-webnode);
-  color: #000000;
+  color: inherit;
   font-weight: 700;
   letter-spacing: var(--letter-spacing-snug);
   line-height: var(--line-height-snug);
@@ -77,7 +77,6 @@ h1 {
   font-weight: 800;
   letter-spacing: var(--letter-spacing-tight);  /* -0.025em exact */
   line-height: 1.15;
-  color: #000000;
 }
 
 /* H2 — Poids 700, tracking modéré */
@@ -86,7 +85,6 @@ h2 {
   font-weight: 700;
   letter-spacing: var(--letter-spacing-snug);
   line-height: 1.22;
-  color: #000000;
 }
 
 /* H3 — Poids 600 */
@@ -94,7 +92,6 @@ h3 {
   font-size: clamp(1.25rem, 1.3vw + 0.75rem, 1.65rem);  /* 20px → 26.4px */
   font-weight: 700;
   line-height: 1.32;
-  color: #000000;
 }
 
 /* H4 — Poids 600 */
@@ -102,7 +99,6 @@ h4 {
   font-size: clamp(1.08rem, 0.9vw + 0.75rem, 1.25rem);  /* 17.3px → 20px */
   font-weight: 700;
   line-height: 1.42;
-  color: #000000;
 }
 
 /* H5 — Poids 600 */
@@ -110,7 +106,6 @@ h5 {
   font-size: 1.0625rem;  /* 17px */
   font-weight: 700;
   line-height: 1.48;
-  color: #000000;
 }
 
 /* H6 — Poids 600 */
@@ -118,7 +113,6 @@ h6 {
   font-size: 1rem;       /* 16px */
   font-weight: 700;
   line-height: 1.55;
-  color: #000000;
 }
 
 /* ========== PARAGRAPHES & TEXT — Police unifiée ========== */
@@ -126,7 +120,7 @@ p {
   font-family: var(--font-webnode);
   font-size: var(--font-size-body);   /* 16px */
   line-height: var(--line-height-normal);  /* 1.625 */
-  color: #000000;
+  color: inherit;
   margin-bottom: 1rem;
   font-weight: 500;
   font-feature-settings: "cv11", "ss01";
@@ -137,24 +131,62 @@ p.lead,
   font-size: var(--font-size-lead);   /* 17px */
   line-height: var(--line-height-relaxed);
   font-weight: 500;
-  color: #000000;
 }
 
 small,
 .text-small {
   font-size: 0.8125rem;  /* 13px */
   line-height: 1.52;
-  color: #000000;
   font-weight: 500;
 }
 
 li {
-  color: #000000;
+  color: inherit;
 }
 
 strong, b {
   font-weight: 700;
-  color: #000000;
+  color: inherit;
+}
+
+/* =========================================================================
+   RÈGLE ABSOLUE POUR TOUTES LES SECTIONS ET CONTENEURS À FOND VERT :
+   TOUS LES TEXTES DOIVENT ÊTRE EN BLANC PUR (#FFFFFF)
+   ========================================================================= */
+.bg-brand-primary,
+.bg-brand-buy,
+[class*="bg-[#1B4332]"],
+[class*="bg-[#143527]"],
+[class*="bg-[#2E7D32]"],
+[class*="bg-[#1a4432]"],
+[class*="bg-[#1b4332]"],
+[class*="bg-[#2e7d32]"],
+[class*="bg-[#256629]"],
+[class*="bg-[#153e2d]"],
+[class*="bg-[#0f281e]"],
+[class*="bg-[#265943]"],
+[class*="bg-[#2d6a4f]"],
+[class*="from-[#143527]"],
+[class*="from-[#1B4332]"],
+[class*="from-[#1b4332]"],
+[class*="via-[#1B4332]"],
+#hero-enterprise-section,
+#main-footer,
+#navbar-container,
+header#main-header {
+  color: #FFFFFF !important;
+}
+
+/* Forcer la couleur blanche pour les éléments textuels dans les sections à fond vert */
+.bg-brand-primary h1, .bg-brand-primary h2, .bg-brand-primary h3, .bg-brand-primary h4, .bg-brand-primary h5, .bg-brand-primary h6, .bg-brand-primary p, .bg-brand-primary li, .bg-brand-primary strong, .bg-brand-primary small, .bg-brand-primary label,
+.bg-brand-buy h1, .bg-brand-buy h2, .bg-brand-buy h3, .bg-brand-buy h4, .bg-brand-buy h5, .bg-brand-buy h6, .bg-brand-buy p, .bg-brand-buy li, .bg-brand-buy strong, .bg-brand-buy small, .bg-brand-buy label,
+[class*="bg-[#1B4332]"] h1, [class*="bg-[#1B4332]"] h2, [class*="bg-[#1B4332]"] h3, [class*="bg-[#1B4332]"] h4, [class*="bg-[#1B4332]"] h5, [class*="bg-[#1B4332]"] h6, [class*="bg-[#1B4332]"] p, [class*="bg-[#1B4332]"] li, [class*="bg-[#1B4332]"] strong, [class*="bg-[#1B4332]"] small, [class*="bg-[#1B4332]"] label,
+[class*="bg-[#143527]"] h1, [class*="bg-[#143527]"] h2, [class*="bg-[#143527]"] h3, [class*="bg-[#143527]"] h4, [class*="bg-[#143527]"] h5, [class*="bg-[#143527]"] h6, [class*="bg-[#143527]"] p, [class*="bg-[#143527]"] li, [class*="bg-[#143527]"] strong, [class*="bg-[#143527]"] small, [class*="bg-[#143527]"] label,
+[class*="bg-[#2E7D32]"] h1, [class*="bg-[#2E7D32]"] h2, [class*="bg-[#2E7D32]"] h3, [class*="bg-[#2E7D32]"] h4, [class*="bg-[#2E7D32]"] h5, [class*="bg-[#2E7D32]"] h6, [class*="bg-[#2E7D32]"] p, [class*="bg-[#2E7D32]"] li, [class*="bg-[#2E7D32]"] strong, [class*="bg-[#2E7D32]"] small, [class*="bg-[#2E7D32]"] label,
+[class*="from-[#143527]"] h1, [class*="from-[#143527]"] h2, [class*="from-[#143527]"] h3, [class*="from-[#143527]"] h4, [class*="from-[#143527]"] h5, [class*="from-[#143527]"] h6, [class*="from-[#143527]"] p, [class*="from-[#143527]"] li, [class*="from-[#143527]"] strong, [class*="from-[#143527]"] small, [class*="from-[#143527]"] label,
+#hero-enterprise-section h1, #hero-enterprise-section h2, #hero-enterprise-section h3, #hero-enterprise-section p, #hero-enterprise-section li, #hero-enterprise-section strong, #hero-enterprise-section small,
+#main-footer h1, #main-footer h2, #main-footer h3, #main-footer h4, #main-footer h5, #main-footer h6, #main-footer p, #main-footer li, #main-footer strong, #main-footer a {
+  color: #FFFFFF !important;
 }
 
 /* ========== LIENS — Police unifiée ========== */

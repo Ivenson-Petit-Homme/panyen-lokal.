@@ -77,11 +77,11 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
         <FadeInSection threshold={0.2} delay={0.4}>
           <div className="p-4 sm:p-5 rounded-2xl bg-[#1B4332] text-white border border-[#2d6a4f] mb-10 shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-1">
-              <div className="flex items-center gap-2 text-[#E9C46A] text-xs font-black uppercase tracking-wider">
-                <span>{t('home.location_full')}</span>
+              <div className="flex items-center gap-2 text-white text-xs font-black uppercase tracking-wider">
+                <span className="text-white">{t('home.location_full')}</span>
               </div>
-              <p className="text-xs sm:text-sm text-stone-200">
-                <strong>{t('home.core_products_label')}</strong> {t('home.core_products_list')}
+              <p className="text-xs sm:text-sm text-white">
+                <strong className="text-white">{t('home.core_products_label')}</strong> <span className="text-white">{t('home.core_products_list')}</span>
               </p>
             </div>
             <motion.button
@@ -108,17 +108,17 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
               }}
               className="p-5 rounded-2xl bg-[#1B4332] border border-[#2d6a4f] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
             >
-              <div className="p-3 rounded-xl bg-white/10 text-[#E9C46A] border border-white/20">
-                <Droplet className="w-6 h-6 text-[#E9C46A]" />
+              <div className="p-3 rounded-xl bg-white/10 text-white border border-white/20">
+                <Droplet className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-[10px] uppercase font-black tracking-wider text-[#E9C46A]">
+                <span className="text-[10px] uppercase font-black tracking-wider text-white">
                   {t('hero.prod1')}
                 </span>
-                <h4 className="font-bold font-serif text-base text-white group-hover:text-[#E9C46A] transition-colors">
+                <h4 className="font-bold font-serif text-base text-white group-hover:text-stone-200 transition-colors">
                   {t('hero.prod1')}
                 </h4>
-                <p className="text-xs text-stone-200 mt-1">
+                <p className="text-xs text-white mt-1">
                   {isEn ? "Traditional and refined excellence for hair care and bulk export." : "L'Excellence traditionnelle et raffinée pour soins capillaires et export en gros."}
                 </p>
               </div>
@@ -133,17 +133,17 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
               }}
               className="p-5 rounded-2xl bg-[#1B4332] border border-[#2d6a4f] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
             >
-              <div className="p-3 rounded-xl bg-white/10 text-[#E9C46A]">
-                <Wine className="w-6 h-6 text-[#E9C46A]" />
+              <div className="p-3 rounded-xl bg-white/10 text-white">
+                <Wine className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-[10px] uppercase font-black tracking-wider text-[#E9C46A]">
+                <span className="text-[10px] uppercase font-black tracking-wider text-white">
                   {t('catalog.category_spirits')}
                 </span>
-                <h4 className="font-bold font-serif text-base text-white group-hover:text-[#E9C46A] transition-colors">
+                <h4 className="font-bold font-serif text-base text-white group-hover:text-stone-200 transition-colors">
                   {t('home.category_spirits_title')}
                 </h4>
-                <p className="text-xs text-stone-200 mt-1">
+                <p className="text-xs text-white mt-1">
                   {t('home.category_spirits_desc')}
                 </p>
               </div>
@@ -158,17 +158,17 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
               }}
               className="p-5 rounded-2xl bg-[#1B4332] border border-[#2d6a4f] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
             >
-              <div className="p-3 rounded-xl bg-white/10 text-[#E9C46A]">
-                <Cookie className="w-6 h-6 text-[#E9C46A]" />
+              <div className="p-3 rounded-xl bg-white/10 text-white">
+                <Cookie className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-[10px] uppercase font-black tracking-wider text-[#E9C46A]">
+                <span className="text-[10px] uppercase font-black tracking-wider text-white">
                   {t('catalog.category_grocery')}
                 </span>
-                <h4 className="font-bold font-serif text-base text-white group-hover:text-[#E9C46A] transition-colors">
+                <h4 className="font-bold font-serif text-base text-white group-hover:text-stone-200 transition-colors">
                   {t('home.category_grocery_title')}
                 </h4>
-                <p className="text-xs text-stone-200 mt-1">
+                <p className="text-xs text-white mt-1">
                   {t('home.category_grocery_desc')}
                 </p>
               </div>

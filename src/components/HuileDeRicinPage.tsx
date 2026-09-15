@@ -70,7 +70,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                 className="text-3xl sm:text-5xl font-serif font-extrabold text-white leading-tight"
               >
                 {isEn ? "Pure Haitian Castor Oil" : "Huile de Ricin Pure d’Haïti"} <br />
-                <span className="text-[#E9C46A] font-sans text-2xl sm:text-3xl font-normal italic">
+                <span className="text-white font-sans text-2xl sm:text-3xl font-normal italic">
                   {t('ricin.title_refined')}
                 </span>
               </motion.h1>
@@ -78,7 +78,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-base sm:text-lg text-stone-200 max-w-2xl font-light leading-relaxed"
+                className="text-base sm:text-lg text-white max-w-2xl font-light leading-relaxed"
               >
                 {t('ricin.intro')}
               </motion.p>
@@ -410,7 +410,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                   onClick={() => onRequestQuote(product, '1 Gallon')}
                   className="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#153427] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <FileText className="w-3.5 h-3.5 text-[#E9C46A]" />
+                  <FileText className="w-3.5 h-3.5 text-white" />
                   <span>{t('ricin.format_gallon_btn')}</span>
                 </button>
               </motion.div>

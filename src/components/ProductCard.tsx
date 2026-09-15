@@ -89,7 +89,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 ? 'bg-[#E9C46A] text-[#1B4332] ring-1 ring-[#1B4332]'
                 : product.badge.includes('NOUVEAUTÉ')
                 ? 'bg-[#1B4332] text-white border border-white'
-                : 'bg-[#1B4332] text-[#FDFBF7] border border-[#2d6a4f]'
+                : 'bg-[#1B4332] text-white border border-[#2d6a4f]'
             }`}>
               {product.badge}
             </span>

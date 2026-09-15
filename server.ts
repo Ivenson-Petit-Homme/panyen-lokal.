@@ -672,7 +672,7 @@ app.get('/api/admin/analytics', isAdmin, async (req, res) => {
 });
 
 // Image Upload Endpoint (Admin)
-app.post('/api/admin/upload', isAdmin, upload.single('image'), (req, res) => {
+app.post('/api/admin/upload', isAdmin as any, upload.single('image') as any, (req, res) => {
   if (!req.file) {
     return res.status(400).json({ success: false, message: 'Aucun fichier téléchargé.' });
   }

@@ -106,11 +106,11 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-white drop-shadow-md"
+            className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#1B4332] drop-shadow-md"
           >
             {t('banner.title')}
           </motion.h2>
-          <p className="text-base sm:text-lg text-white max-w-3xl mx-auto font-light leading-relaxed opacity-95">
+          <p className="text-base sm:text-lg text-stone-700 max-w-3xl mx-auto font-normal leading-relaxed opacity-95">
             {t('banner.desc')}
           </p>
         </div>
@@ -213,22 +213,22 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                       key={idx}
                       direction="right"
                       distance={20}
-                      className="p-4 rounded-2xl bg-[#143527]/90 border border-[#265943] hover:border-[#E9C46A] transition-all hover:bg-[#1a4231] group space-y-1.5 shadow-sm"
+                      className="p-4 rounded-2xl bg-[#143527]/90 border border-[#265943] hover:border-white transition-all hover:bg-[#1a4231] group space-y-1.5 shadow-sm"
                     >
                       <div className="flex items-center gap-2.5">
                         <div className="w-8 h-8 rounded-xl bg-[#E9C46A] text-[#1B4332] flex items-center justify-center shrink-0 font-bold shadow">
-                          <Icon className="w-4 h-4" />
+                          <Icon className="w-4 h-4 text-[#1B4332]" />
                         </div>
                         <div>
-                          <span className="text-xs font-black uppercase text-[#E9C46A] tracking-wider block">
+                          <span className="text-xs font-black uppercase text-white tracking-wider block">
                             {t(obj.labelKey as TranslationKey)}
                           </span>
-                          <h4 className="text-sm font-bold text-white group-hover:text-[#E9C46A] transition-colors">
+                          <h4 className="text-sm font-bold text-white transition-colors">
                             {obj.title}
                           </h4>
                         </div>
                       </div>
-                      <p className="text-xs text-white leading-relaxed pl-10 opacity-90">
+                      <p className="text-xs text-white leading-relaxed pl-10 opacity-95">
                         {obj.desc}
                       </p>
                     </StaggerItem>
@@ -244,8 +244,8 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
               transition={{ duration: 0.6, delay: 0.2 }}
               className="p-6 sm:p-8 rounded-3xl bg-[#1B4332] border border-[#2d6a4f] text-white shadow-xl space-y-6"
             >
-              <h4 className="text-lg font-serif font-bold flex items-center gap-2 text-[#E9C46A]">
-                <div className="w-1.5 h-6 bg-[#E9C46A] rounded-full" />
+              <h4 className="text-lg font-serif font-bold flex items-center gap-2 text-white">
+                <div className="w-1.5 h-6 bg-white rounded-full" />
                 {t('banner.products_title')}
               </h4>
 
@@ -256,19 +256,19 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + (idx * 0.1) }}
-                    className="p-3.5 rounded-xl bg-[#1B4332] border border-[#2d6a4f] flex items-start gap-3"
+                    className="p-3.5 rounded-xl bg-[#143527] border border-[#2d6a4f] flex items-start gap-3"
                   >
                     <div className="w-5 h-5 rounded-full bg-[#2E7D32] text-white flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#E9C46A]" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
                         <h5 className="text-xs sm:text-sm font-bold text-white">{t(p.nameKey as TranslationKey)}</h5>
-                        <span className="text-[9px] font-black uppercase px-1.5 py-0.2 rounded bg-[#E9C46A]/20 text-[#E9C46A] border border-[#E9C46A]/30">
+                        <span className="text-[9px] font-black uppercase px-1.5 py-0.2 rounded bg-white/20 text-white border border-white/30">
                           {t(p.badgeKey as TranslationKey)}
                         </span>
                       </div>
-                      <p className="text-[11px] text-white leading-tight opacity-90">{t(p.descKey as TranslationKey)}</p>
+                      <p className="text-[11px] text-white leading-tight opacity-95">{t(p.descKey as TranslationKey)}</p>
                     </div>
                   </motion.div>
                 ))}

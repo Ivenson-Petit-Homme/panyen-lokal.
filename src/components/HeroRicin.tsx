@@ -107,7 +107,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-[#E9C46A] italic font-normal text-2xl sm:text-4xl lg:text-5xl block mt-2 drop-shadow"
+            className="text-white italic font-normal text-2xl sm:text-4xl lg:text-5xl block mt-2 drop-shadow"
           >
             {t('hero.title_line2')}
           </motion.span>
@@ -117,7 +117,8 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-base sm:text-lg text-white font-light max-w-2xl mx-auto leading-relaxed drop-shadow"
+          className="text-base sm:text-lg text-white font-medium max-w-2xl mx-auto leading-relaxed drop-shadow"
+          style={{ color: '#FFFFFF' }}
         >
           {t('hero.subtitle')}
         </motion.p>
@@ -157,7 +158,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
               setCurrentRoute('produits');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="px-6 py-3.5 rounded-xl bg-[#143527]/90 hover:bg-[#1a4432] text-[#FDFBF7] font-bold text-sm border border-[#2d6a4f] hover:border-[#E9C46A] backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
+            className="px-6 py-3.5 rounded-xl bg-[#143527]/90 hover:bg-[#1a4432] text-white font-bold text-sm border border-[#2d6a4f] hover:border-white backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
           >
             <ShoppingBag className="w-4 h-4 text-white" />
             <span>{t('hero.btn.products')}</span>
@@ -188,18 +189,18 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
           transition={{ duration: 0.7, delay: 0.45 }}
           className="pt-4 max-w-3xl mx-auto"
         >
-          <div className="bg-[#143527]/95 border border-[#E9C46A]/40 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 text-left shadow-2xl space-y-2">
+          <div className="bg-[#143527]/95 border border-white/30 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 text-left shadow-2xl space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2d6a4f] pb-2 text-xs">
-              <span className="flex items-center gap-1.5 text-[#E9C46A] font-bold">
+              <span className="flex items-center gap-1.5 text-white font-bold">
                 <span className="text-base">📍</span>
-                <span>{t('hero.badge.location')}</span>
+                <span className="text-white">{t('hero.badge.location')}</span>
               </span>
-              <span className="text-[11px] text-white bg-[#1B4332] px-2 py-0.5 rounded font-semibold border border-[#2d6a4f]">
+              <span className="text-[11px] text-white bg-[#1B4332] px-2 py-0.5 rounded font-semibold border border-white/30">
                 {t('hero.badge.address')}
               </span>
             </div>
             <div className="text-[11px] sm:text-xs text-white flex flex-wrap items-center gap-x-3 gap-y-1.5 font-medium">
-              <span className="font-bold text-[#E9C46A]">{t('hero.badge.products_label')}</span>
+              <span className="font-bold text-white">{t('hero.badge.products_label')}</span>
               <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod1')}</span>
               <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod2')}</span>
               <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod3')}</span>

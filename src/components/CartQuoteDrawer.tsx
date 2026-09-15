@@ -182,7 +182,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
         <div className="p-5 border-b border-[#2d6a4f] bg-[#1B4332] text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <ShoppingBag className="w-5 h-5 text-[#E9C46A]" />
+              <ShoppingBag className="w-5 h-5 text-white" />
               <h3 className="font-serif font-bold text-lg text-white">{t('cart.step_cart')}</h3>
             </div>
             <button onClick={onClose} className="p-1 rounded-lg hover:bg-white/10 text-white cursor-pointer" aria-label={t('topbar.flag_en')}>

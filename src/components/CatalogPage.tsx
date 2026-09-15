@@ -191,7 +191,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
                 >
                   <span>{cat.label}</span>
                   <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
-                    isActive ? 'bg-[#E9C46A] text-[#1F2937] font-bold' : 'bg-stone-200 text-stone-600'
+                    isActive ? 'bg-white/20 text-white font-bold' : 'bg-stone-200 text-stone-600'
                   }`}>
                     {cat.count}
                   </span>

@@ -130,13 +130,13 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                   {t('pres.title')}
                 </h2>
                 
-                <p className="text-xs sm:text-sm text-white font-semibold flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                  <span className="flex items-center gap-1 text-white">
-                    <MapPin className="w-4 h-4 text-[#E9C46A]" />
+                <p className="text-xs sm:text-sm text-stone-700 font-semibold flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                  <span className="flex items-center gap-1 text-stone-700">
+                    <MapPin className="w-4 h-4 text-[#1B4332]" />
                     {t('pres.location')}
                   </span>
-                  <span className="text-white opacity-50">•</span>
-                  <span className="text-white font-bold">
+                  <span className="text-stone-400">•</span>
+                  <span className="text-[#1B4332] font-bold">
                     {t('pres.network')}
                   </span>
                 </p>
@@ -150,11 +150,11 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                   {t('pres.subtitle')}
                 </h3>
                 
-                <p className="text-sm sm:text-base text-white leading-relaxed">
+                <p className="text-sm sm:text-base text-stone-700 leading-relaxed">
                   <strong>{t('pres.title')}</strong> {t('pres.p1')}
                 </p>
 
-                <p className="text-sm sm:text-base text-white leading-relaxed">
+                <p className="text-sm sm:text-base text-stone-700 leading-relaxed">
                   {t('pres.p2')}
                 </p>
 
@@ -333,7 +333,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       <div className="w-10 h-10 rounded-xl bg-[#1B4332] text-white flex items-center justify-center shadow">
                         <Icon className="w-5 h-5 text-white" />
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-white group-hover:text-white transition-colors">
+                      <h3 className="text-xl font-serif font-bold text-[#1B4332] group-hover:text-[#2E7D32] transition-colors">
                         {pillar.title}
                       </h3>
                     </div>
@@ -361,13 +361,13 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       {/* ========================================================================= */}
       {/* 3. NOS 5 GRANDES FILIÈRES & PRODUITS D'EXCELLENCE */}
       {/* ========================================================================= */}
-      <section className="bg-[#1B4332] text-[#FDFBF7] py-16 sm:py-20 border-y border-[#265943]">
+      <section className="bg-[#1B4332] text-white py-16 sm:py-20 border-y border-[#265943]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <FadeInSection threshold={0.2} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#265943] pb-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A]/20 text-[#E9C46A] text-xs font-black uppercase tracking-wider mb-2 border border-[#E9C46A]">
-                <Award className="w-3.5 h-3.5 text-[#E9C46A]" />
-                <span>{t('flagship.tag')}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider mb-2 border border-white/40">
+                <Award className="w-3.5 h-3.5 text-white" />
+                <span className="text-white">{t('flagship.tag')}</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white">
                 {t('flagship.title')}
@@ -378,10 +378,10 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 setCurrentRoute('produits');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E9C46A] hover:text-[#f3d993] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-white/80 transition-colors cursor-pointer"
             >
-              <span>{t('flagship.view_all')}</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <span className="text-white">{t('flagship.view_all')}</span>
+              <ArrowRight className="w-3.5 h-3.5 text-white" />
             </button>
           </FadeInSection>
 
@@ -390,7 +390,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
               return (
                 <StaggerItem
                   key={prod.id}
-                  className="bg-[#143527] rounded-2xl border border-[#2d6a4f] overflow-hidden flex flex-col justify-between group hover:border-[#E9C46A] transition-all hover:shadow-xl"
+                  className="bg-[#143527] rounded-2xl border border-[#2d6a4f] overflow-hidden flex flex-col justify-between group hover:border-white transition-all hover:shadow-xl"
                 >
                   <div className="relative h-60 sm:h-64 overflow-hidden bg-[#1B4332] w-full flex items-center justify-center p-3">
                     <ImageWithSkeleton
@@ -408,13 +408,13 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
 
                   <div className="p-4 space-y-2.5 flex-1 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10px] font-bold text-[#E9C46A] uppercase tracking-wide block">
+                      <span className="text-[10px] font-bold text-white uppercase tracking-wide block">
                         {prod.category}
                       </span>
                       <h4 className="text-sm font-serif font-bold text-white mt-0.5">
                         {prod.title}
                       </h4>
-                      <p className="text-[11px] text-white opacity-90 mt-1 line-clamp-2">
+                      <p className="text-[11px] text-white opacity-95 mt-1 line-clamp-2">
                         {prod.desc}
                       </p>
                     </div>
@@ -676,19 +676,19 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       {/* ========================================================================= */}
       {/* 7. TERROIRS & BASSINS DE PRODUCTION D'HAÏTI */}
       {/* ========================================================================= */}
-      <section className="bg-[#1B4332] text-[#FDFBF7] py-16 sm:py-20 border-t border-[#265943]">
+      <section className="bg-[#1B4332] text-white py-16 sm:py-20 border-t border-[#265943]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <FadeInSection threshold={0.2} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#265943] pb-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A]/20 text-[#E9C46A] text-xs font-black uppercase tracking-wider mb-2 border border-[#E9C46A]">
-                <MapPin className="w-3.5 h-3.5 text-[#E9C46A]" />
-                <span>{t('terroirs.tag')}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider mb-2 border border-white/40">
+                <MapPin className="w-3.5 h-3.5 text-white" />
+                <span className="text-white">{t('terroirs.tag')}</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white">
                 {t('terroirs.title')}
               </h2>
             </div>
-            <p className="text-xs sm:text-sm text-white opacity-90 max-w-md">
+            <p className="text-xs sm:text-sm text-white opacity-95 max-w-md">
               {t('terroirs.desc')}
             </p>
           </FadeInSection>
@@ -705,7 +705,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                     className={`w-full text-left p-4 rounded-2xl border transition-all cursor-pointer flex items-start gap-3 ${
                       isSelected
                         ? 'bg-[#E9C46A] text-[#1F2937] border-[#E9C46A] shadow-lg font-bold'
-                        : 'bg-[#143527] hover:bg-[#1a4432] text-[#FDFBF7] border-[#2d6a4f]'
+                        : 'bg-[#143527] hover:bg-[#1a4231] text-white border-[#2d6a4f]'
                     }`}
                   >
                     <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 font-bold text-xs ${
@@ -714,10 +714,10 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       {idx + 1}
                     </div>
                     <div>
-                      <span className={`text-xs uppercase tracking-wider font-semibold block ${isSelected ? 'text-[#1F2937] font-black' : 'text-[#E9C46A]'}`}>
+                      <span className={`text-xs uppercase tracking-wider font-semibold block ${isSelected ? 'text-[#1F2937] font-black' : 'text-white'}`}>
                         {tItem.region}
                       </span>
-                      <h4 className="text-sm font-serif font-bold mt-0.5">
+                      <h4 className={`text-sm font-serif font-bold mt-0.5 ${isSelected ? 'text-[#1F2937]' : 'text-white'}`}>
                         {tItem.title}
                       </h4>
                     </div>
@@ -770,10 +770,10 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       setCurrentRoute('partenariats');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E9C46A] hover:text-[#f3d993] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-white/80 transition-colors cursor-pointer"
                   >
-                    <span>{t('terroirs.btn_partnerships')}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#E9C46A]" />
+                    <span className="text-white">{t('terroirs.btn_partnerships')}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-white" />
                   </button>
 
                   <button
