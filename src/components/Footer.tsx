@@ -27,9 +27,9 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
   const isEn = language === 'en';
 
   return (
-    <footer id="main-footer" className="bg-[#143527] text-white border-t border-[#1e4a37]">
+    <footer id="main-footer" className="bg-[#1B4332] text-white border-t border-[#1e4a37]">
       {/* Ruban Supérieur d'Action B2B & Export */}
-      <div className="border-b border-[#265943] bg-[#1B4332] py-8 px-4 sm:px-6 lg:px-8">
+      <div className="border-b border-[#2D6A4F] bg-[#1B4332] py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="max-w-xl text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 border border-white/40 text-white text-xs font-bold mb-2">
@@ -46,14 +46,14 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => handleNav('marches-export')}
-              className="px-6 py-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2 group cursor-pointer border border-[#388E3C]"
+              className="px-6 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2 group cursor-pointer border border-[#2D6A4F]"
             >
               <span>{t('footer.b2b_btn')}</span>
               <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
             </button>
             <button
               onClick={() => handleNav('contact')}
-              className="px-5 py-3 rounded-xl bg-[#143527] hover:bg-[#1a4432] text-white font-bold text-sm border border-[#2d6a4f] hover:border-white transition-all flex items-center gap-2 cursor-pointer"
+              className="px-5 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-sm border border-[#2D6A4F] hover:border-white transition-all flex items-center gap-2 cursor-pointer"
             >
               <span>{t('footer.b2b_contact')}</span>
             </button>
@@ -88,11 +88,11 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
               {t('footer.desc')}
             </p>
             <div className="pt-2 flex flex-wrap gap-2 text-xs">
-              <span className="px-2.5 py-1 rounded bg-[#1B4332] border border-[#2d6a4f] text-white flex items-center gap-1.5">
+              <span className="px-2.5 py-1 rounded bg-[#1B4332] border border-[#2D6A4F] text-white flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-white" />
                 {t('footer.stat_farmers')}
               </span>
-              <span className="px-2.5 py-1 rounded bg-[#1B4332] border border-[#2d6a4f] text-white flex items-center gap-1.5">
+              <span className="px-2.5 py-1 rounded bg-[#1B4332] border border-[#2D6A4F] text-white flex items-center gap-1.5">
                 <Award className="w-3.5 h-3.5 text-white" />
                 {t('footer.stat_regions')}
               </span>
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
 
           {/* Colonne 2: Navigation rapide */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#265943]">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#2D6A4F]">
               {t('footer.quick_links')}
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -164,11 +164,11 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
 
           {/* Colonne 3: Nos Spécialités Phares */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#265943]">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#2D6A4F]">
               {t('footer.products_links')}
             </h4>
             <div className="space-y-3 text-xs">
-              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2d6a4f]">
+              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2D6A4F]">
                 <p className="font-bold text-white">
                   {t('hero.prod1')}
                 </p>
@@ -176,7 +176,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
                   {t('footer.product_ricin_desc')}
                 </p>
               </div>
-              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2d6a4f]">
+              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2D6A4F]">
                 <p className="font-bold text-white">
                   {t('home.category_spirits_title')}
                 </p>
@@ -184,7 +184,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
                   {t('footer.product_cognac_desc')}
                 </p>
               </div>
-              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2d6a4f]">
+              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2D6A4F]">
                 <p className="font-bold text-white">
                   {t('home.category_grocery_title')}
                 </p>
@@ -197,7 +197,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
 
           {/* Colonne 4: Contact & Implantation */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#265943]">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#2D6A4F]">
               {t('footer.contact_links')}
             </h4>
             <div className="space-y-3 text-sm text-white">
@@ -217,7 +217,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
               </div>
             </div>
 
-            <div className="pt-2 border-t border-[#265943]">
+            <div className="pt-2 border-t border-[#2D6A4F]">
               <p className="text-[11px] text-white/90">
                 {t('footer.shipping_info')}
               </p>
@@ -226,7 +226,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
         </div>
 
         {/* Barre Juridique Basse */}
-        <div className="mt-12 pt-6 border-t border-[#265943] flex flex-col sm:row items-center justify-between gap-4 text-xs text-white/90">
+        <div className="mt-12 pt-6 border-t border-[#2D6A4F] flex flex-col sm:row items-center justify-between gap-4 text-xs text-white/90">
           <div>
             © {new Date().getFullYear()} {COMPANY_INFO.name}. {t('footer.rights')}
           </div>

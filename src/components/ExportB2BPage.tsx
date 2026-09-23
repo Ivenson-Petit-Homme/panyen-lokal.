@@ -121,13 +121,16 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
   return (
     <div id="export-b2b-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
       {/* Hero Header - Balanced Height */}
-      <div className="relative bg-[#1B4332] text-white border-b border-[#2d6a4f] overflow-hidden">
+      <div className="relative bg-[#1B4332] text-white border-b border-[#2D6A4F] overflow-hidden">
         {/* Background Image Container */}
-        <div className="relative w-full h-[450px] sm:h-[550px]">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1B4332]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Industrial Complex"
-            className="w-full h-full object-cover blur-[2px] opacity-85"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+            className="w-full h-full object-cover opacity-85"
           />
           {/* Dark Overlay for Text Visibility */}
           <div className="absolute inset-0 bg-black/50" />
@@ -211,7 +214,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                   {t('export.sim_title')}
                 </h2>
               </div>
-              <span className="text-xs bg-[#1B4332]/10 text-[#1B4332] font-bold px-3 py-1.5 rounded-xl border border-[#1B4332]/20">
+              <span className="text-xs bg-[#1B4332] text-white font-bold px-3.5 py-1.5 rounded-xl border border-[#2D6A4F] shadow-sm">
                 {t('export.sim_badge')}
               </span>
             </div>
@@ -237,7 +240,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                     step="1"
                     value={drumCount}
                     onChange={(e) => setDrumCount(parseInt(e.target.value) || 0)}
-                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#2E7D32]"
+                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#1B4332]"
                   />
                   <div className="flex justify-between text-[10px] text-stone-400 font-semibold">
                     <span>{t('export.sim_drum_hint0')}</span>
@@ -265,7 +268,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                     step="5"
                     value={gallonCount}
                     onChange={(e) => setGallonCount(parseInt(e.target.value) || 0)}
-                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#2E7D32]"
+                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#1B4332]"
                   />
                 </div>
 
@@ -282,7 +285,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                         onClick={() => setSelectedIncoterm(inc)}
                         className={`p-2.5 rounded-xl border font-bold text-left transition-all cursor-pointer ${
                           selectedIncoterm === inc
-                            ? 'bg-[#1B4332] text-white border-[#1B4332]'
+                            ? 'bg-[#1B4332] text-white border-[#2D6A4F]'
                             : 'bg-stone-50 hover:bg-stone-100 border-stone-200 text-stone-700'
                         }`}
                       >
@@ -343,9 +346,9 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
         <FadeInSection threshold={0.1}>
           <div id="b2b-quote-form-section" className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-10 shadow-sm space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 text-[#1B4332] text-xs font-bold uppercase mb-2 border border-[#1B4332]/20">
-                <FileText className="w-3.5 h-3.5 text-[#1B4332]" />
-                <span>{t('export.form_tag')}</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white text-xs font-bold uppercase mb-2 border border-[#2D6A4F] shadow-sm">
+                <FileText className="w-3.5 h-3.5 text-[#E9C46A]" />
+                <span className="text-white">{t('export.form_tag')}</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F2937]">
                 {t('export.form_title')}
@@ -359,7 +362,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="p-8 bg-stone-50 rounded-2xl border border-[#2E7D32] text-center space-y-4"
+                className="p-8 bg-stone-50 rounded-2xl border border-[#2D6A4F] text-center space-y-4"
               >
                 <div className="w-14 h-14 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-8 h-8" />
@@ -373,7 +376,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                 <div className="pt-2">
                   <button
                     onClick={() => setSubmittedReference(null)}
-                    className="px-6 py-2.5 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs shadow cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow cursor-pointer"
                   >
                     {t('export.form_retry_btn')}
                   </button>
@@ -485,7 +488,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                   <div className="text-xs text-stone-500 flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-[#2E7D32]" />
+                    <ShieldCheck className="w-4 h-4 text-[#1B4332]" />
                     <span>{t('export.field_confidential')}</span>
                   </div>
 
@@ -494,7 +497,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4 text-white" />
                     <span>{isSubmitting ? t('export.submit_btn_loading') : t('export.submit_btn_ready')}</span>

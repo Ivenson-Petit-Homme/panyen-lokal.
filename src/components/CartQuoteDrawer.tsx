@@ -179,7 +179,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
     <div className="fixed inset-0 z-50 overflow-hidden bg-stone-950/60 backdrop-blur-xs flex justify-end animate-fadeIn">
       <div className="bg-white w-full max-w-lg h-full shadow-2xl flex flex-col justify-between text-[#1F2937] border-l border-stone-200">
         {/* Drawer Header */}
-        <div className="p-5 border-b border-[#2d6a4f] bg-[#1B4332] text-white">
+        <div className="p-5 border-b border-[#2D6A4F] bg-[#1B4332] text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-white" />
@@ -204,7 +204,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
                   className={`px-2.5 py-0.5 rounded text-[11px] font-bold transition-all cursor-pointer ${
                     selectedRegion === rId
                       ? 'bg-[#E9C46A] text-[#1B4332] shadow-xs'
-                      : 'bg-[#143527] text-white hover:text-white'
+                      : 'bg-[#1B4332] text-white hover:text-white'
                   }`}
                 >
                   {REGIONS_CONFIG[rId].flag} {rId === 'haiti' ? t('region.haiti').split(' ')[0] : rId === 'usa' ? 'USA' : t('region.dom_rep').split(' ')[0]}
@@ -232,7 +232,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
                       setCurrentRoute('produits');
                       onClose();
                     }}
-                    className="px-5 py-2.5 bg-[#2E7D32] hover:bg-[#256629] text-white rounded-xl text-xs font-bold shadow transition-colors cursor-pointer"
+                    className="px-5 py-2.5 bg-[#1B4332] hover:bg-[#143527] text-white rounded-xl text-xs font-bold shadow transition-colors cursor-pointer"
                   >
                     {t('cart.browse_btn')}
                   </button>
@@ -249,12 +249,12 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
                       </div>
                     </div>
                   ) : (
-                    <div className="p-2.5 bg-[#1B4332]/10 border border-[#1B4332]/20 rounded-xl flex items-center justify-between text-xs text-[#1B4332]">
+                    <div className="p-2.5 bg-[#1B4332] text-white border border-[#2D6A4F] rounded-xl flex items-center justify-between text-xs shadow-xs">
                       <div className="flex items-center gap-2">
-                        <User className="w-3.5 h-3.5 text-[#1B4332]" />
+                        <User className="w-3.5 h-3.5 text-[#E9C46A]" />
                         <span>{t('cart.logged_as')} <strong>{currentUser.fullName}</strong></span>
                       </div>
-                      <span className="text-[10px] bg-[#1B4332] text-white px-2 py-0.5 rounded-full font-bold">
+                      <span className="text-[10px] bg-[#E9C46A] text-[#1B4332] px-2 py-0.5 rounded-full font-black">
                         {t('cart.verified_acc')}
                       </span>
                     </div>
@@ -364,7 +364,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
                       key={idx}
                       className={`p-2.5 rounded-xl border flex items-center gap-2 cursor-pointer transition-all ${
                         currentPayment === method
-                          ? 'bg-[#1B4332] text-white border-[#2E7D32] font-bold'
+                          ? 'bg-[#1B4332] text-white border-[#2D6A4F] font-bold'
                           : 'bg-stone-50 hover:bg-stone-100 border-stone-200 text-stone-800'
                       }`}
                     >
@@ -373,7 +373,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
                         name="paymentMethodRadio"
                         checked={currentPayment === method}
                         onChange={() => setPaymentMethod(method)}
-                        className="accent-[#2E7D32]"
+                        className="accent-[#1B4332]"
                       />
                       <span>{method}</span>
                     </label>
@@ -385,7 +385,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
 
           {checkoutStep === 'success' && confirmedOrder && (
             <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md border border-[#2d6a4f]">
+              <div className="w-16 h-16 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md border border-[#2D6A4F]">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <h4 className="text-xl font-serif font-bold text-[#1F2937]">{t('cart.success_title')}</h4>
@@ -414,7 +414,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
 
               <button
                 onClick={handleFinish}
-                className="w-full py-3.5 bg-[#1B4332] hover:bg-[#153427] text-white font-bold text-xs rounded-xl shadow transition-all cursor-pointer"
+                className="w-full py-3.5 bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs rounded-xl shadow transition-all cursor-pointer"
               >
                 {t('cart.view_account_btn')}
               </button>
@@ -436,7 +436,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
                 <span>{t('cart.freight_label')} ({regionConfig.name}) :</span>
                 <span className="font-semibold text-stone-800">
                   {totals.shippingUSD === 0 ? (
-                    <span className="text-[#1B4332] font-extrabold bg-[#1B4332]/10 px-2 py-0.5 rounded border border-[#1B4332]/20">{t('cart.free_label')}</span>
+                    <span className="text-white font-extrabold bg-[#1B4332] px-2.5 py-0.5 rounded border border-[#2D6A4F] shadow-xs">{t('cart.free_label')}</span>
                   ) : (
                     `$${totals.shippingUSD.toFixed(2)} USD`
                   )}
@@ -457,7 +457,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
             {checkoutStep === 'cart' ? (
               <button
                 onClick={handleProceedToCheckout}
-                className="w-full py-3.5 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs shadow flex items-center justify-center gap-2 transition-all cursor-pointer border border-[#388E3C]"
+                className="w-full py-3.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow flex items-center justify-center gap-2 transition-all cursor-pointer border border-[#2D6A4F]"
               >
                 {!currentUser && <Lock className="w-4 h-4 text-white" />}
                 <span>
@@ -480,7 +480,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
                   type="submit"
                   form="checkout-form"
                   disabled={isSubmitting}
-                  className="flex-1 py-3.5 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-black text-xs shadow flex items-center justify-center gap-2 cursor-pointer border border-[#388E3C]"
+                  className="flex-1 py-3.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-black text-xs shadow flex items-center justify-center gap-2 cursor-pointer border border-[#2D6A4F]"
                 >
                   <CheckCircle2 className="w-4 h-4" />
                   <span>{isSubmitting ? t('cart.confirm_btn_loading') : t('cart.confirm_btn_ready')}</span>

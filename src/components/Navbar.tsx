@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* ========================================================================= */}
       {/* 1. BARRE SUPÉRIEURE (TOP UTILITY BAR) : VÈ FONSE NATIRÈL */}
       {/* ========================================================================= */}
-      <div className="bg-[#143527] text-[#FDFBF7]/90 border-b border-[#1e4a37] text-xs py-2 px-2.5 sm:px-6 lg:px-8">
+      <div className="bg-[#1B4332] text-[#FDFBF7]/90 border-b border-[#1e4a37] text-xs py-2 px-2.5 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-1.5 sm:gap-4 overflow-x-auto">
           
           {/* Côté Gauche : Sélecteur de Région & Devise + Indicateur Certifié */}
@@ -79,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="btn-topbar-region"
               onClick={openRegionSelector}
-              className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg bg-[#1a4432] hover:bg-[#235841] text-white border border-[#2d6a4f] hover:border-white transition-colors cursor-pointer text-xs font-semibold shadow-xs min-h-[36px]"
+              className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg bg-[#1B4332] hover:bg-[#143527] text-white border border-[#2D6A4F] hover:border-white transition-colors cursor-pointer text-xs font-semibold shadow-xs min-h-[36px]"
               title={t('topbar.change_region')}
             >
               <span className="text-sm sm:text-base leading-none">{regionInfo.flag}</span>
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* SÉLECTEUR DE LANGUE OFFICIEL (DRAPO FRANS 🇫🇷 / USA 🇺🇸) */}
             <div 
               id="lang-switcher-container"
-              className="flex items-center bg-[#1a4432] p-0.5 rounded-lg border border-[#2d6a4f] shadow-xs min-h-[36px]"
+              className="flex items-center bg-[#1B4332] p-0.5 rounded-lg border border-[#2D6A4F] shadow-xs min-h-[36px]"
             >
               <button
                 id="btn-lang-fr"
@@ -108,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center gap-1 px-1.5 sm:px-2 py-1 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[32px] ${
                   language === 'fr'
                     ? 'bg-[#E9C46A] text-[#1B4332] shadow-xs font-black'
-                    : 'text-white hover:text-white hover:bg-[#235841]'
+                    : 'text-white hover:text-white hover:bg-[#143527]'
                 }`}
                 title="Passer le site en Français"
                 aria-label="Français"
@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center gap-1 px-1.5 sm:px-2 py-1 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[32px] ${
                   language === 'en'
                     ? 'bg-[#E9C46A] text-[#1B4332] shadow-xs font-black'
-                    : 'text-white hover:text-white hover:bg-[#235841]'
+                    : 'text-white hover:text-white hover:bg-[#143527]'
                 }`}
                 title="Switch site to English"
                 aria-label="English"
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
 
-            <span className="text-[#2d6a4f] hidden sm:inline">|</span>
+            <span className="text-[#1B4332] hidden sm:inline">|</span>
 
             {/* Bouton Devis Vente en Gros */}
             <button
@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer border shadow-xs min-h-[36px] ${
                 currentRoute === 'marches-export'
                   ? 'bg-[#E9C46A] text-[#1B4332] border-[#E9C46A] shadow font-black'
-                  : 'bg-[#1a4432] hover:bg-[#235841] text-white border-[#2d6a4f] hover:border-white'
+                  : 'bg-[#1B4332] hover:bg-[#143527] text-white border-[#2D6A4F] hover:border-white'
               }`}
               title={t('topbar.wholesale_desc')}
             >
@@ -150,11 +150,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="hidden md:inline">{t('topbar.wholesale')}</span>
             </button>
 
-            {/* Bouton Panier (Bouton Achte - Vè Vif #2E7D32) */}
+            {/* Bouton Panier (Bouton Achte - Vè Vif #1B4332) */}
             <button
               id="btn-topbar-cart"
               onClick={openCart}
-              className="relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 rounded-lg bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs transition-all cursor-pointer shadow-md group shrink-0 border border-[#388E3C] min-h-[36px]"
+              className="relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 rounded-lg bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs transition-all cursor-pointer shadow-md group shrink-0 border border-[#2D6A4F] min-h-[36px]"
               title={t('topbar.cart')}
             >
               <div className="relative">
@@ -173,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            <span className="text-[#2d6a4f] hidden sm:inline">|</span>
+            <span className="text-[#1B4332] hidden sm:inline">|</span>
 
             {/* Espace Compte / Non Moun Nan */}
             {currentUser && currentUser.role === 'admin' && (
@@ -193,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 rounded-lg text-xs font-bold border transition-all cursor-pointer min-h-[36px] ${
                   currentRoute === 'mon-compte'
                     ? 'bg-[#E9C46A] text-[#1B4332] border-[#E9C46A]'
-                    : 'bg-[#1a4432] hover:bg-[#235841] text-white border-[#2d6a4f] hover:border-white'
+                    : 'bg-[#1B4332] hover:bg-[#143527] text-white border-[#2D6A4F] hover:border-white'
                 }`}
                 title={t('topbar.account')}
               >
@@ -208,7 +208,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 id="btn-topbar-login"
                 onClick={openAuthModal}
-                className="hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold bg-[#1a4432] hover:bg-[#235841] text-white border border-[#2d6a4f] hover:border-white transition-colors cursor-pointer min-h-[36px]"
+                className="hidden sm:flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-lg text-xs font-bold bg-[#1B4332] hover:bg-[#143527] text-white border border-[#2D6A4F] hover:border-white transition-colors cursor-pointer min-h-[36px]"
                 title={t('topbar.login')}
               >
                 <User className="w-3.5 h-3.5 text-white" />
@@ -226,9 +226,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         id="navbar-container" 
         className={`transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#1B4332]/98 backdrop-blur-md shadow-2xl py-2 sm:py-2.5' 
+            ? 'bg-[#143527]/98 backdrop-blur-md shadow-2xl py-2 sm:py-2.5' 
             : 'bg-[#1B4332] py-2.5 sm:py-3'
-        } text-[#FDFBF7] border-b border-[#265943]`}
+        } text-[#FDFBF7] border-b border-[#2D6A4F]`}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-3 sm:gap-6 flex-nowrap">
@@ -270,7 +270,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     className={`relative px-2.5 xl:px-3.5 py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                       isActive
                         ? 'text-[#1B4332] bg-[#E9C46A] shadow-md font-black'
-                        : 'text-white hover:text-white hover:bg-[#24533E]'
+                        : 'text-white hover:text-white hover:bg-[#143527]'
                     }`}
                   >
                     <span>{link.label}</span>
@@ -292,7 +292,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="btn-mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl bg-[#24533E] text-white hover:bg-[#2d684e] border border-[#2d6a4f] focus:outline-none cursor-pointer shrink-0 shadow-sm"
+              className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl bg-[#1B4332] text-white hover:bg-[#2d684e] border border-[#2D6A4F] focus:outline-none cursor-pointer shrink-0 shadow-sm"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -306,10 +306,10 @@ export const Navbar: React.FC<NavbarProps> = ({
         {mobileMenuOpen && (
           <div 
             id="mobile-nav-menu"
-            className="lg:hidden bg-[#16382A] border-t border-[#265943] px-4 pt-4 pb-6 space-y-3 animate-fadeIn mt-2"
+            className="lg:hidden bg-[#1B4332] border-t border-[#2D6A4F] px-4 pt-4 pb-6 space-y-3 animate-fadeIn mt-2"
           >
             {/* Langue & Région & Utilisateur Mobile */}
-            <div className="p-3.5 bg-[#1B4332] rounded-2xl border border-[#2d6a4f] flex flex-col gap-2.5">
+            <div className="p-3.5 bg-[#1B4332] rounded-2xl border border-[#2D6A4F] flex flex-col gap-2.5">
               <div className="flex items-center justify-between gap-2">
                 <button
                   onClick={() => { setMobileMenuOpen(false); openRegionSelector(); }}
@@ -321,7 +321,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </button>
 
                 {/* Switcher Langue Mobile */}
-                <div className="flex items-center bg-[#143527] p-1 rounded-lg border border-[#2d6a4f]">
+                <div className="flex items-center bg-[#1B4332] p-1 rounded-lg border border-[#2D6A4F]">
                   <button
                     onClick={() => setLanguage('fr')}
                     className={`px-2 py-0.5 rounded text-xs font-bold flex items-center gap-1 ${
@@ -343,7 +343,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-2 border-t border-[#2d6a4f] gap-2">
+              <div className="flex items-center justify-between pt-2 border-t border-[#2D6A4F] gap-2">
                 {currentUser ? (
                   <>
                     {currentUser.role === 'admin' && (
@@ -383,7 +383,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold transition-colors cursor-pointer ${
                       isActive
                         ? 'bg-[#E9C46A] text-[#1B4332] font-black'
-                        : 'text-[#FDFBF7] hover:bg-[#24533E] hover:text-white'
+                        : 'text-[#FDFBF7] hover:bg-[#143527] hover:text-white'
                     }`}
                   >
                     <div className="flex items-center gap-2">
@@ -409,7 +409,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setMobileMenuOpen(false);
                   openCart();
                 }}
-                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs shadow cursor-pointer border border-[#388E3C]"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow cursor-pointer border border-[#2D6A4F]"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>{t('topbar.cart')} ({cartCount})</span>
@@ -417,7 +417,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               <button
                 onClick={() => handleNavClick('marches-export')}
-                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1a4432] hover:bg-[#235841] text-white font-bold text-xs border border-[#2d6a4f] cursor-pointer"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs border border-[#2D6A4F] cursor-pointer"
               >
                 <FileText className="w-4 h-4 text-white" />
                 <span>{t('topbar.wholesale')}</span>

@@ -84,7 +84,7 @@ export const AdminUsers: React.FC<AdminUsersProps> = ({ currentUser }) => {
           />
         </div>
         <div className="flex items-center gap-2">
-          <div className="px-4 py-2 bg-[#1B4332]/5 text-[#1B4332] rounded-xl text-[10px] font-black uppercase tracking-widest border border-[#1B4332]/10">
+          <div className="px-4 py-2 bg-[#1B4332] text-white rounded-xl text-[10px] font-black uppercase tracking-widest border border-[#2D6A4F] shadow-xs">
             {users.length} Manb Inskri
           </div>
         </div>
@@ -128,7 +128,7 @@ export const AdminUsers: React.FC<AdminUsersProps> = ({ currentUser }) => {
               </div>
               {user.company_name && (
                 <div className="flex items-center gap-2 text-xs text-stone-600 font-bold">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#2E7D32]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#1B4332]" />
                   <span>{user.company_name}</span>
                 </div>
               )}
@@ -140,7 +140,7 @@ export const AdminUsers: React.FC<AdminUsersProps> = ({ currentUser }) => {
                 className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-[10px] font-black uppercase transition-all cursor-pointer border ${
                   user.role === 'admin'
                     ? 'bg-red-50 text-red-600 border-red-100 hover:bg-red-600 hover:text-white'
-                    : 'bg-emerald-50 text-emerald-700 border-emerald-100 hover:bg-[#1B4332] hover:text-white'
+                    : 'bg-emerald-50 text-emerald-700 border-emerald-100 hover:bg-[#143527] hover:text-white'
                 }`}
               >
                 {user.role === 'admin' ? <ShieldAlert className="w-3 h-3" /> : <ShieldCheck className="w-3 h-3" />}

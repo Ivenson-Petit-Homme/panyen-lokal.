@@ -28,7 +28,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
     <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/70 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
       <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-stone-200 overflow-hidden text-stone-900 my-8">
         {/* Header */}
-        <div className="bg-[#1B4332] text-white p-6 relative border-b border-[#2d6a4f]">
+        <div className="bg-[#1B4332] text-white p-6 relative border-b border-[#2D6A4F]">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 text-white cursor-pointer"
@@ -65,7 +65,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
                 }}
                 className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-4 cursor-pointer ${
                   isSelected
-                    ? 'bg-white border-[#2E7D32] ring-2 ring-[#2E7D32]/30 shadow-xs'
+                    ? 'bg-white border-[#2D6A4F] ring-2 ring-[#2E7D32]/30 shadow-xs'
                     : 'bg-white hover:bg-stone-50 border-stone-200'
                 }`}
               >
@@ -75,7 +75,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
                     <div className="flex items-center gap-2">
                       <h4 className="font-bold text-sm text-[#1F2937]">{config.name}</h4>
                       {isSelected && (
-                        <span className="text-[10px] bg-[#1B4332] text-white px-2 py-0.5 rounded-full font-bold border border-[#2E7D32]">
+                        <span className="text-[10px] bg-[#1B4332] text-white px-2 py-0.5 rounded-full font-bold border border-[#2D6A4F]">
                           {t('account.active_region_badge')}
                         </span>
                       )}
@@ -91,7 +91,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
 
                 <div className="shrink-0">
                   {isSelected ? (
-                    <div className="w-8 h-8 rounded-full bg-[#2E7D32] text-white border border-[#2E7D32] flex items-center justify-center shadow-xs">
+                    <div className="w-8 h-8 rounded-full bg-[#1B4332] text-white border border-[#2D6A4F] flex items-center justify-center shadow-xs">
                       <Check className="w-4 h-4 text-white" />
                     </div>
                   ) : (

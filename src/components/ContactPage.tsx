@@ -29,13 +29,16 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div id="contact-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
-      <div className="relative bg-[#1B4332] text-white border-b border-[#2d6a4f] overflow-hidden">
+      <div className="relative bg-[#1B4332] text-white border-b border-[#2D6A4F] overflow-hidden">
         {/* Background Image Container - Adjusted Height */}
-        <div className="relative w-full h-[450px] sm:h-[550px]">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1B4332]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Facility"
-            className="w-full h-full object-cover blur-[2px] opacity-85"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+            className="w-full h-full object-cover opacity-85"
           />
           {/* Dark Overlay for Text Visibility */}
           <div className="absolute inset-0 bg-black/50" />
@@ -134,9 +137,9 @@ export const ContactPage: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-8 bg-stone-50 rounded-2xl border border-[#2E7D32] text-center space-y-3"
+                    className="p-8 bg-stone-50 rounded-2xl border border-[#2D6A4F] text-center space-y-3"
                   >
-                    <CheckCircle2 className="w-10 h-10 text-[#2E7D32] mx-auto" />
+                    <CheckCircle2 className="w-10 h-10 text-[#1B4332] mx-auto" />
                     <h4 className="text-lg font-bold text-[#1F2937]">{t('contact.success_title')}</h4>
                     <p className="text-xs text-stone-600">{t('contact.success_desc')}</p>
                   </motion.div>
@@ -192,7 +195,7 @@ export const ContactPage: React.FC = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      className="px-6 py-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs shadow border border-[#388E3C] flex items-center justify-center gap-2 cursor-pointer"
+                      className="px-6 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow border border-[#2D6A4F] flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Send className="w-4 h-4 text-white" />
                       <span>{t('contact.send_btn')}</span>

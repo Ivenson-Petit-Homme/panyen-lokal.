@@ -106,7 +106,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
             {/* En-tête Institutionnel & Logo */}
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 border-b border-stone-100 pb-8">
               <div className="relative shrink-0 group">
-                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-white p-2 shadow-xl border-2 border-[#1B4332] overflow-hidden ring-4 ring-[#1B4332]/10">
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-white p-2 shadow-xl border-2 border-[#2D6A4F] overflow-hidden ring-4 ring-[#2E7D32]/10">
                   <img
                     src={panyenLogo}
                     alt="Logo Officiel Panyen Lokal"
@@ -114,16 +114,16 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="absolute -bottom-2 -right-2 bg-[#2E7D32] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow flex items-center gap-1">
+                <div className="absolute -bottom-2 -right-2 bg-[#1B4332] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow flex items-center gap-1">
                   <CheckCircle2 className="w-3 h-3 text-white" />
                   <span>{t('pres.official_badge')}</span>
                 </div>
               </div>
 
               <div className="space-y-3 text-center lg:text-left flex-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 border border-[#1B4332]/30 text-[#1B4332] font-black text-xs uppercase tracking-wider">
-                  <Building2 className="w-4 h-4 text-[#1B4332]" />
-                  <span>{t('pres.tag')}</span>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] font-black text-xs uppercase tracking-wider">
+                  <Building2 className="w-4 h-4 text-[#E9C46A]" />
+                  <span className="text-white">{t('pres.tag')}</span>
                 </div>
                 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black text-[#1B4332] tracking-tight">
@@ -164,7 +164,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       setCurrentRoute('a-propos');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white border border-[#1B4332] font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow"
+                    className="px-5 py-2.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white border border-[#2D6A4F] font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow"
                   >
                     <span>{t('pres.btn_mission')}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#E9C46A]" />
@@ -175,7 +175,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       setCurrentRoute('marches-export');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow border border-[#388E3C]"
+                    className="px-5 py-2.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow border border-[#2D6A4F]"
                   >
                     <span>{t('pres.btn_export')}</span>
                     <ExternalLink className="w-3.5 h-3.5 text-white" />
@@ -217,7 +217,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="rounded-2xl overflow-hidden shadow-md border border-[#2E7D32] h-36 bg-[#1B4332] p-2 flex items-center justify-center"
+                  className="rounded-2xl overflow-hidden shadow-md border border-[#2D6A4F] h-36 bg-[#1B4332] p-2 flex items-center justify-center"
                 >
                   <ImageWithSkeleton src={ricinFlaconImg} alt="Castor oil bottle" containerClassName="w-full h-full flex items-center justify-center rounded-xl" imgClassName="w-full h-full object-contain" />
                 </motion.div>
@@ -281,11 +281,11 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       {/* ========================================================================= */}
       {/* 2. LES 4 GRANDS PILIERS D'IMPACT D'ENTREPRISE (AVEC PHOTOS) */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 bg-stone-100/50">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 text-[#1B4332] text-xs font-bold uppercase tracking-wider border border-[#1B4332]/20">
-            <Factory className="w-4 h-4 text-[#1B4332]" />
-            <span>{t('pillars.tag')}</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-bold uppercase tracking-wider">
+            <Factory className="w-4 h-4 text-[#E9C46A]" />
+            <span className="text-white">{t('pillars.tag')}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1B4332] tracking-tight">
             {t('pillars.title')}
@@ -333,7 +333,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       <div className="w-10 h-10 rounded-xl bg-[#1B4332] text-white flex items-center justify-center shadow">
                         <Icon className="w-5 h-5 text-white" />
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-[#1B4332] group-hover:text-[#2E7D32] transition-colors">
+                      <h3 className="text-xl font-serif font-bold text-[#1B4332] group-hover:text-[#1B4332] transition-colors">
                         {pillar.title}
                       </h3>
                     </div>
@@ -345,7 +345,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                     <ul className="space-y-2 pt-1">
                       {pillar.details.map((point, pIdx) => (
                         <li key={pIdx} className="flex items-start gap-2.5 text-xs text-stone-600">
-                          <CheckCircle2 className="w-4 h-4 text-[#2E7D32] shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 text-[#1B4332] shrink-0 mt-0.5" />
                           <span>{point}</span>
                         </li>
                       ))}
@@ -361,9 +361,9 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       {/* ========================================================================= */}
       {/* 3. NOS 5 GRANDES FILIÈRES & PRODUITS D'EXCELLENCE */}
       {/* ========================================================================= */}
-      <section className="bg-[#1B4332] text-white py-16 sm:py-20 border-y border-[#265943]">
+      <section className="bg-[#1B4332] text-white py-16 sm:py-20 border-y border-[#2D6A4F]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <FadeInSection threshold={0.2} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#265943] pb-6">
+          <FadeInSection threshold={0.2} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D6A4F] pb-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider mb-2 border border-white/40">
                 <Award className="w-3.5 h-3.5 text-white" />
@@ -390,7 +390,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
               return (
                 <StaggerItem
                   key={prod.id}
-                  className="bg-[#143527] rounded-2xl border border-[#2d6a4f] overflow-hidden flex flex-col justify-between group hover:border-white transition-all hover:shadow-xl"
+                  className="bg-[#1B4332] rounded-2xl border border-[#2D6A4F] overflow-hidden flex flex-col justify-between group hover:border-white transition-all hover:shadow-xl"
                 >
                   <div className="relative h-60 sm:h-64 overflow-hidden bg-[#1B4332] w-full flex items-center justify-center p-3">
                     <ImageWithSkeleton
@@ -400,7 +400,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-2.5 right-2.5 z-10">
-                      <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-[#1B4332]/90 text-white border border-white/40 backdrop-blur-xs">
+                      <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-[#143527]/90 text-white border border-white/40 backdrop-blur-xs">
                         {prod.badge}
                       </span>
                     </div>
@@ -424,7 +424,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                         setCurrentRoute('produits');
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
-                      className="w-full py-2 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer border border-[#388E3C]"
+                      className="w-full py-2 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer border border-[#2D6A4F]"
                     >
                       <span>{t('flagship.discover')}</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -443,9 +443,9 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
         <FadeInSection threshold={0.15} className="space-y-6">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 border border-[#1B4332]/30 text-[#1B4332] text-xs font-black uppercase tracking-wider">
-              <Users className="w-3.5 h-3.5 text-[#1B4332]" />
-              <span>{t('gallery.tag')}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-black uppercase tracking-wider">
+              <Users className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <span className="text-white">{t('gallery.tag')}</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-serif font-extrabold text-[#1B4332] tracking-tight">
               {t('gallery.title')}
@@ -479,7 +479,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
             <StaggerItem
               key={item.id}
               onClick={() => setLightboxImg(item)}
-              className="bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-[#1B4332]"
+              className="bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-[#2D6A4F]"
             >
               <div className="relative h-64 sm:h-72 overflow-hidden bg-stone-900 w-full flex items-center justify-center">
                 <ImageWithSkeleton
@@ -515,7 +515,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
               <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-1.5 text-[10px] font-semibold text-[#1B4332]">
-                    <MapPin className="w-3 h-3 text-[#2E7D32]" />
+                    <MapPin className="w-3 h-3 text-[#1B4332]" />
                     <span>{item.loc}</span>
                   </div>
                   <p className="text-[11px] text-stone-600 leading-relaxed">
@@ -526,7 +526,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 {item.tags && (
                   <div className="flex flex-wrap gap-1.5 pt-2 border-t border-stone-100">
                     {item.tags.map((tTag, tIdx) => (
-                      <span key={tIdx} className="text-[9px] font-semibold px-2 py-0.5 rounded-md bg-[#1B4332]/5 text-[#1B4332] border border-[#1B4332]/10">
+                      <span key={tIdx} className="text-[10px] font-bold px-2.5 py-1 rounded-md bg-[#1B4332] text-white border border-[#2D6A4F] shadow-xs">
                         {tTag}
                       </span>
                     ))}
@@ -541,12 +541,12 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       {/* ========================================================================= */}
       {/* 5. NOS 4 PÔLES DE SERVICES AGRO-INDUSTRIELS */}
       {/* ========================================================================= */}
-      <section className="bg-stone-100/60 py-16 sm:py-20 border-y border-stone-200">
+      <section className="py-16 sm:py-20 border-y border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 border border-[#1B4332]/30 text-[#1B4332] text-xs font-black uppercase tracking-wider">
-              <Sliders className="w-3.5 h-3.5 text-[#1B4332]" />
-              <span>{t('services.tag')}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-black uppercase tracking-wider">
+              <Sliders className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <span className="text-white">{t('services.tag')}</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1B4332]">
               {t('services.title')}
@@ -562,7 +562,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
               return (
                 <StaggerItem 
                   key={service.id}
-                  className="bg-white rounded-2xl border border-stone-200 overflow-hidden flex flex-col justify-between hover:border-[#1B4332] transition-all hover:shadow-lg group"
+                  className="bg-white rounded-2xl border border-stone-200 overflow-hidden flex flex-col justify-between hover:border-[#2D6A4F] transition-all hover:shadow-lg group"
                 >
                   <div className="h-36 overflow-hidden relative bg-stone-900">
                     <ImageWithSkeleton 
@@ -572,7 +572,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-2.5 left-2.5 z-10">
-                      <span className="text-[10px] font-bold uppercase text-white bg-[#2E7D32] px-2 py-0.5 rounded shadow font-black">
+                      <span className="text-[10px] font-bold uppercase text-white bg-[#1B4332] px-2 py-0.5 rounded shadow font-black">
                         {service.badge}
                       </span>
                     </div>
@@ -583,7 +583,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       <div className="w-9 h-9 rounded-lg bg-[#1B4332] text-white flex items-center justify-center shadow">
                         <ServiceIcon className="w-4 h-4 text-white" />
                       </div>
-                      <h3 className="font-serif font-bold text-sm text-[#1B4332] group-hover:text-[#2E7D32] transition-colors">
+                      <h3 className="font-serif font-bold text-sm text-[#1B4332] group-hover:text-[#1B4332] transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-xs text-stone-600 leading-relaxed">
@@ -608,7 +608,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 setCurrentRoute('contact');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white border border-[#2d6a4f] font-bold text-xs shadow-md transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white border border-[#2D6A4F] font-bold text-xs shadow-md transition-all cursor-pointer"
             >
               <span>{t('services.cta')}</span>
               <ArrowRight className="w-4 h-4 text-[#E9C46A]" />
@@ -622,9 +622,9 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 border border-[#1B4332]/30 text-[#1B4332] text-xs font-black uppercase tracking-wider">
-            <Layers className="w-3.5 h-3.5 text-[#1B4332]" />
-            <span>{t('process.tag')}</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-black uppercase tracking-wider">
+            <Layers className="w-3.5 h-3.5 text-[#E9C46A]" />
+            <span className="text-white">{t('process.tag')}</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1B4332]">
             {t('process.title')}
@@ -648,7 +648,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                     containerClassName="w-full h-full"
                     imgClassName="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2 left-2 bg-[#2E7D32] text-white text-xs font-black px-2 py-0.5 rounded shadow z-10">
+                  <div className="absolute top-2 left-2 bg-[#1B4332] text-white text-xs font-black px-2 py-0.5 rounded shadow z-10">
                     {step.step}
                   </div>
                 </div>
@@ -664,7 +664,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                   </div>
 
                   <div className="h-1 w-full bg-stone-200 rounded-full overflow-hidden mt-2">
-                    <div className="h-full bg-[#2E7D32] w-full" />
+                    <div className="h-full bg-[#1B4332] w-full" />
                   </div>
                 </div>
               </StaggerItem>
@@ -676,9 +676,9 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       {/* ========================================================================= */}
       {/* 7. TERROIRS & BASSINS DE PRODUCTION D'HAÏTI */}
       {/* ========================================================================= */}
-      <section className="bg-[#1B4332] text-white py-16 sm:py-20 border-t border-[#265943]">
+      <section className="bg-[#1B4332] text-white py-16 sm:py-20 border-t border-[#2D6A4F]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <FadeInSection threshold={0.2} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#265943] pb-6">
+          <FadeInSection threshold={0.2} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D6A4F] pb-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider mb-2 border border-white/40">
                 <MapPin className="w-3.5 h-3.5 text-white" />
@@ -705,11 +705,11 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                     className={`w-full text-left p-4 rounded-2xl border transition-all cursor-pointer flex items-start gap-3 ${
                       isSelected
                         ? 'bg-[#E9C46A] text-[#1F2937] border-[#E9C46A] shadow-lg font-bold'
-                        : 'bg-[#143527] hover:bg-[#1a4231] text-white border-[#2d6a4f]'
+                        : 'bg-[#1B4332] hover:bg-[#1a4231] text-white border-[#2D6A4F]'
                     }`}
                   >
                     <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 font-bold text-xs ${
-                      isSelected ? 'bg-[#1B4332] text-white' : 'bg-[#143527] text-white border border-[#2d6a4f]'
+                      isSelected ? 'bg-[#1B4332] text-white' : 'bg-[#1B4332] text-white border border-[#2D6A4F]'
                     }`}>
                       {idx + 1}
                     </div>
@@ -727,7 +727,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
             </div>
 
             {/* Terroir Detail Focus Display avec photo */}
-            <div className="lg:col-span-7 bg-[#143527] rounded-3xl overflow-hidden border border-[#2d6a4f] space-y-6">
+            <div className="lg:col-span-7 bg-[#1B4332] rounded-3xl overflow-hidden border border-[#2D6A4F] space-y-6">
               <div className="h-48 overflow-hidden relative bg-black/20">
                 <ImageWithSkeleton
                   src={terroirs[selectedTerroir].image}
@@ -757,14 +757,14 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {terroirs[selectedTerroir].products.map((prod, pIdx) => (
-                      <span key={pIdx} className="px-3 py-1 rounded-lg bg-[#1B4332] text-white text-xs font-semibold border border-[#2d6a4f]">
+                      <span key={pIdx} className="px-3 py-1 rounded-lg bg-[#1B4332] text-white text-xs font-semibold border border-[#2D6A4F]">
                         🌿 {prod}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#2d6a4f] flex flex-wrap items-center justify-between gap-3">
+                <div className="pt-4 border-t border-[#2D6A4F] flex flex-wrap items-center justify-between gap-3">
                   <button
                     onClick={() => {
                       setCurrentRoute('partenariats');
@@ -781,7 +781,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       setCurrentRoute('marches-export');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="px-4 py-2 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs transition-colors cursor-pointer shadow border border-[#388E3C]"
+                    className="px-4 py-2 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs transition-colors cursor-pointer shadow border border-[#2D6A4F]"
                   >
                     {t('terroirs.btn_b2b')}
                   </button>

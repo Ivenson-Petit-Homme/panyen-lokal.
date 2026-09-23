@@ -37,11 +37,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   if (!product) return null;
 
-  const allFormats = [
+  // Determine unique formats without duplicates
+  const allFormats: string[] = Array.from(new Set<string>([
     ...(product.formatsDetail || []),
     ...(product.formatsExport || []),
     ...(product.formats || [])
-  ];
+  ])).filter(Boolean);
 
   const imagesList = product.gallery && product.gallery.length > 0
     ? product.gallery
@@ -80,7 +81,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   return (
     <div 
       id="product-detail-modal"
-      className="fixed inset-0 z-50 overflow-y-auto bg-[#143527]/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+      className="fixed inset-0 z-50 overflow-y-auto bg-[#1B4332]/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -99,7 +100,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {/* Left Column: Interactive Image Gallery & Badges */}
           <div className="md:col-span-5 space-y-3.5">
             {/* Main Active Image Display */}
-            <div className="rounded-2xl overflow-hidden bg-[#1B4332] border border-[#2d6a4f] w-full min-h-[320px] sm:min-h-[380px] flex items-center justify-center relative shadow-lg group p-3">
+            <div className="rounded-2xl overflow-hidden bg-[#1B4332] border border-[#2D6A4F] w-full min-h-[320px] sm:min-h-[380px] flex items-center justify-center relative shadow-lg group p-3">
               <ImageWithSkeleton
                 src={currentActiveImage}
                 alt={`${product.title} - Vue ${activeImageIndex + 1}`}
@@ -121,21 +122,21 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <>
                   <button
                     onClick={handlePrevImage}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#143527]/85 hover:bg-[#2E7D32] text-white transition-colors shadow-md cursor-pointer z-10"
-                    title={t('topbar.flag_en')}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#1B4332]/85 hover:bg-[#143527] text-white transition-colors shadow-md cursor-pointer z-10"
+                    title={isEn ? "Previous photo" : "Photo précédente"}
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
                   <button
                     onClick={handleNextImage}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#143527]/85 hover:bg-[#2E7D32] text-white transition-colors shadow-md cursor-pointer z-10"
-                    title={t('topbar.flag_en')}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#1B4332]/85 hover:bg-[#143527] text-white transition-colors shadow-md cursor-pointer z-10"
+                    title={isEn ? "Next photo" : "Photo suivante"}
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
                   
                   {/* Photo Counter Pill */}
-                  <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-[#143527]/90 border border-[#2d6a4f] text-[10px] font-bold text-white z-10">
+                  <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-[#143527]/90 border border-[#2D6A4F] text-[10px] font-bold text-white z-10">
                     {activeImageIndex + 1} / {imagesList.length} {t('detail.photos_suffix')}
                   </div>
                 </>
@@ -158,7 +159,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                         onClick={() => setActiveImageIndex(idx)}
                         className={`relative w-16 h-16 rounded-xl overflow-hidden border-2 shrink-0 transition-all cursor-pointer bg-[#1B4332] p-0.5 ${
                           isCurrent
-                            ? 'border-[#2E7D32] shadow-md ring-2 ring-[#2E7D32]/40 scale-105'
+                            ? 'border-[#2D6A4F] shadow-md ring-2 ring-[#2E7D32]/40 scale-105'
                             : 'border-stone-200 opacity-70 hover:opacity-100'
                         }`}
                       >
@@ -178,7 +179,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             {/* Terroir & Origin Card */}
             <div className="p-4 rounded-xl bg-white border border-stone-200 space-y-1.5">
               <div className="flex items-center gap-2 text-[#1B4332] font-bold text-xs">
-                <MapPin className="w-4 h-4 text-[#2E7D32]" />
+                <MapPin className="w-4 h-4 text-[#1B4332]" />
                 <span>{t('detail.origin')} : {product.origin}</span>
               </div>
               <p className="text-xs text-stone-600">
@@ -194,7 +195,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     key={idx}
                     className="px-2 py-0.5 rounded text-[10px] font-semibold bg-white text-stone-700 border border-stone-200 flex items-center gap-1"
                   >
-                    <Award className="w-3 h-3 text-[#2E7D32]" />
+                    <Award className="w-3 h-3 text-[#1B4332]" />
                     {cert}
                   </span>
                 ))}
@@ -209,7 +210,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <span className="text-xs font-bold uppercase tracking-wider text-[#1B4332] block">
                   {product.category}
                 </span>
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#1B4332]/10 text-[#1B4332] border border-[#1B4332]/30">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#1B4332] text-white border border-[#2D6A4F] shadow-xs">
                   <span>{regionConfig.flag}</span>
                   <span>{regionConfig.name}</span>
                 </span>
@@ -237,7 +238,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <ul className="space-y-1 text-xs text-[#1F2937]">
                     {product.highlights.map((h, i) => (
                       <li key={i} className="flex items-center gap-2">
-                        <Check className="w-3.5 h-3.5 text-[#2E7D32] shrink-0" />
+                        <Check className="w-3.5 h-3.5 text-[#1B4332] shrink-0" />
                         <span>{h}</span>
                       </li>
                     ))}
@@ -271,28 +272,28 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       {t('detail.format_select')}
                     </span>
                     {isExport && (
-                      <span className="text-[#1B4332] font-bold text-[11px] bg-[#1B4332]/10 px-2 py-0.5 rounded border border-[#1B4332]/30">
+                      <span className="text-white font-bold text-[11px] bg-[#1B4332] px-2 py-0.5 rounded border border-[#2D6A4F] shadow-xs">
                         {t('detail.b2b_format_badge')}
                       </span>
                     )}
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                    {allFormats.map((fmt) => {
+                    {allFormats.map((fmt, fmtIdx) => {
                       const isSelected = selectedFormat === fmt;
                       const fmtPrice = getRegionalPrice(product, fmt, activeRegion);
                       return (
                         <button
-                          key={fmt}
+                          key={`${product.id}-modal-fmt-${fmt}-${fmtIdx}`}
                           onClick={() => setSelectedFormat(fmt)}
                           className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
                             isSelected
-                              ? 'border-[#2E7D32] bg-[#1B4332] text-white ring-2 ring-[#2E7D32]'
+                              ? 'border-[#2D6A4F] bg-[#1B4332] text-white ring-2 ring-[#2E7D32]'
                               : 'border-stone-200 bg-white hover:bg-stone-50'
                           }`}
                         >
                           <div className={`font-bold text-xs truncate ${isSelected ? 'text-white' : 'text-[#1F2937]'}`}>{fmt}</div>
-                          <div className={`text-[11px] font-extrabold mt-0.5 ${isSelected ? 'text-white' : 'text-[#2E7D32]'}`}>
+                          <div className={`text-[11px] font-extrabold mt-0.5 ${isSelected ? 'text-white' : 'text-[#1B4332]'}`}>
                             ${fmtPrice.priceUSD.toFixed(2)} USD
                           </div>
                         </button>
@@ -350,7 +351,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       onRequestQuote(product, selectedFormat);
                       onClose();
                     }}
-                    className="col-span-2 py-3.5 px-4 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs shadow transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#388E3C]"
+                    className="col-span-2 py-3.5 px-4 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#2D6A4F]"
                   >
                     <FileText className="w-4 h-4 text-white" />
                     <span>{isEn ? "Request B2B Export Quote" : "Demander un devis B2B Export"} ({selectedFormat})</span>
@@ -362,7 +363,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       className={`py-3.5 px-4 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2 shadow cursor-pointer border ${
                         addedAnimation
                           ? 'bg-[#E9C46A] text-[#1F2937] font-black border-[#E9C46A]'
-                          : 'bg-[#2E7D32] hover:bg-[#256629] text-white border-[#388E3C]'
+                          : 'bg-[#1B4332] hover:bg-[#143527] text-white border-[#2D6A4F]'
                       }`}
                     >
                       {addedAnimation ? (
@@ -383,9 +384,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                         onRequestQuote(product, selectedFormat);
                         onClose();
                       }}
-                      className="py-3.5 px-4 rounded-xl bg-[#1B4332]/10 hover:bg-[#1B4332]/20 text-[#1B4332] font-semibold text-xs border border-[#1B4332]/30 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                      className="py-3.5 px-4 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-semibold text-xs border border-[#2D6A4F] shadow-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                     >
-                      <FileText className="w-4 h-4 text-[#1B4332]" />
+                      <FileText className="w-4 h-4 text-white" />
                       <span>{t('detail.b2b_inquiry')}</span>
                     </button>
                   </>

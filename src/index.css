@@ -150,25 +150,15 @@ strong, b {
 }
 
 /* =========================================================================
-   RÈGLE ABSOLUE POUR TOUTES LES SECTIONS ET CONTENEURS À FOND VERT :
-   TOUS LES TEXTES DOIVENT ÊTRE EN BLANC PUR (#FFFFFF)
+   RÈGLE ABSOLUE POUR TOUTES LES SECTIONS ET CONTENEURS À FOND VERT PROFOND (#1B4332 / #143527) :
+   LE VERT ÉTANT PROFOND ET SOMBRE, TOUS LES TEXTES SUR FOND VERT
+   DOIVENT ÊTRE EN BLANC PUR (#FFFFFF) POUR UNE LISIBILITÉ PARFAITE.
    ========================================================================= */
 .bg-brand-primary,
 .bg-brand-buy,
 [class*="bg-[#1B4332]"],
 [class*="bg-[#143527]"],
-[class*="bg-[#2E7D32]"],
-[class*="bg-[#1a4432]"],
-[class*="bg-[#1b4332]"],
-[class*="bg-[#2e7d32]"],
-[class*="bg-[#256629]"],
-[class*="bg-[#153e2d]"],
-[class*="bg-[#0f281e]"],
-[class*="bg-[#265943]"],
-[class*="bg-[#2d6a4f]"],
 [class*="from-[#143527]"],
-[class*="from-[#1B4332]"],
-[class*="from-[#1b4332]"],
 [class*="via-[#1B4332]"],
 #hero-enterprise-section,
 #main-footer,
@@ -182,11 +172,31 @@ header#main-header {
 .bg-brand-buy h1, .bg-brand-buy h2, .bg-brand-buy h3, .bg-brand-buy h4, .bg-brand-buy h5, .bg-brand-buy h6, .bg-brand-buy p, .bg-brand-buy li, .bg-brand-buy strong, .bg-brand-buy small, .bg-brand-buy label,
 [class*="bg-[#1B4332]"] h1, [class*="bg-[#1B4332]"] h2, [class*="bg-[#1B4332]"] h3, [class*="bg-[#1B4332]"] h4, [class*="bg-[#1B4332]"] h5, [class*="bg-[#1B4332]"] h6, [class*="bg-[#1B4332]"] p, [class*="bg-[#1B4332]"] li, [class*="bg-[#1B4332]"] strong, [class*="bg-[#1B4332]"] small, [class*="bg-[#1B4332]"] label,
 [class*="bg-[#143527]"] h1, [class*="bg-[#143527]"] h2, [class*="bg-[#143527]"] h3, [class*="bg-[#143527]"] h4, [class*="bg-[#143527]"] h5, [class*="bg-[#143527]"] h6, [class*="bg-[#143527]"] p, [class*="bg-[#143527]"] li, [class*="bg-[#143527]"] strong, [class*="bg-[#143527]"] small, [class*="bg-[#143527]"] label,
-[class*="bg-[#2E7D32]"] h1, [class*="bg-[#2E7D32]"] h2, [class*="bg-[#2E7D32]"] h3, [class*="bg-[#2E7D32]"] h4, [class*="bg-[#2E7D32]"] h5, [class*="bg-[#2E7D32]"] h6, [class*="bg-[#2E7D32]"] p, [class*="bg-[#2E7D32]"] li, [class*="bg-[#2E7D32]"] strong, [class*="bg-[#2E7D32]"] small, [class*="bg-[#2E7D32]"] label,
 [class*="from-[#143527]"] h1, [class*="from-[#143527]"] h2, [class*="from-[#143527]"] h3, [class*="from-[#143527]"] h4, [class*="from-[#143527]"] h5, [class*="from-[#143527]"] h6, [class*="from-[#143527]"] p, [class*="from-[#143527]"] li, [class*="from-[#143527]"] strong, [class*="from-[#143527]"] small, [class*="from-[#143527]"] label,
 #hero-enterprise-section h1, #hero-enterprise-section h2, #hero-enterprise-section h3, #hero-enterprise-section p, #hero-enterprise-section li, #hero-enterprise-section strong, #hero-enterprise-section small,
 #main-footer h1, #main-footer h2, #main-footer h3, #main-footer h4, #main-footer h5, #main-footer h6, #main-footer p, #main-footer li, #main-footer strong, #main-footer a {
   color: #FFFFFF !important;
+}
+
+/* Boutons avec fond vert profond : texte blanc pur */
+button[class*="bg-[#1B4332]"],
+a[class*="bg-[#1B4332]"],
+[role="button"][class*="bg-[#1B4332]"],
+button[class*="bg-[#143527]"],
+a[class*="bg-[#143527]"],
+[role="button"][class*="bg-[#143527]"],
+button[class*="bg-[#2E7D32]"],
+a[class*="bg-[#2E7D32]"],
+[role="button"][class*="bg-[#2E7D32]"] {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+[class*="bg-[#1B4332]"] svg,
+[class*="bg-[#143527]"] svg,
+[class*="bg-[#2E7D32]"] svg {
+  color: #FFFFFF;
+  stroke: #FFFFFF;
 }
 
 /* ========== LIENS — Police unifiée ========== */
@@ -223,16 +233,16 @@ button,
 /* ========== CUSTOM HELPERS DE LA PALETTE ========== */
 .bg-brand-bg { background-color: #FDFBF7; }
 .bg-brand-primary { background-color: #1B4332; }
-.bg-brand-buy { background-color: #2E7D32; }
+.bg-brand-buy { background-color: #1B4332; }
 .bg-brand-accent { background-color: #E9C46A; }
 
 .text-brand-primary { color: #1B4332; }
-.text-brand-buy { color: #2E7D32; }
+.text-brand-buy { color: #1B4332; }
 .text-brand-accent { color: #E9C46A; }
 .text-brand-text { color: #1F2937; }
 
 .border-brand-primary { border-color: #1B4332; }
-.border-brand-buy { border-color: #2E7D32; }
+.border-brand-buy { border-color: #1B4332; }
 .border-brand-accent { border-color: #E9C46A; }
 
 /* ========== HELPERS TYPOGRAPHIQUES UTILES — Style Webnode unifié ========== */

@@ -42,9 +42,9 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-3xl">
             <FadeInSection direction="left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 border border-[#1B4332]/20 text-[#1B4332] text-xs font-bold uppercase tracking-wider mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-[#1B4332]" />
-                <span>{t('home.featured_tag')}</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-bold uppercase tracking-wider mb-2">
+                <Sparkles className="w-3.5 h-3.5 text-[#E9C46A]" />
+                <span className="text-white">{t('home.featured_tag')}</span>
               </div>
             </FadeInSection>
             <FadeInSection direction="left" delay={0.1}>
@@ -65,17 +65,17 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                 setCurrentRoute('produits');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#1B4332] hover:text-[#2E7D32] transition-colors group self-start md:self-auto cursor-pointer"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#1B4332] hover:text-[#1B4332] transition-colors group self-start md:self-auto cursor-pointer"
             >
               <span>{t('home.view_catalog_prefix')} ({products.length} {t('home.products_suffix')})</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#2E7D32]" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#1B4332]" />
             </button>
           </FadeInSection>
         </div>
 
         {/* Bannière Récapitulative Officielle des 5 Produits & Localisation */}
         <FadeInSection threshold={0.2} delay={0.4}>
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#1B4332] text-white border border-[#2d6a4f] mb-10 shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#1B4332] text-white border border-[#2D6A4F] mb-10 shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-1">
               <div className="flex items-center gap-2 text-white text-xs font-black uppercase tracking-wider">
                 <span className="text-white">{t('home.location_full')}</span>
@@ -91,7 +91,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                 setCurrentRoute('produits');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="px-4 py-2 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white text-xs font-bold shrink-0 transition-colors shadow cursor-pointer border border-[#388E3C]"
+              className="px-4 py-2 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white text-xs font-bold shrink-0 transition-colors shadow cursor-pointer border border-[#2D6A4F]"
             >
               {t('home.order_now_btn')}
             </motion.button>
@@ -106,7 +106,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                 setCurrentRoute('huile-de-ricin');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="p-5 rounded-2xl bg-[#1B4332] border border-[#2d6a4f] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
+              className="p-5 rounded-2xl bg-[#1B4332] border border-[#2D6A4F] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
             >
               <div className="p-3 rounded-xl bg-white/10 text-white border border-white/20">
                 <Droplet className="w-6 h-6 text-white" />
@@ -131,7 +131,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                 setCurrentRoute('produits');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="p-5 rounded-2xl bg-[#1B4332] border border-[#2d6a4f] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
+              className="p-5 rounded-2xl bg-[#1B4332] border border-[#2D6A4F] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
             >
               <div className="p-3 rounded-xl bg-white/10 text-white">
                 <Wine className="w-6 h-6 text-white" />
@@ -156,7 +156,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                 setCurrentRoute('produits');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="p-5 rounded-2xl bg-[#1B4332] border border-[#2d6a4f] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
+              className="p-5 rounded-2xl bg-[#1B4332] border border-[#2D6A4F] text-white cursor-pointer hover:shadow-xl transition-all group flex items-start gap-4 h-full"
             >
               <div className="p-3 rounded-xl bg-white/10 text-white">
                 <Cookie className="w-6 h-6 text-white" />

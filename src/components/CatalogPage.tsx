@@ -96,9 +96,9 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <FadeInSection direction="down">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1B4332]/10 text-[#1B4332] border border-[#1B4332]/20 text-xs font-black uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#1B4332]" />
-              <span>{t('catalog.tag')}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-black uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <span className="text-white">{t('catalog.tag')}</span>
             </div>
           </FadeInSection>
           <FadeInSection direction="none" delay={0.1}>
@@ -155,7 +155,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
                   type="checkbox"
                   checked={inStockOnly}
                   onChange={(e) => setInStockOnly(e.target.checked)}
-                  className="rounded text-[#1B4332] focus:ring-[#2E7D32] w-4 h-4 accent-[#2E7D32]"
+                  className="rounded text-[#1B4332] focus:ring-[#2E7D32] w-4 h-4 accent-[#1B4332]"
                 />
                 <span>{t('catalog.in_stock_only')}</span>
               </label>
@@ -231,7 +231,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
                 setSearchQuery('');
                 setInStockOnly(false);
               }}
-              className="px-4 py-2 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white text-xs font-bold cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white text-xs font-bold cursor-pointer"
             >
               {t('catalog.reset_filters')}
             </button>

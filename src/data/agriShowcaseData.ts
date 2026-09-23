@@ -17,8 +17,9 @@ import {
 } from 'lucide-react';
 
 import ricinFlaconImg from '../assets/images/huile_ricin_flacon_1786847591002.jpg';
-import grandTamarFrontImg from '../assets/images/grand_tamar_front_1786934308034.jpg';
+import grandTamarFrontImg from '../assets/images/grand_tamar_face_exact_1789970399816.jpg';
 import cassaveNordBoxImg from '../assets/images/cassave_nord_box_1786934328091.jpg';
+import chocolatChaudPanyenImg from '../assets/images/chocolat_chaud_doypack_panyen_1789937953070.jpg';
 import champImg from '../assets/images/champ_panyen_lokal_1786858968582.jpg';
 import complexeImg from '../assets/images/complexe_ekam_caracol_1786858981077.jpg';
 import usineExtImg from '../assets/images/usine_exterieur_ekam_1786859382526.jpg';
@@ -188,8 +189,8 @@ export const getServicesList = (isEn: boolean): ServiceData[] => [
     icon: Droplets,
     title: isEn ? "Mechanical Oil Pressing & Extraction" : "Pressage & Extraction Mécanique d'Huiles",
     desc: isEn 
-      ? "Cold-press extraction services for oilseeds (castor, moringa). Absolute purity guaranteed without chemical solvents." 
-      : "Prestation d'extraction à froid pour graines oléagineuses (ricin, moringa). Pureté absolue garantie sans solvants.",
+      ? "Cold-press extraction services for oilseeds (castor seeds). Absolute purity guaranteed without chemical solvents." 
+      : "Prestation d'extraction à froid pour graines oléagineuses (graines de ricin). Pureté absolue garantie sans solvants.",
     badge: isEn ? "Technical Service" : "Service Technique",
     image: complexeImg,
     details: isEn ? "Capacity: up to 3,000 L / week • Fine stainless steel filtration" : "Capacité : jusqu'à 3 000 L / semaine • Filtration fine inox"
@@ -265,14 +266,14 @@ export const getFlagshipProducts = (isEn: boolean): FlagshipProductData[] => [
   },
   {
     id: 'chocolat-artisanal',
-    title: isEn ? 'Pure Organic Cocoa Chocolate' : 'Chocolat Pur Cacao Bio',
+    title: isEn ? 'Artisanal Chocolate Bar' : 'Chocolat en Tablette Artisanal',
     category: isEn ? 'Gastronomy & Criollo Cocoa' : 'Gastronomie & Cacao Criollo',
     desc: isEn 
-      ? '100% pure wood-fired roasted cocoa following authentic North Plain traditions.' 
-      : 'Cacao 100% pur torréfié au feu de bois selon les traditions de la Plaine du Nord.',
-    image: 'https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=700&q=80',
+      ? '100% pure natural Haitian cocoa tablet crafted according to Creole tradition (150 HTG).' 
+      : 'Tablette de pur cacao 100% naturel d\'Haïti (Tablèt Chokola Peyi) préparée selon la tradition (150 HTG).',
+    image: chocolatChaudPanyenImg,
     icon: Heart,
-    badge: isEn ? '100% Pure' : '100% Naturel'
+    badge: isEn ? '100% Cocoa Bar (150 HTG)' : 'Tablette Pur Cacao (150 HTG)'
   },
   {
     id: 'cassave-artisanal',
@@ -341,11 +342,11 @@ export const getTerroirs = (isEn: boolean): TerroirData[] => [
     region: isEn ? "North-East (Caracol & Village EKAM)" : "Nord-Est (Caracol & Village EKAM)",
     title: isEn ? "Agro-Industrial Hub & Pure Castor Oil" : "Pôle Agro-Industriel & Huile de Ricin Pure",
     desc: isEn 
-      ? "Operational heart of Panyen Lokal with over 480 hectares of castor, moringa, and tamarind plantations, plus our modern processing facility at Village EKAM." 
-      : "Cœur opérationnel de Panyen Lokal avec plus de 480 hectares de plantations de ricin, moringa et tamarinier ainsi que notre complexe moderne de transformation au Village EKAM.",
+      ? "Operational heart of Panyen Lokal with over 480 hectares of castor and tamarind plantations, plus our modern processing facility at Village EKAM." 
+      : "Cœur opérationnel de Panyen Lokal avec plus de 480 hectares de plantations de ricin et tamarinier ainsi que notre complexe moderne de transformation au Village EKAM.",
     products: isEn 
-      ? ["Pure Haitian Castor Oil", "Bulk Export Castor (204L Drums)", "Pure Moringa Oil"] 
-      : ["Huile de Ricin Pure", "Ricin Vrac Export (Fûts 204L)", "Huile de Moringa"],
+      ? ["Pure Haitian Castor Oil", "Bulk Export Castor (204L Drums)", "Extra Virgin Castor Oil"] 
+      : ["Huile de Ricin Pure", "Ricin Vrac Export (Fûts 204L)", "Huile de Ricin Première Pression"],
     stats: isEn ? "350+ Partner Farmers • Central EKAM Plant" : "350+ Producteurs Partenaires • Usine Centrale EKAM",
     image: usineExtImg
   },
@@ -357,8 +358,8 @@ export const getTerroirs = (isEn: boolean): TerroirData[] => [
       ? "Fertile forested canopy soils sheltering noble Criollo and Forastero cocoa varieties harvested under tree cover, alongside bitter orange groves." 
       : "Sols fertiles d'ombrage forestier abritant des variétés nobles de cacao Criollo et Forastero récoltées sous canopée, ainsi que des vergers d'oranges amères.",
     products: isEn 
-      ? ["Pure Organic Cocoa Chocolate", "Tiz Vin de Miel Mead", "Traceable Fermented Beans"] 
-      : ["Chocolat Pur Cacao Bio", "Hydromel Tiz Vin de Miel", "Fèves Fermentées Traçables"],
+      ? ["Hot Chocolate 100% Natural", "Tiz Vin de Miel Mead", "Traceable Fermented Beans"] 
+      : ["Chocolat Chaud 100% Naturel", "Hydromel Tiz Vin de Miel", "Fèves Fermentées Traçables"],
     stats: isEn ? "220+ Farmers • Traditional Wood-Fired Roasting" : "220+ Planteurs • Torréfaction au Feu de Bois",
     image: champImg
   },
@@ -370,8 +371,8 @@ export const getTerroirs = (isEn: boolean): TerroirData[] => [
       ? "Sustainable foraging of antioxidant-rich tamarind pods and mountain beekeeper cooperatives providing wild raw honey for our liqueurs and spirits." 
       : "Cueillette durable de gousses de tamarin riches en antioxydants et réseau d'apiculteurs des mornes fournissant le miel sauvage pour nos liqueurs et spiritueux.",
     products: isEn 
-      ? ["Cognac Grand Tamar", "Artisanal Mead", "Golden Peanuts for Mamba"] 
-      : ["Cognac Grand Tamar", "Hydromel Artisanal", "Arachides Dorées pour Mamba"],
+      ? ["Cognac Grand Tamar", "Artisanal Mead", "Pure Honey Reserve"] 
+      : ["Cognac Grand Tamar", "Hydromel Artisanal", "Réserve de Miel Pur"],
     stats: isEn ? "180+ Certified Beekeepers & Harvesters" : "180+ Apiculteurs & Cueilleurs Certifiés",
     image: marcheFruitsImg
   },
@@ -383,8 +384,8 @@ export const getTerroirs = (isEn: boolean): TerroirData[] => [
       ? "Traditional cultivation of sweet cassava baked on cast-iron hotplates for golden crispy flatbreads, complemented by indigenous botanical extracts." 
       : "Cultures traditionnelles de manioc doux transformé sur platines en fonte pour des galettes croustillantes, complétées par des extraits botaniques tropicaux.",
     products: isEn 
-      ? ["Artisanal Cassava Flatbread", "Pure Cassava Flour", "Mamba Peanut Butter"] 
-      : ["Cassave Artisanale Traditionnelle", "Farine de Manioc Pure", "Beurre d'Arachide Mamba"],
+      ? ["Artisanal Cassava Flatbread", "Pure Cassava Flour", "Traditional Cassava Box"] 
+      : ["Cassave Artisanale Traditionnelle", "Farine de Manioc Pure", "Étui Cassave Traditionnelle"],
     stats: isEn ? "100+ Associated Producer Families" : "100+ Familles Productrices Associées",
     image: souveraineteImg
   }
@@ -450,8 +451,8 @@ export const getGalleryItems = (isEn: boolean): GalleryItemData[] => [
     role: isEn ? "Lead Agronomist & Quality Director" : "Ingénieure Agronome & Responsable Qualité",
     title: isEn ? "Agronomic Guidance & Terroir Monitoring" : "Pôle Agronomie & Contrôle des Terroirs",
     desc: isEn 
-      ? "Technical assistance to farming families, selective breeding of castor, neem, and moringa, and chemical-free bio-certification." 
-      : "Accompagnement technique des producteurs, sélection des variétés de ricin, neem et moringa, certification sans intrants chimiques.",
+      ? "Technical assistance to farming families, selective breeding of castor, tamarind, and cocoa, and chemical-free bio-certification." 
+      : "Accompagnement technique des producteurs, sélection des variétés de ricin, tamarin et cacao, certification sans intrants chimiques.",
     loc: isEn ? "Orchards of Caracol, Grand Bassin & Ouanaminthe" : "Vergers de Caracol, Grand Bassin & Ouanaminthe",
     src: ingenieurAgronomeImg,
     tags: isEn ? ["Agroforestry", "Soil Quality", "Organic Farming"] : ["Agroforesterie", "Qualité Terroirs", "Bio-Protection"]

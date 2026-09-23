@@ -55,7 +55,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => openAuthModal && openAuthModal()}
-                className="w-full py-3 bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs rounded-xl shadow transition-colors cursor-pointer"
+                className="w-full py-3 bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs rounded-xl shadow transition-colors cursor-pointer"
               >
                 {t('account.login_btn')}
               </motion.button>
@@ -82,14 +82,14 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
   return (
     <div id="my-account-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
       {/* Header Banner */}
-      <div className="bg-[#1B4332] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#2d6a4f]">
+      <div className="bg-[#1B4332] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#2D6A4F]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 rounded-2xl bg-[#E9C46A] text-[#1B4332] flex items-center justify-center font-black text-2xl shadow-lg shrink-0">
               {currentUser.fullName.charAt(0).toUpperCase()}
             </div>
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#143527] text-white text-[11px] font-bold uppercase mb-1 border border-white/30">
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#1B4332] text-white text-[11px] font-bold uppercase mb-1 border border-white/30">
                 <span>{t('account.verified_tag')}</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-serif font-bold text-white drop-shadow-sm">
@@ -125,7 +125,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                 onClick={() => setCurrentRoute('admin')}
                 className="px-4 py-2 bg-white text-[#1B4332] rounded-xl text-xs font-black shadow-lg flex items-center gap-1.5 cursor-pointer border border-[#E9C46A]"
               >
-                <ShieldCheck className="w-3.5 h-3.5 text-[#2E7D32]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#1B4332]" />
                 <span>ACCÈS ADMIN</span>
               </button>
             )}
@@ -192,7 +192,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
               </div>
               <button
                 onClick={() => setCurrentRoute('produits')}
-                className="px-4 py-2 bg-[#2E7D32] hover:bg-[#256629] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow transition-colors shrink-0 cursor-pointer"
+                className="px-4 py-2 bg-[#1B4332] hover:bg-[#143527] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow transition-colors shrink-0 cursor-pointer"
               >
                 <ShoppingBag className="w-3.5 h-3.5" />
                 <span>{t('account.new_order_btn')}</span>
@@ -210,7 +210,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                 </p>
                 <button
                   onClick={() => setCurrentRoute('produits')}
-                  className="px-6 py-2.5 bg-[#2E7D32] hover:bg-[#256629] text-white rounded-xl text-xs font-bold shadow cursor-pointer"
+                  className="px-6 py-2.5 bg-[#1B4332] hover:bg-[#143527] text-white rounded-xl text-xs font-bold shadow cursor-pointer"
                 >
                   {t('cart.browse_btn')}
                 </button>
@@ -230,7 +230,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                         <div>
                           <div className="flex items-center gap-2">
                             <span className="font-mono font-bold text-sm text-[#1B4332]">{ord.orderNumber}</span>
-                            <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#1B4332]/10 text-[#1B4332] font-bold border border-[#1B4332]/20 flex items-center gap-1">
+                            <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#1B4332] text-white font-bold border border-[#2D6A4F] shadow-xs flex items-center gap-1">
                               <span>{regConfig.flag}</span>
                               <span>{t('account.order_dest_label')} {regConfig.name}</span>
                             </span>
@@ -290,7 +290,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                             <span className="text-stone-500">{t('cart.freight_label').replace('{region}', regConfig.name)}</span>
                             <span className="font-semibold text-stone-800">
                               {ord.exportShippingFeeUSD === 0 ? (
-                                <span className="text-[#1B4332] font-bold bg-[#1B4332]/10 px-2 py-0.5 rounded">{t('cart.free_label')}</span>
+                                <span className="text-white font-bold bg-[#1B4332] px-2 py-0.5 rounded border border-[#2D6A4F] shadow-xs">{t('cart.free_label')}</span>
                               ) : (
                                 `$${ord.exportShippingFeeUSD.toFixed(2)} USD`
                               )}
@@ -390,7 +390,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                   <div
                     key={rId}
                     className={`bg-white rounded-3xl border p-6 shadow-sm space-y-4 transition-all relative ${
-                      isSelected ? 'ring-2 ring-[#2E7D32] border-[#2E7D32]' : 'border-stone-200'
+                      isSelected ? 'ring-2 ring-[#2E7D32] border-[#2D6A4F]' : 'border-stone-200'
                     }`}
                   >
                     {isSelected && (

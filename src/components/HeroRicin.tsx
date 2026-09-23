@@ -77,7 +77,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
         })}
 
         {/* Voile sombre vert naturel raffiné pour garantir la clarté et la netteté de l'image */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#143527]/95 via-[#1B4332]/75 to-[#1B4332]/50 z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#143527]/95 via-[#1B4332]/75 to-[#2D6A4F]/50 z-1" />
       </div>
 
       {/* 2. CONTENU PRINCIPAL ÉPURÉ & ÉLÉGANT */}
@@ -86,7 +86,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332]/90 border border-white text-white text-xs font-black uppercase tracking-wider backdrop-blur-md shadow-lg"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#143527]/90 border border-white text-white text-xs font-black uppercase tracking-wider backdrop-blur-md shadow-lg"
         >
           <Sparkles className="w-3.5 h-3.5 text-white" />
           <span>{t('hero.tag')}</span>
@@ -141,7 +141,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
-            className="px-6 py-3.5 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-sm shadow-xl transition-all flex items-center gap-2 cursor-pointer border border-[#388E3C]"
+            className="px-6 py-3.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-sm shadow-xl transition-all flex items-center gap-2 cursor-pointer border border-[#2D6A4F]"
           >
             <span>{t('hero.btn.discover')}</span>
             <ArrowRight className="w-4 h-4 text-white" />
@@ -158,7 +158,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
               setCurrentRoute('produits');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="px-6 py-3.5 rounded-xl bg-[#143527]/90 hover:bg-[#1a4432] text-white font-bold text-sm border border-[#2d6a4f] hover:border-white backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
+            className="px-6 py-3.5 rounded-xl bg-[#1B4332]/90 hover:bg-[#143527] text-white font-bold text-sm border border-[#2D6A4F] hover:border-white backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
           >
             <ShoppingBag className="w-4 h-4 text-white" />
             <span>{t('hero.btn.products')}</span>
@@ -175,7 +175,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
               setCurrentRoute('marches-export');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="px-5 py-3.5 rounded-xl bg-[#143527]/90 hover:bg-[#1a4432] text-white font-bold text-sm border border-[#2d6a4f] hover:border-white backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
+            className="px-5 py-3.5 rounded-xl bg-[#1B4332]/90 hover:bg-[#143527] text-white font-bold text-sm border border-[#2D6A4F] hover:border-white backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
           >
             <FileText className="w-4 h-4 text-white" />
             <span>{t('hero.btn.export_quote')}</span>
@@ -190,7 +190,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
           className="pt-4 max-w-3xl mx-auto"
         >
           <div className="bg-[#143527]/95 border border-white/30 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 text-left shadow-2xl space-y-2">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2d6a4f] pb-2 text-xs">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2D6A4F] pb-2 text-xs">
               <span className="flex items-center gap-1.5 text-white font-bold">
                 <span className="text-base">📍</span>
                 <span className="text-white">{t('hero.badge.location')}</span>
@@ -212,7 +212,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
       </div>
 
       {/* 3. POINTS DE NAVIGATION DU DIAPORAMA EN BAS (DISCRETS & ÉLÉGANTS) */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-[#143527]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#2d6a4f]">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-[#143527]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#2D6A4F]">
         <button
           onClick={() => setCurrentBgIndex((prev) => (prev === 0 ? backgroundSlides.length - 1 : prev - 1))}
           className="text-[#FDFBF7]/70 hover:text-white p-0.5 transition-colors cursor-pointer"

@@ -29,13 +29,16 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
   return (
     <div id="about-impact-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
       {/* Top Banner Header - Balanced Height */}
-      <div className="relative bg-[#143527] text-white border-b border-[#2d6a4f] overflow-hidden">
+      <div className="relative bg-[#1B4332] text-white border-b border-[#2D6A4F] overflow-hidden">
         {/* Background Image Container */}
-        <div className="relative w-full h-[450px] sm:h-[550px]">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1B4332]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Agriculture"
-            className="w-full h-full object-cover blur-[2px] opacity-85"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+            className="w-full h-full object-cover opacity-85"
           />
           {/* Dark Overlay for Text Visibility */}
           <div className="absolute inset-0 bg-black/50" />
@@ -94,7 +97,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
           </StaggerItem>
 
           <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#2E7D32]">0%</div>
+            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1B4332]">0%</div>
             <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_solvents_label')}</p>
             <p className="text-[11px] text-stone-500">{t('about.stat_solvents_sub')}</p>
           </StaggerItem>
@@ -106,9 +109,9 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <FadeInSection direction="left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 text-[#1B4332] border border-[#1B4332]/20 text-xs font-bold uppercase tracking-wider">
-                <Building2 className="w-3.5 h-3.5 text-[#1B4332]" />
-                <span>{t('about.model_tag')}</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-bold uppercase tracking-wider">
+                <Building2 className="w-3.5 h-3.5 text-[#E9C46A]" />
+                <span className="text-white">{t('about.model_tag')}</span>
               </div>
             </FadeInSection>
 
@@ -184,9 +187,9 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
         {/* Interactive Haitian Orchards Map & Explorer across 6 departments */}
         <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-10 shadow-sm space-y-8">
           <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 text-[#1B4332] border border-[#1B4332]/20 text-xs font-bold uppercase">
-              <TreePine className="w-3.5 h-3.5 text-[#1B4332]" />
-              <span>{t('about.orchards_tag')}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-bold uppercase">
+              <TreePine className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <span className="text-white">{t('about.orchards_tag')}</span>
             </div>
             <h3 className="text-2xl sm:text-4xl font-serif font-bold text-[#1F2937]">
               {t('about.orchards_title')}
@@ -284,10 +287,10 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
                   setCurrentRoute('partenariats');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2E7D32] hover:underline cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1B4332] hover:underline cursor-pointer"
               >
                 <span>{t('about.invest_btn')}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#2E7D32]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#1B4332]" />
               </button>
             </div>
           </motion.div>

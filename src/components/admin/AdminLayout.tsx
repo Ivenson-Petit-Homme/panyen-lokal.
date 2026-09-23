@@ -25,7 +25,12 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   activeTab,
   setActiveTab
 }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth >= 1024;
+    }
+    return false;
+  });
 
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -40,16 +45,17 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
       {/* Sidebar */}
       <aside
         className={`${
-          isSidebarOpen ? 'w-64' : 'w-20'
-        } bg-[#1B4332] text-white transition-all duration-300 flex flex-col shadow-2xl z-30`}
+          isSidebarOpen ? 'w-64' : 'w-16 sm:w-20'
+        } bg-[#1B4332] text-white transition-all duration-300 flex flex-col shadow-2xl z-30 shrink-0`}
       >
-        <div className="p-6 flex items-center justify-between border-b border-white/10">
-          {isSidebarOpen && <span className="font-serif font-black text-lg tracking-tight text-white">ADMIN PANEL</span>}
+        <div className="p-4 sm:p-6 flex items-center justify-between border-b border-white/10">
+          {isSidebarOpen && <span className="font-serif font-black text-sm sm:text-lg tracking-tight text-white whitespace-nowrap">ADMIN PANEL</span>}
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="p-1 hover:bg-white/10 rounded-lg transition-colors cursor-pointer text-white"
+            className="p-1.5 hover:bg-white/10 rounded-lg transition-colors cursor-pointer text-white"
+            aria-label="Toggle Sidebar"
           >
-            {isSidebarOpen ? <ChevronLeft /> : <Menu />}
+            {isSidebarOpen ? <ChevronLeft className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 

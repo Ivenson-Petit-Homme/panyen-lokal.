@@ -35,8 +35,8 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
   const [selectedFormat, setSelectedFormat] = useState<string>('4oz');
   const [quantity, setQuantity] = useState<number>(1);
 
-  const detailFormats = product.formatsDetail || ["2oz", "4oz", "250ml", "500ml", "1L"];
-  const exportFormats = product.formatsExport || ["1 Gallon", "Baril Export 54 Gallons"];
+  const detailFormats: string[] = Array.from(new Set<string>(product.formatsDetail || ["2oz", "4oz", "250ml", "500ml", "1L"]));
+  const exportFormats: string[] = Array.from(new Set<string>(product.formatsExport || ["1 Gallon", "Baril Export 54 Gallons"]));
 
   const currentPrice = product.formatPricing?.[selectedFormat];
   const isExport = exportFormats.includes(selectedFormat);
@@ -52,7 +52,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
   return (
     <div id="page-huile-de-ricin" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
       {/* Top Hero Banner */}
-      <div className="bg-gradient-to-r from-[#143527] via-[#1B4332] to-[#2d6a4f] text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-[#2d6a4f] relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#143527] via-[#1B4332] to-[#2D6A4F] text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-[#2D6A4F] relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeInSection direction="down">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] font-black text-xs uppercase tracking-wider mb-4 shadow">
@@ -85,19 +85,19 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
               
               <StaggerContainer className="flex flex-wrap gap-3 pt-2" staggerDelay={0.12}>
                 <StaggerItem direction="none">
-                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-white flex items-center gap-1.5">
+                  <span className="px-3 py-1 rounded-lg bg-[#1B4332] border border-[#2D6A4F] text-xs text-white flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-white" />
                     {t('ricin.solvent_free')}
                   </span>
                 </StaggerItem>
                 <StaggerItem direction="none">
-                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-white flex items-center gap-1.5">
+                  <span className="px-3 py-1 rounded-lg bg-[#1B4332] border border-[#2D6A4F] text-xs text-white flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-white" />
                     {t('ricin.ricinoleic_acid')}
                   </span>
                 </StaggerItem>
                 <StaggerItem direction="none">
-                  <span className="px-3 py-1 rounded-lg bg-[#143527] border border-[#2d6a4f] text-xs text-white flex items-center gap-1.5">
+                  <span className="px-3 py-1 rounded-lg bg-[#1B4332] border border-[#2D6A4F] text-xs text-white flex items-center gap-1.5">
                     <Truck className="w-4 h-4 text-white" />
                     {t('ricin.fob_info')}
                   </span>
@@ -142,11 +142,11 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
             onClick={() => setActiveTab('detail')}
             className={`pb-4 px-4 text-sm font-bold border-b-2 whitespace-nowrap transition-all flex items-center gap-2 ${
               activeTab === 'detail'
-                ? 'border-[#2E7D32] text-[#1B4332] bg-[#1B4332]/5'
+                ? 'border-[#2D6A4F] text-[#1B4332] bg-[#1B4332]/5'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
-            <ShoppingBag className="w-4 h-4 text-[#2E7D32]" />
+            <ShoppingBag className="w-4 h-4 text-[#1B4332]" />
             <span>{t('ricin.tab_retail')}</span>
           </button>
 
@@ -154,11 +154,11 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
             onClick={() => setActiveTab('export')}
             className={`pb-4 px-4 text-sm font-bold border-b-2 whitespace-nowrap transition-all flex items-center gap-2 ${
               activeTab === 'export'
-                ? 'border-[#2E7D32] text-[#1B4332] bg-[#1B4332]/5'
+                ? 'border-[#2D6A4F] text-[#1B4332] bg-[#1B4332]/5'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
-            <Truck className="w-4 h-4 text-[#2E7D32]" />
+            <Truck className="w-4 h-4 text-[#1B4332]" />
             <span>{t('ricin.tab_export')}</span>
           </button>
 
@@ -166,11 +166,11 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
             onClick={() => setActiveTab('science')}
             className={`pb-4 px-4 text-sm font-bold border-b-2 whitespace-nowrap transition-all flex items-center gap-2 ${
               activeTab === 'science'
-                ? 'border-[#2E7D32] text-[#1B4332] bg-[#1B4332]/5'
+                ? 'border-[#2D6A4F] text-[#1B4332] bg-[#1B4332]/5'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
-            <ShieldCheck className="w-4 h-4 text-[#2E7D32]" />
+            <ShieldCheck className="w-4 h-4 text-[#1B4332]" />
             <span>{t('ricin.tab_science')}</span>
           </button>
 
@@ -178,11 +178,11 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
             onClick={() => setActiveTab('recettes')}
             className={`pb-4 px-4 text-sm font-bold border-b-2 whitespace-nowrap transition-all flex items-center gap-2 ${
               activeTab === 'recettes'
-                ? 'border-[#2E7D32] text-[#1B4332] bg-[#1B4332]/5'
+                ? 'border-[#2D6A4F] text-[#1B4332] bg-[#1B4332]/5'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-[#2E7D32]" />
+            <Sparkles className="w-4 h-4 text-[#1B4332]" />
             <span>{t('ricin.tab_rituals')}</span>
           </button>
         </div>
@@ -196,7 +196,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
             className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start"
           >
             <div className="lg:col-span-6 space-y-6">
-              <div className="rounded-3xl overflow-hidden bg-[#1B4332] border border-[#2d6a4f] shadow-md p-4 flex items-center justify-center">
+              <div className="rounded-3xl overflow-hidden bg-[#1B4332] border border-[#2D6A4F] shadow-md p-4 flex items-center justify-center">
                 <ImageWithSkeleton
                   src={product.image}
                   alt="Pure castor oil from Panyen Lokal"
@@ -207,7 +207,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
 
               <div className="bg-white p-5 rounded-2xl border border-stone-200 space-y-3">
                 <h4 className="font-serif font-bold text-stone-900 text-sm flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-[#2E7D32]" />
+                  <ShieldCheck className="w-4 h-4 text-[#1B4332]" />
                   {t('ricin.bottle_specs')}
                 </h4>
                 <p className="text-xs text-stone-600 leading-relaxed">
@@ -249,22 +249,22 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                   {t('ricin.formats_label')}
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {detailFormats.map((fmt) => {
+                  {detailFormats.map((fmt, fmtIdx) => {
                     const isSelected = selectedFormat === fmt;
                     const price = product.formatPricing?.[fmt];
                     return (
                       <button
-                        key={fmt}
+                        key={`ricin-fmt-${fmt}-${fmtIdx}`}
                         onClick={() => setSelectedFormat(fmt)}
                         className={`p-3 rounded-xl border text-left transition-all ${
                           isSelected
-                            ? 'border-[#2E7D32] bg-[#1B4332] text-white ring-2 ring-[#2E7D32]/30'
+                            ? 'border-[#2D6A4F] bg-[#1B4332] text-white ring-2 ring-[#2E7D32]/30'
                             : 'border-stone-200 bg-stone-50 hover:bg-stone-100'
                         }`}
                       >
                         <div className={`font-bold text-xs ${isSelected ? 'text-white' : 'text-stone-900'}`}>{fmt}</div>
                         {price && (
-                          <div className={`text-[11px] font-extrabold mt-0.5 ${isSelected ? 'text-[#E9C46A]' : 'text-[#2E7D32]'}`}>
+                          <div className={`text-[11px] font-extrabold mt-0.5 ${isSelected ? 'text-[#E9C46A]' : 'text-[#1B4332]'}`}>
                             ${price.priceUSD.toFixed(2)} USD
                           </div>
                         )}
@@ -320,7 +320,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleOrder}
-                className="w-full py-4 px-6 rounded-2xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#388E3C]"
+                className="w-full py-4 px-6 rounded-2xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#2D6A4F]"
               >
                 <ShoppingBag className="w-4 h-4 text-white" />
                 <span>{t('ricin.add_to_cart_btn').replace('{quantity}', quantity.toString()).replace('{format}', selectedFormat)}</span>
@@ -328,11 +328,11 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
 
               <div className="pt-2 flex items-center justify-between text-xs text-stone-500 border-t border-stone-100">
                 <span className="flex items-center gap-1">
-                  <Truck className="w-3.5 h-3.5 text-[#2E7D32]" />
+                  <Truck className="w-3.5 h-3.5 text-[#1B4332]" />
                   {t('ricin.shipping_fast')}
                 </span>
                 <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#2E7D32]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#1B4332]" />
                   {t('ricin.secure_payment')}
                 </span>
               </div>
@@ -350,9 +350,9 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-stone-200">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1B4332]/10 text-[#1B4332] text-xs font-bold uppercase mb-2 border border-[#1B4332]/20">
-                  <Truck className="w-3.5 h-3.5 text-[#1B4332]" />
-                  <span>{t('ricin.export_tag')}</span>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white text-xs font-bold uppercase mb-2 border border-[#2D6A4F] shadow-sm">
+                  <Truck className="w-3.5 h-3.5 text-[#E9C46A]" />
+                  <span className="text-white">{t('ricin.export_tag')}</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F2937]">
                   {t('ricin.export_title')}
@@ -364,7 +364,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
 
               <button
                 onClick={() => setCurrentRoute('marches-export')}
-                className="px-5 py-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs shadow transition-all flex items-center gap-2 whitespace-nowrap self-start md:self-auto cursor-pointer border border-[#388E3C]"
+                className="px-5 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow transition-all flex items-center gap-2 whitespace-nowrap self-start md:self-auto cursor-pointer border border-[#2D6A4F]"
               >
                 <FileText className="w-4 h-4 text-white" />
                 <span>{t('ricin.container_btn')}</span>
@@ -376,7 +376,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
               {/* Format 1: Gallon */}
               <motion.div
                 whileHover={{ scale: 1.01 }}
-                className="p-6 rounded-2xl border-2 border-stone-200 hover:border-[#2E7D32] bg-white transition-all space-y-4"
+                className="p-6 rounded-2xl border-2 border-stone-200 hover:border-[#2D6A4F] bg-white transition-all space-y-4"
               >
                 <div className="flex justify-between items-start">
                   <div>
@@ -385,7 +385,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                       {t('ricin.format_gallon_title')}
                     </h4>
                   </div>
-                  <span className="px-3 py-1 rounded-full bg-[#1B4332] text-white border border-[#2E7D32] text-xs font-bold">
+                  <span className="px-3 py-1 rounded-full bg-[#1B4332] text-white border border-[#2D6A4F] text-xs font-bold">
                     $145.00 USD
                   </span>
                 </div>
@@ -394,21 +394,21 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                 </p>
                 <ul className="text-xs text-stone-700 space-y-1.5">
                   <li className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D32]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
                     <span>{t('ricin.format_gallon_stat1')}</span>
                   </li>
                   <li className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D32]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
                     <span>{t('ricin.format_gallon_stat2')}</span>
                   </li>
                   <li className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D32]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
                     <span>{t('ricin.format_gallon_stat3')}</span>
                   </li>
                 </ul>
                 <button
                   onClick={() => onRequestQuote(product, '1 Gallon')}
-                  className="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#153427] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <FileText className="w-3.5 h-3.5 text-white" />
                   <span>{t('ricin.format_gallon_btn')}</span>
@@ -418,7 +418,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
               {/* Format 2: Baril 54 Gallons */}
               <motion.div
                 whileHover={{ scale: 1.01 }}
-                className="p-6 rounded-2xl border-2 border-[#2E7D32] bg-white transition-all space-y-4 shadow-sm"
+                className="p-6 rounded-2xl border-2 border-[#2D6A4F] bg-white transition-all space-y-4 shadow-sm"
               >
                 <div className="flex justify-between items-start">
                   <div>
@@ -436,21 +436,21 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                 </p>
                 <ul className="text-xs text-stone-700 space-y-1.5">
                   <li className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D32]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
                     <span>{t('ricin.format_drum_stat1')}</span>
                   </li>
                   <li className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D32]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
                     <span>{t('ricin.format_drum_stat2')}</span>
                   </li>
                   <li className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D32]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
                     <span>{t('ricin.format_drum_stat3')}</span>
                   </li>
                 </ul>
                 <button
                   onClick={() => onRequestQuote(product, 'Baril Export 54 Gallons')}
-                  className="w-full py-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs flex items-center justify-center gap-2 shadow cursor-pointer border border-[#388E3C]"
+                  className="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs flex items-center justify-center gap-2 shadow cursor-pointer border border-[#2D6A4F]"
                 >
                   <FileText className="w-3.5 h-3.5 text-white" />
                   <span>{t('ricin.format_drum_btn')}</span>
@@ -572,7 +572,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
 
               <div className="p-6 rounded-2xl bg-white border border-stone-200 space-y-3">
                 <div className="p-2.5 rounded-xl bg-emerald-50 text-[#1B4332] w-fit border border-emerald-200">
-                  <Droplet className="w-5 h-5 text-[#2E7D32]" />
+                  <Droplet className="w-5 h-5 text-[#1B4332]" />
                 </div>
                 <h4 className="font-bold font-serif text-base text-[#1F2937]">
                   {t('ricin.ritual2_title')}

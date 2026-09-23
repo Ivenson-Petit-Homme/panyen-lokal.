@@ -167,7 +167,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/70 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
       <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-stone-200 overflow-hidden text-stone-900 my-8">
         {/* Header */}
-        <div className="bg-[#1B4332] text-white p-6 relative border-b border-[#2d6a4f]">
+        <div className="bg-[#1B4332] text-white p-6 relative border-b border-[#2D6A4F]">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 text-white cursor-pointer"
@@ -206,7 +206,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => { setMode('login'); setErrorMessage(null); }}
             className={`flex-1 py-3 text-center transition-colors cursor-pointer ${
               mode === 'login'
-                ? 'border-b-2 border-[#1B4332] text-[#1B4332] bg-white font-extrabold'
+                ? 'border-b-2 border-[#2D6A4F] text-[#1B4332] bg-white font-extrabold'
                 : 'bg-stone-50 text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -217,7 +217,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => { setMode('register'); setErrorMessage(null); }}
             className={`flex-1 py-3 text-center transition-colors cursor-pointer ${
               mode === 'register'
-                ? 'border-b-2 border-[#1B4332] text-[#1B4332] bg-white font-extrabold'
+                ? 'border-b-2 border-[#2D6A4F] text-[#1B4332] bg-white font-extrabold'
                 : 'bg-stone-50 text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -275,7 +275,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <ArrowRight className="w-4 h-4 text-white" />
                 <span>{loading ? t('auth.login_btn_loading') : t('auth.login_btn_ready')}</span>
@@ -352,7 +352,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       onClick={() => setRegion(rId)}
                       className={`p-2 rounded-xl border text-center font-bold transition-all text-[11px] flex flex-col items-center gap-0.5 cursor-pointer ${
                         region === rId
-                          ? 'bg-[#1B4332] text-white border-[#1B4332] shadow-xs'
+                          ? 'bg-[#1B4332] text-white border-[#2D6A4F] shadow-xs'
                           : 'bg-stone-50 hover:bg-stone-100 text-stone-700 border-stone-200'
                       }`}
                     >
@@ -411,7 +411,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-black shadow-md transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer"
+                className="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-black shadow-md transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 <span>{loading ? t('auth.register_btn_loading') : t('auth.register_btn_ready')}</span>

@@ -155,7 +155,7 @@ export const frTranslations = {
   'home.category_spirits_title': "Cognac Grand Tamar & Hydromel",
   'home.category_spirits_desc': "Liqueur noble de tamarin vieillie en fût et vin de miel pur à la bigarade.",
   'home.category_grocery_title': "Chocolat Fin & Cassaves",
-  'home.category_grocery_desc': "Cacao 100% naturel de la Grand'Anse, cassaves dorées et beurre de cacahuète.",
+  'home.category_grocery_desc': "Cacao 100% pur et naturel des mornes d'Haïti et cassaves artisanales dorées du terroir.",
 
   // Ricin Page
   'ricin.badge': "PRODUIT PHARE NUMÉRO 1 • PANYEN LOKAL",
@@ -755,7 +755,7 @@ export const enTranslations: Record<keyof typeof frTranslations, string> = {
   'home.category_spirits_title': "Cognac Grand Tamar & Mead",
   'home.category_spirits_desc': "Noble barrel-aged tamarind liqueur and pure honey wine with bitter orange.",
   'home.category_grocery_title': "Fine Chocolate & Cassava",
-  'home.category_grocery_desc': "100% natural cocoa from Grand'Anse, golden cassava and peanut butter.",
+  'home.category_grocery_desc': "100% pure and natural Haitian cocoa and artisanal golden cassava cakes.",
 
   // Ricin Page
   'ricin.badge': "FLAGSHIP PRODUCT #1 • PANYEN LOKAL",

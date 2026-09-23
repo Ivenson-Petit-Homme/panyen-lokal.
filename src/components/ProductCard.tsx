@@ -31,12 +31,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   const { language, t } = useLanguage();
   const isEn = language === 'en';
 
-  // Determine initial format
-  const allFormats = [
+  // Determine unique formats without duplicates
+  const allFormats: string[] = Array.from(new Set<string>([
     ...(product.formatsDetail || []),
     ...(product.formatsExport || []),
     ...(product.formats || [])
-  ];
+  ])).filter(Boolean);
 
   const imagesList = product.gallery && product.gallery.length > 0
     ? product.gallery
@@ -66,8 +66,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       id={`product-card-${product.id}`}
       className={`bg-white rounded-2xl border transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 ${
         product.id === 'huile-de-ricin' 
-          ? 'border-[#2E7D32] ring-2 ring-[#2E7D32]/25' 
-          : 'border-[#E9C46A]/40 hover:border-[#1B4332]'
+          ? 'border-[#2D6A4F] ring-2 ring-[#2E7D32]/25' 
+          : 'border-[#E9C46A]/40 hover:border-[#2D6A4F]'
       }`}
     >
       {/* Card Header & Visual Image Area */}
@@ -86,16 +86,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {product.badge && (
             <span className={`px-2.5 py-1 rounded-md text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm ${
               product.badge.includes('PHARE') || product.badge.includes('STAR')
-                ? 'bg-[#E9C46A] text-[#1B4332] ring-1 ring-[#1B4332]'
+                ? 'bg-[#E9C46A] text-[#1B4332] ring-1 ring-[#2E7D32]'
                 : product.badge.includes('NOUVEAUTÉ')
                 ? 'bg-[#1B4332] text-white border border-white'
-                : 'bg-[#1B4332] text-white border border-[#2d6a4f]'
+                : 'bg-[#1B4332] text-white border border-[#2D6A4F]'
             }`}>
               {product.badge}
             </span>
           )}
           {product.slogan && (
-            <span className="bg-[#1B4332]/90 backdrop-blur-sm text-white text-[10px] italic font-serif px-2 py-0.5 rounded shadow-sm border border-[#2d6a4f]">
+            <span className="bg-[#143527]/90 backdrop-blur-sm text-white text-[10px] italic font-serif px-2 py-0.5 rounded shadow-sm border border-[#2D6A4F]">
               "{product.slogan}"
             </span>
           )}
@@ -108,9 +108,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             <span>{t('product.dest_prefix')} {selectedRegion === 'haiti' ? t('region.haiti').split(' ')[0] : selectedRegion === 'usa' ? 'USA' : t('region.dom_rep').split(' ')[0]}</span>
           </span>
           {product.inStock ? (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#2E7D32]/15 text-[#1B4332] border border-[#2E7D32] bg-[#FDFBF7]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2E7D32] animate-pulse"></span>
-              {t('catalog.in_stock')}
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#1B4332] text-white border border-[#2D6A4F] shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E9C46A] animate-pulse"></span>
+              <span className="text-white">{t('catalog.in_stock')}</span>
             </span>
           ) : (
             <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-stone-200 text-[#1F2937]/70">
@@ -121,7 +121,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Gallery Image Preview Dots */}
         {imagesList.length > 1 && (
-          <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1 bg-[#143527]/90 px-2 py-1 rounded-full border border-[#2d6a4f]">
+          <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1 bg-[#143527]/90 px-2 py-1 rounded-full border border-[#2D6A4F]">
             <Images className="w-3 h-3 text-white" />
             <span className="text-[10px] font-bold text-white mr-1">{imagesList.length} photos</span>
             {imagesList.map((_, dotIdx) => (
@@ -142,7 +142,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Category Pill */}
         <div className="absolute bottom-3 left-3 z-10">
-          <span className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-[#143527]/90 backdrop-blur-md text-[#FDFBF7] border border-[#2d6a4f]">
+          <span className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-[#143527]/90 backdrop-blur-md text-[#FDFBF7] border border-[#2D6A4F]">
             {product.category}
           </span>
         </div>
@@ -150,10 +150,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Quick View Button on Hover */}
         <button
           onClick={() => onSelectProduct(product)}
-          className="absolute inset-0 bg-[#143527]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs backdrop-blur-xs cursor-pointer"
+          className="absolute inset-0 bg-[#1B4332]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs backdrop-blur-xs cursor-pointer"
           title={t('catalog.view_details')}
         >
-          <span className="bg-[#1B4332] hover:bg-[#235841] text-white border border-white px-4 py-2 rounded-xl shadow-xl flex items-center gap-1.5 font-bold">
+          <span className="bg-[#1B4332] hover:bg-[#143527] text-white border border-white px-4 py-2 rounded-xl shadow-xl flex items-center gap-1.5 font-bold">
             <Info className="w-3.5 h-3.5 text-white" />
             {t('product.details_btn')} ({imagesList.length})
           </span>
@@ -166,7 +166,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="flex items-start justify-between gap-2">
             <h3 
               onClick={() => onSelectProduct(product)}
-              className="text-base sm:text-lg font-bold font-serif text-[#1B4332] hover:text-[#2E7D32] cursor-pointer transition-colors leading-snug"
+              className="text-base sm:text-lg font-bold font-serif text-[#1B4332] hover:text-[#1B4332] cursor-pointer transition-colors leading-snug"
             >
               {product.title}
             </h3>
@@ -177,7 +177,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </p>
 
           <div className="mt-2 text-[11px] text-[#1B4332] font-semibold flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#2E7D32]" />
+            <ShieldCheck className="w-3.5 h-3.5 text-[#1B4332]" />
             <span>{t('product.origin_label')} {product.origin}</span>
           </div>
         </div>
@@ -198,19 +198,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
-              {allFormats.map((fmt) => {
+              {allFormats.map((fmt, fmtIdx) => {
                 const isSelected = selectedFormat === fmt;
                 const isExport = product.formatsExport?.includes(fmt);
                 return (
                   <button
-                    key={fmt}
+                    key={`${product.id}-format-${fmt}-${fmtIdx}`}
                     type="button"
                     onClick={() => setSelectedFormat(fmt)}
                     className={`px-2 py-1.5 rounded-lg text-xs font-medium transition-all text-center truncate cursor-pointer ${
                       isSelected
                         ? isExport 
                           ? 'bg-[#E9C46A] text-[#1B4332] font-black shadow-sm ring-2 ring-[#E9C46A]'
-                          : 'bg-[#1B4332] text-white border border-[#1B4332] font-bold shadow-sm'
+                          : 'bg-[#1B4332] text-white border border-[#2D6A4F] font-bold shadow-sm'
                         : 'bg-[#FDFBF7] text-[#1F2937] hover:bg-stone-200 border border-stone-200'
                     }`}
                   >
@@ -244,7 +244,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               )}
             </div>
           </div>
-          <div className="text-right text-[11px] text-[#2E7D32] font-bold">
+          <div className="text-right text-[11px] text-[#1B4332] font-bold">
             {selectedFormat}
           </div>
         </div>
@@ -255,7 +255,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             <button
               id={`btn-quote-${product.id}`}
               onClick={() => onRequestQuote(product, selectedFormat)}
-              className="w-full py-2.5 px-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 col-span-2 cursor-pointer border border-[#388E3C]"
+              className="w-full py-2.5 px-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 col-span-2 cursor-pointer border border-[#2D6A4F]"
             >
               <FileText className="w-4 h-4 text-white" />
               <span>{t('product.b2b_quote_btn')} ({selectedFormat})</span>
@@ -268,7 +268,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 className={`py-2.5 px-3 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer border ${
                   addedAnimation
                     ? 'bg-[#E9C46A] text-[#1B4332] border-[#E9C46A] font-black'
-                    : 'bg-[#2E7D32] hover:bg-[#256629] text-white border-[#388E3C]'
+                    : 'bg-[#1B4332] hover:bg-[#143527] text-white border-[#2D6A4F]'
                 }`}
               >
                 {addedAnimation ? (
@@ -286,10 +286,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               <button
                 id={`btn-detail-${product.id}`}
                 onClick={() => onSelectProduct(product)}
-                className="py-2.5 px-3 rounded-xl bg-[#1B4332]/5 hover:bg-[#1B4332]/10 text-[#1B4332] font-semibold text-xs border border-[#1B4332]/20 transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                className="py-2.5 px-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-semibold text-xs border border-[#2D6A4F] transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-xs"
               >
-                <Info className="w-3.5 h-3.5 text-[#1B4332]" />
-                <span>{t('product.details_btn')}</span>
+                <Info className="w-3.5 h-3.5 text-white" />
+                <span className="text-white">{t('product.details_btn')}</span>
               </button>
             </>
           )}

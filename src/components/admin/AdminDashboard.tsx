@@ -55,12 +55,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
 
   if (loading) return (
     <div className="flex flex-col items-center justify-center py-32 space-y-4">
-      <div className="w-12 h-12 border-4 border-[#1B4332] border-t-transparent rounded-full animate-spin" />
+      <div className="w-12 h-12 border-4 border-[#2D6A4F] border-t-transparent rounded-full animate-spin" />
       <p className="text-stone-500 font-bold animate-pulse">Chargement des données en temps réel...</p>
     </div>
   );
 
-  const COLORS = ['#1B4332', '#2E7D32', '#E9C46A', '#F4A261', '#E76F51'];
+  const COLORS = ['#1B4332', '#1B4332', '#E9C46A', '#F4A261', '#E76F51'];
 
   return (
     <div className="space-y-8 animate-fadeIn pb-10">
@@ -137,7 +137,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
 
         {/* Stock Status & Alerts */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-[#1B4332] p-6 rounded-3xl text-white shadow-xl h-full border border-[#265943]">
+          <div className="bg-[#1B4332] p-6 rounded-3xl text-white shadow-xl h-full border border-[#2D6A4F]">
             <div className="flex items-center gap-2 mb-6">
               <Package className="w-5 h-5 text-[#E9C46A]" />
               <h3 className="font-bold uppercase tracking-wider text-sm text-white">État des Stocks</h3>

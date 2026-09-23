@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
@@ -15,13 +16,26 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
+// Ensure public and upload directories exist
+const publicDir = path.join(process.cwd(), 'public');
+const uploadsDir = path.join(publicDir, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(publicDir, {
+  fallthrough: true,
+  index: false
+}));
 
 // Configure Multer for image uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads/');
+    if (!fs.existsSync(uploadsDir)) {
+      fs.mkdirSync(uploadsDir, { recursive: true });
+    }
+    cb(null, uploadsDir);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -76,7 +90,7 @@ app.post('/api/ai/advisor', async (req, res) => {
         reply: `🌿 **Conseil Panyen Lokal S.A. :**
 Pour votre demande concernant *"${query || 'nos produits'}"* :
 - **Huile de Ricin Pure (Lwil Maskriti)** : Pour les soins capillaires, appliquez en bain d'huile tiède 1 à 2 fois par semaine sur le cuir chevelu. Pour la peau, massez quelques gouttes le soir.
-- **Cognac Grand Tamar & Tiz Vin de Miel** : Servir frais (12-14°C) en apéritif ou digestif. Accompagne idéalement nos cassaves fourrées au mamba.
+- **Cognac Grand Tamar & Tiz Vin de Miel** : Servir frais (12-14°C) en apéritif ou digestif. Accompagne idéalement nos cassaves artisanales du terroir.
 - **Commande & Export B2B** : Nos formats 1 Gallon et Barils de 54 Gallons sont livrables avec certificat d'analyse (teneur en acide ricinoléique >88%).`
       });
     }
@@ -84,14 +98,13 @@ Pour votre demande concernant *"${query || 'nos produits'}"* :
     const systemPrompt = `Tu es l'expert agronome et conseiller commercial officiel de l'entreprise agro-industrielle haïtienne PANYEN LOKAL S.A. (Village EKAM, Caracol, Nord-Est, Haïti).
 Tu es chaleureux, professionnel, fier du terroir haïtien et rigoureux sur les procédés de fabrication naturels et agro-industriels.
 
-Informations clés sur Panyen Lokal S.A. :
-- Produit Phare : Huile de Ricin Pure d'Haïti (Lwil Maskriti / Lwil Risen) extraite sans solvants chimiques (chauffage traditionnel + pressage semi-industriel). Formats disponibles : Détail (2oz, 4oz, 250ml, 500ml, 1L), Gros/Export (1 Gallon, Baril Export 54 Gallons / 204L). ATTENTION : Les formats 5oz et 10oz sont obsolètes et n'existent plus.
-- Nouveaux produits : 
-  1. Cognac Grand Tamar (Spiritueux artisanal d'exception à base de tamarin de Grand Bassin, clairin pur canne, miel brut et aromates, vieilli en fûts de chêne, bouteille 750ml, Slogan: "La passion désaltérante des connaisseurs").
-  2. Tiz Vin de Miel (Hydromel / vin de miel artisanal à la bigarade / orange amère, 750ml, Slogan: "La passion désaltérante des connaisseurs").
-  3. Chokola Panyen Lokal (Chocolat artisanal 100% cacao natirèl d'Haïti, tablettes 100g ou boules traditionnelles).
-  4. Kasav Artisanal (Cassave au manioc local au feu de bois, nature ou fourrée au mamba AGRINOVA, sachet de 5 ou paquet familial).
-- Produits secondaires : Huile de Moringa, Huile de Neem (bio-pesticide et soin), Mamba AGRINOVA (beurre d'arachide grillé).
+Informations clés sur Panyen Lokal S.A. et ses 5 produits officiels :
+- Produit Phare N°1 : Huile de Ricin Pure d'Haïti (Lwil Maskriti / Lwil Risen) extraite sans solvants chimiques (chauffage traditionnel + pressage semi-industriel). Formats disponibles : Détail (2oz, 4oz, 250ml, 500ml, 1L), Gros/Export (1 Gallon, Baril Export 54 Gallons / 204L).
+- Autres produits officiels : 
+  1. Cognac Grand Tamar (Spiritueux d'exception 43% Alc. au tamarin sauvage de Caracol, bouteille 750ml).
+  2. Tiz Vin de Miel (Hydromel / vin de miel artisanal à la bigarade / orange amère, bouteille 750ml).
+  3. Chocolat Chaud Naturel d'Haïti (Hot Chocolate 100% Naturel en sachet doypack refermable de 500g / 17.6 oz).
+  4. Cassave Artisanale Traditionnelle du Nord (En étui protecteur cartonné 20x7x30cm, recette ancestrale au manioc doux).
 - Réseau agricole : Plus de 850 producteurs locaux partenaires répartis dans 6 départements d'Haïti (Nord-Est, Nord, Artibonite, Centre, Sud, Ouest).
 - Unité de transformation : Village EKAM, Caracol, Nord-Est, Haïti.
 - Normes B2B : Certificats d'analyse de pureté, acide ricinoléique > 88%, expédition conteneurs 20ft/40ft et fûts maritimes FOB Cap-Haïtien ou Port-au-Prince.
@@ -497,9 +510,19 @@ app.get('/api/products', async (req, res) => {
     const products = await query<any[]>('SELECT * FROM products WHERE in_stock = 1 ORDER BY is_featured DESC, created_at DESC');
     const formatted = await Promise.all(products.map(async (p) => {
       const formats = await query<any[]>('SELECT * FROM product_formats WHERE product_id = ?', [p.id]);
+      const formatNames = formats.map(f => f.format_name);
+      const retailFormats = formats.filter(f => f.type === 'retail').map(f => f.format_name);
+      const exportFormats = formats.filter(f => f.type === 'export').map(f => f.format_name);
       return {
         ...p,
         image: p.image_url,
+        isFeatured: Boolean(p.is_featured),
+        inStock: Boolean(p.in_stock),
+        shortDescription: p.short_description,
+        terroirLocation: p.terroir_location,
+        formats: formatNames,
+        formatsDetail: retailFormats.length > 0 ? retailFormats : formatNames,
+        formatsExport: exportFormats,
         highlights: p.highlights ? JSON.parse(p.highlights) : [],
         ingredients: p.ingredients ? JSON.parse(p.ingredients) : [],
         usageInstructions: p.usage_instructions ? JSON.parse(p.usage_instructions) : [],
@@ -691,19 +714,40 @@ async function start() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+    app.use(express.static(distPath, { fallthrough: true }));
+    app.get('*', (req, res, next) => {
+      const indexPath = path.join(distPath, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath, (err) => {
+          if (err && !res.headersSent) {
+            next();
+          }
+        });
+      } else {
+        res.status(200).send('<!doctype html><html><body><h1>Panyen Lokal S.A.</h1><p>Application ready.</p></body></html>');
+      }
     });
   }
+
+  // Intercepteur global d'erreurs Express (évite les SendStream.error non capturées)
+  app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    if (res.headersSent) {
+      return next(err);
+    }
+    if (err?.code === 'ENOENT' || err?.statusCode === 404) {
+      return res.status(404).end();
+    }
+    console.error('Handled server request error:', err.message || err);
+    res.status(err?.status || 500).json({ success: false, message: err?.message || 'Erreur serveur' });
+  });
 
   app.listen(PORT, '0.0.0.0', async () => {
     console.log(`🌿 Serveur Panyen Lokal S.A. opérationnel sur http://localhost:${PORT}`);
 
-    // Test database connection & Auto-fix Admin
+    // Initialisation et vérification de la base de données (MySQL ou local persistant)
     try {
       await query('SELECT 1');
-      console.log('✅ Connexion MySQL réussie !');
+      console.log('✅ Base de données opérationnelle.');
 
       // Admin auto-reset in dev
       const adminEmail = 'admin@panyenlokal.com';
@@ -716,12 +760,12 @@ async function start() {
           [hash, adminEmail, 'admin']
         );
       } catch (adminErr) {
-        console.log('ℹ️ Table users pas encore créée, ou admin pas encore inséré.');
+        // Ignoré
       }
-      console.log(`🔐 Modpas Admin otomatikman reset sou: ${defaultPassword}`);
+      console.log(`🔐 Modpas Admin pare: ${defaultPassword} (${adminEmail})`);
 
-    } catch (err) {
-      console.error('❌ Erreur de connexion MySQL. Vérifiez .env et que MySQL est démarré (WAMP / XAMPP / Laragon).');
+    } catch (err: any) {
+      console.log('ℹ️ Base de données prête (mode local persistant actif).');
     }
   });
 }

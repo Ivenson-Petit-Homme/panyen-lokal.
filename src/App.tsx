@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { PageRoute, Product, CartItem, DeliveryRegion, UserAccount, Order } from './types';
 import { PRODUCTS_DATA } from './data/productsData';
+import bgMissionImg from './assets/images/MissionIM.jpg';
+import bgExportImg from './assets/images/EXPORT.jpg';
+import bgPartnershipImg from './assets/images/PARTENARIA.jpg';
+import bgContactImg from './assets/images/CONTACT.jpg';
+
+// Instant browser preloading for all page headers
+if (typeof window !== 'undefined') {
+  [bgMissionImg, bgExportImg, bgPartnershipImg, bgContactImg].forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+}
 import { getRegionalPrice, REGIONS_CONFIG } from './utils/pricing';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -32,17 +44,17 @@ import { AdminUsers } from './components/admin/AdminUsers';
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<PageRoute>('home');
   const [activeAdminTab, setActiveAdminTab] = useState<string>('dashboard');
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loadingProducts, setLoadingProducts] = useState(true);
+  const [products, setProducts] = useState<Product[]>(PRODUCTS_DATA);
+  const [loadingProducts, setLoadingProducts] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  // Fetch products from DB
+  // Fetch products from DB if available
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await fetch('/api/products');
         const data = await res.json();
-        if (data.success) {
+        if (data.success && Array.isArray(data.products) && data.products.length > 0) {
           setProducts(data.products);
         }
       } catch (err) {

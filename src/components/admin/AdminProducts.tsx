@@ -179,7 +179,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
         </div>
         <button
           onClick={() => handleOpenModal()}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#1B4332] hover:bg-[#235841] text-white rounded-xl text-xs font-black shadow-lg cursor-pointer transition-all border border-white/30"
+          className="flex items-center gap-2 px-5 py-2.5 bg-[#1B4332] hover:bg-[#143527] text-white rounded-xl text-xs font-black shadow-lg cursor-pointer transition-all border border-white/30"
         >
           <Plus className="w-4 h-4" />
           AJOUTE PWODWI
@@ -214,7 +214,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
             <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] font-black text-[#1B4332] bg-[#1B4332]/10 px-2 py-0.5 rounded uppercase tracking-widest">{product.category}</span>
+                  <span className="text-[9px] font-black text-white bg-[#1B4332] px-2 py-0.5 rounded border border-[#2D6A4F] uppercase tracking-widest">{product.category}</span>
                 </div>
                 <h4 className="font-black text-stone-900 leading-tight text-lg">{product.title}</h4>
                 <p className="text-xs text-stone-500 line-clamp-2 leading-relaxed">
@@ -328,7 +328,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                         <label className="flex flex-col items-center justify-center w-full h-16 border-2 border-dashed border-stone-200 rounded-xl cursor-pointer hover:bg-stone-50 transition-all">
                           <div className="flex items-center gap-2 text-stone-500">
                             {uploading ? (
-                              <div className="w-4 h-4 border-2 border-[#1B4332] border-t-transparent rounded-full animate-spin" />
+                              <div className="w-4 h-4 border-2 border-[#2D6A4F] border-t-transparent rounded-full animate-spin" />
                             ) : (
                               <ImageIcon className="w-4 h-4" />
                             )}
@@ -372,7 +372,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                       type="checkbox"
                       checked={formData.inStock}
                       onChange={(e) => setFormData({...formData, inStock: e.target.checked})}
-                      className="w-4 h-4 accent-[#2E7D32]"
+                      className="w-4 h-4 accent-[#1B4332]"
                     />
                     <span className="text-[10px] font-black uppercase">En Stock</span>
                   </label>
@@ -381,7 +381,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                       type="checkbox"
                       checked={formData.isFeatured}
                       onChange={(e) => setFormData({...formData, isFeatured: e.target.checked})}
-                      className="w-4 h-4 accent-[#2E7D32]"
+                      className="w-4 h-4 accent-[#1B4332]"
                     />
                     <span className="text-[10px] font-black uppercase">Featured</span>
                   </label>
@@ -397,7 +397,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                   </button>
                   <button
                     type="submit"
-                    className="px-8 py-3 rounded-xl bg-[#2E7D32] hover:bg-[#256629] text-white font-black text-xs shadow-lg flex items-center gap-2 cursor-pointer transition-all"
+                    className="px-8 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-black text-xs shadow-lg flex items-center gap-2 cursor-pointer transition-all"
                   >
                     <Save className="w-4 h-4" />
                     ENREGISTRER
