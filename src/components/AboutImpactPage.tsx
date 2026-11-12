@@ -29,9 +29,9 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
   return (
     <div id="about-impact-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
       {/* Top Banner Header - Balanced Height */}
-      <div className="relative bg-[#1B4332] text-white border-b border-[#2D6A4F] overflow-hidden">
+      <div className="relative bg-[#2A4833] text-white border-b border-[#5B9B6E] overflow-hidden">
         {/* Background Image Container */}
-        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1B4332]">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#2A4833]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Agriculture"
@@ -48,7 +48,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 w-full">
             <FadeInSection direction="down">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
                 <Sprout className="w-3.5 h-3.5" />
                 <span>{t('about.tag')}</span>
               </div>
@@ -79,25 +79,25 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
         <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-4" staggerDelay={0.1}>
           <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1B4332]">850+</div>
+            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C3022]">850+</div>
             <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_farmers_label')}</p>
             <p className="text-[11px] text-stone-500">{t('about.stat_farmers_sub')}</p>
           </StaggerItem>
 
           <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1B4332]">6</div>
+            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C3022]">6</div>
             <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_depts_label')}</p>
             <p className="text-[11px] text-stone-500">{t('about.stat_depts_sub')}</p>
           </StaggerItem>
 
           <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1B4332]">1 650</div>
+            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C3022]">1 650</div>
             <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_hectares_label')}</p>
             <p className="text-[11px] text-stone-500">{t('about.stat_hectares_sub')}</p>
           </StaggerItem>
 
           <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1B4332]">0%</div>
+            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C3022]">0%</div>
             <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_solvents_label')}</p>
             <p className="text-[11px] text-stone-500">{t('about.stat_solvents_sub')}</p>
           </StaggerItem>
@@ -109,8 +109,8 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <FadeInSection direction="left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-bold uppercase tracking-wider">
-                <Building2 className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2A4833] text-white shadow-sm border border-[#5B9B6E] text-xs font-bold uppercase tracking-wider">
+                <Building2 className="w-3.5 h-3.5 text-[#E59500]" />
                 <span className="text-white">{t('about.model_tag')}</span>
               </div>
             </FadeInSection>
@@ -129,7 +129,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
 
             <StaggerContainer className="space-y-3 text-xs sm:text-sm text-stone-700" staggerDelay={0.15}>
               <StaggerItem direction="left" className="flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-200">
-                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-md bg-[#2A4833] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                   1
                 </div>
                 <div>
@@ -139,7 +139,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
               </StaggerItem>
 
               <StaggerItem direction="left" className="flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-200">
-                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-md bg-[#2A4833] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                   2
                 </div>
                 <div>
@@ -149,7 +149,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
               </StaggerItem>
 
               <StaggerItem direction="left" className="flex items-start gap-3 p-3 rounded-xl bg-white border border-stone-200">
-                <div className="w-6 h-6 rounded-md bg-[#1B4332] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-md bg-[#2A4833] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                   3
                 </div>
                 <div>
@@ -187,8 +187,8 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
         {/* Interactive Haitian Orchards Map & Explorer across 6 departments */}
         <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-10 shadow-sm space-y-8">
           <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-bold uppercase">
-              <TreePine className="w-3.5 h-3.5 text-[#E9C46A]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2A4833] text-white shadow-sm border border-[#5B9B6E] text-xs font-bold uppercase">
+              <TreePine className="w-3.5 h-3.5 text-[#E59500]" />
               <span className="text-white">{t('about.orchards_tag')}</span>
             </div>
             <h3 className="text-2xl sm:text-4xl font-serif font-bold text-[#1F2937]">
@@ -209,11 +209,11 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
                   onClick={() => setSelectedDept(dept)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                     isSelected
-                      ? 'bg-[#1B4332] text-white shadow-md'
+                      ? 'bg-[#2A4833] text-white shadow-md'
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  <MapPin className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-[#1B4332]'}`} />
+                  <MapPin className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-[#1C3022]'}`} />
                   <span>{dept.name}</span>
                 </button>
               );
@@ -230,7 +230,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
           >
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
-                <span className="text-xs font-bold uppercase px-3 py-1 rounded-md bg-[#1B4332] text-white">
+                <span className="text-xs font-bold uppercase px-3 py-1 rounded-md bg-[#2A4833] text-white">
                   {t('about.dept_prefix')} {selectedDept.name}
                 </span>
                 <span className="text-xs font-serif italic text-stone-600">
@@ -245,11 +245,11 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
                 <div className="p-3 bg-white rounded-xl border border-stone-200">
                   <span className="text-[10px] text-stone-500 block uppercase font-bold">{t('about.stat_area')}</span>
-                  <span className="text-base font-extrabold text-[#1B4332]">{selectedDept.hectares} ha</span>
+                  <span className="text-base font-extrabold text-[#1C3022]">{selectedDept.hectares} ha</span>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-stone-200">
                   <span className="text-[10px] text-stone-500 block uppercase font-bold">{t('about.stat_producers')}</span>
-                  <span className="text-base font-extrabold text-[#1B4332]">{selectedDept.producersCount} {t('about.stat_unit')}</span>
+                  <span className="text-base font-extrabold text-[#1C3022]">{selectedDept.producersCount} {t('about.stat_unit')}</span>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-stone-200 col-span-2 sm:col-span-1">
                   <span className="text-[10px] text-stone-500 block uppercase font-bold">{t('about.stat_altitude')}</span>
@@ -263,7 +263,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedDept.keyCrops.map((crop, idx) => (
-                    <span key={idx} className="px-3 py-1 rounded-full text-xs font-semibold bg-white text-[#1B4332] border border-stone-200">
+                    <span key={idx} className="px-3 py-1 rounded-full text-xs font-semibold bg-white text-[#1C3022] border border-stone-200">
                       🌿 {crop}
                     </span>
                   ))}
@@ -273,7 +273,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
 
             {/* Visual Terroir representation */}
             <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-center space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md">
+              <div className="w-14 h-14 rounded-2xl bg-[#2A4833] text-white flex items-center justify-center mx-auto shadow-md">
                 <Sprout className="w-8 h-8" />
               </div>
               <h5 className="font-bold text-[#1F2937] text-sm">
@@ -287,10 +287,10 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
                   setCurrentRoute('partenariats');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1B4332] hover:underline cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1C3022] hover:underline cursor-pointer"
               >
                 <span>{t('about.invest_btn')}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#1B4332]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#1C3022]" />
               </button>
             </div>
           </motion.div>

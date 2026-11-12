@@ -40,9 +40,9 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
   return (
     <div id="partnerships-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
       {/* Hero Header - Balanced Height */}
-      <div className="relative bg-[#1B4332] text-white border-b border-[#2D6A4F] overflow-hidden">
+      <div className="relative bg-[#2A4833] text-white border-b border-[#5B9B6E] overflow-hidden">
         {/* Background Image Container */}
-        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1B4332]">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#2A4833]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Partners"
@@ -58,7 +58,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 w-full">
             <FadeInSection direction="down">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
                 <HeartHandshake className="w-3.5 h-3.5" />
                 <span>{t('partners.tag')}</span>
               </div>
@@ -87,8 +87,8 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
         {/* 3 Pillars of Partnership */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.12}>
           <StaggerItem className="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#1B4332] text-white border border-[#2D6A4F] shadow-sm flex items-center justify-center font-bold">
-              <TrendingUp className="w-6 h-6 text-[#E9C46A]" />
+            <div className="w-12 h-12 rounded-2xl bg-[#2A4833] text-white border border-[#5B9B6E] shadow-sm flex items-center justify-center font-bold">
+              <TrendingUp className="w-6 h-6 text-[#E59500]" />
             </div>
             <h3 className="text-xl font-serif font-bold text-[#1F2937]">
               {t('partners.pillar1_title')}
@@ -98,11 +98,11 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
             </p>
             <ul className="text-xs text-stone-700 space-y-1.5 pt-2 border-t border-stone-100">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#1C3022]" />
                 <span>{t('partners.pillar1_stat1')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#1C3022]" />
                 <span>{t('partners.pillar1_stat2')}</span>
               </li>
             </ul>
@@ -110,7 +110,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
 
           <StaggerItem className="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-900 border border-amber-200 flex items-center justify-center font-bold">
-              <Users className="w-6 h-6 text-[#E9C46A]" />
+              <Users className="w-6 h-6 text-[#E59500]" />
             </div>
             <h3 className="text-xl font-serif font-bold text-[#1F2937]">
               {t('partners.pillar2_title')}
@@ -120,18 +120,18 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
             </p>
             <ul className="text-xs text-stone-700 space-y-1.5 pt-2 border-t border-stone-100">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#1C3022]" />
                 <span>{t('partners.pillar2_stat1')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#1C3022]" />
                 <span>{t('partners.pillar2_stat2')}</span>
               </li>
             </ul>
           </StaggerItem>
 
           <StaggerItem className="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#1B4332] text-white flex items-center justify-center font-bold shadow-md">
+            <div className="w-12 h-12 rounded-2xl bg-[#2A4833] text-white flex items-center justify-center font-bold shadow-md">
               <Building2 className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-serif font-bold text-[#1F2937]">
@@ -142,11 +142,11 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
             </p>
             <ul className="text-xs text-stone-700 space-y-1.5 pt-2 border-t border-stone-100">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#1C3022]" />
                 <span>{t('partners.pillar3_stat1')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#1B4332]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#1C3022]" />
                 <span>{t('partners.pillar3_stat2')}</span>
               </li>
             </ul>
@@ -157,7 +157,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
         <FadeInSection threshold={0.2}>
           <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-10 shadow-sm space-y-6">
             <div className="max-w-xl">
-              <span className="text-xs font-bold uppercase text-[#1B4332]">{t('partners.form_tag')}</span>
+              <span className="text-xs font-bold uppercase text-[#1C3022]">{t('partners.form_tag')}</span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F2937] mt-1">
                 {t('partners.form_title')}
               </h2>
@@ -170,9 +170,9 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="p-8 bg-white rounded-2xl border border-[#2D6A4F]/40 text-center space-y-3 shadow-sm"
+                className="p-8 bg-white rounded-2xl border border-[#5B9B6E]/40 text-center space-y-3 shadow-sm"
               >
-                <div className="w-12 h-12 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md">
+                <div className="w-12 h-12 rounded-full bg-[#2A4833] text-white flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <h4 className="text-lg font-bold text-[#1F2937]">{t('partners.success_title')}</h4>
@@ -190,7 +190,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                       placeholder={t('partners.field_name_placeholder')}
                     />
                   </div>
@@ -201,7 +201,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
                       required
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                       placeholder={t('partners.field_org_placeholder')}
                     />
                   </div>
@@ -212,7 +212,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                       placeholder="email@organisation.com"
                     />
                   </div>
@@ -222,7 +222,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                       placeholder="+509 / +1 / +33..."
                     />
                   </div>
@@ -236,7 +236,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={t('partners.field_message_placeholder')}
-                    className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   ></textarea>
                 </div>
 
@@ -244,7 +244,7 @@ export const PartnershipsPage: React.FC<PartnershipsPageProps> = ({ setCurrentRo
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="px-8 py-3.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow-md border border-[#2D6A4F] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="px-8 py-3.5 rounded-xl bg-[#2A4833] hover:bg-[#1C3022] text-white font-bold text-xs shadow-md border border-[#5B9B6E] transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4 text-white" />
                   <span>{t('partners.submit_btn')}</span>

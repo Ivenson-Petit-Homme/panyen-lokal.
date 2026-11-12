@@ -96,7 +96,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
         {/* Header Heading */}
         <div className="text-center mb-16 space-y-4">
           <FadeInSection direction="down">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1B4332] text-white text-xs font-black uppercase tracking-widest shadow-md">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2A4833] text-white text-xs font-black uppercase tracking-widest shadow-md">
               <Building2 className="w-4 h-4" />
               <span>{t('official.banner_tag')}</span>
             </div>
@@ -106,7 +106,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#1B4332] drop-shadow-md"
+            className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#1C3022] drop-shadow-md"
           >
             {t('banner.title')}
           </motion.h2>
@@ -129,12 +129,12 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
               className="relative group max-w-[340px] sm:max-w-[380px] w-full"
             >
               {/* Stand Shadow & Frame Effect */}
-              <div className="absolute -inset-2 bg-gradient-to-b from-[#E9C46A]/20 via-[#1B4332]/30 to-[#E9C46A]/20 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute -inset-2 bg-gradient-to-b from-[#E59500]/20 via-[#1C3022]/30 to-[#E59500]/20 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity" />
               
               <motion.div
                 whileHover={{ rotateY: -5, rotateX: 2, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="relative bg-[#1B4332] p-2.5 sm:p-3 rounded-2xl border-2 border-[#E9C46A]/60 shadow-2xl overflow-hidden"
+                className="relative bg-[#2A4833] p-2.5 sm:p-3 rounded-2xl border-2 border-[#E59500]/60 shadow-2xl overflow-hidden"
               >
                 {/* Top aluminum stand bar simulation */}
                 <div className="w-full h-3 bg-gradient-to-r from-stone-400 via-stone-200 to-stone-400 rounded-t-md mb-2 shadow-inner flex items-center justify-center">
@@ -155,7 +155,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setIsLightboxOpen(true)}
-                      className="w-16 h-16 rounded-full bg-[#E9C46A] text-[#1B4332] flex items-center justify-center shadow-2xl mb-4 cursor-pointer"
+                      className="w-16 h-16 rounded-full bg-[#E59500] text-[#1C3022] flex items-center justify-center shadow-2xl mb-4 cursor-pointer"
                     >
                       <Maximize2 className="w-8 h-8" />
                     </motion.button>
@@ -184,10 +184,10 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
               transition={{ delay: 0.8 }}
               className="mt-8 text-center"
             >
-              <p className="text-sm font-serif italic text-[#1B4332] font-semibold">
+              <p className="text-sm font-serif italic text-[#1C3022] font-semibold">
                 {t('banner.quote')}
               </p>
-              <div className="w-12 h-0.5 bg-[#E9C46A] mx-auto mt-2" />
+              <div className="w-12 h-0.5 bg-[#E59500] mx-auto mt-2" />
             </motion.div>
           </div>
 
@@ -196,8 +196,8 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
             <div className="space-y-4">
               <FadeInSection direction="right">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-[#E9C46A]/15 flex items-center justify-center">
-                    <Target className="w-5 h-5 text-[#1B4332]" />
+                  <div className="w-10 h-10 rounded-2xl bg-[#E59500]/15 flex items-center justify-center">
+                    <Target className="w-5 h-5 text-[#1C3022]" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1F2937]">
                     {t('banner.objectives_title')}
@@ -213,11 +213,11 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                       key={idx}
                       direction="right"
                       distance={20}
-                      className="p-4 rounded-2xl bg-[#143527]/90 border border-[#2D6A4F] hover:border-white transition-all hover:bg-[#1a4231] group space-y-1.5 shadow-sm"
+                      className="p-4 rounded-2xl bg-[#1C3022]/90 border border-[#5B9B6E] hover:border-white transition-all hover:bg-[#1a4231] group space-y-1.5 shadow-sm"
                     >
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-xl bg-[#E9C46A] text-[#1B4332] flex items-center justify-center shrink-0 font-bold shadow">
-                          <Icon className="w-4 h-4 text-[#1B4332]" />
+                        <div className="w-8 h-8 rounded-xl bg-[#E59500] text-[#1C3022] flex items-center justify-center shrink-0 font-bold shadow">
+                          <Icon className="w-4 h-4 text-[#1C3022]" />
                         </div>
                         <div>
                           <span className="text-xs font-black uppercase text-white tracking-wider block">
@@ -242,7 +242,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="p-6 sm:p-8 rounded-3xl bg-[#1B4332] border border-[#2D6A4F] text-white shadow-xl space-y-6"
+              className="p-6 sm:p-8 rounded-3xl bg-[#2A4833] border border-[#5B9B6E] text-white shadow-xl space-y-6"
             >
               <h4 className="text-lg font-serif font-bold flex items-center gap-2 text-white">
                 <div className="w-1.5 h-6 bg-white rounded-full" />
@@ -256,9 +256,9 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + (idx * 0.1) }}
-                    className="p-3.5 rounded-xl bg-[#1B4332] border border-[#2D6A4F] flex items-start gap-3"
+                    className="p-3.5 rounded-xl bg-[#2A4833] border border-[#5B9B6E] flex items-start gap-3"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#1B4332] text-white flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[#2A4833] text-white flex items-center justify-center shrink-0 mt-0.5">
                       <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div className="space-y-0.5">
@@ -280,7 +280,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                     setCurrentRoute('produits');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="px-5 py-2.5 rounded-xl bg-[#E9C46A] hover:bg-[#d4b05a] text-[#1F2937] text-xs font-black shadow-lg flex items-center gap-2 cursor-pointer transition-all transform hover:translate-y-[-2px] active:translate-y-0"
+                  className="px-5 py-2.5 rounded-xl bg-[#E59500] hover:bg-[#d4b05a] text-[#1F2937] text-xs font-black shadow-lg flex items-center gap-2 cursor-pointer transition-all transform hover:translate-y-[-2px] active:translate-y-0"
                 >
                   <span>{t('banner.view_products_btn')}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -290,7 +290,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                     setCurrentRoute('marches-export');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="px-4 py-2.5 rounded-xl bg-white hover:bg-stone-100 text-[#1B4332] text-xs font-bold shadow-sm flex items-center gap-2 cursor-pointer transition-all border border-stone-300"
+                  className="px-4 py-2.5 rounded-xl bg-white hover:bg-stone-100 text-[#1C3022] text-xs font-bold shadow-sm flex items-center gap-2 cursor-pointer transition-all border border-stone-300"
                 >
                   <span>{t('banner.b2b_btn')}</span>
                 </button>
@@ -327,7 +327,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                 <X className="w-6 h-6" />
               </button>
 
-              <div className="bg-[#1B4332] p-3 rounded-2xl border-2 border-[#E9C46A] shadow-2xl max-h-[85vh] overflow-y-auto">
+              <div className="bg-[#2A4833] p-3 rounded-2xl border-2 border-[#E59500] shadow-2xl max-h-[85vh] overflow-y-auto">
                 <ImageWithSkeleton
                   src={rollupBannerImg}
                   alt="Banyè Ofisyèl Panyen Lokal"
@@ -337,7 +337,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
 
                 <div className="mt-3 flex items-center justify-between text-xs text-stone-200 px-2">
                   <div>
-                    <strong className="text-[#E9C46A] block font-serif text-sm">PANYEN LOKAL • Stand Roll-up</strong>
+                    <strong className="text-[#E59500] block font-serif text-sm">PANYEN LOKAL • Stand Roll-up</strong>
                     <span>{t('banner.quote')}</span>
                   </div>
                   <button
@@ -348,7 +348,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                       link.target = '_blank';
                       link.click();
                     }}
-                    className="px-3 py-1.5 rounded-lg bg-[#1B4332] hover:bg-[#143527] text-white font-bold flex items-center gap-1.5 cursor-pointer text-xs"
+                    className="px-3 py-1.5 rounded-lg bg-[#2A4833] hover:bg-[#1C3022] text-white font-bold flex items-center gap-1.5 cursor-pointer text-xs"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>{t('banner.download_simple')}</span>

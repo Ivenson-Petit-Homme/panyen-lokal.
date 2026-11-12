@@ -59,7 +59,7 @@ export const BackToTopButton: React.FC = () => {
         >
           {/* Tooltip on Hover (Desktop) */}
           <div className="absolute bottom-full mb-2 right-0 hidden sm:group-hover:flex items-center pointer-events-none transition-all duration-200 opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0">
-            <div className="bg-[#1B4332] text-white border border-[#2D6A4F] text-[11px] font-bold py-1 px-2.5 rounded-lg shadow-xl whitespace-nowrap flex items-center gap-1.5 backdrop-blur-md">
+            <div className="bg-[#2A4833] text-white border border-[#5B9B6E] text-[11px] font-bold py-1 px-2.5 rounded-lg shadow-xl whitespace-nowrap flex items-center gap-1.5 backdrop-blur-md">
               <span>{t('nav.back_to_top')}</span>
               <span className="text-[10px] text-stone-300 font-mono">({Math.round(scrollProgress)}%)</span>
             </div>
@@ -70,7 +70,7 @@ export const BackToTopButton: React.FC = () => {
             onClick={scrollToTop}
             aria-label={t('nav.scroll_top_aria')}
             title={t('nav.back_to_top')}
-            className="relative w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#1B4332] hover:bg-[#143527] text-white shadow-xl hover:shadow-2xl border-2 border-[#2D6A4F] hover:border-[#E9C46A] flex items-center justify-center transition-all duration-300 cursor-pointer active:scale-95 group-hover:-translate-y-1 focus:outline-hidden focus:ring-2 focus:ring-[#E9C46A] focus:ring-offset-2"
+            className="relative w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#2A4833] hover:bg-[#1C3022] text-white shadow-xl hover:shadow-2xl border-2 border-[#5B9B6E] hover:border-[#E59500] flex items-center justify-center transition-all duration-300 cursor-pointer active:scale-95 group-hover:-translate-y-1 focus:outline-hidden focus:ring-2 focus:ring-[#E59500] focus:ring-offset-2"
           >
             {/* Circular Scroll Progress Ring */}
             <svg 
@@ -82,7 +82,7 @@ export const BackToTopButton: React.FC = () => {
                 cx="24"
                 cy="24"
                 r={radius}
-                className="stroke-[#2D6A4F]/40"
+                className="stroke-[#3D684A]/40"
                 strokeWidth="2.5"
                 fill="transparent"
               />
@@ -91,7 +91,7 @@ export const BackToTopButton: React.FC = () => {
                 cx="24"
                 cy="24"
                 r={radius}
-                className="stroke-[#E9C46A] transition-all duration-150"
+                className="stroke-[#E59500] transition-all duration-150"
                 strokeWidth="2.5"
                 strokeDasharray={circumference}
                 strokeDashoffset={strokeDashoffset}

@@ -80,11 +80,11 @@ export const AdminUsers: React.FC<AdminUsersProps> = ({ currentUser }) => {
             placeholder="Rechercher un membre par nom ou email..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-stone-50 border border-stone-100 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-stone-50 border border-stone-100 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
           />
         </div>
         <div className="flex items-center gap-2">
-          <div className="px-4 py-2 bg-[#1B4332] text-white rounded-xl text-[10px] font-black uppercase tracking-widest border border-[#2D6A4F] shadow-xs">
+          <div className="px-4 py-2 bg-[#2A4833] text-white rounded-xl text-[10px] font-black uppercase tracking-widest border border-[#5B9B6E] shadow-xs">
             {users.length} Manb Inskri
           </div>
         </div>
@@ -101,7 +101,7 @@ export const AdminUsers: React.FC<AdminUsersProps> = ({ currentUser }) => {
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl shadow-inner ${
-                  user.role === 'admin' ? 'bg-[#E9C46A] text-[#1B4332]' : 'bg-stone-100 text-stone-400'
+                  user.role === 'admin' ? 'bg-[#E59500] text-[#1C3022]' : 'bg-stone-100 text-stone-400'
                 }`}>
                   {user.full_name?.charAt(0).toUpperCase()}
                 </div>
@@ -128,7 +128,7 @@ export const AdminUsers: React.FC<AdminUsersProps> = ({ currentUser }) => {
               </div>
               {user.company_name && (
                 <div className="flex items-center gap-2 text-xs text-stone-600 font-bold">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#1B4332]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#1C3022]" />
                   <span>{user.company_name}</span>
                 </div>
               )}
@@ -140,7 +140,7 @@ export const AdminUsers: React.FC<AdminUsersProps> = ({ currentUser }) => {
                 className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-[10px] font-black uppercase transition-all cursor-pointer border ${
                   user.role === 'admin'
                     ? 'bg-red-50 text-red-600 border-red-100 hover:bg-red-600 hover:text-white'
-                    : 'bg-emerald-50 text-emerald-700 border-emerald-100 hover:bg-[#143527] hover:text-white'
+                    : 'bg-emerald-50 text-emerald-700 border-emerald-100 hover:bg-[#1C3022] hover:text-white'
                 }`}
               >
                 {user.role === 'admin' ? <ShieldAlert className="w-3 h-3" /> : <ShieldCheck className="w-3 h-3" />}

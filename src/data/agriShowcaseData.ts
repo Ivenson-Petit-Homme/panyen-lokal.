@@ -20,6 +20,7 @@ import ricinFlaconImg from '../assets/images/huile_ricin_flacon_1786847591002.jp
 import grandTamarFrontImg from '../assets/images/grand_tamar_face_exact_1789970399816.jpg';
 import cassaveNordBoxImg from '../assets/images/cassave_nord_box_1786934328091.jpg';
 import chocolatChaudPanyenImg from '../assets/images/chocolat_chaud_doypack_panyen_1789937953070.jpg';
+import vinDeMielImg from '../assets/images/vin_de_miel_bottle_1794516761155.jpg';
 import champImg from '../assets/images/champ_panyen_lokal_1786858968582.jpg';
 import complexeImg from '../assets/images/complexe_ekam_caracol_1786858981077.jpg';
 import usineExtImg from '../assets/images/usine_exterieur_ekam_1786859382526.jpg';
@@ -104,82 +105,82 @@ export const getFourPillars = (isEn: boolean): PillarData[] => [
   {
     id: "emploi",
     icon: Users,
-    badge: isEn ? "PILLAR #1" : "PILIER #1",
-    title: isEn ? "Sustainable Job Creation & Farming Dignity" : "Création d'Emplois Durables & Dignité Paysanne",
+    badge: isEn ? "01" : "01",
+    title: isEn ? "Sustainable Rural Livelihoods" : "Dignité Paysanne & Emplois Durables",
     lead: isEn 
-      ? "Over 850 rural producer families supported with stable, guaranteed incomes." 
-      : "Plus de 850 familles de producteurs rurales accompagnées avec des revenus stables et garantis.",
+      ? "Guaranteed multi-year contracts securing stable household revenues across rural communities." 
+      : "Des contrats d'achat garantis offrant des revenus stables aux familles agricoles partenaires.",
     image: marchandesImg,
     details: isEn ? [
-      "Multi-year purchasing agreements at guaranteed fair prices before harvest.",
-      "Direct agronomic mentorship to boost yields without synthetic chemicals.",
-      "Anchoring rural communities in their native lands to curb rural exodus."
+      "Pre-harvest fair pricing agreements protecting planters against market volatility.",
+      "Direct field agronomy support to boost organic yields sustainably.",
+      "Long-term rural anchoring curbing youth migration from agricultural basins."
     ] : [
-      "Contrats d'achat pluriannuels à prix rémunérateurs garantis avant la récolte.",
-      "Encadrement agronomique de proximité pour optimiser les rendements sans intrants chimiques.",
-      "Fixation des populations rurales sur leurs terroirs et lutte contre l'exode rural."
+      "Accords tarifaires rémunérateurs fixés avant la saison des récoltes.",
+      "Accompagnement technique sur le terrain sans recours aux intrants chimiques.",
+      "Stabilisation économique durable des zones rurales."
     ],
-    tag: isEn ? "850+ Partner Families" : "850+ Familles Bénéficiaires"
+    tag: isEn ? "Social Impact" : "Impact Social"
   },
   {
     id: "transformation",
     icon: Factory,
-    badge: isEn ? "PILLAR #2" : "PILIER #2",
-    title: isEn ? "Industrial Processing & 100% Domestic Added Value" : "Transformation Industrielle & 100% Valeur Ajoutée Nationale",
+    badge: isEn ? "02" : "02",
+    title: isEn ? "Domestic Industrial Processing" : "Transformation Industrielle Locale",
     lead: isEn 
-      ? "Permanently ending the export of unrefined raw materials with zero local processing." 
-      : "Rompre définitivement avec l'exportation de matières premières brutes non valorisées.",
+      ? "Ending raw commodity exports by capturing full added value inside modern facilities." 
+      : "Capturer l'ensemble de la chaîne de valeur grâce à nos équipements en acier inoxydable.",
     image: complexeImg,
     details: isEn ? [
-      "State-of-the-art facility at Village EKAM in Caracol (North-East), equipped with 316L stainless steel presses.",
-      "Clean mechanical extraction processes without chemical solvents (hexane-free).",
-      "Creation of skilled industrial careers: machine operators, food chemists, and logistics experts."
+      "Cold mechanical extraction free from petrochemical solvents or hexane.",
+      "Food-grade filtration, controlled aging, and hygienic packaging lines.",
+      "Training specialized technicians, machine operators, and quality analysts."
     ] : [
-      "Complexe moderne au Village EKAM à Caracol (Nord-Est), équipé de presses inox 316L.",
-      "Procédés d'extraction propres sans solvants pétrochimiques (garanti sans hexane).",
-      "Création d'emplois industriels qualifiés : opérateurs de machines, chimistes et logisticiens."
+      "Extraction mécanique à froid sans solvants pétrochimiques ni hexane.",
+      "Filtration alimentaire, vieillissement contrôlé et lignes de conditionnement.",
+      "Formation de techniciens spécialisés et d'opérateurs qualifiés."
     ],
-    tag: isEn ? "EKAM Industrial Facility (Caracol)" : "Complexe Industriel EKAM (Caracol)"
+    tag: isEn ? "Industrial Rigor" : "Rigueur Industrielle"
   },
   {
     id: "souverainete",
     icon: ShieldCheck,
-    badge: isEn ? "PILLAR #3" : "PILIER #3",
-    title: isEn ? "Food Sovereignty & Import Substitution" : "Souveraineté Alimentaire & Remplacement des Importations",
+    badge: isEn ? "03" : "03",
+    title: isEn ? "Food & Botanical Sovereignty" : "Souveraineté & Terroir National",
     lead: isEn 
-      ? "Consuming premium local natural goods to preserve health and national economic resilience." 
-      : "Consommer des produits naturels locaux d'excellence pour préserver la santé et l'économie.",
+      ? "Replacing imported substitutes with traceable, pure harvests from Haitian soil." 
+      : "Substituer les importations par des ressources pures, traçables et certifiées.",
     image: marcheFruitsImg,
     details: isEn ? [
-      "Replacing imported mineral oils with certified Pure Haitian Castor Oil.",
-      "Culinary valorization of wild tamarind, organic cocoa, and native cassava.",
-      "Substantial foreign exchange savings for the Republic of Haiti."
+      "Rigorous botanical selection across tropical orchards and mountain apiaries.",
+      "Zero artificial preservatives across cosmetic and culinary ranges.",
+      "Strengthening domestic supply resilience and foreign exchange savings."
     ] : [
-      "Remplacement des huiles minérales importées par notre Huile de Ricin Pure certifiée.",
-      "Valorisation gastronomique du tamarin sauvage, du cacao bio et du manioc d'Haïti.",
-      "Économie substantielle de devises étrangères pour la république d'Haïti."
+      "Sélection botanique rigoureuse au cœur des vergers et ruchers tropicaux.",
+      "Zéro conservateur ni additif artificiel sur l'ensemble des gammes.",
+      "Contribution directe à l'autonomie économique nationale."
     ],
-    tag: isEn ? "Economic Autonomy of Haiti" : "Autonomie Économique d'Haïti"
+    tag: isEn ? "Traceability" : "Traçabilité"
   },
   {
     id: "exportation",
     icon: Globe2,
-    badge: isEn ? "PILLAR #4" : "PILIER #4",
-    title: isEn ? "Global Reach & Elite B2B Exports" : "Rayonnement Mondial & Exportations B2B d'Élite",
+    badge: isEn ? "04" : "04",
+    title: isEn ? "International B2B Logistics" : "Rayonnement & Exportation B2B",
     lead: isEn 
-      ? "Positioning Haitian craftsmanship and terroir at the top of international value chains." 
-      : "Positionner le savoir-faire haïtien au sommet des chaînes de valeur mondiales.",
+      ? "Connecting regional craftsmanship to global cosmetic, gourmet, and wholesale buyers." 
+      : "Connecter le savoir-faire national aux marchés exigeants d'Amérique et d'Europe.",
     image: portExportImg,
     details: isEn ? [
-      "Compliance with international purity standards: HPLC analysis, MSDS/SDS sheets, and certificates of origin.",
-      "Streamlined export channels to the United States (Miami/New York), Canada, and the Caribbean.",
-      "Bulk shipping in industrial 204L drums (54 Gallons) and full 20ft/40ft maritime containers."
+      "Compliance with laboratory HPLC testing, MSDS documentation, and origin certificates.",
+      "Structured ocean freight channels serving North America and the Caribbean.",
+      "Flexible fulfillment from retail units to sealed 204L industrial drums."
     ] : [
-      "Conformité avec les normes internationales de pureté HPLC, fiches FDS/MSDS et certificats.",
-      "Hubs d'exportation structurés vers les États-Unis (Miami/New York), le Canada et les Caraïbes.",
-      "Approvisionnement en fûts industriels de 204L (54 Gallons) et conteneurs complets."
+      "Conformité aux standards de laboratoire (HPLC, fiches FDS et certificats d'origine).",
+      "Corridors logistiques maritimes vers l'Amérique du Nord et les Caraïbes.",
+      "Capacité de livraison du détail aux conteneurs professionnels."
     ],
-    tag: isEn ? "B2B Exports & Global Diaspora" : "Export B2B & Diaspora Mondiale"
+    tag: isEn ? "Global Trade" : "Commerce International"
   }
 ];
 
@@ -260,7 +261,7 @@ export const getFlagshipProducts = (isEn: boolean): FlagshipProductData[] => [
     desc: isEn 
       ? 'Refined mead made with wild polyfloral honey and citrus hints from Northern bitter oranges.' 
       : 'Hydromel raffiné au miel polyfloral sauvage et notes de bigarade du Nord.',
-    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80',
+    image: vinDeMielImg,
     icon: Sparkles,
     badge: isEn ? 'Handcrafted' : 'Création Artisanale'
   },
@@ -274,17 +275,6 @@ export const getFlagshipProducts = (isEn: boolean): FlagshipProductData[] => [
     image: chocolatChaudPanyenImg,
     icon: Heart,
     badge: isEn ? '100% Cocoa Bar (150 HTG)' : 'Tablette Pur Cacao (150 HTG)'
-  },
-  {
-    id: 'cassave-artisanal',
-    title: isEn ? 'Traditional Cassava Cake' : 'Cassave Traditionnelle',
-    category: isEn ? 'Traditional Bakery & Cassava' : 'Boulangerie Traditionnelle & Manioc',
-    desc: isEn 
-      ? 'Crispy cassava biscuits flavored with sweet cassava, cinnamon, coconut, and sesame in protective box.' 
-      : 'Galettes de manioc doux, cannelle, coco et roroli en étui protecteur 20x7x30cm.',
-    image: cassaveNordBoxImg,
-    icon: Cookie,
-    badge: isEn ? 'Culinary Heritage' : 'Patrimoine Culinaire'
   }
 ];
 
@@ -396,104 +386,104 @@ export const getGalleryItems = (isEn: boolean): GalleryItemData[] => [
     id: 1,
     category: "direction",
     categoryLabel: isEn ? "Executive Board" : "Direction Générale",
-    role: isEn ? "Chief Executive Officer & Founder" : "Directeur Général & Fondateur",
-    title: isEn ? "Executive Leadership & Strategy" : "Direction Générale & Stratégie",
+    role: isEn ? "Chief Executive Officer" : "Directeur Général",
+    title: isEn ? "Strategic Governance & Vision" : "Gouvernance & Stratégie",
     desc: isEn 
-      ? "Strategic leadership of the Caracol agro-industrial complex, international trade partnerships, and economic sovereignty vision." 
-      : "Supervision stratégique du complexe agro-industriel de Caracol, partenariats internationaux et vision de la souveraineté économique d'Haïti.",
-    loc: isEn ? "Headquarters & EKAM Plant, Caracol" : "Siège & Usine EKAM, Caracol",
+      ? "Steering institutional growth, international trade alliances, and long-term industrial investments." 
+      : "Pilotage stratégique du développement industriel et des alliances commerciales internationales.",
+    loc: isEn ? "Headquarters" : "Direction Centrale",
     src: directeurGeneralImg,
-    tags: isEn ? ["Leadership", "Vision", "Sovereignty"] : ["Direction", "Vision", "Souveraineté"]
+    tags: isEn ? ["Leadership", "Strategy"] : ["Direction", "Stratégie"]
   },
   {
     id: 2,
     category: "direction",
-    categoryLabel: isEn ? "General Secretariat" : "Secrétariat Général",
-    role: isEn ? "General Secretary & Executive Coordinator" : "Secrétaire Générale & Administrative",
-    title: isEn ? "Corporate Governance & Institutional Affairs" : "Secrétariat Général & Relations Institutionnelles",
+    categoryLabel: isEn ? "Administration" : "Secrétariat Général",
+    role: isEn ? "General Secretary" : "Secrétaire Générale",
+    title: isEn ? "Institutional Affairs & Contracts" : "Affaires Institutionnelles",
     desc: isEn 
-      ? "Administrative governance, board coordination, strict oversight of distributor contracts, and VIP partner relations." 
-      : "Gestion administrative, coordination des conseils d'administration, suivi rigoureux des contrats distributeurs et accueil des partenaires.",
-    loc: isEn ? "Caracol Industrial Hub, North-East" : "Complexe de Caracol, Nord-Est",
+      ? "Board coordination, regulatory compliance, and oversight of partner distributor agreements." 
+      : "Coordination administrative, conformité réglementaire et suivi des accords partenaires.",
+    loc: isEn ? "North-East Hub" : "Pôle Nord-Est",
     src: secretaireGeneraleImg,
-    tags: isEn ? ["Administration", "Governance", "Coordination"] : ["Administration", "Secrétariat", "Coordination"]
+    tags: isEn ? ["Governance", "Compliance"] : ["Gouvernance", "Conformité"]
   },
   {
     id: 3,
     category: "production",
-    categoryLabel: isEn ? "Plant & Production" : "Production & Usine",
-    role: isEn ? "Director of Production EKAM" : "Directeur de Production EKAM",
-    title: isEn ? "Oil Extraction & Distillation Lead" : "Direction de Production & Extraction",
+    categoryLabel: isEn ? "Manufacturing" : "Production",
+    role: isEn ? "Director of Production" : "Directeur de Production",
+    title: isEn ? "Extraction & Distillation Lead" : "Extraction & Distillation",
     desc: isEn 
-      ? "Supervision of stainless-steel castor oil pressing lines, 43% Alc. Cognac Grand Tamar distillation, and strict HACCP compliance." 
-      : "Supervision des lignes de pressage inox d'huile de ricin, distillation du Cognac Grand Tamar 43%, contrôle HACCP et respect strict des rendements.",
-    loc: isEn ? "EKAM Modern Plant, Caracol" : "Usine Moderne EKAM, Caracol",
+      ? "Supervision of mechanical cold-press lines, oak-barrel aging, and strict HACCP hygiene standards." 
+      : "Supervision des lignes de pressage à froid, du vieillissement en fût et des normes HACCP.",
+    loc: isEn ? "Processing Plant" : "Unité de Transformation",
     src: directeurProductionImg,
-    tags: isEn ? ["Stainless Extraction", "HACCP Standards", "Grand Tamar"] : ["Extraction Inox", "Normes HACCP", "Grand Tamar"]
+    tags: isEn ? ["HACCP", "Quality Control"] : ["HACCP", "Contrôle Qualité"]
   },
   {
     id: 4,
     category: "production",
-    categoryLabel: isEn ? "Plant & Production" : "Production & Usine",
-    role: isEn ? "Plant Technicians & Operators Team" : "Équipe des Techniciens & Opérateurs",
-    title: isEn ? "Processing & Bottling Specialists" : "Opérateurs de Transformation & Embouteillage",
+    categoryLabel: isEn ? "Manufacturing" : "Production",
+    role: isEn ? "Workshop Specialists" : "Techniciens d'Usine",
+    title: isEn ? "Bottling & Sterile Packaging" : "Conditionnement & Embouteillage",
     desc: isEn 
-      ? "Skilled operators managing 204L export drum calibration, sterile cosmetic bottling, and vacuum-sealed cassava packaging." 
-      : "Équipe spécialisée assurant le calibrage des fûts export 204L, l'embouteillage stérile et le conditionnement hermétique des cassaves.",
-    loc: isEn ? "EKAM Processing Workshops" : "Ateliers de Transformation EKAM",
+      ? "Precision calibration of retail glass flacons and sealed bulk drums for maritime shipping." 
+      : "Calibrage de précision des flacons au détail et des fûts scellés destinés à l'export.",
+    loc: isEn ? "Packaging Line" : "Atelier Conditionnement",
     src: techniciensUsineImg,
-    tags: isEn ? ["Cold Press", "Bottling", "204L Drums"] : ["Pressage Froid", "Embouteillage", "Fûts 204L"]
+    tags: isEn ? ["Bottling", "Calibration"] : ["Embouteillage", "Calibrage"]
   },
   {
     id: 5,
     category: "agronomie",
-    categoryLabel: isEn ? "Agronomy & Terroirs" : "Agronomie & Terroirs",
-    role: isEn ? "Lead Agronomist & Quality Director" : "Ingénieure Agronome & Responsable Qualité",
-    title: isEn ? "Agronomic Guidance & Terroir Monitoring" : "Pôle Agronomie & Contrôle des Terroirs",
+    categoryLabel: isEn ? "Agronomy" : "Agronomie",
+    role: isEn ? "Lead Agronomist" : "Ingénieure Agronome",
+    title: isEn ? "Soil Health & Organic Selection" : "Agronomie & Sélection Terroir",
     desc: isEn 
-      ? "Technical assistance to farming families, selective breeding of castor, tamarind, and cocoa, and chemical-free bio-certification." 
-      : "Accompagnement technique des producteurs, sélection des variétés de ricin, tamarin et cacao, certification sans intrants chimiques.",
-    loc: isEn ? "Orchards of Caracol, Grand Bassin & Ouanaminthe" : "Vergers de Caracol, Grand Bassin & Ouanaminthe",
+      ? "Field technical guidance, botanical variety selection, and chemical-free soil stewardship." 
+      : "Encadrement technique sur parcelle, sélection botanique et préservation organique des sols.",
+    loc: isEn ? "Northern Orchards" : "Bassins du Nord",
     src: ingenieurAgronomeImg,
-    tags: isEn ? ["Agroforestry", "Soil Quality", "Organic Farming"] : ["Agroforesterie", "Qualité Terroirs", "Bio-Protection"]
+    tags: isEn ? ["Agroforestry", "Botany"] : ["Agroforesterie", "Botanique"]
   },
   {
     id: 6,
     category: "agronomie",
-    categoryLabel: isEn ? "Agronomy & Farmers" : "Agronomie & Planteurs",
-    role: isEn ? "Partner Farmer Delegates" : "Délégués des Planteurs Partenaires",
-    title: isEn ? "Network of 850+ Farming Families" : "Réseau des 850 Familles de Producteurs",
+    categoryLabel: isEn ? "Cooperatives" : "Coopératives",
+    role: isEn ? "Planter Delegates" : "Délégués des Planteurs",
+    title: isEn ? "Agricultural Partner Network" : "Réseau des Coopératives",
     desc: isEn 
-      ? "Representatives of agricultural cooperatives and family farms conducting sustainable manual harvests of castor, tamarind, and cocoa." 
-      : "Représentants des coopératives agricoles et planteurs familiaux assurant la récolte manuelle durable du ricin, tamarin et cacao d'ombrage.",
-    loc: isEn ? "North, North-East & Artibonite" : "Nord, Nord-Est & Artibonite",
+      ? "Cooperative representatives coordinating seasonal hand-harvests across family farms." 
+      : "Représentants des coopératives assurant les récoltes manuelles à maturité optimale.",
+    loc: isEn ? "Rural Collectives" : "Zones Rurales",
     src: planteursPartenairesImg,
-    tags: isEn ? ["850+ Families", "Fair Price", "Farming Dignity"] : ["850+ Familles", "Prix Équitable", "Dignité Paysanne"]
+    tags: isEn ? ["Fair Trade", "Harvest"] : ["Équitable", "Récoltes"]
   },
   {
     id: 7,
     category: "operations",
-    categoryLabel: isEn ? "Operations & Supply Chain" : "Opérations & Logistique",
-    role: isEn ? "Operations & Supply Chain Manager" : "Manager des Opérations & Supply Chain",
-    title: isEn ? "Operations Management & Material Flows" : "Manager des Opérations & Gestion des Flux",
+    categoryLabel: isEn ? "Logistics" : "Logistique",
+    role: isEn ? "Operations Manager" : "Manager des Opérations",
+    title: isEn ? "Supply Chain & Warehousing" : "Gestion des Flux & Stocks",
     desc: isEn 
-      ? "Logistical coordination, fresh raw material inventory control, and supply scheduling toward export hubs and domestic warehouses." 
-      : "Planification logistique, gestion des stocks de matières premières fraîches et organisation des flux vers les dépôts et marchés d'export.",
-    loc: isEn ? "EKAM Logistics Hub, Caracol" : "Hub Logistique EKAM, Caracol",
+      ? "Raw material intake planning, inventory traceability, and outbound dispatch coordination." 
+      : "Planification des approvisionnements, traçabilité des lots et gestion des expéditions.",
+    loc: isEn ? "Logistics Center" : "Centre Logistique",
     src: managerOperationsImg,
-    tags: isEn ? ["Supply Chain", "Material Flows", "Warehousing"] : ["Supply Chain", "Flux Matières", "Entreposage"]
+    tags: isEn ? ["Supply Chain", "Dispatch"] : ["Supply Chain", "Traçabilité"]
   },
   {
     id: 8,
     category: "operations",
-    categoryLabel: isEn ? "Wholesale & Exports" : "Vente en Gros & Export",
-    role: isEn ? "Head of Wholesale & Export Sales" : "Responsable Vente en Gros & Export",
-    title: isEn ? "Commercial Department & Global Export Relations" : "Pôle Commercial & Relations Export",
+    categoryLabel: isEn ? "Commercial" : "Commercial",
+    role: isEn ? "Head of Export Sales" : "Responsable Commercial & Export",
+    title: isEn ? "Global Wholesale Relations" : "Relations Grossistes & Export",
     desc: isEn 
-      ? "Handling bulk wholesale orders, proforma quotes for maritime containers, and direct relations with supermarket chains and diaspora buyers." 
-      : "Traitement des commandes de gros, devis proforma conteneurs maritimes, relations avec les grossistes, supermarchés et la diaspora.",
-    loc: isEn ? "Commercial Office, Cap-Haitien & Caracol" : "Bureau Commercial, Cap-Haïtien & Caracol",
+      ? "Proforma quotes, container logistics, and partnerships with international distributors." 
+      : "Élaboration des devis proforma et partenariats avec les distributeurs internationaux.",
+    loc: isEn ? "Commercial Desk" : "Bureau Commercial",
     src: responsableVenteExportImg,
-    tags: isEn ? ["Wholesale", "Ocean Freight", "Global Distributors"] : ["Vente en Gros", "Export Maritime", "Grossistes"]
+    tags: isEn ? ["Wholesale", "Freight"] : ["Vente en Gros", "Fret"]
   }
 ];

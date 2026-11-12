@@ -29,9 +29,9 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div id="contact-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
-      <div className="relative bg-[#1B4332] text-white border-b border-[#2D6A4F] overflow-hidden">
+      <div className="relative bg-[#2A4833] text-white border-b border-[#5B9B6E] overflow-hidden">
         {/* Background Image Container - Adjusted Height */}
-        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1B4332]">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#2A4833]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Facility"
@@ -47,7 +47,7 @@ export const ContactPage: React.FC = () => {
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 w-full">
             <FadeInSection direction="down">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
                 {t('contact.tag')}
               </div>
             </FadeInSection>
@@ -80,29 +80,48 @@ export const ContactPage: React.FC = () => {
               <div className="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-sm space-y-4">
                 <h3 className="text-xl font-serif font-bold text-[#1F2937]">{t('contact.info_title')}</h3>
                 <div className="space-y-4 text-xs sm:text-sm text-stone-700">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-[#1B4332] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-[#1F2937]">{t('contact.hub_label')}</strong>
-                      <span>{COMPANY_INFO.address}</span>
+                  {/* Haiti Office */}
+                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#3D684A] block">
+                      {isEn ? "Haiti Site & Plant" : "Haïti — Site & Siège Industriel"}
+                    </span>
+                    <strong className="block text-[#1F2937] text-sm">Biwo Caracol — PANYEN LOKAL S.A.</strong>
+                    <div className="flex items-start gap-2 pt-1">
+                      <MapPin className="w-4 h-4 text-[#1C3022] shrink-0 mt-0.5" />
+                      <span>{COMPANY_INFO.addressHaiti}</span>
+                    </div>
+                    <div className="flex items-center gap-2 pt-0.5">
+                      <Phone className="w-4 h-4 text-[#1C3022] shrink-0" />
+                      <span>{COMPANY_INFO.phoneHaiti}</span>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-[#1B4332] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-[#1F2937]">{t('contact.phone_title')}</strong>
-                      <span>{COMPANY_INFO.phone}</span>
+
+                  {/* USA Office */}
+                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#E59500] block">
+                      {isEn ? "United States Corporation" : "États-Unis — Siège & Distribution"}
+                    </span>
+                    <strong className="block text-[#1F2937] text-sm">PANYEN LOKAL INC</strong>
+                    <div className="flex items-start gap-2 pt-1">
+                      <MapPin className="w-4 h-4 text-[#E59500] shrink-0 mt-0.5" />
+                      <span>{COMPANY_INFO.addressUSA}</span>
+                    </div>
+                    <div className="flex items-center gap-2 pt-0.5">
+                      <Phone className="w-4 h-4 text-[#E59500] shrink-0" />
+                      <span>Tél : <a href="tel:7814698708" className="hover:underline font-bold text-[#1C3022]">781-469-8708</a></span>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-[#1B4332] shrink-0 mt-0.5" />
+
+                  {/* Shared Email & Hours */}
+                  <div className="flex items-start gap-3 pt-1">
+                    <Mail className="w-5 h-5 text-[#1C3022] shrink-0 mt-0.5" />
                     <div>
                       <strong className="block text-[#1F2937]">{t('contact.email_title')}</strong>
-                      <span>{COMPANY_INFO.email}</span>
+                      <span><a href={`mailto:${COMPANY_INFO.email}`} className="text-[#1C3022] hover:underline font-semibold">{COMPANY_INFO.email}</a></span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-[#1B4332] shrink-0 mt-0.5" />
+                    <Clock className="w-5 h-5 text-[#1C3022] shrink-0 mt-0.5" />
                     <div>
                       <strong className="block text-[#1F2937]">{t('contact.hours_label')}</strong>
                       <span>{t('contact.hours_val')}</span>
@@ -137,9 +156,9 @@ export const ContactPage: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-8 bg-stone-50 rounded-2xl border border-[#2D6A4F] text-center space-y-3"
+                    className="p-8 bg-stone-50 rounded-2xl border border-[#5B9B6E] text-center space-y-3"
                   >
-                    <CheckCircle2 className="w-10 h-10 text-[#1B4332] mx-auto" />
+                    <CheckCircle2 className="w-10 h-10 text-[#1C3022] mx-auto" />
                     <h4 className="text-lg font-bold text-[#1F2937]">{t('contact.success_title')}</h4>
                     <p className="text-xs text-stone-600">{t('contact.success_desc')}</p>
                   </motion.div>
@@ -153,7 +172,7 @@ export const ContactPage: React.FC = () => {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                          className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                           placeholder={t('partners.field_name_placeholder')}
                         />
                       </div>
@@ -164,7 +183,7 @@ export const ContactPage: React.FC = () => {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                          className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                           placeholder="votre@email.com"
                         />
                       </div>
@@ -176,7 +195,7 @@ export const ContactPage: React.FC = () => {
                         required
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                        className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                         placeholder={t('contact.field_subject')}
                       />
                     </div>
@@ -187,7 +206,7 @@ export const ContactPage: React.FC = () => {
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                        className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                         placeholder={t('contact.field_message')}
                       ></textarea>
                     </div>
@@ -195,7 +214,7 @@ export const ContactPage: React.FC = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      className="px-6 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow border border-[#2D6A4F] flex items-center justify-center gap-2 cursor-pointer"
+                      className="px-6 py-3 rounded-xl bg-[#2A4833] hover:bg-[#1C3022] text-white font-bold text-xs shadow border border-[#5B9B6E] flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Send className="w-4 h-4 text-white" />
                       <span>{t('contact.send_btn')}</span>

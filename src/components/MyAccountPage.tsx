@@ -43,7 +43,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
       <div className="min-h-screen bg-[#FDFBF7] py-20 px-4 text-center">
         <FadeInSection direction="none">
           <div className="max-w-md mx-auto bg-white p-8 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <div className="w-16 h-16 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-full bg-[#2A4833] text-white flex items-center justify-center mx-auto">
               <User className="w-8 h-8" />
             </div>
             <h2 className="text-2xl font-serif font-bold text-[#1F2937]">{t('account.portal_tag')}</h2>
@@ -55,7 +55,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => openAuthModal && openAuthModal()}
-                className="w-full py-3 bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs rounded-xl shadow transition-colors cursor-pointer"
+                className="w-full py-3 bg-[#2A4833] hover:bg-[#1C3022] text-white font-bold text-xs rounded-xl shadow transition-colors cursor-pointer"
               >
                 {t('account.login_btn')}
               </motion.button>
@@ -82,14 +82,14 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
   return (
     <div id="my-account-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
       {/* Header Banner */}
-      <div className="bg-[#1B4332] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#2D6A4F]">
+      <div className="bg-[#2A4833] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#5B9B6E]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-[#E9C46A] text-[#1B4332] flex items-center justify-center font-black text-2xl shadow-lg shrink-0">
+            <div className="w-16 h-16 rounded-2xl bg-[#E59500] text-[#1C3022] flex items-center justify-center font-black text-2xl shadow-lg shrink-0">
               {currentUser.fullName.charAt(0).toUpperCase()}
             </div>
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#1B4332] text-white text-[11px] font-bold uppercase mb-1 border border-white/30">
+              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#2A4833] text-white text-[11px] font-bold uppercase mb-1 border border-white/30">
                 <span>{t('account.verified_tag')}</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-serif font-bold text-white drop-shadow-sm">
@@ -123,9 +123,9 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
             {currentUser.role === 'admin' && (
               <button
                 onClick={() => setCurrentRoute('admin')}
-                className="px-4 py-2 bg-white text-[#1B4332] rounded-xl text-xs font-black shadow-lg flex items-center gap-1.5 cursor-pointer border border-[#E9C46A]"
+                className="px-4 py-2 bg-white text-[#1C3022] rounded-xl text-xs font-black shadow-lg flex items-center gap-1.5 cursor-pointer border border-[#E59500]"
               >
-                <ShieldCheck className="w-3.5 h-3.5 text-[#1B4332]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#1C3022]" />
                 <span>ACCÈS ADMIN</span>
               </button>
             )}
@@ -141,7 +141,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
             onClick={() => setActiveTab('orders')}
             className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'orders'
-                ? 'bg-[#1B4332] text-white shadow-sm'
+                ? 'bg-[#2A4833] text-white shadow-sm'
                 : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
             }`}
           >
@@ -153,7 +153,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
             onClick={() => setActiveTab('profile')}
             className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'profile'
-                ? 'bg-[#1B4332] text-white shadow-sm'
+                ? 'bg-[#2A4833] text-white shadow-sm'
                 : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
             }`}
           >
@@ -165,7 +165,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
             onClick={() => setActiveTab('destinations')}
             className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'destinations'
-                ? 'bg-[#1B4332] text-white shadow-sm'
+                ? 'bg-[#2A4833] text-white shadow-sm'
                 : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
             }`}
           >
@@ -192,7 +192,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
               </div>
               <button
                 onClick={() => setCurrentRoute('produits')}
-                className="px-4 py-2 bg-[#1B4332] hover:bg-[#143527] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow transition-colors shrink-0 cursor-pointer"
+                className="px-4 py-2 bg-[#2A4833] hover:bg-[#1C3022] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow transition-colors shrink-0 cursor-pointer"
               >
                 <ShoppingBag className="w-3.5 h-3.5" />
                 <span>{t('account.new_order_btn')}</span>
@@ -201,7 +201,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
 
             {orders.length === 0 ? (
               <div className="bg-white rounded-3xl border border-stone-200 p-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-stone-100 text-[#1B4332] flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 rounded-full bg-stone-100 text-[#1C3022] flex items-center justify-center mx-auto">
                   <Package className="w-8 h-8" />
                 </div>
                 <h4 className="font-bold text-[#1F2937]">{t('account.no_orders_recorded')}</h4>
@@ -210,7 +210,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                 </p>
                 <button
                   onClick={() => setCurrentRoute('produits')}
-                  className="px-6 py-2.5 bg-[#1B4332] hover:bg-[#143527] text-white rounded-xl text-xs font-bold shadow cursor-pointer"
+                  className="px-6 py-2.5 bg-[#2A4833] hover:bg-[#1C3022] text-white rounded-xl text-xs font-bold shadow cursor-pointer"
                 >
                   {t('cart.browse_btn')}
                 </button>
@@ -229,8 +229,8 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-stone-100">
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-mono font-bold text-sm text-[#1B4332]">{ord.orderNumber}</span>
-                            <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#1B4332] text-white font-bold border border-[#2D6A4F] shadow-xs flex items-center gap-1">
+                            <span className="font-mono font-bold text-sm text-[#1C3022]">{ord.orderNumber}</span>
+                            <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#2A4833] text-white font-bold border border-[#5B9B6E] shadow-xs flex items-center gap-1">
                               <span>{regConfig.flag}</span>
                               <span>{t('account.order_dest_label')} {regConfig.name}</span>
                             </span>
@@ -290,13 +290,13 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                             <span className="text-stone-500">{t('cart.freight_label').replace('{region}', regConfig.name)}</span>
                             <span className="font-semibold text-stone-800">
                               {ord.exportShippingFeeUSD === 0 ? (
-                                <span className="text-white font-bold bg-[#1B4332] px-2 py-0.5 rounded border border-[#2D6A4F] shadow-xs">{t('cart.free_label')}</span>
+                                <span className="text-white font-bold bg-[#2A4833] px-2 py-0.5 rounded border border-[#5B9B6E] shadow-xs">{t('cart.free_label')}</span>
                               ) : (
                                 `$${ord.exportShippingFeeUSD.toFixed(2)} USD`
                               )}
                             </span>
                           </div>
-                          <div className="flex justify-between pt-1 border-t border-stone-200 font-extrabold text-sm text-[#1B4332]">
+                          <div className="flex justify-between pt-1 border-t border-stone-200 font-extrabold text-sm text-[#1C3022]">
                             <span>{t('cart.total_label')}</span>
                             <span>
                               ${ord.totalUSD.toFixed(2)} USD ({ord.totalLocal.toLocaleString()} {ord.currency})
@@ -342,7 +342,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
 
                 <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200">
                   <span className="text-stone-400 block font-bold uppercase text-[10px]">{t('account.field_region')}</span>
-                  <span className="text-sm font-bold text-[#1B4332] flex items-center gap-1.5 mt-0.5">
+                  <span className="text-sm font-bold text-[#1C3022] flex items-center gap-1.5 mt-0.5">
                     <span>{regionInfo.flag}</span>
                     <span>{regionInfo.name}</span>
                   </span>
@@ -358,7 +358,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
             </div>
 
             <div className="p-4 bg-stone-50 rounded-2xl border border-stone-200 flex items-center gap-3 text-xs text-stone-700">
-              <ShieldCheck className="w-5 h-5 text-[#1B4332] shrink-0" />
+              <ShieldCheck className="w-5 h-5 text-[#1C3022] shrink-0" />
               <span>
                 {t('account.profile_note')}
               </span>
@@ -390,11 +390,11 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                   <div
                     key={rId}
                     className={`bg-white rounded-3xl border p-6 shadow-sm space-y-4 transition-all relative ${
-                      isSelected ? 'ring-2 ring-[#2E7D32] border-[#2D6A4F]' : 'border-stone-200'
+                      isSelected ? 'ring-2 ring-[#76BD43] border-[#5B9B6E]' : 'border-stone-200'
                     }`}
                   >
                     {isSelected && (
-                      <span className="absolute -top-3 right-6 bg-[#1B4332] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">
+                      <span className="absolute -top-3 right-6 bg-[#2A4833] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">
                         {t('account.active_region_badge')}
                       </span>
                     )}

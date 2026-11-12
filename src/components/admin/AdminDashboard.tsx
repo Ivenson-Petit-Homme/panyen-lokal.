@@ -55,12 +55,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
 
   if (loading) return (
     <div className="flex flex-col items-center justify-center py-32 space-y-4">
-      <div className="w-12 h-12 border-4 border-[#2D6A4F] border-t-transparent rounded-full animate-spin" />
+      <div className="w-12 h-12 border-4 border-[#5B9B6E] border-t-transparent rounded-full animate-spin" />
       <p className="text-stone-500 font-bold animate-pulse">Chargement des données en temps réel...</p>
     </div>
   );
 
-  const COLORS = ['#1B4332', '#1B4332', '#E9C46A', '#F4A261', '#E76F51'];
+  const COLORS = ['#1C3022', '#1C3022', '#E59500', '#F4A261', '#E76F51'];
 
   return (
     <div className="space-y-8 animate-fadeIn pb-10">
@@ -78,14 +78,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
           value={stats?.totalOrders}
           subtitle="Volume global"
           icon={ShoppingBag}
-          color="bg-[#1B4332]"
+          color="bg-[#2A4833]"
         />
         <StatCard
           title="Manb Inskri"
           value={stats?.users}
           subtitle="Baz done kliyan"
           icon={Users}
-          color="bg-[#E9C46A]"
+          color="bg-[#E59500]"
         />
         <StatCard
           title="Preparasyon"
@@ -105,7 +105,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
               <p className="text-xs text-stone-500 uppercase tracking-widest font-bold">Top 5 Pwodwi yo</p>
             </div>
             <div className="p-2 bg-stone-50 rounded-xl">
-              <TrendingUp className="w-5 h-5 text-[#1B4332]" />
+              <TrendingUp className="w-5 h-5 text-[#1C3022]" />
             </div>
           </div>
 
@@ -137,9 +137,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
 
         {/* Stock Status & Alerts */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-[#1B4332] p-6 rounded-3xl text-white shadow-xl h-full border border-[#2D6A4F]">
+          <div className="bg-[#2A4833] p-6 rounded-3xl text-white shadow-xl h-full border border-[#5B9B6E]">
             <div className="flex items-center gap-2 mb-6">
-              <Package className="w-5 h-5 text-[#E9C46A]" />
+              <Package className="w-5 h-5 text-[#E59500]" />
               <h3 className="font-bold uppercase tracking-wider text-sm text-white">État des Stocks</h3>
             </div>
 
@@ -154,7 +154,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
                   </div>
                   <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full ${item.in_stock ? 'bg-[#E9C46A]' : 'bg-red-500'}`}
+                      className={`h-full rounded-full ${item.in_stock ? 'bg-[#E59500]' : 'bg-red-500'}`}
                       style={{ width: item.in_stock ? '100%' : '5%' }}
                     />
                   </div>
@@ -163,7 +163,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ currentUser }) =
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10 text-center">
-               <button className="text-[10px] font-black uppercase text-[#E9C46A] hover:underline cursor-pointer">
+               <button className="text-[10px] font-black uppercase text-[#E59500] hover:underline cursor-pointer">
                  Gérer l'inventaire complet
                </button>
             </div>

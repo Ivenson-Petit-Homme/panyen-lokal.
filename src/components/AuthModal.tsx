@@ -167,7 +167,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/70 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
       <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-stone-200 overflow-hidden text-stone-900 my-8">
         {/* Header */}
-        <div className="bg-[#1B4332] text-white p-6 relative border-b border-[#2D6A4F]">
+        <div className="bg-[#2A4833] text-white p-6 relative border-b border-[#5B9B6E]">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 text-white cursor-pointer"
@@ -175,7 +175,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             <X className="w-5 h-5" />
           </button>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider mb-2 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider mb-2 shadow-sm">
             <Lock className="w-3.5 h-3.5" />
             <span>{t('auth.req_tag')}</span>
           </div>
@@ -193,7 +193,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* Region Notice Banner */}
         <div className="bg-stone-50 px-6 py-2.5 border-b border-stone-200 flex items-center justify-between text-xs">
           <span className="text-stone-600 font-medium">{t('auth.selected_region')}</span>
-          <span className="font-bold text-[#1B4332] flex items-center gap-1.5">
+          <span className="font-bold text-[#1C3022] flex items-center gap-1.5">
             <span>{REGIONS_CONFIG[region]?.flag}</span>
             <span>{REGIONS_CONFIG[region]?.name}</span>
           </span>
@@ -206,7 +206,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => { setMode('login'); setErrorMessage(null); }}
             className={`flex-1 py-3 text-center transition-colors cursor-pointer ${
               mode === 'login'
-                ? 'border-b-2 border-[#2D6A4F] text-[#1B4332] bg-white font-extrabold'
+                ? 'border-b-2 border-[#5B9B6E] text-[#1C3022] bg-white font-extrabold'
                 : 'bg-stone-50 text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -217,7 +217,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => { setMode('register'); setErrorMessage(null); }}
             className={`flex-1 py-3 text-center transition-colors cursor-pointer ${
               mode === 'register'
-                ? 'border-b-2 border-[#2D6A4F] text-[#1B4332] bg-white font-extrabold'
+                ? 'border-b-2 border-[#5B9B6E] text-[#1C3022] bg-white font-extrabold'
                 : 'bg-stone-50 text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -248,7 +248,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="votre@email.com"
-                    className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   />
                 </div>
               </div>
@@ -265,7 +265,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   />
                 </div>
               </div>
@@ -275,7 +275,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3 rounded-xl bg-[#2A4833] hover:bg-[#1C3022] text-white font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <ArrowRight className="w-4 h-4 text-white" />
                 <span>{loading ? t('auth.login_btn_loading') : t('auth.login_btn_ready')}</span>
@@ -305,7 +305,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Jean-Marc Dupont"
-                    className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   />
                 </div>
               </div>
@@ -321,7 +321,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="email@domaine.com"
-                    className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   />
                 </div>
 
@@ -335,7 +335,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+509 / +1 / +1-809..."
-                    className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   />
                 </div>
               </div>
@@ -352,7 +352,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       onClick={() => setRegion(rId)}
                       className={`p-2 rounded-xl border text-center font-bold transition-all text-[11px] flex flex-col items-center gap-0.5 cursor-pointer ${
                         region === rId
-                          ? 'bg-[#1B4332] text-white border-[#2D6A4F] shadow-xs'
+                          ? 'bg-[#2A4833] text-white border-[#5B9B6E] shadow-xs'
                           : 'bg-stone-50 hover:bg-stone-100 text-stone-700 border-stone-200'
                       }`}
                     >
@@ -374,7 +374,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="Ex: Cap-Haïtien / Miami / Saint-Domingue"
-                    className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   />
                 </div>
 
@@ -387,7 +387,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={streetAddress}
                     onChange={(e) => setStreetAddress(e.target.value)}
                     placeholder={isEn ? "Street, unit, landmarks..." : "Rue, numéro, repères..."}
-                    className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   />
                 </div>
               </div>
@@ -402,7 +402,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={isEn ? "Min 6 characters" : "Minimum 6 caractères"}
-                  className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                  className="w-full p-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                 />
               </div>
 
@@ -411,7 +411,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-black shadow-md transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer"
+                className="w-full py-3 rounded-xl bg-[#2A4833] hover:bg-[#1C3022] text-white font-black shadow-md transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 <span>{loading ? t('auth.register_btn_loading') : t('auth.register_btn_ready')}</span>
@@ -422,7 +422,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Footer Guarantee */}
         <div className="p-4 bg-stone-50 border-t border-stone-200 flex items-center justify-center gap-2 text-[11px] text-stone-500">
-          <ShieldCheck className="w-4 h-4 text-[#1B4332]" />
+          <ShieldCheck className="w-4 h-4 text-[#1C3022]" />
           <span>{t('auth.data_secured')}</span>
         </div>
       </div>

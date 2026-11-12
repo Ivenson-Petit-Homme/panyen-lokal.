@@ -7,11 +7,8 @@ import fondChamp3 from '../assets/images/fond_champ_agricole_3_1786847552367.jpg
 import { motion } from 'motion/react';
 import { 
   ArrowRight, 
-  ShoppingBag, 
-  FileText, 
   ChevronRight,
-  ChevronLeft,
-  Sparkles
+  ChevronLeft
 } from 'lucide-react';
 
 interface HeroRicinProps {
@@ -27,15 +24,15 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
   setCurrentRoute
 }) => {
   const { language, t } = useLanguage();
+  const isEn = language === 'en';
   const backgroundSlides = [
     { id: 0, image: fondChamp1, alt: "Champs fertiles et plantations agricoles de Panyen Lokal en Haïti" },
-    { id: 1, image: fondChamp2, alt: "Récoltes de ricin et terroirs agroforestiers d'Haïti" },
-    { id: 2, image: fondChamp3, alt: "Agriculture durable et production nationale à Caracol et Grand Bassin" }
+    { id: 1, image: fondChamp2, alt: "Récoltes agricoles et terroirs agroforestiers d'Haïti" },
+    { id: 2, image: fondChamp3, alt: "Agriculture durable et production nationale dans le Nord-Est d'Haïti" }
   ];
 
   const [currentBgIndex, setCurrentBgIndex] = useState<number>(0);
 
-  // Défilement automatique fluide toutes les 6 secondes
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
@@ -46,9 +43,9 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
   return (
     <section 
       id="hero-enterprise-section" 
-      className="relative overflow-hidden text-white min-h-[78vh] sm:min-h-[84vh] flex items-center justify-center"
+      className="relative overflow-hidden text-white min-h-[72vh] sm:min-h-[80vh] flex items-center justify-center"
     >
-      {/* 1. PHOTOGRAPHIES D'ARRIÈRE-PLAN NATURELLES SANS TEXTES NI SURCHARGE */}
+      {/* Photographies d'arrière-plan naturelles */}
       <div className="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
         {backgroundSlides.map((slide, index) => {
           const isActive = index === currentBgIndex;
@@ -76,61 +73,63 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
           );
         })}
 
-        {/* Voile sombre vert naturel raffiné pour garantir la clarté et la netteté de l'image */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#143527]/95 via-[#1B4332]/75 to-[#2D6A4F]/50 z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1C3022]/95 via-[#1C3022]/75 to-[#1C3022]/45 z-1" />
       </div>
 
-      {/* 2. CONTENU PRINCIPAL ÉPURÉ & ÉLÉGANT */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-6 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
+      {/* Contenu Principal Épuré (Sans répétition de noms de produits ni de boîtes surchargées) */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-6 py-14">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#143527]/90 border border-white text-white text-xs font-black uppercase tracking-wider backdrop-blur-md shadow-lg"
+          transition={{ duration: 0.5 }}
+          className="text-xs sm:text-sm font-semibold tracking-[0.22em] text-[#76BD43] uppercase"
         >
-          <Sparkles className="w-3.5 h-3.5 text-white" />
-          <span>{t('hero.tag')}</span>
-        </motion.div>
+          {isEn ? "Haitian Agro-Industry · North-East" : "Agro-Industrie Haïtienne · Nord-Est"}
+        </motion.p>
 
         <motion.h1 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.15,
-            ease: [0.22, 1, 0.36, 1]
-          }}
-          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-serif text-white tracking-tight leading-[1.15] drop-shadow-lg"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-serif text-white tracking-tight leading-[1.15] drop-shadow-lg text-balance"
         >
-          {t('hero.title_line1')} <br />
-          <motion.span
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-white italic font-normal text-2xl sm:text-4xl lg:text-5xl block mt-2 drop-shadow"
-          >
+          {t('hero.title_line1')}{' '}
+          <span className="text-white italic font-normal block mt-2 text-2xl sm:text-4xl lg:text-5xl">
             {t('hero.title_line2')}
-          </motion.span>
+          </span>
         </motion.h1>
 
         <motion.p 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-base sm:text-lg text-white font-medium max-w-2xl mx-auto leading-relaxed drop-shadow"
-          style={{ color: '#FFFFFF' }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-base sm:text-lg text-white/90 font-normal max-w-2xl mx-auto leading-relaxed"
         >
-          {t('hero.subtitle')}
+          {isEn
+            ? "From Haitian soil to international markets: refined agricultural treasures crafted under strict quality standards."
+            : "De la terre haïtienne aux marchés internationaux : une filière intégrée dédiée à l'excellence de nos terroirs."}
         </motion.p>
 
-        {/* Boutons d'Action Clairs */}
-        <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
-          <motion.button
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
+        {/* Deux Boutons d'Action Clairs */}
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <button
+            id="btn-hero-view-products"
+            onClick={() => {
+              const el = document.getElementById('featured-products-section');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                setCurrentRoute('produits');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className="px-7 py-3.5 rounded-xl bg-[#E59500] hover:bg-[#D97706] text-stone-950 font-bold text-sm shadow-xl transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap"
+          >
+            <span>{isEn ? "Explore Collection" : "Explorer la Collection"}</span>
+            <ArrowRight className="w-4 h-4 text-stone-950" />
+          </button>
+
+          <button
             id="btn-hero-discover-company"
             onClick={() => {
               const el = document.getElementById('presentation-section');
@@ -141,81 +140,18 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
-            className="px-6 py-3.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-sm shadow-xl transition-all flex items-center gap-2 cursor-pointer border border-[#2D6A4F]"
+            className="px-7 py-3.5 rounded-xl bg-[#2A4833]/90 hover:bg-[#3D684A] text-white font-semibold text-sm shadow-lg transition-all border border-[#5B9B6E] cursor-pointer whitespace-nowrap"
           >
             <span>{t('hero.btn.discover')}</span>
-            <ArrowRight className="w-4 h-4 text-white" />
-          </motion.button>
-
-          <motion.button
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            id="btn-hero-view-products"
-            onClick={() => {
-              setCurrentRoute('produits');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-6 py-3.5 rounded-xl bg-[#1B4332]/90 hover:bg-[#143527] text-white font-bold text-sm border border-[#2D6A4F] hover:border-white backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
-          >
-            <ShoppingBag className="w-4 h-4 text-white" />
-            <span>{t('hero.btn.products')}</span>
-          </motion.button>
-
-          <motion.button
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            id="btn-hero-export-quote"
-            onClick={() => {
-              setCurrentRoute('marches-export');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="px-5 py-3.5 rounded-xl bg-[#1B4332]/90 hover:bg-[#143527] text-white font-bold text-sm border border-[#2D6A4F] hover:border-white backdrop-blur-sm transition-all flex items-center gap-2 cursor-pointer"
-          >
-            <FileText className="w-4 h-4 text-white" />
-            <span>{t('hero.btn.export_quote')}</span>
-          </motion.button>
+          </button>
         </div>
-
-        {/* Badge récapitulatif officiel : Kote nou ye & 5 Pwodwi yo */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45 }}
-          className="pt-4 max-w-3xl mx-auto"
-        >
-          <div className="bg-[#143527]/95 border border-white/30 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 text-left shadow-2xl space-y-2">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2D6A4F] pb-2 text-xs">
-              <span className="flex items-center gap-1.5 text-white font-bold">
-                <span className="text-base">📍</span>
-                <span className="text-white">{t('hero.badge.location')}</span>
-              </span>
-              <span className="text-[11px] text-white bg-[#1B4332] px-2 py-0.5 rounded font-semibold border border-white/30">
-                {t('hero.badge.address')}
-              </span>
-            </div>
-            <div className="text-[11px] sm:text-xs text-white flex flex-wrap items-center gap-x-3 gap-y-1.5 font-medium">
-              <span className="font-bold text-white">{t('hero.badge.products_label')}</span>
-              <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod1')}</span>
-              <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod2')}</span>
-              <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod3')}</span>
-              <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod4')}</span>
-              <span className="bg-white/10 px-2 py-0.5 rounded text-white font-semibold">{t('hero.prod5')}</span>
-            </div>
-          </div>
-        </motion.div>
       </div>
 
-      {/* 3. POINTS DE NAVIGATION DU DIAPORAMA EN BAS (DISCRETS & ÉLÉGANTS) */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-[#143527]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#2D6A4F]">
+      {/* Points de Navigation Discrets */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-[#1C3022]/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#3D684A]">
         <button
           onClick={() => setCurrentBgIndex((prev) => (prev === 0 ? backgroundSlides.length - 1 : prev - 1))}
-          className="text-[#FDFBF7]/70 hover:text-white p-0.5 transition-colors cursor-pointer"
+          className="text-white/70 hover:text-white p-0.5 transition-colors cursor-pointer"
           aria-label="Photo précédente"
         >
           <ChevronLeft className="w-3.5 h-3.5" />
@@ -228,7 +164,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
             onClick={() => setCurrentBgIndex(idx)}
             className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
               currentBgIndex === idx
-                ? 'w-6 bg-[#E9C46A] shadow-sm'
+                ? 'w-6 bg-[#E59500]'
                 : 'w-2 bg-white/40 hover:bg-white/70'
             }`}
             aria-label={`Photo ${idx + 1}`}
@@ -237,7 +173,7 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
 
         <button
           onClick={() => setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length)}
-          className="text-[#FDFBF7]/70 hover:text-white p-0.5 transition-colors cursor-pointer"
+          className="text-white/70 hover:text-white p-0.5 transition-colors cursor-pointer"
           aria-label="Photo suivante"
         >
           <ChevronRight className="w-3.5 h-3.5" />
@@ -246,4 +182,3 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
     </section>
   );
 };
-

@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { PageRoute, DeliveryRegion, UserAccount } from '../types';
 import panyenLogo from '../assets/images/LOGO_PANYEN.png';
-import champImg from '../assets/images/champ_panyen_lokal_1786858968582.jpg';
 import usineExtImg from '../assets/images/usine_exterieur_ekam_1786859382526.jpg';
-import souveraineteImg from '../assets/images/souverainete_marche_1786859004801.jpg';
-import ricinFlaconImg from '../assets/images/huile_ricin_flacon_1786847591002.jpg';
 
 import { useLanguage } from '../context/LanguageContext';
 import { 
   getFourPillars, 
-  getServicesList, 
-  getFlagshipProducts, 
-  getProcessSteps, 
-  getTerroirs, 
   getGalleryItems,
   GalleryItemData
 } from '../data/agriShowcaseData';
@@ -21,19 +14,12 @@ import { motion, AnimatePresence, useMotionValue, useTransform, animate } from '
 import { FadeInSection, StaggerContainer, StaggerItem } from './FadeInSection';
 import { ImageWithSkeleton } from './ImageWithSkeleton';
 import { 
-  Factory, 
   MapPin, 
-  Users, 
-  Award, 
   ArrowRight, 
   CheckCircle2, 
-  Layers, 
   Maximize2, 
   X, 
-  Sliders,
-  Building2,
-  ExternalLink,
-  ChevronRight
+  ExternalLink
 } from 'lucide-react';
 import { TranslationKey } from '../utils/translations';
 
@@ -70,15 +56,10 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
   const { language, t } = useLanguage();
   const isEn = language === 'en';
 
-  const [selectedTerroir, setSelectedTerroir] = useState<number>(0);
   const [galleryFilter, setGalleryFilter] = useState<string>('all');
   const [lightboxImg, setLightboxImg] = useState<GalleryItemData | null>(null);
 
   const fourPillars = getFourPillars(isEn);
-  const servicesList = getServicesList(isEn);
-  const flagshipProducts = getFlagshipProducts(isEn);
-  const processSteps = getProcessSteps(isEn);
-  const terroirs = getTerroirs(isEn);
   const galleryItems = getGalleryItems(isEn);
 
   const filteredGallery = galleryFilter === 'all' 
@@ -96,67 +77,43 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
   return (
     <div id="agri-enterprise-showcase" className="bg-[#FDFBF7] text-[#1F2937] overflow-hidden">
       
-      {/* ========================================================================= */}
-      {/* 1. PRÉSENTATION INSTITUTIONNELLE OFFICIELLE */}
-      {/* ========================================================================= */}
-      <section id="presentation-section" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* 1. PRÉSENTATION INSTITUTIONNELLE (SANS RÉPÉTITION DE NOMS DE PRODUITS NI PHOTOS DOUBLONS) */}
+      <section id="presentation-section" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <FadeInSection threshold={0.15}>
-          <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-[#E9C46A]/30 shadow-xl space-y-10 relative overflow-hidden">
+          <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-stone-200 shadow-sm space-y-10">
             
-            {/* En-tête Institutionnel & Logo */}
-            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 border-b border-stone-100 pb-8">
-              <div className="relative shrink-0 group">
-                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-white p-2 shadow-xl border-2 border-[#2D6A4F] overflow-hidden ring-4 ring-[#2E7D32]/10">
-                  <img
-                    src={panyenLogo}
-                    alt="Logo Officiel Panyen Lokal"
-                    className="w-full h-full object-contain"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="absolute -bottom-2 -right-2 bg-[#1B4332] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow flex items-center gap-1">
-                  <CheckCircle2 className="w-3 h-3 text-white" />
-                  <span>{t('pres.official_badge')}</span>
-                </div>
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+              <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl bg-white p-1.5 shadow-sm border border-stone-200 shrink-0">
+                      <img
+                        src={panyenLogo}
+                        alt="Logo Panyen Lokal"
+                        className="w-full h-full object-contain"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#3D684A]">
+                        {isEn ? "National Agro-Industrial Enterprise" : "Entreprise Agro-Industrielle Nationale"}
+                      </p>
+                      <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#1C3022] tracking-tight">
+                        PANYEN LOKAL S.A.
+                      </h2>
+                    </div>
+                  </div>
 
-              <div className="space-y-3 text-center lg:text-left flex-1">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] font-black text-xs uppercase tracking-wider">
-                  <Building2 className="w-4 h-4 text-[#E9C46A]" />
-                  <span className="text-white">{t('pres.tag')}</span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1C3022] leading-snug text-balance">
+                    {t('pres.subtitle')}
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
+                    {isEn
+                      ? "Rooted in the North-East at the Village EKAM industrial hub, our organization transforms agricultural harvests locally under strict quality protocols while ensuring long-term economic stability for rural partner cooperatives."
+                      : "Implantée au complexe industriel du Village EKAM dans le Nord-Est, notre société transforme localement les récoltes agricoles selon des protocoles rigoureux tout en assurant une prospérité durable aux coopératives paysannes."}
+                  </p>
                 </div>
-                
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-black text-[#1B4332] tracking-tight">
-                  {t('pres.title')}
-                </h2>
-                
-                <p className="text-xs sm:text-sm text-stone-700 font-semibold flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                  <span className="flex items-center gap-1 text-stone-700">
-                    <MapPin className="w-4 h-4 text-[#1B4332]" />
-                    {t('pres.location')}
-                  </span>
-                  <span className="text-stone-400">•</span>
-                  <span className="text-[#1B4332] font-bold">
-                    {t('pres.network')}
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            {/* Corps de Texte & Mission de l'Entreprise */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-4">
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1B4332] leading-snug">
-                  {t('pres.subtitle')}
-                </h3>
-                
-                <p className="text-sm sm:text-base text-stone-700 leading-relaxed">
-                  <strong>{t('pres.title')}</strong> {t('pres.p1')}
-                </p>
-
-                <p className="text-sm sm:text-base text-stone-700 leading-relaxed">
-                  {t('pres.p2')}
-                </p>
 
                 <div className="flex flex-wrap gap-3 pt-2">
                   <button
@@ -164,10 +121,10 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       setCurrentRoute('a-propos');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white border border-[#2D6A4F] font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow"
+                    className="px-5 py-2.5 rounded-xl bg-[#2A4833] hover:bg-[#1C3022] text-white font-semibold text-xs transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap"
                   >
                     <span>{t('pres.btn_mission')}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#E9C46A]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#E59500]" />
                   </button>
 
                   <button
@@ -175,177 +132,119 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                       setCurrentRoute('marches-export');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow border border-[#2D6A4F]"
+                    className="px-5 py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-[#1C3022] font-semibold text-xs transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap"
                   >
                     <span>{t('pres.btn_export')}</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-white" />
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
 
-              {/* Mosaïque Visuelle d'Entreprise */}
-              <div className="lg:col-span-5 grid grid-cols-2 gap-3">
-                <motion.div
-                  initial={{ clipPath: 'inset(0 100% 0 0)' }}
-                  whileInView={{ clipPath: 'inset(0 0 0 0)' }}
-                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  viewport={{ once: true }}
-                  className="rounded-2xl overflow-hidden shadow-md border border-stone-200 h-36"
-                >
-                  <ImageWithSkeleton src={champImg} alt="Fields in Caracol" containerClassName="w-full h-full" imgClassName="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-                </motion.div>
-                <motion.div
-                  initial={{ clipPath: 'inset(0 0 0 100%)' }}
-                  whileInView={{ clipPath: 'inset(0 0 0 0)' }}
-                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="rounded-2xl overflow-hidden shadow-md border border-stone-200 h-36"
-                >
-                  <ImageWithSkeleton src={usineExtImg} alt="EKAM Caracol plant" containerClassName="w-full h-full" imgClassName="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-                </motion.div>
-                <motion.div
-                  initial={{ clipPath: 'inset(100% 0 0 0)' }}
-                  whileInView={{ clipPath: 'inset(0 0 0 0)' }}
-                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="rounded-2xl overflow-hidden shadow-md border border-stone-200 h-36"
-                >
-                  <ImageWithSkeleton src={souveraineteImg} alt="Food sovereignty" containerClassName="w-full h-full" imgClassName="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="rounded-2xl overflow-hidden shadow-md border border-[#2D6A4F] h-36 bg-[#1B4332] p-2 flex items-center justify-center"
-                >
-                  <ImageWithSkeleton src={ricinFlaconImg} alt="Castor oil bottle" containerClassName="w-full h-full flex items-center justify-center rounded-xl" imgClassName="w-full h-full object-contain" />
-                </motion.div>
+              {/* Photo unique du complexe industriel */}
+              <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-stone-200 min-h-[260px] lg:h-full">
+                <ImageWithSkeleton 
+                  src={usineExtImg} 
+                  alt="Complexe industriel du Village EKAM" 
+                  containerClassName="w-full h-full" 
+                  imgClassName="w-full h-full object-cover" 
+                />
               </div>
             </div>
 
-            {/* 4 Chiffres Clés d'Impact */}
-              <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-stone-100 text-center" staggerDelay={0.08}>
-              <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-200">
-                <motion.span
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-2xl sm:text-3xl font-extrabold font-serif text-[#1B4332] block"
-                >
-                  <Counter value={t('pres.stat1_value')} />
-                </motion.span>
-                <span className="text-xs text-[#1B4332] font-medium">{t('pres.stat1_label')}</span>
+            {/* 4 Chiffres Clés Uniques */}
+            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-stone-100 text-center" staggerDelay={0.08}>
+              <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-100">
+                <span className="text-2xl sm:text-3xl font-extrabold font-serif text-[#1C3022] block tabular-nums">
+                  <Counter value="850+" />
+                </span>
+                <span className="text-xs text-stone-600 font-medium">{t('pres.stat1_label')}</span>
               </StaggerItem>
 
-              <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-200">
-                <motion.span
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                  className="text-2xl sm:text-3xl font-extrabold font-serif text-[#1B4332] block"
-                >
-                  <Counter value={t('pres.stat2_value')} />
-                </motion.span>
-                <span className="text-xs text-[#1B4332] font-medium">{t('pres.stat2_label')}</span>
+              <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-100">
+                <span className="text-2xl sm:text-3xl font-extrabold font-serif text-[#1C3022] block tabular-nums">
+                  <Counter value="1650" />
+                </span>
+                <span className="text-xs text-stone-600 font-medium">
+                  {isEn ? "Cultivated Hectares" : "Hectares Cultivés"}
+                </span>
               </StaggerItem>
 
-              <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-200">
-                <motion.span
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-2xl sm:text-3xl font-extrabold font-serif text-[#1B4332] block"
-                >
-                  {t('pres.stat3_value')}
-                </motion.span>
-                <span className="text-xs text-[#1B4332] font-medium">{t('pres.stat3_label')}</span>
+              <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-100">
+                <span className="text-2xl sm:text-3xl font-extrabold font-serif text-[#1C3022] block tabular-nums">
+                  6
+                </span>
+                <span className="text-xs text-stone-600 font-medium">
+                  {isEn ? "Agricultural Regions" : "Départements Couverts"}
+                </span>
               </StaggerItem>
 
-              <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-200">
-                <motion.span
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-2xl sm:text-3xl font-extrabold font-serif text-[#1B4332] block"
-                >
-                  <Counter value={t('pres.stat4_value')} />
-                </motion.span>
-                <span className="text-xs text-[#1B4332] font-medium">{t('pres.stat4_label')}</span>
+              <StaggerItem className="p-4 rounded-2xl bg-[#FDFBF7] border border-stone-100">
+                <span className="text-2xl sm:text-3xl font-extrabold font-serif text-[#1C3022] block tabular-nums">
+                  100%
+                </span>
+                <span className="text-xs text-stone-600 font-medium">{t('pres.stat2_label')}</span>
               </StaggerItem>
             </StaggerContainer>
           </div>
         </FadeInSection>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 2. LES 4 GRANDS PILIERS D'IMPACT D'ENTREPRISE (AVEC PHOTOS) */}
-      {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-        <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-bold uppercase tracking-wider">
-            <Factory className="w-4 h-4 text-[#E9C46A]" />
-            <span className="text-white">{t('pillars.tag')}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1B4332] tracking-tight">
+      {/* 2. LES 4 PILIERS STRATÉGIQUES (PHOTOS UNIQUES NON RÉPÉTÉES) */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10 border-t border-stone-200/70">
+        <FadeInSection threshold={0.2} className="text-center max-w-2xl mx-auto space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#3D684A]">
+            {isEn ? "Integrated Model" : "Modèle Intégré"}
+          </p>
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1C3022] tracking-tight text-balance">
             {t('pillars.title')}
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+          <p className="text-sm text-stone-600 leading-relaxed">
             {t('pillars.subtitle')}
           </p>
         </FadeInSection>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8" staggerDelay={0.12}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8" staggerDelay={0.1}>
           {fourPillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <StaggerItem
                 key={pillar.id}
-                className="bg-white rounded-3xl border border-stone-200 shadow-sm hover:shadow-lg transition-all flex flex-col overflow-hidden group"
+                className="bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col overflow-hidden group"
               >
-                {/* Photo du Pilier */}
-                <div className="relative h-48 sm:h-56 overflow-hidden bg-stone-900">
+                <div className="relative h-52 overflow-hidden bg-stone-900">
                   <img
                     src={pillar.image}
                     alt={pillar.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-95"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#143527]/90 via-[#1B4332]/30 to-transparent" />
-                  
-                  <div className="absolute top-4 left-4">
-                    <span className="text-[11px] font-black px-3 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] border border-black/20 shadow">
-                      {pillar.badge}
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                    <span className="text-xs font-bold text-white bg-[#143527]/90 backdrop-blur-xs px-2.5 py-1 rounded-lg border border-white/40 shadow">
-                      {pillar.tag}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C3022]/85 via-[#1C3022]/25 to-transparent" />
+                  <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-white">
+                    <span className="text-xs font-semibold tracking-wide text-[#E59500]">
+                      {pillar.badge} · {pillar.tag}
                     </span>
                   </div>
                 </div>
 
-                {/* Contenu du Pilier */}
-                <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#1B4332] text-white flex items-center justify-center shadow">
-                        <Icon className="w-5 h-5 text-white" />
+                      <div className="w-9 h-9 rounded-lg bg-[#2A4833] text-white flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4 text-white" />
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-[#1B4332] group-hover:text-[#1B4332] transition-colors">
+                      <h3 className="text-lg font-serif font-bold text-[#1C3022]">
                         {pillar.title}
                       </h3>
                     </div>
 
-                    <p className="text-xs font-medium text-[#1F2937] bg-[#FDFBF7] p-3 rounded-xl border border-stone-200">
+                    <p className="text-xs sm:text-sm text-stone-700 font-medium leading-relaxed">
                       {pillar.lead}
                     </p>
 
-                    <ul className="space-y-2 pt-1">
+                    <ul className="space-y-1.5 pt-1 pl-0 list-none">
                       {pillar.details.map((point, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-2.5 text-xs text-stone-600">
-                          <CheckCircle2 className="w-4 h-4 text-[#1B4332] shrink-0 mt-0.5" />
+                        <li key={pIdx} className="flex items-start gap-2 text-xs text-stone-600 mb-0">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#3D684A] shrink-0 mt-0.5" />
                           <span>{point}</span>
                         </li>
                       ))}
@@ -358,113 +257,32 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
         </StaggerContainer>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 3. NOS 5 GRANDES FILIÈRES & PRODUITS D'EXCELLENCE */}
-      {/* ========================================================================= */}
-      <section className="bg-[#1B4332] text-white py-16 sm:py-20 border-y border-[#2D6A4F]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <FadeInSection threshold={0.2} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D6A4F] pb-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider mb-2 border border-white/40">
-                <Award className="w-3.5 h-3.5 text-white" />
-                <span className="text-white">{t('flagship.tag')}</span>
-              </div>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white">
-                {t('flagship.title')}
-              </h2>
-            </div>
-            <button
-              onClick={() => {
-                setCurrentRoute('produits');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-white/80 transition-colors cursor-pointer"
-            >
-              <span className="text-white">{t('flagship.view_all')}</span>
-              <ArrowRight className="w-3.5 h-3.5 text-white" />
-            </button>
-          </FadeInSection>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5" staggerDelay={0.09}>
-            {flagshipProducts.map((prod) => {
-              return (
-                <StaggerItem
-                  key={prod.id}
-                  className="bg-[#1B4332] rounded-2xl border border-[#2D6A4F] overflow-hidden flex flex-col justify-between group hover:border-white transition-all hover:shadow-xl"
-                >
-                  <div className="relative h-60 sm:h-64 overflow-hidden bg-[#1B4332] w-full flex items-center justify-center p-3">
-                    <ImageWithSkeleton
-                      src={prod.image}
-                      alt={prod.title}
-                      containerClassName="w-full h-full flex items-center justify-center rounded-xl"
-                      imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-2.5 right-2.5 z-10">
-                      <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-[#143527]/90 text-white border border-white/40 backdrop-blur-xs">
-                        {prod.badge}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-4 space-y-2.5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-bold text-white uppercase tracking-wide block">
-                        {prod.category}
-                      </span>
-                      <h4 className="text-sm font-serif font-bold text-white mt-0.5">
-                        {prod.title}
-                      </h4>
-                      <p className="text-[11px] text-white opacity-95 mt-1 line-clamp-2">
-                        {prod.desc}
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={() => {
-                        setCurrentRoute('produits');
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                      className="w-full py-2 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer border border-[#2D6A4F]"
-                    >
-                      <span>{t('flagship.discover')}</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 4. GALERIE OFFICIELLE DES MEMBRES & ÉQUIPES PANYEN LOKAL */}
-      {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+      {/* 3. GOUVERNANCE & ÉQUIPES (8 PORTRAITS UNIQUES) */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10 border-t border-stone-200/70">
         <FadeInSection threshold={0.15} className="space-y-6">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-black uppercase tracking-wider">
-              <Users className="w-3.5 h-3.5 text-[#E9C46A]" />
-              <span className="text-white">{t('gallery.tag')}</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-serif font-extrabold text-[#1B4332] tracking-tight">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#3D684A]">
+              {isEn ? "Leadership & Teams" : "Gouvernance & Équipes"}
+            </p>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1C3022] tracking-tight text-balance">
               {t('gallery.title')}
             </h2>
-            <p className="text-xs sm:text-sm text-stone-600">
-              {t('gallery.desc')}
+            <p className="text-sm text-stone-600">
+              {isEn
+                ? "The executives, engineers, plant specialists, and cooperative delegates driving our operations."
+                : "Les dirigeants, ingénieurs, techniciens et représentants agricoles qui animent nos opérations."}
             </p>
           </div>
 
-          {/* Filtres par Groupes / Départements */}
           <div className="flex flex-wrap items-center justify-center gap-2">
             {galleryTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setGalleryFilter(tab.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
                   galleryFilter === tab.id
-                    ? 'bg-[#1B4332] text-white shadow-md font-black'
-                    : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-100'
+                    ? 'bg-[#2A4833] text-white shadow-sm'
+                    : 'bg-white text-stone-700 border border-stone-200 hover:border-[#5B9B6E]'
                 }`}
               >
                 {t(tab.labelKey as TranslationKey)}
@@ -473,15 +291,14 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
           </div>
         </FadeInSection>
 
-        {/* Grille des Membres Interactive */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.08}>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.06}>
           {filteredGallery.map((item) => (
             <StaggerItem
               key={item.id}
               onClick={() => setLightboxImg(item)}
-              className="bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-[#2D6A4F]"
+              className="bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col justify-between group cursor-pointer hover:border-[#5B9B6E]"
             >
-              <div className="relative h-64 sm:h-72 overflow-hidden bg-stone-900 w-full flex items-center justify-center">
+              <div className="relative h-64 overflow-hidden bg-stone-900 w-full">
                 <ImageWithSkeleton
                   src={item.src}
                   alt={item.title}
@@ -491,22 +308,16 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                 
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                  <div className="p-3 rounded-full bg-white/90 text-[#1B4332] shadow-xl backdrop-blur-xs">
+                  <div className="p-2.5 rounded-full bg-white/90 text-[#1C3022] shadow-lg">
                     <Maximize2 className="w-4 h-4" />
                   </div>
                 </div>
 
-                <div className="absolute top-3 left-3 z-10">
-                  <span className="text-[10px] font-black px-2.5 py-1 rounded-full bg-[#1B4332] text-white border border-white/40 shadow">
-                    {item.categoryLabel}
-                  </span>
-                </div>
-
-                <div className="absolute bottom-3 left-3 right-3 text-white space-y-0.5 z-10">
-                  <span className="text-[11px] font-bold text-[#E9C46A] uppercase tracking-wider block">
+                <div className="absolute bottom-3 left-4 right-4 text-white z-10">
+                  <span className="text-[11px] font-semibold text-[#E59500] block">
                     {item.role}
                   </span>
-                  <h4 className="font-serif font-bold text-sm text-white drop-shadow-sm line-clamp-1">
+                  <h4 className="font-serif font-bold text-sm text-white line-clamp-1">
                     {item.title}
                   </h4>
                 </div>
@@ -514,287 +325,25 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
 
               <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
                 <div className="space-y-1.5">
-                  <div className="flex items-center gap-1.5 text-[10px] font-semibold text-[#1B4332]">
-                    <MapPin className="w-3 h-3 text-[#1B4332]" />
+                  <div className="flex items-center gap-1.5 text-[11px] font-medium text-stone-500">
+                    <MapPin className="w-3 h-3 text-[#3D684A]" />
                     <span>{item.loc}</span>
                   </div>
-                  <p className="text-[11px] text-stone-600 leading-relaxed">
+                  <p className="text-xs text-stone-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                {item.tags && (
-                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-stone-100">
-                    {item.tags.map((tTag, tIdx) => (
-                      <span key={tIdx} className="text-[10px] font-bold px-2.5 py-1 rounded-md bg-[#1B4332] text-white border border-[#2D6A4F] shadow-xs">
-                        {tTag}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className="pt-2 border-t border-stone-100 text-[11px] font-medium text-[#3D684A]">
+                  {item.tags.join(' · ')}
+                </div>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 5. NOS 4 PÔLES DE SERVICES AGRO-INDUSTRIELS */}
-      {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 border-y border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-black uppercase tracking-wider">
-              <Sliders className="w-3.5 h-3.5 text-[#E9C46A]" />
-              <span className="text-white">{t('services.tag')}</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1B4332]">
-              {t('services.title')}
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-              {t('services.desc')}
-            </p>
-          </FadeInSection>
-
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
-            {servicesList.map((service) => {
-              const ServiceIcon = service.icon;
-              return (
-                <StaggerItem 
-                  key={service.id}
-                  className="bg-white rounded-2xl border border-stone-200 overflow-hidden flex flex-col justify-between hover:border-[#2D6A4F] transition-all hover:shadow-lg group"
-                >
-                  <div className="h-36 overflow-hidden relative bg-stone-900">
-                    <ImageWithSkeleton 
-                      src={service.image} 
-                      alt={service.title} 
-                      containerClassName="w-full h-full"
-                      imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-2.5 left-2.5 z-10">
-                      <span className="text-[10px] font-bold uppercase text-white bg-[#1B4332] px-2 py-0.5 rounded shadow font-black">
-                        {service.badge}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
-                    <div className="space-y-2">
-                      <div className="w-9 h-9 rounded-lg bg-[#1B4332] text-white flex items-center justify-center shadow">
-                        <ServiceIcon className="w-4 h-4 text-white" />
-                      </div>
-                      <h3 className="font-serif font-bold text-sm text-[#1B4332] group-hover:text-[#1B4332] transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="text-xs text-stone-600 leading-relaxed">
-                        {service.desc}
-                      </p>
-                    </div>
-
-                    <div className="pt-3 border-t border-stone-200">
-                      <p className="text-[11px] font-semibold text-stone-500">
-                        {service.details}
-                      </p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </StaggerContainer>
-
-          <FadeInSection threshold={0.2} className="text-center pt-4">
-            <button
-              onClick={() => {
-                setCurrentRoute('contact');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white border border-[#2D6A4F] font-bold text-xs shadow-md transition-all cursor-pointer"
-            >
-              <span>{t('services.cta')}</span>
-              <ArrowRight className="w-4 h-4 text-[#E9C46A]" />
-            </button>
-          </FadeInSection>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 6. PROCESSUS INDUSTRIEL EN 5 ÉTAPES */}
-      {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-        <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white shadow-sm border border-[#2D6A4F] text-xs font-black uppercase tracking-wider">
-            <Layers className="w-3.5 h-3.5 text-[#E9C46A]" />
-            <span className="text-white">{t('process.tag')}</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#1B4332]">
-            {t('process.title')}
-          </h2>
-          <p className="text-xs sm:text-sm text-stone-600">
-            {t('process.desc')}
-          </p>
-        </FadeInSection>
-
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4" staggerDelay={0.08}>
-          {processSteps.map((step, idx) => {
-            return (
-              <StaggerItem 
-                key={idx} 
-                className="bg-white rounded-2xl border border-stone-200 shadow-sm relative flex flex-col justify-between overflow-hidden hover:shadow-md transition-shadow"
-              >
-                <div className="h-28 overflow-hidden relative bg-stone-900">
-                  <ImageWithSkeleton
-                    src={step.image}
-                    alt={step.title}
-                    containerClassName="w-full h-full"
-                    imgClassName="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-2 left-2 bg-[#1B4332] text-white text-xs font-black px-2 py-0.5 rounded shadow z-10">
-                    {step.step}
-                  </div>
-                </div>
-
-                <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
-                  <div className="space-y-1">
-                    <h3 className="font-serif font-bold text-xs text-[#1B4332] leading-snug">
-                      {step.title}
-                    </h3>
-                    <p className="text-[11px] text-stone-600 leading-relaxed font-light">
-                      {step.desc}
-                    </p>
-                  </div>
-
-                  <div className="h-1 w-full bg-stone-200 rounded-full overflow-hidden mt-2">
-                    <div className="h-full bg-[#1B4332] w-full" />
-                  </div>
-                </div>
-              </StaggerItem>
-            );
-          })}
-        </StaggerContainer>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 7. TERROIRS & BASSINS DE PRODUCTION D'HAÏTI */}
-      {/* ========================================================================= */}
-      <section className="bg-[#1B4332] text-white py-16 sm:py-20 border-t border-[#2D6A4F]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <FadeInSection threshold={0.2} className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2D6A4F] pb-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-black uppercase tracking-wider mb-2 border border-white/40">
-                <MapPin className="w-3.5 h-3.5 text-white" />
-                <span className="text-white">{t('terroirs.tag')}</span>
-              </div>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white">
-                {t('terroirs.title')}
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-white opacity-95 max-w-md">
-              {t('terroirs.desc')}
-            </p>
-          </FadeInSection>
-
-          <FadeInSection threshold={0.15} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Terroir Selectors */}
-            <div className="lg:col-span-5 space-y-3">
-              {terroirs.map((tItem, idx) => {
-                const isSelected = selectedTerroir === idx;
-                return (
-                  <button
-                    key={tItem.id}
-                    onClick={() => setSelectedTerroir(idx)}
-                    className={`w-full text-left p-4 rounded-2xl border transition-all cursor-pointer flex items-start gap-3 ${
-                      isSelected
-                        ? 'bg-[#E9C46A] text-[#1F2937] border-[#E9C46A] shadow-lg font-bold'
-                        : 'bg-[#1B4332] hover:bg-[#1a4231] text-white border-[#2D6A4F]'
-                    }`}
-                  >
-                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 font-bold text-xs ${
-                      isSelected ? 'bg-[#1B4332] text-white' : 'bg-[#1B4332] text-white border border-[#2D6A4F]'
-                    }`}>
-                      {idx + 1}
-                    </div>
-                    <div>
-                      <span className={`text-xs uppercase tracking-wider font-semibold block ${isSelected ? 'text-[#1F2937] font-black' : 'text-white'}`}>
-                        {tItem.region}
-                      </span>
-                      <h4 className={`text-sm font-serif font-bold mt-0.5 ${isSelected ? 'text-[#1F2937]' : 'text-white'}`}>
-                        {tItem.title}
-                      </h4>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Terroir Detail Focus Display avec photo */}
-            <div className="lg:col-span-7 bg-[#1B4332] rounded-3xl overflow-hidden border border-[#2D6A4F] space-y-6">
-              <div className="h-48 overflow-hidden relative bg-black/20">
-                <ImageWithSkeleton
-                  src={terroirs[selectedTerroir].image}
-                  alt={terroirs[selectedTerroir].title}
-                  containerClassName="w-full h-full"
-                  imgClassName="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#143527] via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-4 z-10">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#1F2937] bg-[#E9C46A] px-3 py-1 rounded-full border border-black/20">
-                    {terroirs[selectedTerroir].stats}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-6 sm:p-8 space-y-4 pt-0">
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                  {terroirs[selectedTerroir].title}
-                </h3>
-                <p className="text-xs sm:text-sm text-white opacity-95 leading-relaxed">
-                  {terroirs[selectedTerroir].desc}
-                </p>
-
-                <div className="space-y-2 pt-2">
-                  <span className="text-xs font-bold uppercase text-white block">
-                    {t('terroirs.crops_label')}
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {terroirs[selectedTerroir].products.map((prod, pIdx) => (
-                      <span key={pIdx} className="px-3 py-1 rounded-lg bg-[#1B4332] text-white text-xs font-semibold border border-[#2D6A4F]">
-                        🌿 {prod}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-[#2D6A4F] flex flex-wrap items-center justify-between gap-3">
-                  <button
-                    onClick={() => {
-                      setCurrentRoute('partenariats');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-white/80 transition-colors cursor-pointer"
-                  >
-                    <span className="text-white">{t('terroirs.btn_partnerships')}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-white" />
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      setCurrentRoute('marches-export');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="px-4 py-2 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs transition-colors cursor-pointer shadow border border-[#2D6A4F]"
-                  >
-                    {t('terroirs.btn_b2b')}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </FadeInSection>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 8. MODAL LIGHTBOX AGRANDISSEMENT PHOTO */}
-      {/* ========================================================================= */}
+      {/* MODAL LIGHTBOX */}
       <AnimatePresence>
         {lightboxImg && (
           <motion.div 
@@ -805,10 +354,10 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
             onClick={() => setLightboxImg(null)}
           >
             <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-4xl w-full bg-stone-900 rounded-3xl overflow-hidden border border-amber-400/40 shadow-2xl p-3 flex flex-col items-center justify-center"
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative max-w-4xl w-full bg-stone-900 rounded-2xl overflow-hidden border border-stone-700 shadow-2xl p-3 flex flex-col items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -819,7 +368,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="w-full max-h-[70vh] flex items-center justify-center overflow-hidden rounded-2xl bg-black">
+              <div className="w-full max-h-[70vh] flex items-center justify-center overflow-hidden rounded-xl bg-black">
                 <ImageWithSkeleton
                   src={lightboxImg.src}
                   alt={lightboxImg.title}
@@ -829,8 +378,8 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
               </div>
 
               <div className="w-full text-center py-3 px-4 space-y-1">
-                <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider block">
-                  📍 {lightboxImg.loc} • Panyen Lokal
+                <span className="text-[11px] font-semibold text-[#E59500] block">
+                  {lightboxImg.role} · {lightboxImg.loc}
                 </span>
                 <h3 className="text-base font-serif font-bold text-white">
                   {lightboxImg.title}

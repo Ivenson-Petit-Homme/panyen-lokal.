@@ -22,7 +22,6 @@ import { FeaturedProducts } from './components/FeaturedProducts';
 import { HuileDeRicinPage } from './components/HuileDeRicinPage';
 import { CatalogPage } from './components/CatalogPage';
 import { AboutImpactPage } from './components/AboutImpactPage';
-import { OfficialBannerSection } from './components/OfficialBannerSection';
 import { ExportB2BPage } from './components/ExportB2BPage';
 import { PartnershipsPage } from './components/PartnershipsPage';
 import { ContactPage } from './components/ContactPage';
@@ -231,7 +230,7 @@ export default function App() {
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] flex flex-col font-sans text-[#1F2937] selection:bg-[#E9C46A] selection:text-[#1B4332]">
+    <div className="min-h-screen bg-[#FDFBF7] flex flex-col font-sans text-[#1F2937] selection:bg-[#E59500] selection:text-[#1C3022]">
       {/* Navigation Header with Region & Auth Integration */}
       <Navbar
         currentRoute={currentRoute}
@@ -258,8 +257,15 @@ export default function App() {
               selectedRegion={selectedRegion}
             />
 
-            {/* Official Exhibition Roll-up Banner Section */}
-            <OfficialBannerSection setCurrentRoute={setCurrentRoute} />
+            {/* Official Product Catalog: 4 Flagship Products */}
+            <FeaturedProducts
+              products={products}
+              selectedRegion={selectedRegion}
+              onAddToCart={handleAddToCart}
+              onSelectProduct={setSelectedProduct}
+              onRequestQuote={handleRequestQuote}
+              setCurrentRoute={setCurrentRoute}
+            />
 
             {/* Comprehensive Agricultural & Plantation Enterprise Showcase */}
             <AgriEnterpriseShowcase

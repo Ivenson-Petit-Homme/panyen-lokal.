@@ -1,37 +1,30 @@
 import React, { useState } from 'react';
 import { Product, DeliveryRegion } from '../types';
-import { getRegionalPrice, REGIONS_CONFIG } from '../utils/pricing';
+import { getRegionalPrice } from '../utils/pricing';
 import { useLanguage } from '../context/LanguageContext';
 import { ImageWithSkeleton } from './ImageWithSkeleton';
 import { 
-  ShoppingBag, 
-  FileText, 
-  Check, 
-  Layers, 
   Info, 
-  ShieldCheck, 
-  Images
+  Images,
+  MessageCircle
 } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
   selectedRegion?: DeliveryRegion;
-  onAddToCart: (product: Product, selectedFormat: string, quantity: number) => void;
+  onAddToCart?: (product: Product, selectedFormat: string, quantity: number) => void;
   onSelectProduct: (product: Product) => void;
-  onRequestQuote: (product: Product, format?: string) => void;
+  onRequestQuote?: (product: Product, format?: string) => void;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   selectedRegion = 'haiti',
-  onAddToCart,
-  onSelectProduct,
-  onRequestQuote
+  onSelectProduct
 }) => {
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
   const isEn = language === 'en';
 
-  // Determine unique formats without duplicates
   const allFormats: string[] = Array.from(new Set<string>([
     ...(product.formatsDetail || []),
     ...(product.formatsExport || []),
@@ -44,86 +37,47 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
   const [selectedFormat, setSelectedFormat] = useState<string>(allFormats[0] || 'Standard');
-  const [quantity, setQuantity] = useState<number>(1);
-  const [addedAnimation, setAddedAnimation] = useState<boolean>(false);
 
-  // Regional Pricing details
   const activeRegion = (selectedRegion as DeliveryRegion) || 'haiti';
   const regionalPrice = getRegionalPrice(product, selectedFormat, activeRegion);
-  const regionConfig = REGIONS_CONFIG[activeRegion] || REGIONS_CONFIG.haiti;
-  const isExportFormat = product.formatsExport?.includes(selectedFormat);
+  const currentDisplayImage = imagesList[activeImageIdx] || product.image;
 
-  const handleAdd = () => {
-    onAddToCart(product, selectedFormat, quantity);
-    setAddedAnimation(true);
-    setTimeout(() => setAddedAnimation(false), 1400);
+  const formatItemData = product.formatPricing?.[selectedFormat];
+  const displayPriceLabel = () => {
+    if (product.id === 'huile-de-ricin') {
+      if (selectedFormat.includes('2oz')) return '250 HTG';
+      if (selectedFormat.includes('4oz')) return '500 HTG';
+      if (selectedFormat.toLowerCase().includes('galon') || selectedFormat.toLowerCase().includes('gallon') || selectedFormat.includes('128oz')) return '$70.00 USD';
+    }
+    if (formatItemData?.priceHTG && activeRegion === 'haiti') {
+      return `${formatItemData.priceHTG} HTG`;
+    }
+    return `$${regionalPrice.priceUSD.toFixed(2)} USD`;
   };
 
-  const currentDisplayImage = imagesList[activeImageIdx] || product.image;
+  const whatsappMessage = encodeURIComponent(
+    `Bonjour Panyen Lokal, je souhaite des informations sur le produit "${product.title}" (${selectedFormat}) au tarif de ${displayPriceLabel()}.`
+  );
 
   return (
     <div 
       id={`product-card-${product.id}`}
-      className={`bg-white rounded-2xl border transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 ${
-        product.id === 'huile-de-ricin' 
-          ? 'border-[#2D6A4F] ring-2 ring-[#2E7D32]/25' 
-          : 'border-[#E9C46A]/40 hover:border-[#2D6A4F]'
-      }`}
+      className="bg-white rounded-2xl border border-stone-200 hover:border-[#5B9B6E] transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-lg"
     >
-      {/* Card Header & Visual Image Area */}
-      <div className="relative overflow-hidden group bg-[#1B4332] w-full min-h-[240px] sm:min-h-[280px] flex items-center justify-center p-3">
+      {/* Product Visual */}
+      <div className="relative overflow-hidden group bg-[#F6F8F6] w-full h-60 flex items-center justify-center p-4 border-b border-stone-100">
         <ImageWithSkeleton
           src={currentDisplayImage}
-          alt={`Panyen Lokal - ${product.title} produit en Haïti`}
-          containerClassName="w-full h-full max-h-[250px] flex items-center justify-center rounded-xl"
-          imgClassName="w-full h-full max-h-[250px] object-contain transition-transform duration-500 group-hover:scale-105"
-          showShimmerBadge={true}
+          alt={product.title}
+          containerClassName="w-full h-full flex items-center justify-center"
+          imgClassName="w-full h-full max-h-[210px] object-contain transition-transform duration-500 group-hover:scale-105"
+          showShimmerBadge={false}
           loading="lazy"
         />
 
-        {/* Top Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
-          {product.badge && (
-            <span className={`px-2.5 py-1 rounded-md text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm ${
-              product.badge.includes('PHARE') || product.badge.includes('STAR')
-                ? 'bg-[#E9C46A] text-[#1B4332] ring-1 ring-[#2E7D32]'
-                : product.badge.includes('NOUVEAUTÉ')
-                ? 'bg-[#1B4332] text-white border border-white'
-                : 'bg-[#1B4332] text-white border border-[#2D6A4F]'
-            }`}>
-              {product.badge}
-            </span>
-          )}
-          {product.slogan && (
-            <span className="bg-[#143527]/90 backdrop-blur-sm text-white text-[10px] italic font-serif px-2 py-0.5 rounded shadow-sm border border-[#2D6A4F]">
-              "{product.slogan}"
-            </span>
-          )}
-        </div>
-
-        {/* Top Right Region and Stock Badge */}
-        <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1">
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#FDFBF7] text-[#1F2937] border border-stone-200 shadow-xs">
-            <span>{regionConfig.flag}</span>
-            <span>{t('product.dest_prefix')} {selectedRegion === 'haiti' ? t('region.haiti').split(' ')[0] : selectedRegion === 'usa' ? 'USA' : t('region.dom_rep').split(' ')[0]}</span>
-          </span>
-          {product.inStock ? (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#1B4332] text-white border border-[#2D6A4F] shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E9C46A] animate-pulse"></span>
-              <span className="text-white">{t('catalog.in_stock')}</span>
-            </span>
-          ) : (
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-stone-200 text-[#1F2937]/70">
-              {t('catalog.out_of_stock')}
-            </span>
-          )}
-        </div>
-
-        {/* Gallery Image Preview Dots */}
         {imagesList.length > 1 && (
-          <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1 bg-[#143527]/90 px-2 py-1 rounded-full border border-[#2D6A4F]">
+          <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1 bg-[#1C3022]/85 px-2 py-1 rounded-full">
             <Images className="w-3 h-3 text-white" />
-            <span className="text-[10px] font-bold text-white mr-1">{imagesList.length} photos</span>
             {imagesList.map((_, dotIdx) => (
               <button
                 key={dotIdx}
@@ -131,8 +85,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                   e.stopPropagation();
                   setActiveImageIdx(dotIdx);
                 }}
-                className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
-                  dotIdx === activeImageIdx ? 'bg-[#E9C46A] w-3' : 'bg-white/50 hover:bg-white'
+                className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                  dotIdx === activeImageIdx ? 'bg-[#E59500] w-3' : 'w-1.5 bg-white/50 hover:bg-white'
                 }`}
                 title={`Photo ${dotIdx + 1}`}
               />
@@ -140,78 +94,55 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         )}
 
-        {/* Category Pill */}
-        <div className="absolute bottom-3 left-3 z-10">
-          <span className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-[#143527]/90 backdrop-blur-md text-[#FDFBF7] border border-[#2D6A4F]">
-            {product.category}
-          </span>
-        </div>
-
-        {/* Quick View Button on Hover */}
         <button
           onClick={() => onSelectProduct(product)}
-          className="absolute inset-0 bg-[#1B4332]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-medium text-xs backdrop-blur-xs cursor-pointer"
-          title={t('catalog.view_details')}
+          className="absolute inset-0 bg-[#1C3022]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px] cursor-pointer"
+          title={isEn ? "View details" : "Voir les détails"}
         >
-          <span className="bg-[#1B4332] hover:bg-[#143527] text-white border border-white px-4 py-2 rounded-xl shadow-xl flex items-center gap-1.5 font-bold">
-            <Info className="w-3.5 h-3.5 text-white" />
-            {t('product.details_btn')} ({imagesList.length})
+          <span className="bg-[#1C3022] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-1.5 text-xs font-semibold">
+            <Info className="w-3.5 h-3.5 text-[#76BD43]" />
+            <span>{isEn ? "View Details" : "Voir Détails"}</span>
           </span>
         </button>
       </div>
 
-      {/* Card Content & Details */}
+      {/* Card Body */}
       <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-        <div>
-          <div className="flex items-start justify-between gap-2">
-            <h3 
-              onClick={() => onSelectProduct(product)}
-              className="text-base sm:text-lg font-bold font-serif text-[#1B4332] hover:text-[#1B4332] cursor-pointer transition-colors leading-snug"
-            >
-              {product.title}
-            </h3>
+        <div className="space-y-1.5">
+          <div className="text-[11px] font-medium text-[#3D684A] flex items-center gap-1.5">
+            <span>{product.category}</span>
           </div>
 
-          <p className="text-xs text-[#1F2937] line-clamp-2 mt-1.5 leading-relaxed">
+          <h3 
+            onClick={() => onSelectProduct(product)}
+            className="text-base sm:text-lg font-bold font-serif text-[#1C3022] hover:text-[#3D684A] cursor-pointer transition-colors leading-snug"
+          >
+            {product.title}
+          </h3>
+
+          <p className="text-xs text-stone-600 line-clamp-2 leading-relaxed">
             {product.shortDescription}
           </p>
-
-          <div className="mt-2 text-[11px] text-[#1B4332] font-semibold flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#1B4332]" />
-            <span>{t('product.origin_label')} {product.origin}</span>
-          </div>
         </div>
 
-        {/* Format Selector Dropdown / Pills */}
+        {/* Format Selector */}
         {allFormats.length > 0 && (
           <div className="pt-2 border-t border-stone-100">
-            <div className="flex items-center justify-between text-xs font-semibold text-[#1F2937] mb-1.5">
-              <span className="flex items-center gap-1">
-                <Layers className="w-3.5 h-3.5 text-[#1B4332]" />
-                {t('product.size_label')}
-              </span>
-              {isExportFormat && (
-                <span className="text-[10px] text-[#1B4332] bg-[#E9C46A] px-1.5 py-0.5 rounded font-black border border-[#E9C46A]">
-                  {t('product.b2b_format')}
-                </span>
-              )}
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+            <span className="text-[11px] font-semibold text-stone-500 block mb-1.5">
+              {isEn ? "Format :" : "Format :"}
+            </span>
+            <div className="flex flex-wrap gap-1.5">
               {allFormats.map((fmt, fmtIdx) => {
                 const isSelected = selectedFormat === fmt;
-                const isExport = product.formatsExport?.includes(fmt);
                 return (
                   <button
                     key={`${product.id}-format-${fmt}-${fmtIdx}`}
                     type="button"
                     onClick={() => setSelectedFormat(fmt)}
-                    className={`px-2 py-1.5 rounded-lg text-xs font-medium transition-all text-center truncate cursor-pointer ${
+                    className={`px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all cursor-pointer whitespace-nowrap ${
                       isSelected
-                        ? isExport 
-                          ? 'bg-[#E9C46A] text-[#1B4332] font-black shadow-sm ring-2 ring-[#E9C46A]'
-                          : 'bg-[#1B4332] text-white border border-[#2D6A4F] font-bold shadow-sm'
-                        : 'bg-[#FDFBF7] text-[#1F2937] hover:bg-stone-200 border border-stone-200'
+                        ? 'bg-[#3D684A] text-white shadow-xs'
+                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
                     }`}
                   >
                     {fmt}
@@ -222,80 +153,43 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         )}
 
-        {/* Price display & Regional Breakdown */}
-        <div className="bg-[#FDFBF7] p-3 rounded-xl border border-[#E9C46A]/60 flex items-center justify-between">
+        {/* Pricing */}
+        <div className="pt-3 border-t border-stone-100 flex items-baseline justify-between gap-2">
           <div>
-            <div className="text-[11px] text-[#1F2937]/70 flex items-center gap-1">
-              <span>{t('product.rate_label').replace('{region}', regionConfig.name)}</span>
-              {selectedRegion !== 'haiti' && (
-                <span className="text-[10px] text-[#1B4332] font-bold bg-[#E9C46A]/40 px-1 rounded border border-[#E9C46A]">
-                  {t('product.freight_inc')}
-                </span>
-              )}
-            </div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-lg font-extrabold text-[#1B4332]">
-                ${regionalPrice.priceUSD.toFixed(2)} USD
-              </span>
-              {regionalPrice.currency !== 'USD' && (
-                <span className="text-xs font-semibold text-[#1F2937]">
-                  ({regionalPrice.formattedLocal})
-                </span>
-              )}
-            </div>
+            <span className="text-[11px] text-stone-500 block">
+              {isEn ? "Price" : "Tarif"}
+            </span>
+            <span className="text-lg font-extrabold text-[#1C3022] tabular-nums">
+              {displayPriceLabel()}
+            </span>
           </div>
-          <div className="text-right text-[11px] text-[#1B4332] font-bold">
+          <span className="text-[11px] text-stone-500 font-medium truncate max-w-[130px]">
             {selectedFormat}
-          </div>
+          </span>
         </div>
 
-        {/* Actions : Bouton Achte / Demander un devis B2B */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-          {isExportFormat ? (
-            <button
-              id={`btn-quote-${product.id}`}
-              onClick={() => onRequestQuote(product, selectedFormat)}
-              className="w-full py-2.5 px-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 col-span-2 cursor-pointer border border-[#2D6A4F]"
-            >
-              <FileText className="w-4 h-4 text-white" />
-              <span>{t('product.b2b_quote_btn')} ({selectedFormat})</span>
-            </button>
-          ) : (
-            <>
-              <button
-                id={`btn-add-${product.id}`}
-                onClick={handleAdd}
-                className={`py-2.5 px-3 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer border ${
-                  addedAnimation
-                    ? 'bg-[#E9C46A] text-[#1B4332] border-[#E9C46A] font-black'
-                    : 'bg-[#1B4332] hover:bg-[#143527] text-white border-[#2D6A4F]'
-                }`}
-              >
-                {addedAnimation ? (
-                  <>
-                    <Check className="w-4 h-4 text-[#1B4332]" />
-                    <span>{t('product.added_btn')}</span>
-                  </>
-                ) : (
-                  <>
-                    <ShoppingBag className="w-3.5 h-3.5 text-white" />
-                    <span>{t('catalog.quick_add')}</span>
-                  </>
-                )}
-              </button>
-              <button
-                id={`btn-detail-${product.id}`}
-                onClick={() => onSelectProduct(product)}
-                className="py-2.5 px-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-semibold text-xs border border-[#2D6A4F] transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-xs"
-              >
-                <Info className="w-3.5 h-3.5 text-white" />
-                <span className="text-white">{t('product.details_btn')}</span>
-              </button>
-            </>
-          )}
+        {/* Actions */}
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            id={`btn-detail-${product.id}`}
+            onClick={() => onSelectProduct(product)}
+            className="w-full py-2.5 px-3 rounded-lg bg-[#1C3022] hover:bg-[#2A4833] text-white font-semibold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+          >
+            <Info className="w-3.5 h-3.5 text-[#76BD43]" />
+            <span>{isEn ? "Details" : "Détails"}</span>
+          </button>
+
+          <a
+            href={`https://wa.me/50938346371?text=${whatsappMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-2.5 px-3 rounded-lg bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+          >
+            <MessageCircle className="w-3.5 h-3.5 text-white" />
+            <span>WhatsApp</span>
+          </a>
         </div>
       </div>
     </div>
   );
 };
-

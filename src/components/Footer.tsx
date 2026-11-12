@@ -3,15 +3,7 @@ import { PageRoute } from '../types';
 import { COMPANY_INFO } from '../data/productsData';
 import { useLanguage } from '../context/LanguageContext';
 import panyenLogo from '../assets/images/LOGO_PANYEN.png';
-import { 
-  MapPin, 
-  Mail, 
-  Phone, 
-  ShieldCheck, 
-  Award, 
-  ArrowRight, 
-  Sparkles
-} from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 
 interface FooterProps {
   setCurrentRoute: (route: PageRoute) => void;
@@ -19,233 +11,141 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ setCurrentRoute }) => {
   const { language, t } = useLanguage();
+  const isEn = language === 'en';
+
   const handleNav = (route: PageRoute) => {
     setCurrentRoute(route);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const isEn = language === 'en';
-
   return (
-    <footer id="main-footer" className="bg-[#1B4332] text-white border-t border-[#1e4a37]">
-      {/* Ruban Supérieur d'Action B2B & Export */}
-      <div className="border-b border-[#2D6A4F] bg-[#1B4332] py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="max-w-xl text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 border border-white/40 text-white text-xs font-bold mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-white" />
-              <span className="text-white">{t('footer.b2b_tag')}</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-              {t('footer.b2b_title')}
-            </h3>
-            <p className="text-sm text-white/90 mt-1">
-              {t('footer.b2b_desc')}
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <button
-              onClick={() => handleNav('marches-export')}
-              className="px-6 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2 group cursor-pointer border border-[#2D6A4F]"
-            >
-              <span>{t('footer.b2b_btn')}</span>
-              <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={() => handleNav('contact')}
-              className="px-5 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-sm border border-[#2D6A4F] hover:border-white transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <span>{t('footer.b2b_contact')}</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Grille Principale du Pied de Page */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Colonne 1: Identité & Philosophie */}
-          <div className="space-y-4">
+    <footer id="main-footer" className="bg-[#1C3022] text-white border-t border-[#2A4833]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          
+          {/* Colonne 1: Identité */}
+          <div className="md:col-span-4 space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-14 h-14 rounded-2xl bg-white p-1.5 flex items-center justify-center shadow-lg border border-white/40 overflow-hidden ring-2 ring-white/20">
+              <div className="w-11 h-11 rounded-xl bg-white p-1 flex items-center justify-center shrink-0">
                 <img 
                   src={panyenLogo} 
-                  alt="Logo Officiel Panyen Lokal" 
+                  alt="Logo Panyen Lokal" 
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div>
-                <span className="text-lg font-bold font-serif text-white tracking-tight">
+                <span className="text-base font-bold font-serif text-white tracking-tight block">
                   PANYEN LOKAL
                 </span>
-                <p className="text-xs text-white font-bold">
+                <span className="text-[11px] text-[#76BD43] font-semibold">
                   {t('footer.agro_title')}
-                </p>
+                </span>
               </div>
             </div>
-            <p className="text-sm text-white/90 leading-relaxed">
-              {t('footer.desc')}
+            <p className="text-xs text-stone-300 leading-relaxed max-w-xs mb-0">
+              {isEn
+                ? "Agro-industrial enterprise dedicated to sustainable Haitian processing and direct distribution."
+                : "Entreprise agro-industrielle dédiée à la transformation durable des terroirs d'Haïti et à la distribution directe."}
             </p>
-            <div className="pt-2 flex flex-wrap gap-2 text-xs">
-              <span className="px-2.5 py-1 rounded bg-[#1B4332] border border-[#2D6A4F] text-white flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-white" />
-                {t('footer.stat_farmers')}
-              </span>
-              <span className="px-2.5 py-1 rounded bg-[#1B4332] border border-[#2D6A4F] text-white flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 text-white" />
-                {t('footer.stat_regions')}
-              </span>
-            </div>
           </div>
 
-          {/* Colonne 2: Navigation rapide */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#2D6A4F]">
+          {/* Colonne 2: Navigation */}
+          <div className="md:col-span-2">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#76BD43] mb-3">
               {t('footer.quick_links')}
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 text-xs pl-0 list-none">
               <li>
-                <button
-                  onClick={() => handleNav('home')}
-                  className="text-white hover:text-white/80 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <ArrowRight className="w-3 h-3 text-white" />
+                <button onClick={() => handleNav('home')} className="text-stone-200 hover:text-white transition-colors cursor-pointer">
                   {t('nav.home')}
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('a-propos')}
-                  className="text-white hover:text-white/80 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <ArrowRight className="w-3 h-3 text-white" />
-                  {t('nav.about')}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNav('produits')}
-                  className="text-white hover:text-white/80 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <ArrowRight className="w-3 h-3 text-white" />
+                <button onClick={() => handleNav('produits')} className="text-stone-200 hover:text-white transition-colors cursor-pointer">
                   {t('nav.products')}
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('marches-export')}
-                  className="text-white hover:text-white/80 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <ArrowRight className="w-3 h-3 text-white" />
+                <button onClick={() => handleNav('a-propos')} className="text-stone-200 hover:text-white transition-colors cursor-pointer">
+                  {t('nav.about')}
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('marches-export')} className="text-stone-200 hover:text-white transition-colors cursor-pointer">
                   {t('nav.export')}
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => handleNav('partenariats')}
-                  className="text-white hover:text-white/80 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <ArrowRight className="w-3 h-3 text-white" />
-                  {t('nav.partnerships')}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNav('contact')}
-                  className="text-white hover:text-white/80 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <ArrowRight className="w-3 h-3 text-white" />
+                <button onClick={() => handleNav('contact')} className="text-stone-200 hover:text-white transition-colors cursor-pointer">
                   {t('nav.contact')}
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Colonne 3: Nos Spécialités Phares */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#2D6A4F]">
-              {t('footer.products_links')}
+          {/* Colonne 3: Adresses Officielles (États-Unis & Haïti) */}
+          <div id="points-de-vente" className="md:col-span-6">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#76BD43] mb-3">
+              {isEn ? "Official Locations (USA & Haiti)" : "Adresses Officielles (États-Unis & Haïti)"}
             </h4>
-            <div className="space-y-3 text-xs">
-              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2D6A4F]">
-                <p className="font-bold text-white">
-                  {t('hero.prod1')}
-                </p>
-                <p className="text-white/90 text-[11px] mt-0.5">
-                  {t('footer.product_ricin_desc')}
-                </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* États-Unis */}
+              <div className="p-3.5 rounded-xl bg-[#142318] border border-[#2A4833] space-y-1.5 text-xs">
+                <div className="font-bold text-white flex items-center gap-1.5">
+                  <span>🇺🇸</span>
+                  <span>PANYEN LOKAL INC</span>
+                </div>
+                <div className="flex items-start gap-2 text-stone-300">
+                  <MapPin className="w-3.5 h-3.5 text-[#76BD43] shrink-0 mt-0.5" />
+                  <span className="leading-snug">7400 W Oakland Park Blvd, Unit 1125, Lauderhill, Florida 33319</span>
+                </div>
+                <div className="flex items-center gap-2 text-stone-200">
+                  <Phone className="w-3.5 h-3.5 text-[#76BD43] shrink-0" />
+                  <a href="tel:7814698708" className="hover:text-white font-semibold text-white">Tel : 781-469-8708</a>
+                </div>
               </div>
-              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2D6A4F]">
-                <p className="font-bold text-white">
-                  {t('home.category_spirits_title')}
-                </p>
-                <p className="text-white/90 text-[11px] mt-0.5">
-                  {t('footer.product_cognac_desc')}
-                </p>
-              </div>
-              <div className="p-2.5 rounded-xl bg-[#1B4332] border border-[#2D6A4F]">
-                <p className="font-bold text-white">
-                  {t('home.category_grocery_title')}
-                </p>
-                <p className="text-white/90 text-[11px] mt-0.5">
-                  {t('footer.product_cassava_desc')}
-                </p>
+
+              {/* Haïti */}
+              <div className="p-3.5 rounded-xl bg-[#142318] border border-[#2A4833] space-y-1.5 text-xs">
+                <div className="font-bold text-white flex items-center gap-1.5">
+                  <span>🇭🇹</span>
+                  <span>Biwo Caracol</span>
+                </div>
+                <div className="flex items-start gap-2 text-stone-300">
+                  <MapPin className="w-3.5 h-3.5 text-[#76BD43] shrink-0 mt-0.5" />
+                  <span className="leading-snug">B6-39, Village Ekam, Caracol, Haïti</span>
+                </div>
+                <div className="flex items-center gap-2 text-stone-200">
+                  <Phone className="w-3.5 h-3.5 text-[#76BD43] shrink-0" />
+                  <span className="font-semibold text-white">
+                    <a href="tel:+50938346371" className="hover:underline">+509 3834-6371</a> / <a href="tel:+50935593385" className="hover:underline">3559-3385</a>
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-stone-300">
+                  <Mail className="w-3.5 h-3.5 text-[#76BD43] shrink-0" />
+                  <a href="mailto:panyenlokalsa@gmail.com" className="hover:text-white truncate text-stone-200">panyenlokalsa@gmail.com</a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Colonne 4: Contact & Implantation */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 pb-2 border-b border-[#2D6A4F]">
-              {t('footer.contact_links')}
-            </h4>
-            <div className="space-y-3 text-sm text-white">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-5 h-5 text-white shrink-0 mt-0.5" />
-                <span className="text-xs leading-relaxed text-white">
-                  {COMPANY_INFO.address}
-                </span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-white shrink-0" />
-                <span className="text-xs text-white">{COMPANY_INFO.phone}</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-white shrink-0" />
-                <span className="text-xs text-white">{COMPANY_INFO.email}</span>
-              </div>
-            </div>
-
-            <div className="pt-2 border-t border-[#2D6A4F]">
-              <p className="text-[11px] text-white/90">
-                {t('footer.shipping_info')}
-              </p>
-            </div>
-          </div>
         </div>
 
-        {/* Barre Juridique Basse */}
-        <div className="mt-12 pt-6 border-t border-[#2D6A4F] flex flex-col sm:row items-center justify-between gap-4 text-xs text-white/90">
-          <div>
-            © {new Date().getFullYear()} {COMPANY_INFO.name}. {t('footer.rights')}
-          </div>
-          <div className="flex flex-wrap gap-4 text-[11px]">
-            <span className="hover:text-white cursor-pointer" onClick={() => handleNav('a-propos')}>
+        {/* Barre Basse Simple */}
+        <div className="mt-8 pt-5 border-t border-[#2A4833] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-stone-400">
+          <span>© {new Date().getFullYear()} {COMPANY_INFO.name}. {t('footer.rights')}</span>
+          <div className="flex items-center gap-4">
+            <button onClick={() => handleNav('a-propos')} className="hover:text-white transition-colors cursor-pointer">
               {t('footer.model_link')}
-            </span>
-            <span>•</span>
-            <span className="hover:text-white cursor-pointer" onClick={() => handleNav('marches-export')}>
+            </button>
+            <span aria-hidden="true">·</span>
+            <button onClick={() => handleNav('marches-export')} className="hover:text-white transition-colors cursor-pointer">
               {t('footer.lab_link')}
-            </span>
-            <span>•</span>
-            <span className="hover:text-white cursor-pointer" onClick={() => handleNav('contact')}>
-              Caracol, Haïti
-            </span>
+            </button>
           </div>
         </div>
       </div>
     </footer>
   );
 };
-

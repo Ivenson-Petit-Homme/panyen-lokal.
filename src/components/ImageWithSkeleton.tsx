@@ -69,12 +69,12 @@ export const ImageWithSkeleton: React.FC<ImageWithSkeletonProps> = ({
           {/* Shimmer sweep wave */}
           <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/50 to-transparent" />
           
-          <div className="relative z-10 flex flex-col items-center gap-1.5 opacity-60 text-[#1B4332]">
-            <div className="w-8 h-8 rounded-full bg-[#1B4332]/10 border border-[#1B4332]/20 flex items-center justify-center animate-spin">
-              <div className="w-3 h-3 rounded-full border-2 border-[#2D6A4F] border-t-transparent" />
+          <div className="relative z-10 flex flex-col items-center gap-1.5 opacity-60 text-[#1C3022]">
+            <div className="w-8 h-8 rounded-full bg-[#2A4833]/10 border border-[#2A4833]/20 flex items-center justify-center animate-spin">
+              <div className="w-3 h-3 rounded-full border-2 border-[#5B9B6E] border-t-transparent" />
             </div>
             {showShimmerBadge && (
-              <span className="text-[10px] font-black uppercase tracking-wider text-[#1B4332]">
+              <span className="text-[10px] font-black uppercase tracking-wider text-[#1C3022]">
                 Panyen Lokal
               </span>
             )}

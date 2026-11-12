@@ -179,7 +179,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
         </div>
         <button
           onClick={() => handleOpenModal()}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#1B4332] hover:bg-[#143527] text-white rounded-xl text-xs font-black shadow-lg cursor-pointer transition-all border border-white/30"
+          className="flex items-center gap-2 px-5 py-2.5 bg-[#2A4833] hover:bg-[#1C3022] text-white rounded-xl text-xs font-black shadow-lg cursor-pointer transition-all border border-white/30"
         >
           <Plus className="w-4 h-4" />
           AJOUTE PWODWI
@@ -206,7 +206,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                   {product.in_stock ? 'DISPONIBLE' : 'RUPTURE'}
                 </span>
                 {product.is_featured === 1 && (
-                  <span className="bg-[#E9C46A] text-[#1B4332] px-2.5 py-1 rounded-lg text-[9px] font-black uppercase shadow-sm">Featured</span>
+                  <span className="bg-[#E59500] text-[#1C3022] px-2.5 py-1 rounded-lg text-[9px] font-black uppercase shadow-sm">Featured</span>
                 )}
               </div>
             </div>
@@ -214,7 +214,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
             <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] font-black text-white bg-[#1B4332] px-2 py-0.5 rounded border border-[#2D6A4F] uppercase tracking-widest">{product.category}</span>
+                  <span className="text-[9px] font-black text-white bg-[#2A4833] px-2 py-0.5 rounded border border-[#5B9B6E] uppercase tracking-widest">{product.category}</span>
                 </div>
                 <h4 className="font-black text-stone-900 leading-tight text-lg">{product.title}</h4>
                 <p className="text-xs text-stone-500 line-clamp-2 leading-relaxed">
@@ -241,7 +241,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                 </div>
                 <div className="text-right">
                   <span className="text-[10px] font-bold text-stone-400 block uppercase">ID: {product.id}</span>
-                  <span className="text-[10px] font-black text-[#1B4332]">{product.origin}</span>
+                  <span className="text-[10px] font-black text-[#1C3022]">{product.origin}</span>
                 </div>
               </div>
             </div>
@@ -260,7 +260,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
               className="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border border-stone-200"
             >
               <div className="p-6 border-b border-stone-100 flex items-center justify-between sticky top-0 bg-white z-10">
-                <h3 className="text-xl font-black text-[#1B4332] uppercase">
+                <h3 className="text-xl font-black text-[#1C3022] uppercase">
                   {editingProduct ? 'Modifier le Produit' : 'Nouvel Article'}
                 </h3>
                 <button onClick={() => setIsModalOpen(false)} className="p-2 hover:bg-stone-100 rounded-full cursor-pointer">
@@ -278,7 +278,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                       disabled={!!editingProduct}
                       value={formData.id}
                       onChange={(e) => setFormData({...formData, id: e.target.value})}
-                      className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] disabled:opacity-50"
+                      className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] disabled:opacity-50"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -288,7 +288,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                       required
                       value={formData.slug}
                       onChange={(e) => setFormData({...formData, slug: e.target.value})}
-                      className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32]"
+                      className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43]"
                     />
                   </div>
                   <div className="sm:col-span-2 space-y-1.5">
@@ -298,7 +298,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                       required
                       value={formData.title}
                       onChange={(e) => setFormData({...formData, title: e.target.value})}
-                      className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs font-bold focus:ring-2 focus:ring-[#2E7D32]"
+                      className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs font-bold focus:ring-2 focus:ring-[#76BD43]"
                     />
                   </div>
                 </div>
@@ -309,7 +309,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                     <select
                       value={formData.category}
                       onChange={(e) => setFormData({...formData, category: e.target.value as any})}
-                      className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32]"
+                      className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43]"
                     >
                       <option value="Huiles & Soins Naturels">Huiles & Soins Naturels</option>
                       <option value="Boissons & Liqueurs">Boissons & Liqueurs</option>
@@ -328,7 +328,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                         <label className="flex flex-col items-center justify-center w-full h-16 border-2 border-dashed border-stone-200 rounded-xl cursor-pointer hover:bg-stone-50 transition-all">
                           <div className="flex items-center gap-2 text-stone-500">
                             {uploading ? (
-                              <div className="w-4 h-4 border-2 border-[#2D6A4F] border-t-transparent rounded-full animate-spin" />
+                              <div className="w-4 h-4 border-2 border-[#5B9B6E] border-t-transparent rounded-full animate-spin" />
                             ) : (
                               <ImageIcon className="w-4 h-4" />
                             )}
@@ -352,7 +352,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                     type="text"
                     value={formData.shortDescription}
                     onChange={(e) => setFormData({...formData, shortDescription: e.target.value})}
-                    className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32]"
+                    className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43]"
                   />
                 </div>
 
@@ -362,7 +362,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                     rows={4}
                     value={formData.description}
                     onChange={(e) => setFormData({...formData, description: e.target.value})}
-                    className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32]"
+                    className="w-full p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43]"
                   />
                 </div>
 
@@ -372,7 +372,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                       type="checkbox"
                       checked={formData.inStock}
                       onChange={(e) => setFormData({...formData, inStock: e.target.checked})}
-                      className="w-4 h-4 accent-[#1B4332]"
+                      className="w-4 h-4 accent-[#1C3022]"
                     />
                     <span className="text-[10px] font-black uppercase">En Stock</span>
                   </label>
@@ -381,7 +381,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                       type="checkbox"
                       checked={formData.isFeatured}
                       onChange={(e) => setFormData({...formData, isFeatured: e.target.checked})}
-                      className="w-4 h-4 accent-[#1B4332]"
+                      className="w-4 h-4 accent-[#1C3022]"
                     />
                     <span className="text-[10px] font-black uppercase">Featured</span>
                   </label>
@@ -397,7 +397,7 @@ export const AdminProducts: React.FC<AdminProductsProps> = ({ currentUser }) => 
                   </button>
                   <button
                     type="submit"
-                    className="px-8 py-3 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-black text-xs shadow-lg flex items-center gap-2 cursor-pointer transition-all"
+                    className="px-8 py-3 rounded-xl bg-[#2A4833] hover:bg-[#1C3022] text-white font-black text-xs shadow-lg flex items-center gap-2 cursor-pointer transition-all"
                   >
                     <Save className="w-4 h-4" />
                     ENREGISTRER

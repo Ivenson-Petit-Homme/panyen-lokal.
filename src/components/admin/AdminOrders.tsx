@@ -66,7 +66,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ currentUser }) => {
     o.userEmail.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  if (loading) return <div className="flex items-center justify-center py-20"><Clock className="animate-spin text-[#1B4332]" /></div>;
+  if (loading) return <div className="flex items-center justify-center py-20"><Clock className="animate-spin text-[#1C3022]" /></div>;
 
   return (
     <div className="space-y-6 animate-fadeIn">
@@ -79,7 +79,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ currentUser }) => {
             placeholder="Rechercher (N° commande, client...)"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 rounded-xl bg-stone-50 border-none text-xs focus:ring-2 focus:ring-[#2E7D32]"
+            className="w-full pl-9 pr-4 py-2 rounded-xl bg-stone-50 border-none text-xs focus:ring-2 focus:ring-[#76BD43]"
           />
         </div>
         <div className="flex items-center gap-2">
@@ -108,7 +108,7 @@ export const AdminOrders: React.FC<AdminOrdersProps> = ({ currentUser }) => {
               {filteredOrders.map((order) => (
                 <tr key={order.id} className="hover:bg-stone-50/50 transition-colors">
                   <td className="px-6 py-4">
-                    <div className="font-black text-[#1B4332]">{order.orderNumber}</div>
+                    <div className="font-black text-[#1C3022]">{order.orderNumber}</div>
                     <div className="text-[10px] text-stone-400 mt-0.5">
                       {new Date(order.createdAt).toLocaleDateString()}
                     </div>

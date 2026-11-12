@@ -4,6 +4,8 @@ import grandTamarFrontImg from '../assets/images/grand_tamar_face_exact_17899703
 import grandTamarBackImg from '../assets/images/grand_tamar_back_exact_1789970411487.jpg';
 import cassaveNordBoxImg from '../assets/images/cassave_nord_box_1786934328091.jpg';
 import chocolatChaudPanyenImg from '../assets/images/chocolat_chaud_doypack_panyen_1789937953070.jpg';
+import vinDeMielImg from '../assets/images/vin_de_miel_bottle_1794516761155.jpg';
+import mambaImg from '../assets/images/mamba_panyen_lokal_1787235664496.jpg';
 import panyenLokalLogoClean from '../assets/images/LOGO_PANYEN.png';
 import panyenLokalOfficialLogo from '../assets/images/LOGO_PANYEN.png';
 import recolteRicinImg from '../assets/images/recolte_ricin_moringa_1786859405918.jpg';
@@ -11,6 +13,7 @@ import laboratoireImg from '../assets/images/laboratoire_analyse_hplc_1786859417
 import champImg from '../assets/images/champ_panyen_lokal_1786858968582.jpg';
 import marchandesImg from '../assets/images/marchandes_panyen_1786859017441.jpg';
 import marcheFruitsImg from '../assets/images/marche_fruits_terroir_1786859032135.jpg';
+import usineExtImg from '../assets/images/usine_exterieur_ekam_1786859382526.jpg';
 
 export {
   ricinFlaconImg,
@@ -18,6 +21,13 @@ export {
   grandTamarBackImg,
   cassaveNordBoxImg,
   chocolatChaudPanyenImg,
+  mambaImg,
+  recolteRicinImg,
+  laboratoireImg,
+  champImg,
+  marchandesImg,
+  marcheFruitsImg,
+  usineExtImg,
   panyenLokalLogoClean,
   panyenLokalOfficialLogo
 };
@@ -32,8 +42,9 @@ export const PRODUCTS_DATA: Product[] = [
     badge: "PRODUIT PHARE N°1",
     shortDescription: "Huile de ricin 100% pure et naturelle extraite en Haïti pour soins cosmétiques, capillaires, pharmaceutiques et export B2B.",
     description: "Notre huile de ricin d'exception est extraite au cœur du Nord-Est d'Haïti à partir de graines rigoureusement sélectionnées. Elle est issue d'un procédé semi-industriel et artisanal maîtrisé sans solvants chimiques ni hexane. Exceptionnellement concentrée en acide ricinoléique (>88%), elle stimule intensément la pousse capillaire, régénère l'épiderme et répond aux normes des plus grands laboratoires cosmétiques internationaux.",
-    formatsDetail: ["2oz (60ml)", "4oz (120ml)", "250ml", "500ml", "1 Litre"],
-    formatsExport: ["1 Gallon (3.78L)", "Baril Export 54 Gallons (204L)"],
+    formats: ["2oz (60ml)", "4oz (120ml)", "Galon 128oz (3.78L)"],
+    formatsDetail: ["2oz (60ml)", "4oz (120ml)"],
+    formatsExport: ["Galon 128oz (3.78L)"],
     image: ricinFlaconImg,
     gallery: [
       ricinFlaconImg,
@@ -46,9 +57,9 @@ export const PRODUCTS_DATA: Product[] = [
     terroirLocation: "Plantations & Coopératives du Nord-Est",
     highlights: [
       "100% Pure & Naturelle sans solvants ni dérivés pétrochimiques",
+      "Disponibilité immédiate : Bouteille 2oz (250 Gdes), Bouteille 4oz (500 Gdes), Galon 128oz ($70 US)",
       "Teneur en Acide Ricinoléique certifiée en laboratoire > 88.4%",
-      "Pressage mécanique et extraction respectueuse des principes actifs",
-      "Conditionnements détail & fûts industriels scellés pour l'exportation mondiale"
+      "Points de vente et retrait sur place disponibles en Haïti et aux USA"
     ],
     ingredients: [
       "100% Huile de graines pures de Ricinus Communis (Ricin d'Haïti)",
@@ -58,7 +69,7 @@ export const PRODUCTS_DATA: Product[] = [
       "Soin capillaire : Appliquer raie par raie sur le cuir chevelu en massage circulaire pendant 10 minutes. Laisser poser en bain d'huile 30 à 60 minutes ou toute la nuit.",
       "Soin des cils et sourcils : Appliquer délicatement au coucher à l'aide d'une brosse propre.",
       "Soin cutané & ongles : Masser les zones très sèches, crevasses, vergetures ou ongles cassants.",
-      "Formulations industrielles : Matière première de premier choix pour savons surgras, baumes et soins cosmétiques."
+      "Achat direct : Disponible en retrait physique à nos adresses à Caracol (Haïti) et à Lauderhill, Florida (USA)."
     ],
     technicalSpecs: {
       "Acide Ricinoléique": "88.4% - 90.2%",
@@ -70,18 +81,14 @@ export const PRODUCTS_DATA: Product[] = [
       "Origine": "Nord-Est, Haïti (Village EKAM, Caracol)"
     },
     formatPricing: {
-      "2oz": { format: "2oz (60ml)", priceUSD: 1.15, priceHTG: 150, unit: "Flacon verre ambré 60ml", type: "retail" },
-      "2oz (60ml)": { format: "2oz (60ml)", priceUSD: 1.15, priceHTG: 150, unit: "Flacon verre ambré 60ml", type: "retail" },
-      "4oz": { format: "4oz (120ml)", priceUSD: 1.50, priceHTG: 200, unit: "Flacon verre ambré 120ml", type: "retail" },
-      "4oz (120ml)": { format: "4oz (120ml)", priceUSD: 1.50, priceHTG: 200, unit: "Flacon verre ambré 120ml", type: "retail" },
-      "250ml": { format: "250ml", priceUSD: 3.50, priceHTG: 460, unit: "Bouteille aluminium/verre 250ml", type: "retail" },
-      "500ml": { format: "500ml", priceUSD: 6.50, priceHTG: 850, unit: "Bouteille 500ml", type: "retail" },
-      "1L": { format: "1 Litre", priceUSD: 12.00, priceHTG: 1580, unit: "Bidon professionnel 1L", type: "retail" },
-      "1 Litre": { format: "1 Litre", priceUSD: 12.00, priceHTG: 1580, unit: "Bidon professionnel 1L", type: "retail" },
-      "1 Gallon": { format: "1 Gallon (3.78L)", priceUSD: 45.00, priceHTG: 5940, unit: "Cruche renforcée 3.78L", type: "export", moq: 1, weightKg: 3.6 },
-      "1 Gallon (3.78L)": { format: "1 Gallon (3.78L)", priceUSD: 45.00, priceHTG: 5940, unit: "Cruche renforcée 3.78L", type: "export", moq: 1, weightKg: 3.6 },
-      "Baril Export 54 Gallons": { format: "Baril Export 54 Gal (204L)", priceUSD: 1800.00, priceHTG: 237600, unit: "Fût métallique scellé 204L", type: "export", moq: 1, weightKg: 195 },
-      "Baril Export 54 Gallons (204L)": { format: "Baril Export 54 Gal (204L)", priceUSD: 1800.00, priceHTG: 237600, unit: "Fût métallique scellé 204L", type: "export", moq: 1, weightKg: 195 }
+      "2oz": { format: "Bouteille 2oz (60ml)", priceUSD: 1.90, priceHTG: 250, unit: "Bouteille 2oz (250 Gdes)", type: "retail" },
+      "2oz (60ml)": { format: "Bouteille 2oz (60ml)", priceUSD: 1.90, priceHTG: 250, unit: "Bouteille 2oz (250 Gdes)", type: "retail" },
+      "4oz": { format: "Bouteille 4oz (120ml)", priceUSD: 3.80, priceHTG: 500, unit: "Bouteille 4oz (500 Gdes)", type: "retail" },
+      "4oz (120ml)": { format: "Bouteille 4oz (120ml)", priceUSD: 3.80, priceHTG: 500, unit: "Bouteille 4oz (500 Gdes)", type: "retail" },
+      "Galon 128oz": { format: "Galon 128oz (3.78L)", priceUSD: 70.00, priceHTG: 9240, unit: "Galon 128oz ($70 US)", type: "export", moq: 1, weightKg: 3.6 },
+      "Galon 128oz (3.78L)": { format: "Galon 128oz (3.78L)", priceUSD: 70.00, priceHTG: 9240, unit: "Galon 128oz ($70 US)", type: "export", moq: 1, weightKg: 3.6 },
+      "1 Gallon": { format: "Galon 128oz (3.78L)", priceUSD: 70.00, priceHTG: 9240, unit: "Galon 128oz ($70 US)", type: "export", moq: 1, weightKg: 3.6 },
+      "1 Gallon (3.78L)": { format: "Galon 128oz (3.78L)", priceUSD: 70.00, priceHTG: 9240, unit: "Galon 128oz ($70 US)", type: "export", moq: 1, weightKg: 3.6 }
     },
     certifications: ["Certificat de Pureté Laboratoire", "Non-OGM", "Commerce Équitable d'Haïti", "Fiche de Données de Sécurité (FDS/MSDS)"]
   },
@@ -145,7 +152,7 @@ export const PRODUCTS_DATA: Product[] = [
     shortDescription: "Vin de miel artisanal et rafraîchissant sublimé par des notes d'orange amère.",
     description: "Une création raffinée associant le miel brut des apiculteurs haïtiens à la subtilité de l'orange amère (bigarade). Cet hydromel d'apéritif délicat, équilibré et parfumé est fermenté et clarifié selon un procédé traditionnel maîtrisé au sein de notre complexe agro-industriel.",
     formats: ["750ml"],
-    image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80",
+    image: vinDeMielImg,
     inStock: true,
     origin: "Nord-Est & Plateau Central, Haïti",
     terroirLocation: "Réseau d'Apiculteurs Partenaires",
@@ -229,58 +236,6 @@ export const PRODUCTS_DATA: Product[] = [
     },
     certifications: ["100% Naturel • Fabriqué en Haïti", "Cacao Agroforestier Équitable", "Qualité Agroalimentaire Certifiée"]
   },
-  {
-    id: "cassave-artisanal",
-    title: "Cassave Artisanale du Nord d'Haïti",
-    slug: "cassave-artisanal",
-    slogan: "Galette de Manioc Ancestrale • Étui Cartonné Protecteur 20x7x30cm",
-    isFeatured: true,
-    category: "Épicerie & Alimentaire",
-    badge: "PATRIMOINE GASTRONOMIQUE",
-    shortDescription: "Galettes de cassave artisanales 20x7x30cm au manioc doux, cannelle, gingembre, noix de coco et roroli.",
-    description: "La Cassave Nord d'Haïti de Panyen Lokal est issue de la pure tradition séculaire du Grand Nord. Élaborée à partir de farine de manioc doux rigoureusement tamisée, de cannelle, gingembre, noix de coco et roroli, elle est cuite sur platines traditionnelles pour une texture croustillante et légère. Présentée dans son emballage cartonné protecteur aux normes agroalimentaires modernes.",
-    formats: ["Boîte Étui 20x7x30cm (Sucre/Sel)", "Pack Export 6 Boîtes"],
-    image: cassaveNordBoxImg,
-    gallery: [
-      cassaveNordBoxImg,
-      marchandesImg,
-      marcheFruitsImg
-    ],
-    inStock: true,
-    origin: "Caracol, Cap-Haïtien, Nord-Est, Haïti",
-    terroirLocation: "Plantations de Manioc de Caracol & Quartier-Morin",
-    highlights: [
-      "Manioc doux naturel sans conservateurs chimiques",
-      "Format étui boîte 20x7x30cm protecteur anti-casse",
-      "Ingrédients de terroir : farine de manioc, cannelle, gingembre, noix de coco, roroli",
-      "Naturellement sans gluten, riche en fibres et minéraux"
-    ],
-    ingredients: [
-      "Farine de manioc doux pur tamisée",
-      "Sucre de canne brut ou Sel marin artisanal",
-      "Cannelle moulue",
-      "Gingembre naturel",
-      "Noix de coco râpée",
-      "Graines de sésame dorées (Roroli)"
-    ],
-    usageInstructions: [
-      "À déguster au petit-déjeuner ou au goûter avec du chocolat chaud ou du café.",
-      "Idéale nature, toastée ou accompagnée d'avocat et de confiture de fruits locaux.",
-      "Conserver dans son étui protecteur au sec."
-    ],
-    technicalSpecs: {
-      "Dimensions Étui": "20 x 7 x 30 cm",
-      "Cuisson": "Platines traditionnelles au feu de bois",
-      "Allergènes": "Sans gluten",
-      "Calories": "193 kcal / 100g",
-      "Adresse Fabricant": "B6 39H Caracol, Cap-Haïtien, Haïti"
-    },
-    formatPricing: {
-      "Boîte Étui": { format: "Boîte Étui Protecteur 20x7x30cm", priceUSD: 6.50, priceHTG: 850, unit: "Étui cartonné protecteur", type: "retail" },
-      "Pack Export": { format: "Pack Export Carton (6 Boîtes)", priceUSD: 36.00, priceHTG: 4750, unit: "Carton renforcé 6 étuis", type: "export", moq: 1, weightKg: 2.2 }
-    },
-    certifications: ["Patrimoine Gastronomique Haïtien", "100% Sans Gluten Naturel", "Norme Emballage Alimentaire"]
-  }
 ];
 
 export const HAITI_DEPARTMENTS_ORCHARDS: DepartmentOrchard[] = [
@@ -361,12 +316,16 @@ export const HAITI_DEPARTMENTS_ORCHARDS: DepartmentOrchard[] = [
 export const COMPANY_INFO = {
   name: "PANYEN LOKAL",
   tagline: "Agro-industrie durable & Trésors naturels d'Haïti",
-  legalForm: "Entreprise Agro-Industrielle",
-  address: "B6 39H Caracol, Cap-Haïtien, Haïti (Village EKAM, Complexe Agro-Industriel)",
+  legalForm: "Entreprise Agro-Industrielle (Haïti: PANYEN LOKAL S.A. • USA: PANYEN LOKAL INC)",
+  address: "B6-39, Village Ekam, Caracol, Haïti",
+  addressHaiti: "B6-39, Village Ekam, Caracol, Haïti",
+  addressUSA: "7400 W Oakland Park Blvd, Unit 1125, Lauderhill, Florida 33319",
+  phoneUSA: "781-469-8708",
+  phoneHaiti: "+509 3834-6371 / +509 3559-3385",
   email: "panyenlokalsa@gmail.com",
   salesEmail: "panyenlokalsa@gmail.com",
   exportEmail: "panyenlokalsa@gmail.com",
-  phone: "+509 38346371 / +509 35593385",
+  phone: "+509 3834-6371 / +509 3559-3385 • USA: 781-469-8708",
   whatsapp: "+50938346371",
   website: "www.panyenlokal.com",
   producersNetwork: 850,

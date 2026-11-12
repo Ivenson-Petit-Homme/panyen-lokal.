@@ -46,7 +46,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
       <aside
         className={`${
           isSidebarOpen ? 'w-64' : 'w-16 sm:w-20'
-        } bg-[#1B4332] text-white transition-all duration-300 flex flex-col shadow-2xl z-30 shrink-0`}
+        } bg-[#2A4833] text-white transition-all duration-300 flex flex-col shadow-2xl z-30 shrink-0`}
       >
         <div className="p-4 sm:p-6 flex items-center justify-between border-b border-white/10">
           {isSidebarOpen && <span className="font-serif font-black text-sm sm:text-lg tracking-tight text-white whitespace-nowrap">ADMIN PANEL</span>}
@@ -69,7 +69,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 onClick={() => setActiveTab(item.id)}
                 className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#E9C46A] text-[#1B4332] font-bold shadow-lg'
+                    ? 'bg-[#E59500] text-[#1C3022] font-bold shadow-lg'
                     : 'text-white hover:bg-white/5 hover:text-white'
                 }`}
               >
@@ -102,7 +102,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
               <p className="text-xs font-bold text-stone-900">Panyen Lokal Admin</p>
               <p className="text-[10px] text-stone-500">Service Central EKAM</p>
             </div>
-            <div className="w-10 h-10 rounded-full bg-[#1B4332] text-white flex items-center justify-center font-black">
+            <div className="w-10 h-10 rounded-full bg-[#2A4833] text-white flex items-center justify-center font-black">
               A
             </div>
           </div>

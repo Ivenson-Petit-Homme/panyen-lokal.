@@ -100,7 +100,7 @@ function getInitialProducts(): { products: any[]; formats: any[] } {
       category: 'Boissons & Liqueurs',
       short_description: "Cognac d'exception 750ml, vieilli en fûts de chêne avec fruits de tamarinier sélectionnés à Caracol, Haïti.",
       description: "GRAND TAMAR est un cognac d'exception, issu d'un savoir-faire traditionnel et d'un vieillissement soigneux en fûts de chêne. Ses arômes riches et harmonieux révèlent des notes subtiles de fruits secs, de vanille et d'épices, offrant une expérience gustative profonde et raffinée. Un cognac noble, pour les connaisseurs exigeants.",
-      image_url: '/uploads/grand_tamar_front.jpg',
+      image_url: '/src/assets/images/grand_tamar_face_exact_1789970399816.jpg',
       is_featured: 1,
       in_stock: 1,
       origin: 'Caracol, Cap-Haïtien, Haïti',
@@ -136,8 +136,8 @@ function getInitialProducts(): { products: any[]; formats: any[] } {
         "Origine Caracol / Cap-Haïtien"
       ]),
       gallery: JSON.stringify([
-        '/uploads/grand_tamar_front.jpg',
-        '/uploads/grand_tamar_back.jpg'
+        '/src/assets/images/grand_tamar_face_exact_1789970399816.jpg',
+        '/src/assets/images/grand_tamar_back_exact_1789970411487.jpg'
       ]),
       created_at: new Date('2026-01-02T00:00:00Z').toISOString(),
       updated_at: new Date().toISOString()
@@ -150,7 +150,7 @@ function getInitialProducts(): { products: any[]; formats: any[] } {
       category: 'Boissons & Liqueurs',
       short_description: 'Hydromel ancestral fermenté à base de miel brut de fleurs sauvages, d\'eau de source et d\'écorces d\'oranges amères (bigarade).',
       description: "Tiz Vin de Miel est un hommage vibrant aux recettes d'hydromel traditionnelles des Caraïbes. La fermentation naturelle et lente de miels bruts récoltés par nos apiculteurs partenaires confère à cette cuvée une robe dorée chatoyante, un nez floral éclatant et une bouche miellée délicatement balancée par l'acidité noble de la bigarade locale.",
-      image_url: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80',
+      image_url: '/src/assets/images/vin_de_miel_bottle_1794516761155.jpg',
       is_featured: 1,
       in_stock: 1,
       origin: 'Haïti (Massif du Nord & Plateau Central)',
@@ -182,20 +182,20 @@ function getInitialProducts(): { products: any[]; formats: any[] } {
         '100% Produit Artisanal Haïtien'
       ]),
       gallery: JSON.stringify([
-        'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80'
+        '/src/assets/images/vin_de_miel_bottle_1794516761155.jpg'
       ]),
       created_at: new Date('2026-01-03T00:00:00Z').toISOString(),
       updated_at: new Date().toISOString()
     },
     {
-      id: 'chocolat-chaud',
+      id: 'chocolat-artisanal',
       title: "Chocolat Artisanal en Tablette d'Haïti",
-      slug: 'chocolat-chaud',
+      slug: 'chocolat-artisanal',
       slogan: "100% Naturel • Tablette de Pur Cacao d'Haïti (150 HTG)",
       category: 'Épicerie & Alimentaire',
       short_description: 'Tablette artisanale de pur chocolat d\'Haïti (Tablèt Chokola Peyi), 100% cacao naturel (150 HTG).',
       description: "Le Chocolat Artisanal en Tablette Panyen Lokal est confectionné selon la tradition séculaire du terroir haïtien. Présenté sous forme de tablette artisanale (Tablèt Chokola Peyi), élaborée à partir de fèves de cacao sélectionnées, torréfiées avec soin et moulues sans additif artificiel. Prix : 150 HTG la tablette.",
-      image_url: '/uploads/chocolat_chaud_panyen.jpg',
+      image_url: '/src/assets/images/chocolat_chaud_doypack_panyen_1789937953070.jpg',
       is_featured: 1,
       in_stock: 1,
       origin: 'Haïti (Bassin Cacaoyer du Nord & Grand\'Anse)',
@@ -235,73 +235,18 @@ function getInitialProducts(): { products: any[]; formats: any[] } {
         'Sans Conservateur Chimique ni Graisses Hydrogénées'
       ]),
       gallery: JSON.stringify([
-        '/uploads/chocolat_chaud_panyen.jpg'
+        '/src/assets/images/chocolat_chaud_doypack_panyen_1789937953070.jpg'
       ]),
       created_at: new Date('2026-01-04T00:00:00Z').toISOString(),
       updated_at: new Date().toISOString()
     },
-    {
-      id: 'cassave-artisanale',
-      title: 'Cassave Artisanale Traditionnelle du Nord',
-      slug: 'cassave-artisanale',
-      slogan: 'Galette de Manioc Ancestrale • Étui Cartonné Protecteur 20x7x30cm',
-      category: 'Épicerie & Alimentaire',
-      short_description: 'Boîte étui protectrice (20x7x30cm) renfermant nos cassaves pur manioc doux cuites sur platines en fonte traditionnelles au feu de bois.',
-      description: "Fabriquée selon un rituel préservé depuis plusieurs générations dans les cassaveries du Cap-Haïtien et de Caracol, la cassave PANYEN LOKAL est préparée avec du manioc doux épluché, râpé, pressé pour extraire l'amidon et tamisé avec finesse. Cuite lentement sur de grandes platines en fonte chauffées au bois d'acajou, elle développe un croustillant parfait et une saveur dorée incomparable. Son nouvel étui cartonné solide (20x7x30cm) protège les galettes contre l'humidité et les chocs pour une conservation optimale et un transport sans bris.",
-      image_url: '/src/assets/images/cassave_nord_box_1786934328091.jpg',
-      is_featured: 1,
-      in_stock: 1,
-      origin: 'Haïti (Plaine du Nord & Bassin Manioc de Caracol)',
-      terroir_location: 'Cassaveries Éco-Responsables du Nord-Est',
-      badge: 'PATRIMOINE DU NORD',
-      highlights: JSON.stringify([
-        'Manioc doux cultivé localement sans intrants chimiques',
-        'Cuisson sur platines traditionnelles en fonte au feu de bois',
-        'Format étui rigide protecteur de dimensions 20x7x30 cm',
-        'Sans gluten, 100% végétal et riche en fibres naturelles'
-      ]),
-      ingredients: JSON.stringify([
-        'Farine de manioc doux pur tamisée',
-        'Sucre de canne brut ou Sel marin artisanal',
-        'Cannelle moulue du terroir',
-        'Gingembre naturel',
-        'Noix de coco râpée',
-        'Graines de sésame dorées (Roroli)'
-      ]),
-      usage_instructions: JSON.stringify([
-        'À déguster au petit-déjeuner ou au goûter avec du chocolat chaud ou du café.',
-        'Idéale nature, toastée ou accompagnée d\'avocat et de confiture de fruits locaux.',
-        'Conserver dans son étui protecteur au sec.'
-      ]),
-      technical_specs: JSON.stringify({
-        'Dimensions Étui': '20 x 7 x 30 cm',
-        'Cuisson': 'Platines traditionnelles au feu de bois',
-        'Allergènes': 'Sans gluten',
-        'Calories': '193 kcal / 100g',
-        'Adresse Fabricant': 'B6 39H Caracol, Cap-Haïtien, Haïti'
-      }),
-      certifications: JSON.stringify([
-        'Patrimoine Gastronomique Haïtien',
-        '100% Sans Gluten Naturel',
-        'Norme Emballage Alimentaire'
-      ]),
-      gallery: JSON.stringify([
-        '/src/assets/images/cassave_nord_box_1786934328091.jpg'
-      ]),
-      created_at: new Date('2026-01-05T00:00:00Z').toISOString(),
-      updated_at: new Date().toISOString()
-    }
   ];
 
   const formats = [
     // Huile de ricin formats
-    { id: 1, product_id: 'huile-de-ricin', format_name: '2oz (60ml)', price_usd: '1.15', price_htg: '150.00', unit: 'Flacon verre ambré compte-gouttes', type: 'retail', moq: 1, weight_kg: '0.12' },
-    { id: 2, product_id: 'huile-de-ricin', format_name: '4oz (120ml)', price_usd: '1.50', price_htg: '200.00', unit: 'Flacon verre ambré 120ml', type: 'retail', moq: 1, weight_kg: '0.22' },
-    { id: 3, product_id: 'huile-de-ricin', format_name: '250ml', price_usd: '3.50', price_htg: '460.00', unit: 'Bouteille verre 250ml', type: 'retail', moq: 1, weight_kg: '0.45' },
-    { id: 4, product_id: 'huile-de-ricin', format_name: '500ml', price_usd: '6.50', price_htg: '850.00', unit: 'Bouteille verre 500ml', type: 'retail', moq: 1, weight_kg: '0.85' },
-    { id: 5, product_id: 'huile-de-ricin', format_name: '1 Litre', price_usd: '12.00', price_htg: '1580.00', unit: 'Bouteille métal / verre 1000ml', type: 'retail', moq: 1, weight_kg: '1.60' },
-    { id: 6, product_id: 'huile-de-ricin', format_name: '1 Gallon (3.78L)', price_usd: '45.00', price_htg: '5940.00', unit: 'Bidon sécurisé export PEHD', type: 'export', moq: 1, weight_kg: '4.20' },
-    { id: 7, product_id: 'huile-de-ricin', format_name: 'Baril Export 54 Gallons (204L)', price_usd: '1800.00', price_htg: '237600.00', unit: 'Fût acier alimentaire scellé', type: 'export', moq: 1, weight_kg: '215.00' },
+    { id: 1, product_id: 'huile-de-ricin', format_name: '2oz (60ml)', price_usd: '1.90', price_htg: '250.00', unit: 'Bouteille 2oz (250 Gdes)', type: 'retail', moq: 1, weight_kg: '0.12' },
+    { id: 2, product_id: 'huile-de-ricin', format_name: '4oz (120ml)', price_usd: '3.80', price_htg: '500.00', unit: 'Bouteille 4oz (500 Gdes)', type: 'retail', moq: 1, weight_kg: '0.22' },
+    { id: 3, product_id: 'huile-de-ricin', format_name: 'Galon 128oz (3.78L)', price_usd: '70.00', price_htg: '9240.00', unit: 'Galon 128oz ($70 US)', type: 'export', moq: 1, weight_kg: '3.60' },
 
     // Cognac Grand Tamar formats
     { id: 8, product_id: 'cognac-grand-tamar', format_name: 'Bouteille 750ml', price_usd: '35.00', price_htg: '4620.00', unit: 'Bouteille verre prestige 750ml (43% Alc)', type: 'retail', moq: 1, weight_kg: '1.40' },
@@ -312,12 +257,9 @@ function getInitialProducts(): { products: any[]; formats: any[] } {
     { id: 11, product_id: 'tiz-vin-de-miel', format_name: 'Caisse Export (6 Bouteilles 750ml)', price_usd: '55.00', price_htg: '7260.00', unit: 'Caisse renforcée 6 unités', type: 'export', moq: 1, weight_kg: '8.40' },
 
     // Chocolat artisanal en tablette formats
-    { id: 12, product_id: 'chocolat-chaud', format_name: 'Tablette Traditionnelle (Cacao Pur)', price_usd: '1.15', price_htg: '150.00', unit: 'Tablette artisanale 100% cacao pur', type: 'retail', moq: 1, weight_kg: '0.15' },
-    { id: 13, product_id: 'chocolat-chaud', format_name: 'Carton Export (24 Tablettes)', price_usd: '25.00', price_htg: '3300.00', unit: 'Carton ondulé renforcé 24 tablettes', type: 'export', moq: 1, weight_kg: '3.60' },
+    { id: 12, product_id: 'chocolat-artisanal', format_name: 'Tablette Traditionnelle (Cacao Pur)', price_usd: '1.15', price_htg: '150.00', unit: 'Tablette artisanale 100% cacao pur', type: 'retail', moq: 1, weight_kg: '0.15' },
+    { id: 13, product_id: 'chocolat-artisanal', format_name: 'Carton Export (24 Tablettes)', price_usd: '25.00', price_htg: '3300.00', unit: 'Carton ondulé renforcé 24 tablettes', type: 'export', moq: 1, weight_kg: '3.60' },
 
-    // Cassave artisanale formats
-    { id: 14, product_id: 'cassave-artisanale', format_name: 'Boîte Étui', price_usd: '6.50', price_htg: '850.00', unit: 'Étui cartonné protecteur 20x7x30cm', type: 'retail', moq: 1, weight_kg: '0.35' },
-    { id: 15, product_id: 'cassave-artisanale', format_name: 'Pack Export', price_usd: '36.00', price_htg: '4750.00', unit: 'Carton renforcé 6 étuis', type: 'export', moq: 1, weight_kg: '2.20' }
   ];
 
   return { products, formats };

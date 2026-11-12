@@ -121,9 +121,9 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
   return (
     <div id="export-b2b-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
       {/* Hero Header - Balanced Height */}
-      <div className="relative bg-[#1B4332] text-white border-b border-[#2D6A4F] overflow-hidden">
+      <div className="relative bg-[#2A4833] text-white border-b border-[#5B9B6E] overflow-hidden">
         {/* Background Image Container */}
-        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1B4332]">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#2A4833]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Industrial Complex"
@@ -139,7 +139,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 w-full">
             <FadeInSection direction="down">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
                 <Truck className="w-3.5 h-3.5" />
                 <span>{t('export.tag')}</span>
               </div>
@@ -180,8 +180,8 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
           </StaggerItem>
 
           <StaggerItem className="p-6 rounded-2xl bg-white border border-stone-200 shadow-sm space-y-3">
-            <div className="p-3 rounded-xl bg-[#1B4332]/10 text-[#1B4332] border border-[#1B4332]/20 w-fit">
-              <Ship className="w-6 h-6 text-[#1B4332]" />
+            <div className="p-3 rounded-xl bg-[#2A4833]/10 text-[#1C3022] border border-[#2A4833]/20 w-fit">
+              <Ship className="w-6 h-6 text-[#1C3022]" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#1F2937]">
               {t('export.pillar2_title')}
@@ -209,12 +209,12 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
           <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-10 shadow-sm space-y-8">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-stone-200">
               <div>
-                <span className="text-xs font-bold uppercase text-[#1B4332]">{t('export.sim_tag')}</span>
+                <span className="text-xs font-bold uppercase text-[#1C3022]">{t('export.sim_tag')}</span>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F2937] mt-1">
                   {t('export.sim_title')}
                 </h2>
               </div>
-              <span className="text-xs bg-[#1B4332] text-white font-bold px-3.5 py-1.5 rounded-xl border border-[#2D6A4F] shadow-sm">
+              <span className="text-xs bg-[#2A4833] text-white font-bold px-3.5 py-1.5 rounded-xl border border-[#5B9B6E] shadow-sm">
                 {t('export.sim_badge')}
               </span>
             </div>
@@ -226,10 +226,10 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-bold text-stone-800">
                     <span className="flex items-center gap-1.5">
-                      <Package className="w-4 h-4 text-[#1B4332]" />
+                      <Package className="w-4 h-4 text-[#1C3022]" />
                       {t('export.sim_drum_label')}
                     </span>
-                    <span className="text-base font-extrabold text-[#1B4332] bg-stone-100 px-3 py-1 rounded-lg border border-stone-200">
+                    <span className="text-base font-extrabold text-[#1C3022] bg-stone-100 px-3 py-1 rounded-lg border border-stone-200">
                       {drumCount} {t('export.sim_drum_unit')} ({drumVolumeLiters} L)
                     </span>
                   </div>
@@ -240,7 +240,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                     step="1"
                     value={drumCount}
                     onChange={(e) => setDrumCount(parseInt(e.target.value) || 0)}
-                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#1B4332]"
+                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#1C3022]"
                   />
                   <div className="flex justify-between text-[10px] text-stone-400 font-semibold">
                     <span>{t('export.sim_drum_hint0')}</span>
@@ -254,10 +254,10 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                 <div className="space-y-2 pt-2 border-t border-stone-100">
                   <div className="flex justify-between items-center text-xs font-bold text-stone-800">
                     <span className="flex items-center gap-1.5">
-                      <Package className="w-4 h-4 text-[#1B4332]" />
+                      <Package className="w-4 h-4 text-[#1C3022]" />
                       {t('export.sim_gallon_label')}
                     </span>
-                    <span className="text-base font-extrabold text-[#1B4332] bg-stone-100 px-3 py-1 rounded-lg border border-stone-200">
+                    <span className="text-base font-extrabold text-[#1C3022] bg-stone-100 px-3 py-1 rounded-lg border border-stone-200">
                       {gallonCount} gallons ({(gallonCount * 3.78).toFixed(1)} L)
                     </span>
                   </div>
@@ -268,7 +268,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                     step="5"
                     value={gallonCount}
                     onChange={(e) => setGallonCount(parseInt(e.target.value) || 0)}
-                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#1B4332]"
+                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#1C3022]"
                   />
                 </div>
 
@@ -285,7 +285,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                         onClick={() => setSelectedIncoterm(inc)}
                         className={`p-2.5 rounded-xl border font-bold text-left transition-all cursor-pointer ${
                           selectedIncoterm === inc
-                            ? 'bg-[#1B4332] text-white border-[#2D6A4F]'
+                            ? 'bg-[#2A4833] text-white border-[#5B9B6E]'
                             : 'bg-stone-50 hover:bg-stone-100 border-stone-200 text-stone-700'
                         }`}
                       >
@@ -299,7 +299,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
               {/* Live Logistics Summary Card */}
               <div className="lg:col-span-5 bg-stone-50 rounded-2xl border border-stone-200 p-6 space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase text-[#1B4332]">{t('export.sim_summary_tag')}</span>
+                  <span className="text-xs font-bold uppercase text-[#1C3022]">{t('export.sim_summary_tag')}</span>
                   <span className="text-[10px] text-stone-500 font-mono">B2B RATE v2.0</span>
                 </div>
 
@@ -324,11 +324,11 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                   </div>
                   <div className="pt-2 flex justify-between">
                     <span className="text-stone-600">{t('export.sim_summary_incoterm')}</span>
-                    <span className="font-bold text-[#1B4332]">{selectedIncoterm}</span>
+                    <span className="font-bold text-[#1C3022]">{selectedIncoterm}</span>
                   </div>
                   <div className="pt-3 flex justify-between items-baseline border-t border-stone-300">
                     <span className="font-extrabold text-[#1F2937] text-sm">{t('export.sim_summary_value')}</span>
-                    <span className="text-xl font-extrabold text-[#1B4332]">
+                    <span className="text-xl font-extrabold text-[#1C3022]">
                       ${totalEstimateUSD.toLocaleString()} USD
                     </span>
                   </div>
@@ -346,8 +346,8 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
         <FadeInSection threshold={0.1}>
           <div id="b2b-quote-form-section" className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-10 shadow-sm space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4332] text-white text-xs font-bold uppercase mb-2 border border-[#2D6A4F] shadow-sm">
-                <FileText className="w-3.5 h-3.5 text-[#E9C46A]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2A4833] text-white text-xs font-bold uppercase mb-2 border border-[#5B9B6E] shadow-sm">
+                <FileText className="w-3.5 h-3.5 text-[#E59500]" />
                 <span className="text-white">{t('export.form_tag')}</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1F2937]">
@@ -362,21 +362,21 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="p-8 bg-stone-50 rounded-2xl border border-[#2D6A4F] text-center space-y-4"
+                className="p-8 bg-stone-50 rounded-2xl border border-[#5B9B6E] text-center space-y-4"
               >
-                <div className="w-14 h-14 rounded-full bg-[#1B4332] text-white flex items-center justify-center mx-auto shadow-md">
+                <div className="w-14 h-14 rounded-full bg-[#2A4833] text-white flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold font-serif text-[#1F2937]">
                   {t('export.form_success_title')}
                 </h3>
                 <p className="text-sm text-stone-700 max-w-lg mx-auto">
-                  {t('export.form_success_ref_prefix')} <strong className="font-mono text-[#1B4332]">{submittedReference}</strong>. {t('export.form_success_desc')}
+                  {t('export.form_success_ref_prefix')} <strong className="font-mono text-[#1C3022]">{submittedReference}</strong>. {t('export.form_success_desc')}
                 </p>
                 <div className="pt-2">
                   <button
                     onClick={() => setSubmittedReference(null)}
-                    className="px-6 py-2.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-[#2A4833] hover:bg-[#1C3022] text-white font-bold text-xs shadow cursor-pointer"
                   >
                     {t('export.form_retry_btn')}
                   </button>
@@ -395,7 +395,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                       value={formData.companyName}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                       placeholder={t('export.field_company_placeholder')}
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                     />
                   </div>
 
@@ -409,7 +409,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                       value={formData.contactPerson}
                       onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
                       placeholder="Ex: Jean-Marc Dupont"
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                     />
                   </div>
 
@@ -423,7 +423,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="purchasing@your-company.com"
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                     />
                   </div>
 
@@ -437,7 +437,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+1 / +33 / +509..."
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                     />
                   </div>
 
@@ -451,7 +451,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                       value={formData.country}
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                       placeholder={t('export.field_dest_placeholder')}
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                     />
                   </div>
 
@@ -462,7 +462,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                     <select
                       value={formData.industry}
                       onChange={(e) => setFormData({ ...formData, industry: e.target.value as any })}
-                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none bg-white"
+                      className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none bg-white"
                     >
                       <option value="Cosmétique">{isEn ? "Cosmetics & Hair Care" : "Cosmétique & Soins Capillaires"}</option>
                       <option value="Pharmaceutique">{isEn ? "Pharmaceutical & Healthcare" : "Pharmaceutique & Santé"}</option>
@@ -482,13 +482,13 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                     value={formData.customRequirements}
                     onChange={(e) => setFormData({ ...formData, customRequirements: e.target.value })}
                     placeholder={t('export.field_requirements_placeholder')}
-                    className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#2E7D32] focus:outline-none"
+                    className="w-full p-3 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#76BD43] focus:outline-none"
                   ></textarea>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                   <div className="text-xs text-stone-500 flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-[#1B4332]" />
+                    <ShieldCheck className="w-4 h-4 text-[#1C3022]" />
                     <span>{t('export.field_confidential')}</span>
                   </div>
 
@@ -497,7 +497,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#1B4332] hover:bg-[#143527] text-white font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#2A4833] hover:bg-[#1C3022] text-white font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4 text-white" />
                     <span>{isSubmitting ? t('export.submit_btn_loading') : t('export.submit_btn_ready')}</span>

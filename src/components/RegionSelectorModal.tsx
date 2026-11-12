@@ -28,7 +28,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
     <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/70 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
       <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-stone-200 overflow-hidden text-stone-900 my-8">
         {/* Header */}
-        <div className="bg-[#1B4332] text-white p-6 relative border-b border-[#2D6A4F]">
+        <div className="bg-[#2A4833] text-white p-6 relative border-b border-[#5B9B6E]">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 text-white cursor-pointer"
@@ -36,7 +36,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
             <X className="w-5 h-5" />
           </button>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9C46A] text-[#1F2937] text-xs font-black uppercase tracking-wider mb-2 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider mb-2 shadow-sm">
             <Globe2 className="w-3.5 h-3.5" />
             <span>{t('region.tag')}</span>
           </div>
@@ -65,7 +65,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
                 }}
                 className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-4 cursor-pointer ${
                   isSelected
-                    ? 'bg-white border-[#2D6A4F] ring-2 ring-[#2E7D32]/30 shadow-xs'
+                    ? 'bg-white border-[#5B9B6E] ring-2 ring-[#76BD43]/30 shadow-xs'
                     : 'bg-white hover:bg-stone-50 border-stone-200'
                 }`}
               >
@@ -75,7 +75,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
                     <div className="flex items-center gap-2">
                       <h4 className="font-bold text-sm text-[#1F2937]">{config.name}</h4>
                       {isSelected && (
-                        <span className="text-[10px] bg-[#1B4332] text-white px-2 py-0.5 rounded-full font-bold border border-[#2D6A4F]">
+                        <span className="text-[10px] bg-[#2A4833] text-white px-2 py-0.5 rounded-full font-bold border border-[#5B9B6E]">
                           {t('account.active_region_badge')}
                         </span>
                       )}
@@ -83,7 +83,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
                     <p className="text-xs text-stone-600 mt-0.5">
                       {t('region.currency_label')} <strong>{config.currency}</strong> • {t('region.lead_time_label')} {config.deliveryLeadTime}
                     </p>
-                    <p className="text-[11px] text-[#1B4332] font-bold mt-0.5">
+                    <p className="text-[11px] text-[#1C3022] font-bold mt-0.5">
                       📍 {config.hubLocation}
                     </p>
                   </div>
@@ -91,7 +91,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
 
                 <div className="shrink-0">
                   {isSelected ? (
-                    <div className="w-8 h-8 rounded-full bg-[#1B4332] text-white border border-[#2D6A4F] flex items-center justify-center shadow-xs">
+                    <div className="w-8 h-8 rounded-full bg-[#2A4833] text-white border border-[#5B9B6E] flex items-center justify-center shadow-xs">
                       <Check className="w-4 h-4 text-white" />
                     </div>
                   ) : (
@@ -108,12 +108,12 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
         {/* Footer */}
         <div className="p-4 bg-white border-t border-stone-200 flex items-center justify-between text-xs text-stone-500">
           <div className="flex items-center gap-1.5">
-            <Truck className="w-4 h-4 text-[#1B4332]" />
+            <Truck className="w-4 h-4 text-[#1C3022]" />
             <span>{t('region.corridors_note')}</span>
           </div>
           <button
             onClick={onClose}
-            className="font-bold text-[#1B4332] hover:underline cursor-pointer"
+            className="font-bold text-[#1C3022] hover:underline cursor-pointer"
           >
             {t('region.close_btn')}
           </button>
