@@ -235,7 +235,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                               <span>{t('account.order_dest_label')} {regConfig.name}</span>
                             </span>
                           </div>
-                          <p className="text-[11px] text-stone-500 mt-0.5">
+                          <p className="text-[11px] text-stone-500 mt-0.5 text-left">
                             {t('account.order_placed_on')} {new Date(ord.createdAt).toLocaleString(isEn ? 'en-US' : 'fr-FR')}
                           </p>
                         </div>
@@ -244,7 +244,7 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                         <div className="flex items-center gap-2">
                           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-100 text-amber-900 font-bold text-xs border border-amber-300">
                             <Clock className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
-                            <span>{isEn ? 'In production at Caracol factory' : 'En cours de préparation à l\'usine de Caracol'}</span>
+                            <span>{isEn ? 'In production at Morne-à-Casse factory' : "En cours de préparation à l'usine de Morne-à-Casse"}</span>
                           </span>
                         </div>
                       </div>
@@ -273,10 +273,10 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = ({
                       <div className="pt-3 border-t border-stone-100 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs bg-stone-50 p-4 rounded-xl">
                         <div>
                           <strong className="text-stone-800 block mb-1">{t('account.addr_hub_label')}</strong>
-                          <p className="text-stone-600">
+                          <p className="text-stone-600 text-left">
                             {ord.deliveryAddress.street}, {ord.deliveryAddress.city} ({ord.deliveryAddress.country})
                           </p>
-                          <p className="text-stone-500 mt-1 text-[11px]">
+                          <p className="text-stone-500 mt-1 text-[11px] text-left">
                             {t('account.payment_method_label')} <span className="font-semibold text-stone-800">{ord.paymentMethod}</span>
                           </p>
                         </div>

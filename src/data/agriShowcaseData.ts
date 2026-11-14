@@ -188,24 +188,24 @@ export const getServicesList = (isEn: boolean): ServiceData[] => [
   {
     id: "service-extraction",
     icon: Droplets,
-    title: isEn ? "Mechanical Oil Pressing & Extraction" : "Pressage & Extraction Mécanique d'Huiles",
+    title: isEn ? "Mechanical Oil Pressing (100 Gal/Day)" : "Pressage Mécanique (100 Gallons/Jour)",
     desc: isEn 
-      ? "Cold-press extraction services for oilseeds (castor seeds). Absolute purity guaranteed without chemical solvents." 
-      : "Prestation d'extraction à froid pour graines oléagineuses (graines de ricin). Pureté absolue garantie sans solvants.",
-    badge: isEn ? "Technical Service" : "Service Technique",
+      ? "Cold-press extraction at our Morne-à-Casse plant producing up to 100 gallons of pure castor oil per day without chemical solvents." 
+      : "Extraction mécanique à froid dans notre usine de Morne-à-Casse avec une capacité de 100 gallons d'huile de ricin par jour sans solvants.",
+    badge: isEn ? "Industrial Capacity" : "Capacité Industrielle",
     image: complexeImg,
-    details: isEn ? "Capacity: up to 3,000 L / week • Fine stainless steel filtration" : "Capacité : jusqu'à 3 000 L / semaine • Filtration fine inox"
+    details: isEn ? "100 gallons / day capacity • Stainless steel 316L filtration" : "Capacité : 100 gallons / jour • Filtration fine inox 316L"
   },
   {
     id: "service-agregation",
     icon: Sprout,
     title: isEn ? "Agricultural Aggregation & Sourcing" : "Agrégation & Collecte Agricole Sécurisée",
     desc: isEn 
-      ? "Direct purchasing, quality grading, and harvest bulk-aggregation across our producer networks in 6 departments." 
-      : "Achat direct, contrôle qualité et massification des récoltes auprès de nos réseaux de producteurs sur 6 départements.",
+      ? "Direct purchasing, quality grading, and harvest aggregation from our 100-hectare plantation and industrial plant in Morne-à-Casse, Fort-Liberté (Nord-Est)." 
+      : "Achat direct, contrôle qualité et collecte des récoltes sur notre plantation de 100 hectares et notre unité industrielle à Morne-à-Casse, Fort-Liberté (Nord-Est).",
     badge: isEn ? "Supply Chain" : "Approvisionnement",
     image: recolteImg,
-    details: isEn ? "Plot traceability • Direct instant payment to farmers" : "Traçabilité des parcelles • Paiement direct aux planteurs"
+    details: isEn ? "Morne-à-Casse (100 ha) • Bureau at Caracol" : "Morne-à-Casse (100 ha) • Bureau à Caracol"
   },
   {
     id: "service-conditionnement",
@@ -257,13 +257,13 @@ export const getFlagshipProducts = (isEn: boolean): FlagshipProductData[] => [
   {
     id: 'tiz-vin-de-miel',
     title: 'Tiz Vin de Miel (Mead)',
-    category: isEn ? 'Artisanal Meads & Terroir Wines' : 'Hydromels & Vins de Terroir',
+    category: isEn ? 'Beekeeping & Terroir Wines' : 'Élevage Apicole & Vins de Terroir',
     desc: isEn 
-      ? 'Refined mead made with wild polyfloral honey and citrus hints from Northern bitter oranges.' 
-      : 'Hydromel raffiné au miel polyfloral sauvage et notes de bigarade du Nord.',
+      ? 'Refined honey wine fermented directly from pure honey (siwo myèl) harvested at our own apiaries.' 
+      : 'Hydromel raffiné élaboré à base de notre siwo myèl pur issu de notre élevage d’abeilles, avec notes de bigarade.',
     image: vinDeMielImg,
     icon: Sparkles,
-    badge: isEn ? 'Handcrafted' : 'Création Artisanale'
+    badge: isEn ? 'Pure Honey Base' : 'Base Siwo Myèl Pur'
   },
   {
     id: 'chocolat-artisanal',
@@ -299,10 +299,10 @@ export const getProcessSteps = (isEn: boolean): ProcessStepData[] => [
   },
   {
     step: "03",
-    title: isEn ? "Processing at Village EKAM" : "Transformation au Village EKAM",
+    title: isEn ? "Processing at Morne-à-Casse (Fort-Liberté)" : "Transformation à Morne-à-Casse (Fort-Liberté)",
     desc: isEn 
-      ? "Cold mechanical pressing and purification with 316L stainless equipment." 
-      : "Pressage mécanique à froid et transformation sur équipements en inox 316L.",
+      ? "Cold mechanical pressing and purification at our Morne-à-Casse industrial plant using 316L stainless equipment." 
+      : "Pressage mécanique à froid et transformation dans notre usine de Morne-à-Casse sur équipements en inox 316L.",
     image: complexeImg,
     icon: Factory
   },
@@ -329,15 +329,15 @@ export const getProcessSteps = (isEn: boolean): ProcessStepData[] => [
 export const getTerroirs = (isEn: boolean): TerroirData[] => [
   {
     id: 0,
-    region: isEn ? "North-East (Caracol & Village EKAM)" : "Nord-Est (Caracol & Village EKAM)",
-    title: isEn ? "Agro-Industrial Hub & Pure Castor Oil" : "Pôle Agro-Industriel & Huile de Ricin Pure",
+    region: isEn ? "Nord-Est (Morne-à-Casse, Fort-Liberté · Office: Caracol)" : "Nord-Est (Morne-à-Casse, Fort-Liberté · Bureau : Caracol)",
+    title: isEn ? "100 Hectares · Plantation & Industrial Plant" : "100 Hectares · Plantation & Industrie",
     desc: isEn 
-      ? "Operational heart of Panyen Lokal with over 480 hectares of castor and tamarind plantations, plus our modern processing facility at Village EKAM." 
-      : "Cœur opérationnel de Panyen Lokal avec plus de 480 hectares de plantations de ricin et tamarinier ainsi que notre complexe moderne de transformation au Village EKAM.",
+      ? "Our 100-hectare plantation and industrial plant in Morne-à-Casse (Fort-Liberté) are building Haiti's largest castor plantation alongside tamarind, corn, black beans, okra, cacao, and coffee, supported by our office at Village Ekam in Caracol." 
+      : "Notre plantation de 100 hectares et notre unité industrielle à Morne-à-Casse (Fort-Liberté) développent la plus grande plantation de ricin d'Haïti avec tamarin, maïs, pois noir, gombo, cacao et café, appuyées par notre bureau au Village Ekam à Caracol.",
     products: isEn 
       ? ["Pure Haitian Castor Oil", "Bulk Export Castor (204L Drums)", "Extra Virgin Castor Oil"] 
       : ["Huile de Ricin Pure", "Ricin Vrac Export (Fûts 204L)", "Huile de Ricin Première Pression"],
-    stats: isEn ? "350+ Partner Farmers • Central EKAM Plant" : "350+ Producteurs Partenaires • Usine Centrale EKAM",
+    stats: isEn ? "100 Ha Plantation & Plant: Morne-à-Casse • Office: Caracol" : "Plantation & Usine : Morne-à-Casse • Bureau : Caracol",
     image: usineExtImg
   },
   {

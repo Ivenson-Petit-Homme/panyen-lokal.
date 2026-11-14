@@ -1,243 +1,202 @@
 @import "tailwindcss";
 
 @theme {
-  /* ========== COULEURS DE LA MARQUE ========== */
+  /* ========== COULEURS DE LA MARQUE PANYEN LOKAL ========== */
   --color-panyen-dark: #1C3022;
   --color-panyen-medium: #2A4833;
   --color-panyen-btn: #3D684A;
   --color-panyen-light: #5B9B6E;
   --color-panyen-brand: #76BD43;
 
-  --color-brand-bg: #FDFBF7;
+  --color-brand-bg: #FFFFFF;
+  --color-brand-surface: #F6F7F5;
   --color-brand-primary: #1C3022;
   --color-brand-buy: #3D684A;
   --color-brand-accent: #76BD43;
-  --color-brand-text: #1F2937;
+  --color-brand-text: #1A1F1C;
 
-  /* ========== POLICE UNIFIÉE STYLE WEBNODE ==========
-     Inter = alternative gratuite de GraphikCommercial (police Webnode)
-     Philosophie : UNE SEULE famille de police pour tout (headings + corps + boutons)
-     — GraphikCommercial est la police officielle de Webnode (payante)
-     — Inter en est la reproduction gratuite la plus fidèle (géométrique, lisible, moderne) */
-  --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, Verdana, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-  --font-display: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-heading: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-webnode: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* ========== TYPOGRAPHIE STYLE WWF.FR ==========
+     Titres / Display : Oswald (Condensée, bold, éditoriale)
+     Corps / Interface : Source Sans 3 (Lisibilité optimale 16px-17px) */
+  --font-sans: 'Source Sans 3', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Oswald', 'Arial Narrow', 'Helvetica Neue', sans-serif;
+  --font-heading: 'Oswald', 'Arial Narrow', 'Helvetica Neue', sans-serif;
+  --font-serif: 'Oswald', 'Arial Narrow', 'Helvetica Neue', sans-serif;
 
-  /* ========== TYPOGRAPHIE — RÈGLES EXACTES WEBNODE ==========
-     Mesures extraites en direct de webnode.com/fr/ */
-  --font-size-body: 1rem;              /* 16px — taille exacte corps Webnode */
-  --font-size-lead: 1.0625rem;         /* 17px — paragraphe important */
-  --line-height-tight: 1.2;
-  --line-height-snug: 1.4;
-  --line-height-normal: 1.625;           /* 26px / 16px = 1.625 — interlignage exact Webnode */
-  --line-height-relaxed: 1.75;
-  --letter-spacing-tight: -0.025em;    /* H1 Webnode : -0.976px sur 39px ≈ -0.025em */
-  --letter-spacing-snug: -0.01em;
-  --letter-spacing-normal: 0;
-  --letter-spacing-wide: 0.02em;
-  --letter-spacing-button: 0.01em;      /* Boutons Webnode */
+  /* ========== ÉCHELLE TYPOGRAPHIQUE WWF.FR ========== */
+  --font-size-body: 1.0625rem;         /* 17px — corps éditorial confortable */
+  --font-size-lead: 1.1875rem;         /* 19px — chapô / introduction */
+  --line-height-tight: 1.06;
+  --line-height-snug: 1.15;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.7;
 }
 
-/* =====================================================
-   TYPOGRAPHIE GLOBALE (Style Webnode — Police UNIFIÉE)
-   ===================================================== */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
-  font-size: 100%;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    font-size: 100%;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #1A1F1C;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-normal);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* ========== HEADINGS — Oswald Condensed Bold (Style WWF.fr) ========== */
+  h1, h2, h3, h4,
+  .font-heading,
+  .font-display {
+    font-family: var(--font-display);
+    color: inherit;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: var(--line-height-snug);
+    text-wrap: balance;
+  }
+
+  h5, h6 {
+    font-family: var(--font-sans);
+    color: inherit;
+    font-weight: 700;
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.25rem); /* 40px -> 68px */
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 3vw, 2.75rem); /* 30px -> 44px */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+  }
+
+  h3 {
+    font-size: clamp(1.35rem, 1.8vw, 1.75rem); /* 22px -> 28px */
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: clamp(1.125rem, 1.2vw, 1.35rem); /* 18px -> 22px */
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  /* ========== JUSTIFICATION ÉDITORIALE & TEXTES CENTRÉS ========== */
+  p {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-normal);
+    color: inherit;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  p.lead,
+  .lead-text {
+    font-size: var(--font-size-lead);
+    line-height: var(--line-height-relaxed);
+    font-weight: 400;
+  }
+
+  /* Préserver le centrage et l'alignement explicite dans les blocs dédiés */
+  .text-center p,
+  p.text-center {
+    text-align: center;
+    hyphens: none;
+  }
+
+  .text-left p,
+  p.text-left {
+    text-align: left;
+    hyphens: none;
+  }
+
+  .text-right p,
+  p.text-right {
+    text-align: right;
+    hyphens: none;
+  }
+
+  header p,
+  footer p,
+  nav p,
+  button p,
+  form small {
+    text-align: left;
+    hyphens: none;
+  }
+
+  small,
+  .text-small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  li {
+    color: inherit;
+    text-align: left;
+  }
+
+  strong, b {
+    font-weight: 700;
+    color: inherit;
+  }
+
+  /* ========== CONTRASTE BLANC SUR FOND VERT FONCÉ ========== */
+  .bg-brand-primary,
+  .bg-brand-buy,
+  .bg-panyen-dark,
+  .bg-panyen-medium,
+  .bg-panyen-btn,
+  [class*="bg-[#1C3022]"],
+  [class*="bg-[#2A4833]"],
+  [class*="bg-[#3D684A]"],
+  #hero-enterprise-section,
+  #main-footer {
+    color: #FFFFFF;
+  }
+
+  button,
+  .btn,
+  [role="button"] {
+    font-family: var(--font-sans);
+    font-weight: 700;
+  }
+
+  a {
+    font-family: var(--font-sans);
+    transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  }
+
+  ul, ol {
+    padding-left: 1.5rem;
+    line-height: var(--line-height-normal);
+  }
 }
 
-body {
-  background-color: #FDFBF7;
-  color: #000000;
-  font-family: var(--font-webnode);
-  font-size: var(--font-size-body);       /* 16px — exact Webnode body */
-  line-height: var(--line-height-normal); /* 1.625 — exact 26px Webnode */
-  font-weight: 500;                        /* renforcé pour lisibilité maximum */
-  letter-spacing: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-  font-feature-settings: "cv11", "ss01";   /* améliorations Inter */
-}
-
-/* ========== HEADINGS — Police UNIFIÉE Inter (style GraphikCommercial Webnode)
-   Webnode utilise LA MÊME famille (GraphikCommercial) pour TOUS les headings.
-   Différenciation : poids (weight), taille, letter-spacing seulement. */
-h1, h2, h3, h4, h5, h6,
-.font-heading,
-.font-display {
-  font-family: var(--font-webnode);
-  color: inherit;
-  font-weight: 700;
-  letter-spacing: var(--letter-spacing-snug);
-  line-height: var(--line-height-snug);
-  font-feature-settings: "cv11", "ss01";
-}
-
-/* H1 — Poids 800 style GraphikCommercial Webnode, tracking très serré */
-h1 {
-  font-size: clamp(2.1rem, 3.8vw + 0.8rem, 2.5rem);  /* ~33.6px → 40px proche 39px Webnode */
-  font-weight: 800;
-  letter-spacing: var(--letter-spacing-tight);  /* -0.025em exact */
-  line-height: 1.15;
-}
-
-/* H2 — Poids 700, tracking modéré */
-h2 {
-  font-size: clamp(1.65rem, 2.4vw + 0.6rem, 2.1rem);  /* 26.4px → 33.6px */
-  font-weight: 700;
-  letter-spacing: var(--letter-spacing-snug);
-  line-height: 1.22;
-}
-
-/* H3 — Poids 600 */
-h3 {
-  font-size: clamp(1.25rem, 1.3vw + 0.75rem, 1.65rem);  /* 20px → 26.4px */
-  font-weight: 700;
-  line-height: 1.32;
-}
-
-/* H4 — Poids 600 */
-h4 {
-  font-size: clamp(1.08rem, 0.9vw + 0.75rem, 1.25rem);  /* 17.3px → 20px */
-  font-weight: 700;
-  line-height: 1.42;
-}
-
-/* H5 — Poids 600 */
-h5 {
-  font-size: 1.0625rem;  /* 17px */
-  font-weight: 700;
-  line-height: 1.48;
-}
-
-/* H6 — Poids 600 */
-h6 {
-  font-size: 1rem;       /* 16px */
-  font-weight: 700;
-  line-height: 1.55;
-}
-
-/* ========== PARAGRAPHES & TEXT — Police unifiée ========== */
-p {
-  font-family: var(--font-webnode);
-  font-size: var(--font-size-body);   /* 16px */
-  line-height: var(--line-height-normal);  /* 1.625 */
-  color: inherit;
-  margin-bottom: 1rem;
-  font-weight: 500;
-  font-feature-settings: "cv11", "ss01";
-}
-
-p.lead,
-.lead-text {
-  font-size: var(--font-size-lead);   /* 17px */
-  line-height: var(--line-height-relaxed);
-  font-weight: 500;
-}
-
-small,
-.text-small {
-  font-size: 0.8125rem;  /* 13px */
-  line-height: 1.52;
-  font-weight: 500;
-}
-
-li {
-  color: inherit;
-}
-
-strong, b {
-  font-weight: 700;
-  color: inherit;
-}
-
-/* =========================================================================
-   RÈGLE ABSOLUE POUR TOUTES LES SECTIONS ET CONTENEURS À FOND VERT PROFOND (#1C3022 / #1C3022) :
-   LE VERT ÉTANT PROFOND ET SOMBRE, TOUS LES TEXTES SUR FOND VERT
-   DOIVENT ÊTRE EN BLANC PUR (#FFFFFF) POUR UNE LISIBILITÉ PARFAITE.
-   ========================================================================= */
-.bg-brand-primary,
-.bg-brand-buy,
-[class*="bg-[#1C3022]"],
-[class*="bg-[#1C3022]"],
-[class*="from-[#1C3022]"],
-[class*="via-[#1C3022]"],
-#hero-enterprise-section,
-#main-footer,
-#navbar-container,
-header#main-header {
-  color: #FFFFFF !important;
-}
-
-/* Forcer la couleur blanche pour les éléments textuels dans les sections à fond vert */
-.bg-brand-primary h1, .bg-brand-primary h2, .bg-brand-primary h3, .bg-brand-primary h4, .bg-brand-primary h5, .bg-brand-primary h6, .bg-brand-primary p, .bg-brand-primary li, .bg-brand-primary strong, .bg-brand-primary small, .bg-brand-primary label,
-.bg-brand-buy h1, .bg-brand-buy h2, .bg-brand-buy h3, .bg-brand-buy h4, .bg-brand-buy h5, .bg-brand-buy h6, .bg-brand-buy p, .bg-brand-buy li, .bg-brand-buy strong, .bg-brand-buy small, .bg-brand-buy label,
-[class*="bg-[#1C3022]"] h1, [class*="bg-[#1C3022]"] h2, [class*="bg-[#1C3022]"] h3, [class*="bg-[#1C3022]"] h4, [class*="bg-[#1C3022]"] h5, [class*="bg-[#1C3022]"] h6, [class*="bg-[#1C3022]"] p, [class*="bg-[#1C3022]"] li, [class*="bg-[#1C3022]"] strong, [class*="bg-[#1C3022]"] small, [class*="bg-[#1C3022]"] label,
-[class*="bg-[#1C3022]"] h1, [class*="bg-[#1C3022]"] h2, [class*="bg-[#1C3022]"] h3, [class*="bg-[#1C3022]"] h4, [class*="bg-[#1C3022]"] h5, [class*="bg-[#1C3022]"] h6, [class*="bg-[#1C3022]"] p, [class*="bg-[#1C3022]"] li, [class*="bg-[#1C3022]"] strong, [class*="bg-[#1C3022]"] small, [class*="bg-[#1C3022]"] label,
-[class*="from-[#1C3022]"] h1, [class*="from-[#1C3022]"] h2, [class*="from-[#1C3022]"] h3, [class*="from-[#1C3022]"] h4, [class*="from-[#1C3022]"] h5, [class*="from-[#1C3022]"] h6, [class*="from-[#1C3022]"] p, [class*="from-[#1C3022]"] li, [class*="from-[#1C3022]"] strong, [class*="from-[#1C3022]"] small, [class*="from-[#1C3022]"] label,
-#hero-enterprise-section h1, #hero-enterprise-section h2, #hero-enterprise-section h3, #hero-enterprise-section p, #hero-enterprise-section li, #hero-enterprise-section strong, #hero-enterprise-section small,
-#main-footer h1, #main-footer h2, #main-footer h3, #main-footer h4, #main-footer h5, #main-footer h6, #main-footer p, #main-footer li, #main-footer strong, #main-footer a {
-  color: #FFFFFF !important;
-}
-
-/* Boutons avec fond vert profond : texte blanc pur */
-button[class*="bg-[#1C3022]"],
-a[class*="bg-[#1C3022]"],
-[role="button"][class*="bg-[#1C3022]"],
-button[class*="bg-[#1C3022]"],
-a[class*="bg-[#1C3022]"],
-[role="button"][class*="bg-[#1C3022]"],
-button[class*="bg-[#3D684A]"],
-a[class*="bg-[#3D684A]"],
-[role="button"][class*="bg-[#3D684A]"] {
-  color: #FFFFFF !important;
-  font-weight: 700 !important;
-}
-
-[class*="bg-[#1C3022]"] svg,
-[class*="bg-[#1C3022]"] svg,
-[class*="bg-[#3D684A]"] svg {
-  color: #FFFFFF;
-  stroke: #FFFFFF;
-}
-
-/* ========== LIENS — Police unifiée ========== */
-a {
-  font-family: var(--font-webnode);
-  color: #1C3022;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-}
-a:hover {
-  color: #000000;
-}
-
-/* ========== LISTES ========== */
-ul, ol {
-  padding-left: 1.5rem;
-  line-height: var(--line-height-normal);
-}
-li {
-  margin-bottom: 0.5rem;
-}
-
-/* ========== BOUTONS — Police unifiée style Webnode ========== */
-button,
-.btn,
-[role="button"] {
-  font-family: var(--font-webnode);
-  font-weight: 500;
-  letter-spacing: var(--letter-spacing-button);
-  font-feature-settings: "cv11", "ss01";
-}
-
-/* ========== CUSTOM HELPERS DE LA PALETTE ========== */
-.bg-brand-bg { background-color: #FDFBF7; }
+/* ========== PALETTE PANYEN LOKAL ========== */
+.bg-brand-bg { background-color: #FFFFFF; }
 .bg-brand-primary { background-color: #1C3022; }
 .bg-brand-secondary { background-color: #2A4833; }
 .bg-brand-buy { background-color: #3D684A; }
@@ -249,40 +208,8 @@ button,
 .text-brand-buy { color: #3D684A; }
 .text-brand-accent { color: #76BD43; }
 .text-brand-light { color: #5B9B6E; }
-.text-brand-text { color: #1F2937; }
+.text-brand-text { color: #1A1F1C; }
 
-.border-brand-primary { border-color: #1C3022; }
-.border-brand-secondary { border-color: #2A4833; }
-.border-brand-buy { border-color: #3D684A; }
-.border-brand-accent { border-color: #76BD43; }
-.border-brand-light { border-color: #5B9B6E; }
-
-/* ========== HELPERS TYPOGRAPHIQUES UTILES — Style Webnode unifié ========== */
-.font-montserrat { font-family: var(--font-webnode); }  /* compatibilité — tous utilise Inter */
-.font-inter { font-family: var(--font-webnode); }       /* compatibilité — tous utilise Inter */
-.font-webnode { font-family: var(--font-webnode); }
-
-.tracking-webnode-tight { letter-spacing: var(--letter-spacing-tight); }   /* -0.025em H1 Webnode */
-.tracking-webnode { letter-spacing: var(--letter-spacing-snug); }          /* -0.01em standard */
-
-/* Boutons texte style Webnode — Police unifiée Inter */
-.btn-text-uppercase {
-  font-family: var(--font-webnode);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-  font-size: 0.8125rem;
-}
-
-/* ========== ANIMATIONS ========== */
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-.animate-shimmer { animation: shimmer 1.8s infinite; }
-
-
-/* ========== PANYEN PALETTE HELPERS ========== */
 .bg-panyen-dark { background-color: #1C3022; }
 .bg-panyen-medium { background-color: #2A4833; }
 .bg-panyen-btn { background-color: #3D684A; }
@@ -295,21 +222,8 @@ button,
 .text-panyen-light { color: #5B9B6E; }
 .text-panyen-brand { color: #76BD43; }
 
-.border-panyen-dark { border-color: #1C3022; }
-.border-panyen-medium { border-color: #2A4833; }
-.border-panyen-btn { border-color: #3D684A; }
-.border-panyen-light { border-color: #5B9B6E; }
-.border-panyen-brand { border-color: #76BD43; }
-
-/* White text rule for dark forest green sections */
-.bg-panyen-dark,
-.bg-panyen-medium,
-.bg-panyen-btn,
-[class*="bg-[#1C3022]"],
-[class*="bg-[#2A4833]"],
-[class*="bg-[#3D684A]"],
-[class*="from-[#1C3022]"],
-[class*="via-[#2A4833]"],
-[class*="to-[#1C3022]"] {
-  color: #FFFFFF !important;
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
+.animate-shimmer { animation: shimmer 1.8s infinite; }

@@ -354,9 +354,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <span>{isEn ? "Corporate Offices & Pickup Locations (Haiti & USA) :" : "Sièges Sociaux & Points de Retrait (Haïti & USA) :"}</span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-left">
                   {/* Haiti Hub */}
-                  <div className="p-3 rounded-xl bg-[#FDFBF7] border border-stone-200 space-y-1">
+                  <div className="p-3 rounded-xl bg-[#FDFBF7] border border-stone-200 space-y-1 text-left">
                     <div className="font-bold text-[#1C3022] flex items-center gap-1.5">
                       <span>🇭🇹</span>
                       <span>Biwo Caracol (Haïti)</span>
@@ -373,7 +373,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   </div>
 
                   {/* USA Hub */}
-                  <div className="p-3 rounded-xl bg-[#FDFBF7] border border-stone-200 space-y-1">
+                  <div className="p-3 rounded-xl bg-[#FDFBF7] border border-stone-200 space-y-1 text-left">
                     <div className="font-bold text-[#1C3022] flex items-center gap-1.5">
                       <span>🇺🇸</span>
                       <span>PANYEN LOKAL INC (USA)</span>

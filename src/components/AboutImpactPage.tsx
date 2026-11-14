@@ -27,28 +27,26 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
   const [selectedDept, setSelectedDept] = useState<DepartmentOrchard>(HAITI_DEPARTMENTS_ORCHARDS[0]);
 
   return (
-    <div id="about-impact-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
+    <div id="about-impact-page" className="min-h-screen bg-[#F6F7F5] text-[#1A1F1C] pb-20">
       {/* Top Banner Header - Balanced Height */}
-      <div className="relative bg-[#2A4833] text-white border-b border-[#5B9B6E] overflow-hidden">
-        {/* Background Image Container */}
-        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#2A4833]">
+      <div className="relative bg-[#1C3022] text-white border-b border-[#3D684A] overflow-hidden">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1C3022]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Agriculture"
             loading="eager"
             fetchPriority="high"
             decoding="sync"
-            className="w-full h-full object-cover opacity-85"
+            className="w-full h-full object-cover opacity-80"
           />
-          {/* Dark Overlay for Text Visibility */}
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1C3022]/85 via-[#1C3022]/55 to-black/30" />
         </div>
 
         {/* Content Over Image */}
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 w-full">
             <FadeInSection direction="down">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-sm bg-[#76BD43] text-[#1C3022] text-xs font-bold uppercase tracking-wider shadow-lg">
                 <Sprout className="w-3.5 h-3.5" />
                 <span>{t('about.tag')}</span>
               </div>
@@ -58,7 +56,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl sm:text-5xl font-serif font-extrabold text-white leading-tight drop-shadow-2xl"
+              className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight drop-shadow-2xl text-left"
             >
               {t('about.title')}
             </motion.h1>
@@ -67,7 +65,7 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-base sm:text-lg text-white max-w-2xl font-medium leading-relaxed drop-shadow-lg"
+              className="text-base sm:text-lg text-white max-w-2xl font-medium leading-relaxed drop-shadow-lg text-left"
             >
               {t('about.p_intro')}
             </motion.p>
@@ -78,26 +76,26 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
       {/* Key Numbers Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
         <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-4" staggerDelay={0.1}>
-          <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C3022]">850+</div>
-            <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_farmers_label')}</p>
-            <p className="text-[11px] text-stone-500">{t('about.stat_farmers_sub')}</p>
+          <StaggerItem className="bg-white p-6 rounded-sm border border-stone-200 shadow-sm text-center">
+            <div className="font-display text-3xl sm:text-4xl font-bold text-[#1C3022] tabular-nums">100 gal/j</div>
+            <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{isEn ? 'Castor Oil Extraction' : 'Capacité Extraction Ricin'}</p>
+            <p className="text-[11px] text-stone-500">Morne-à-Casse, Fort-Liberté</p>
           </StaggerItem>
 
-          <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C3022]">6</div>
+          <StaggerItem className="bg-white p-6 rounded-sm border border-stone-200 shadow-sm text-center">
+            <div className="font-display text-3xl sm:text-4xl font-bold text-[#1C3022] tabular-nums">1</div>
             <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_depts_label')}</p>
             <p className="text-[11px] text-stone-500">{t('about.stat_depts_sub')}</p>
           </StaggerItem>
 
-          <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C3022]">1 650</div>
+          <StaggerItem className="bg-white p-6 rounded-sm border border-stone-200 shadow-sm text-center">
+            <div className="font-display text-3xl sm:text-4xl font-bold text-[#1C3022] tabular-nums">100 Ha</div>
             <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_hectares_label')}</p>
             <p className="text-[11px] text-stone-500">{t('about.stat_hectares_sub')}</p>
           </StaggerItem>
 
-          <StaggerItem className="bg-white p-6 rounded-2xl border border-stone-200 shadow-md text-center">
-            <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C3022]">0%</div>
+          <StaggerItem className="bg-white p-6 rounded-sm border border-stone-200 shadow-sm text-center">
+            <div className="font-display text-3xl sm:text-4xl font-bold text-[#1C3022] tabular-nums">0%</div>
             <p className="text-xs sm:text-sm font-semibold text-stone-700 mt-1">{t('about.stat_solvents_label')}</p>
             <p className="text-[11px] text-stone-500">{t('about.stat_solvents_sub')}</p>
           </StaggerItem>
@@ -185,13 +183,13 @@ export const AboutImpactPage: React.FC<AboutImpactPageProps> = ({ setCurrentRout
         </div>
 
         {/* Interactive Haitian Orchards Map & Explorer across 6 departments */}
-        <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-10 shadow-sm space-y-8">
+        <div className="bg-white rounded-sm border border-stone-200 p-6 sm:p-10 shadow-sm space-y-8">
           <FadeInSection threshold={0.2} className="text-center max-w-3xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2A4833] text-white shadow-sm border border-[#5B9B6E] text-xs font-bold uppercase">
-              <TreePine className="w-3.5 h-3.5 text-[#E59500]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-[#1C3022] text-white text-xs font-bold uppercase tracking-wider">
+              <TreePine className="w-3.5 h-3.5 text-[#76BD43]" />
               <span className="text-white">{t('about.orchards_tag')}</span>
             </div>
-            <h3 className="text-2xl sm:text-4xl font-serif font-bold text-[#1F2937]">
+            <h3 className="font-display text-2xl sm:text-4xl font-bold uppercase text-[#1C3022]">
               {t('about.orchards_title')}
             </h3>
             <p className="text-xs sm:text-sm text-stone-600">

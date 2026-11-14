@@ -1,7 +1,6 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
 import bcrypt from 'bcryptjs';
@@ -9,9 +8,6 @@ import multer from 'multer';
 import { query } from './src/lib/db.js';
 
 dotenv.config();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
@@ -105,8 +101,8 @@ Informations clés sur Panyen Lokal S.A. et ses 5 produits officiels :
   2. Tiz Vin de Miel (Hydromel / vin de miel artisanal à la bigarade / orange amère, bouteille 750ml).
   3. Chocolat Chaud Naturel d'Haïti (Hot Chocolate 100% Naturel en sachet doypack refermable de 500g / 17.6 oz).
   4. Cassave Artisanale Traditionnelle du Nord (En étui protecteur cartonné 20x7x30cm, recette ancestrale au manioc doux).
-- Réseau agricole : Plus de 850 producteurs locaux partenaires répartis dans 6 départements d'Haïti (Nord-Est, Nord, Artibonite, Centre, Sud, Ouest).
-- Unité de transformation : Village EKAM, Caracol, Nord-Est, Haïti.
+- Exploitation agricole & Usine : Plantation de 100 hectares et unité industrielle situées à Morne-à-Casse, Fort-Liberté (Nord-Est), dédiées à la plus grande plantation de ricin d'Haïti ainsi qu'à la culture du tamarin, maïs, pois noir, gombo, cacao et café.
+- Bureau administratif : B6-39, Village EKAM, Caracol, Nord-Est, Haïti.
 - Normes B2B : Certificats d'analyse de pureté, acide ricinoléique > 88%, expédition conteneurs 20ft/40ft et fûts maritimes FOB Cap-Haïtien ou Port-au-Prince.
 
 Réponds de manière concise, structurée en markdown, conviviale et élégante. Réponds en français (ou en créole haïtien si la question est posée en créole).`;

@@ -40,8 +40,8 @@ export const PRODUCTS_DATA: Product[] = [
     isFeatured: true,
     category: "Huiles & Soins Naturels",
     badge: "PRODUIT PHARE N°1",
-    shortDescription: "Huile de ricin 100% pure et naturelle extraite en Haïti pour soins cosmétiques, capillaires, pharmaceutiques et export B2B.",
-    description: "Notre huile de ricin d'exception est extraite au cœur du Nord-Est d'Haïti à partir de graines rigoureusement sélectionnées. Elle est issue d'un procédé semi-industriel et artisanal maîtrisé sans solvants chimiques ni hexane. Exceptionnellement concentrée en acide ricinoléique (>88%), elle stimule intensément la pousse capillaire, régénère l'épiderme et répond aux normes des plus grands laboratoires cosmétiques internationaux.",
+    shortDescription: "Huile de ricin 100% pure extraite à Morne-à-Casse (machine 100 gallons/jour) sans solvants pour soins cosmétiques et export B2B.",
+    description: "Notre huile de ricin d'exception est cultivée sur notre plantation de 100 hectares et extraite à notre usine de Morne-à-Casse (Fort-Liberté, Nord-Est) grâce à notre ligne mécanique d'une capacité de 100 gallons d'huile par jour, sans solvants chimiques ni hexane. Exceptionnellement concentrée en acide ricinoléique (>88%), elle stimule la pousse capillaire, régénère l'épiderme et répond aux normes internationales.",
     formats: ["2oz (60ml)", "4oz (120ml)", "Galon 128oz (3.78L)"],
     formatsDetail: ["2oz (60ml)", "4oz (120ml)"],
     formatsExport: ["Galon 128oz (3.78L)"],
@@ -53,13 +53,13 @@ export const PRODUCTS_DATA: Product[] = [
       champImg
     ],
     inStock: true,
-    origin: "Haïti (Terroir Nord-Est / Complexe Industriel de Caracol)",
-    terroirLocation: "Plantations & Coopératives du Nord-Est",
+    origin: "Haïti (Plantation 100 ha & Usine : Morne-à-Casse, Fort-Liberté · Bureau : Caracol)",
+    terroirLocation: "Plantation 100 Ha & Usine de Morne-à-Casse (Nord-Est)",
     highlights: [
+      "Capacité industrielle dédiée : machine d'extraction de 100 gallons d'huile de ricin par jour",
       "100% Pure & Naturelle sans solvants ni dérivés pétrochimiques",
       "Disponibilité immédiate : Bouteille 2oz (250 Gdes), Bouteille 4oz (500 Gdes), Galon 128oz ($70 US)",
-      "Teneur en Acide Ricinoléique certifiée en laboratoire > 88.4%",
-      "Points de vente et retrait sur place disponibles en Haïti et aux USA"
+      "Teneur en Acide Ricinoléique certifiée en laboratoire > 88.4%"
     ],
     ingredients: [
       "100% Huile de graines pures de Ricinus Communis (Ricin d'Haïti)",
@@ -149,21 +149,21 @@ export const PRODUCTS_DATA: Product[] = [
     isFeatured: true,
     category: "Boissons & Liqueurs",
     badge: "CRÉATION NATURELLE",
-    shortDescription: "Vin de miel artisanal et rafraîchissant sublimé par des notes d'orange amère.",
-    description: "Une création raffinée associant le miel brut des apiculteurs haïtiens à la subtilité de l'orange amère (bigarade). Cet hydromel d'apéritif délicat, équilibré et parfumé est fermenté et clarifié selon un procédé traditionnel maîtrisé au sein de notre complexe agro-industriel.",
+    shortDescription: "Vin de miel artisanal élaboré directement à base de notre propre miel pur (siwo myèl) issu de notre élevage d'abeilles.",
+    description: "Issu directement de notre élevage d'abeilles (apiculture) produisant un siwo myèl pur et naturel, notre Tiz Vin de Miel utilise ce miel brut comme matière première de base, sublimé par la bigarade locale. Cet hydromel d'apéritif équilibré et parfumé est fermenté et clarifié selon un procédé maîtrisé dans le Nord-Est.",
     formats: ["750ml"],
     image: vinDeMielImg,
     inStock: true,
-    origin: "Nord-Est & Plateau Central, Haïti",
-    terroirLocation: "Réseau d'Apiculteurs Partenaires",
+    origin: "Morne-à-Casse, Fort-Liberté & Caracol (Nord-Est), Haïti",
+    terroirLocation: "Ruchers & Élevage Apicole Panyen Lokal (Siwo Myèl)",
     highlights: [
-      "Hydromel d'artisanat 100% miel naturel d'Haïti",
+      "Élaboré à partir de notre propre élevage d'abeilles et récolte de siwo myèl pur",
       "Aromatisé à la bigarade sauvage (orange amère locale)",
-      "Fermentation lente et clarification naturelle",
+      "Fermentation lente et clarification naturelle sur cuve",
       "Texture soyeuse et finale florale très persistante"
     ],
     ingredients: [
-      "Miel brut polyfloral haïtien",
+      "Siwo myèl pur (miel brut polyfloral issu de nos propres ruchers)",
       "Eau de source purifiée",
       "Jus et macération d'oranges amères (bigarade)",
       "Levures nobles de fermentation"
@@ -241,75 +241,23 @@ export const PRODUCTS_DATA: Product[] = [
 export const HAITI_DEPARTMENTS_ORCHARDS: DepartmentOrchard[] = [
   {
     id: "nord-est",
-    name: "Nord-Est",
-    capital: "Fort-Liberté / Caracol",
-    hectares: 480,
-    producersCount: 320,
-    keyCrops: ["Ricin", "Tamarin", "Manioc doux", "Canne à sucre"],
+    name: "Nord-Est (Morne-à-Casse, Fort-Liberté)",
+    capital: "Plantation & Usine : Morne-à-Casse · Bureau : Caracol",
+    hectares: 100,
+    producersCount: 150,
+    keyCrops: [
+      "Ricin / Maskriti (Plantation phare)",
+      "Tamarin",
+      "Maïs",
+      "Pois Noir",
+      "Gombo (Combo)",
+      "Cacao",
+      "Café"
+    ],
     altitude: "10m - 350m",
     soilType: "Alluvionnaire & limono-argileux fertile",
-    description: "Cœur opérationnel de PANYEN LOKAL abritant notre usine de transformation agro-industrielle au Village EKAM (Caracol) ainsi que nos vergers pilotes de Grand Bassin et Ouanaminthe.",
+    description: "Plantation de 100 hectares et usine agro-industrielle situées à Morne-à-Casse (Fort-Liberté) pour bâtir la plus grande plantation de ricin d'Haïti avec tamarin, maïs, pois noir, gombo, cacao et café. Bureau administratif au Village Ekam à Caracol.",
     coordinates: { x: 74, y: 22 }
-  },
-  {
-    id: "nord",
-    name: "Nord",
-    capital: "Cap-Haïtien",
-    hectares: 310,
-    producersCount: 195,
-    keyCrops: ["Cacao Criollo", "Bigarade (Orange amère)", "Manioc", "Canne à sucre"],
-    altitude: "50m - 650m",
-    soilType: "Sols volcaniques riches d'ombrage forestier",
-    description: "Bassin historique du cacao de haute qualité pour notre Chocolat Artisanal et vergers d'agrumes sauvages pour l'aromatisation de notre hydromel Tiz Vin de Miel.",
-    coordinates: { x: 60, y: 19 }
-  },
-  {
-    id: "artibonite",
-    name: "Artibonite",
-    capital: "Gonaïves / Saint-Marc",
-    hectares: 240,
-    producersCount: 140,
-    keyCrops: ["Ricin sauvage", "Sel marin", "Manioc"],
-    altitude: "20m - 200m",
-    soilType: "Sols alluviaux chauds et ensoleillés",
-    description: "Bassin d'approvisionnement agricole fournissant le sel marin purifié et des récoltes de ricin adaptées au climat aride.",
-    coordinates: { x: 48, y: 42 }
-  },
-  {
-    id: "centre",
-    name: "Centre (Plateau Central)",
-    capital: "Hinche",
-    hectares: 290,
-    producersCount: 165,
-    keyCrops: ["Apiculture (Miel brut)", "Ricin", "Canne à sucre pour Clairin"],
-    altitude: "250m - 800m",
-    soilType: "Plateaux calcaires et flore sauvage mellifère",
-    description: "Territoire d'excellence apicole fournissant le miel sauvage de fleurs tropicales qui donne son parfum noble au Cognac Grand Tamar et au Tiz Vin de Miel.",
-    coordinates: { x: 67, y: 48 }
-  },
-  {
-    id: "sud",
-    name: "Sud",
-    capital: "Les Cayes",
-    hectares: 180,
-    producersCount: 95,
-    keyCrops: ["Vétiver", "Plantes aromatiques", "Miel", "Canne à sucre"],
-    altitude: "5m - 500m",
-    soilType: "Sols côtiers tropicaux humides",
-    description: "Région fertile apportant des extraits botaniques uniques et une grande biodiversité pour nos formulations dermo-cosmétiques naturelles.",
-    coordinates: { x: 22, y: 78 }
-  },
-  {
-    id: "ouest",
-    name: "Ouest",
-    capital: "Port-au-Prince / Léogâne",
-    hectares: 150,
-    producersCount: 85,
-    keyCrops: ["Canne à sucre", "Mangues francisque", "Agrumes"],
-    altitude: "10m - 400m",
-    soilType: "Plaines côtières et piémonts",
-    description: "Plaque tournante logistique reliant nos coopératives aux infrastructures d'exportation maritime et aux réseaux de distribution nationaux.",
-    coordinates: { x: 55, y: 64 }
   }
 ];
 
@@ -328,9 +276,9 @@ export const COMPANY_INFO = {
   phone: "+509 3834-6371 / +509 3559-3385 • USA: 781-469-8708",
   whatsapp: "+50938346371",
   website: "www.panyenlokal.com",
-  producersNetwork: 850,
-  departmentsCount: 6,
-  hectaresManaged: 1650,
+  producersNetwork: 150,
+  departmentsCount: 1,
+  hectaresManaged: 100,
   establishedYear: 2018,
   ricinPurityStandard: "99.8% Pureté Naturelle | Acide Ricinoléique > 88%",
   ports: ["Port International du Cap-Haïtien", "Port International de Port-au-Prince"],

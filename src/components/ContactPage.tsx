@@ -47,7 +47,7 @@ export const ContactPage: React.FC = () => {
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 w-full">
             <FadeInSection direction="down">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-sm bg-[#76BD43] text-[#1C3022] text-xs font-bold uppercase tracking-wider shadow-lg">
                 {t('contact.tag')}
               </div>
             </FadeInSection>
@@ -56,7 +56,7 @@ export const ContactPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl sm:text-5xl font-serif font-extrabold text-white drop-shadow-2xl"
+              className="font-display text-3xl sm:text-5xl font-bold uppercase text-white drop-shadow-2xl text-left"
             >
               {t('contact.title')}
             </motion.h1>
@@ -65,7 +65,7 @@ export const ContactPage: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-sm sm:text-base text-white max-w-2xl font-medium drop-shadow-lg"
+              className="text-sm sm:text-base text-white max-w-2xl font-medium drop-shadow-lg text-left"
             >
               {t('contact.subtitle')}
             </motion.p>
@@ -81,33 +81,41 @@ export const ContactPage: React.FC = () => {
                 <h3 className="text-xl font-serif font-bold text-[#1F2937]">{t('contact.info_title')}</h3>
                 <div className="space-y-4 text-xs sm:text-sm text-stone-700">
                   {/* Haiti Office */}
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#3D684A] block">
-                      {isEn ? "Haiti Site & Plant" : "Haïti — Site & Siège Industriel"}
+                  <div className="p-3.5 rounded-sm bg-[#F6F7F5] border border-stone-200 space-y-1.5 text-left">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#3D684A] block">
+                      {isEn ? 'Haiti — Corporate Office' : 'Haïti — Bureau Administratif'}
                     </span>
-                    <strong className="block text-[#1F2937] text-sm">Biwo Caracol — PANYEN LOKAL S.A.</strong>
+                    <strong className="block text-[#1C3022] text-sm">Biwo Caracol — PANYEN LOKAL S.A.</strong>
                     <div className="flex items-start gap-2 pt-1">
-                      <MapPin className="w-4 h-4 text-[#1C3022] shrink-0 mt-0.5" />
+                      <MapPin className="w-4 h-4 text-[#3D684A] shrink-0 mt-0.5" />
                       <span>{COMPANY_INFO.addressHaiti}</span>
                     </div>
+                    <div className="flex items-start gap-2 pt-0.5">
+                      <MapPin className="w-4 h-4 text-[#76BD43] shrink-0 mt-0.5" />
+                      <span className="text-xs text-stone-600">
+                        {isEn
+                          ? 'Plantation (100 ha) & Industrial Plant: Morne-à-Casse, Fort-Liberté (Nord-Est)'
+                          : 'Plantation (100 ha) & Usine Industrielle : Morne-à-Casse, Fort-Liberté (Nord-Est)'}
+                      </span>
+                    </div>
                     <div className="flex items-center gap-2 pt-0.5">
-                      <Phone className="w-4 h-4 text-[#1C3022] shrink-0" />
+                      <Phone className="w-4 h-4 text-[#3D684A] shrink-0" />
                       <span>{COMPANY_INFO.phoneHaiti}</span>
                     </div>
                   </div>
 
                   {/* USA Office */}
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-[#E59500] block">
-                      {isEn ? "United States Corporation" : "États-Unis — Siège & Distribution"}
+                  <div className="p-3.5 rounded-sm bg-[#F6F7F5] border border-stone-200 space-y-1.5 text-left">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#3D684A] block">
+                      {isEn ? 'United States Corporation' : 'États-Unis — Siège & Distribution'}
                     </span>
-                    <strong className="block text-[#1F2937] text-sm">PANYEN LOKAL INC</strong>
+                    <strong className="block text-[#1C3022] text-sm">PANYEN LOKAL INC</strong>
                     <div className="flex items-start gap-2 pt-1">
-                      <MapPin className="w-4 h-4 text-[#E59500] shrink-0 mt-0.5" />
+                      <MapPin className="w-4 h-4 text-[#3D684A] shrink-0 mt-0.5" />
                       <span>{COMPANY_INFO.addressUSA}</span>
                     </div>
                     <div className="flex items-center gap-2 pt-0.5">
-                      <Phone className="w-4 h-4 text-[#E59500] shrink-0" />
+                      <Phone className="w-4 h-4 text-[#3D684A] shrink-0" />
                       <span>Tél : <a href="tel:7814698708" className="hover:underline font-bold text-[#1C3022]">781-469-8708</a></span>
                     </div>
                   </div>

@@ -37,16 +37,16 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
       labelKey: "banner.objective1.label",
       title: isEn ? "Produce & Harvest" : "Produire & Récolter",
       desc: isEn 
-        ? "Network of 850+ farmers managing 1,650 hectares of castor, cacao, tamarind and cassava across 6 departments."
-        : "Réseau de 850+ producteurs gérant 1 650 hectares de ricin, cacao, tamarin et manioc sur 6 départements."
+        ? "100 hectares in Morne-à-Casse, Fort-Liberté (Nord-Est) building Haiti's largest castor plantation with tamarind, corn, black beans, okra, cacao and coffee."
+        : "100 hectares à Morne-à-Casse, Fort-Liberté (Nord-Est) dédiés à la plus grande plantation de ricin d'Haïti avec tamarin, maïs, pois noir, gombo, cacao et café."
     },
     {
       icon: Factory,
       labelKey: "banner.objective2.label",
       title: isEn ? "Process & Formulate" : "Transformer & Formuler",
       desc: isEn 
-        ? "Clean mechanical cold-pressing, solvent-free extractions, and artisanal aging in the Caracol Industrial Park."
-        : "Pressage mécanique à froid, extraction propre sans hexane et vieillissement artisanal au Complexe de Caracol."
+        ? "Clean mechanical cold-pressing and solvent-free extraction at our Morne-à-Casse industrial site, coordinated from our Caracol office."
+        : "Pressage mécanique à froid et extraction propre à notre usine de Morne-à-Casse (Fort-Liberté), coordonnés depuis notre bureau de Caracol."
     },
     {
       icon: ShoppingCart,

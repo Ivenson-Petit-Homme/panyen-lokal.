@@ -267,7 +267,7 @@ export const CartQuoteDrawer: React.FC<CartQuoteDrawerProps> = ({
                         <img src={item.productImage} alt={item.productTitle} className="w-14 h-14 object-cover rounded-xl shrink-0" />
                         <div className="flex-1 min-w-0">
                           <h5 className="text-xs font-bold text-stone-900 truncate">{item.productTitle}</h5>
-                          <p className="text-[11px] text-[#431e0f] font-bold">{t('cart.format_label')} {item.selectedFormat}</p>
+                          <p className="text-[11px] text-[#431e0f] font-bold text-left">{t('cart.format_label')} {item.selectedFormat}</p>
                           <div className="flex items-center gap-2 mt-1">
                             <span className="text-xs font-extrabold text-stone-900">${(item.unitPriceUSD * item.quantity).toFixed(2)} USD</span>
                             {item.currency !== 'USD' && (

@@ -48,13 +48,13 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
   };
 
   return (
-    <div id="page-huile-de-ricin" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
+    <div id="page-huile-de-ricin" className="min-h-screen bg-white text-[#1A1F1C] pb-20">
       {/* Top Hero Banner */}
       <div className="bg-gradient-to-r from-[#1C3022] via-[#2A4833] to-[#3D684A] text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-[#5B9B6E] relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <FadeInSection direction="down">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E59500] text-[#1F2937] font-black text-xs uppercase tracking-wider mb-4 shadow">
-              <Award className="w-3.5 h-3.5 fill-[#1F2937]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#76BD43] text-[#1C3022] font-bold text-xs uppercase tracking-wider mb-4 shadow">
+              <Award className="w-3.5 h-3.5 text-[#1C3022]" />
               <span>{t('ricin.badge')}</span>
             </div>
           </FadeInSection>
@@ -65,7 +65,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-3xl sm:text-5xl font-serif font-extrabold text-white leading-tight"
+                className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight text-left"
               >
                 {isEn ? "Pure Haitian Castor Oil" : "Huile de Ricin Pure d’Haïti"} <br />
                 <span className="text-white font-sans text-2xl sm:text-3xl font-normal italic">
@@ -76,7 +76,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-base sm:text-lg text-white max-w-2xl font-light leading-relaxed"
+                className="text-base sm:text-lg text-white max-w-2xl font-light leading-relaxed text-left"
               >
                 {t('ricin.intro')}
               </motion.p>
@@ -105,23 +105,25 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
 
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
               <FadeInSection direction="left" delay={0.4}>
-                <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center max-w-xs w-full">
-                  <span className="text-xs text-[#E59500] font-bold tracking-wider uppercase block">
-                    {t('ricin.capacity_title')}
+                <div className="bg-[#142318]/90 backdrop-blur-md p-6 rounded-sm border border-[#5B9B6E] text-center max-w-xs w-full">
+                  <span className="text-xs text-[#76BD43] font-bold tracking-wider uppercase block">
+                    {isEn ? 'Daily Extraction Capacity' : 'Capacité Quotidienne Usine'}
                   </span>
-                  <div className="text-3xl font-extrabold text-white mt-1">12 000+ L</div>
-                  <div className="text-xs text-stone-200">{t('ricin.capacity_desc')}</div>
-                  <div className="mt-4 pt-3 border-t border-white/10 flex justify-around text-center text-xs">
+                  <div className="font-display text-4xl font-bold text-white mt-1 tabular-nums">100 gal / jour</div>
+                  <div className="text-xs text-stone-200 mt-1">
+                    {isEn ? 'Cold-pressed at Morne-à-Casse' : 'Pressage à froid · Morne-à-Casse'}
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-white/15 flex justify-around text-center text-xs">
                     <div>
-                      <span className="font-bold text-white block">850+</span>
-                      <span className="text-stone-300 text-[10px]">{t('ricin.stat_farmers')}</span>
+                      <span className="font-bold text-white block tabular-nums">100 ha</span>
+                      <span className="text-stone-300 text-[10px]">Morne-à-Casse</span>
                     </div>
                     <div>
-                      <span className="font-bold text-white block">6</span>
-                      <span className="text-stone-300 text-[10px]">{t('ricin.stat_depts')}</span>
+                      <span className="font-bold text-white block tabular-nums">1</span>
+                      <span className="text-stone-300 text-[10px]">Nord-Est</span>
                     </div>
                     <div>
-                      <span className="font-bold text-white block">100%</span>
+                      <span className="font-bold text-white block tabular-nums">100%</span>
                       <span className="text-stone-300 text-[10px]">{t('ricin.stat_terroir')}</span>
                     </div>
                   </div>
@@ -267,7 +269,7 @@ export const HuileDeRicinPage: React.FC<HuileDeRicinPageProps> = ({
                         }`}
                       >
                         <div className={`font-bold text-xs ${isSelected ? 'text-white' : 'text-stone-900'}`}>{fmt}</div>
-                        <div className={`text-sm font-black mt-1 ${isSelected ? 'text-[#E59500]' : 'text-[#1C3022]'}`}>
+                        <div className={`text-sm font-black mt-1 ${isSelected ? 'text-[#76BD43]' : 'text-[#1C3022]'}`}>
                           {fmt.includes('128oz') ? `$70.00 USD` : `${price.priceHTG} HTG`}
                         </div>
                         <div className={`text-[10px] font-semibold mt-0.5 ${isSelected ? 'text-stone-200' : 'text-stone-500'}`}>

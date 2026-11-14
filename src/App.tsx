@@ -230,7 +230,7 @@ export default function App() {
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] flex flex-col font-sans text-[#1F2937] selection:bg-[#E59500] selection:text-[#1C3022]">
+    <div className="min-h-screen bg-white flex flex-col font-sans text-[#1A1F1C] selection:bg-[#76BD43] selection:text-[#1C3022]">
       {/* Navigation Header with Region & Auth Integration */}
       <Navbar
         currentRoute={currentRoute}

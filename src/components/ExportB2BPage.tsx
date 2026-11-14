@@ -119,27 +119,26 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
   };
 
   return (
-    <div id="export-b2b-page" className="min-h-screen bg-[#FDFBF7] text-[#1F2937] pb-20">
+    <div id="export-b2b-page" className="min-h-screen bg-[#F6F7F5] text-[#1A1F1C] pb-20">
       {/* Hero Header - Balanced Height */}
-      <div className="relative bg-[#2A4833] text-white border-b border-[#5B9B6E] overflow-hidden">
+      <div className="relative bg-[#1C3022] text-white border-b border-[#3D684A] overflow-hidden">
         {/* Background Image Container */}
-        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#2A4833]">
+        <div className="relative w-full h-[450px] sm:h-[550px] bg-[#1C3022]">
           <img
             src={bgHeader}
             alt="Panyen Lokal Industrial Complex"
             loading="eager"
             fetchPriority="high"
             decoding="sync"
-            className="w-full h-full object-cover opacity-85"
+            className="w-full h-full object-cover opacity-80"
           />
-          {/* Dark Overlay for Text Visibility */}
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1C3022]/85 via-[#1C3022]/55 to-black/30" />
         </div>
 
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 w-full">
             <FadeInSection direction="down">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E59500] text-[#1F2937] text-xs font-black uppercase tracking-wider shadow-lg">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-sm bg-[#76BD43] text-[#1C3022] text-xs font-bold uppercase tracking-wider shadow-lg">
                 <Truck className="w-3.5 h-3.5" />
                 <span>{t('export.tag')}</span>
               </div>
@@ -148,7 +147,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl sm:text-5xl font-serif font-extrabold text-white leading-tight drop-shadow-2xl"
+              className="font-display text-3xl sm:text-5xl font-bold uppercase text-white leading-tight drop-shadow-2xl text-left"
             >
               {t('export.title')}
             </motion.h1>
@@ -156,7 +155,7 @@ export const ExportB2BPage: React.FC<ExportB2BPageProps> = ({
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-base sm:text-lg text-white max-w-3xl font-medium leading-relaxed drop-shadow-lg"
+              className="text-base sm:text-lg text-white max-w-3xl font-medium leading-relaxed drop-shadow-lg text-left"
             >
               {t('export.intro')}
             </motion.p>

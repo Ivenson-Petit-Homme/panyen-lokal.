@@ -3,11 +3,7 @@ import { Product, DeliveryRegion } from '../types';
 import { getRegionalPrice } from '../utils/pricing';
 import { useLanguage } from '../context/LanguageContext';
 import { ImageWithSkeleton } from './ImageWithSkeleton';
-import { 
-  Info, 
-  Images,
-  MessageCircle
-} from 'lucide-react';
+import { Info, Images, MessageCircle } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -60,12 +56,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   );
 
   return (
-    <div 
+    <article
       id={`product-card-${product.id}`}
-      className="bg-white rounded-2xl border border-stone-200 hover:border-[#5B9B6E] transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-lg"
+      className="bg-white rounded-sm border border-stone-200 hover:border-[#3D684A] transition-all duration-200 flex flex-col justify-between overflow-hidden h-full"
     >
-      {/* Product Visual */}
-      <div className="relative overflow-hidden group bg-[#F6F8F6] w-full h-60 flex items-center justify-center p-4 border-b border-stone-100">
+      {/* Visuel Produit */}
+      <div className="relative overflow-hidden group bg-[#F6F7F5] w-full h-60 flex items-center justify-center p-4 border-b border-stone-200">
         <ImageWithSkeleton
           src={currentDisplayImage}
           alt={product.title}
@@ -76,7 +72,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         />
 
         {imagesList.length > 1 && (
-          <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1 bg-[#1C3022]/85 px-2 py-1 rounded-full">
+          <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1 bg-[#1C3022]/90 px-2 py-1 rounded-sm">
             <Images className="w-3 h-3 text-white" />
             {imagesList.map((_, dotIdx) => (
               <button
@@ -85,8 +81,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                   e.stopPropagation();
                   setActiveImageIdx(dotIdx);
                 }}
-                className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                  dotIdx === activeImageIdx ? 'bg-[#E59500] w-3' : 'w-1.5 bg-white/50 hover:bg-white'
+                className={`h-1.5 transition-all cursor-pointer ${
+                  dotIdx === activeImageIdx ? 'bg-[#76BD43] w-4' : 'w-1.5 bg-white/50 hover:bg-white'
                 }`}
                 title={`Photo ${dotIdx + 1}`}
               />
@@ -96,40 +92,40 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         <button
           onClick={() => onSelectProduct(product)}
-          className="absolute inset-0 bg-[#1C3022]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px] cursor-pointer"
-          title={isEn ? "View details" : "Voir les détails"}
+          className="absolute inset-0 bg-[#1C3022]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
+          title={isEn ? 'View details' : 'Voir les détails'}
         >
-          <span className="bg-[#1C3022] text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-1.5 text-xs font-semibold">
+          <span className="bg-[#1C3022] text-white px-4 py-2 rounded-sm shadow-md flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider">
             <Info className="w-3.5 h-3.5 text-[#76BD43]" />
-            <span>{isEn ? "View Details" : "Voir Détails"}</span>
+            <span>{isEn ? 'View Details' : 'Voir Détails'}</span>
           </span>
         </button>
       </div>
 
-      {/* Card Body */}
+      {/* Corps de la Carte */}
       <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-        <div className="space-y-1.5">
-          <div className="text-[11px] font-medium text-[#3D684A] flex items-center gap-1.5">
-            <span>{product.category}</span>
+        <div className="space-y-2">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-[#3D684A]">
+            {product.category}
           </div>
 
-          <h3 
+          <h3
             onClick={() => onSelectProduct(product)}
-            className="text-base sm:text-lg font-bold font-serif text-[#1C3022] hover:text-[#3D684A] cursor-pointer transition-colors leading-snug"
+            className="font-display text-xl font-bold uppercase text-[#1C3022] hover:text-[#3D684A] cursor-pointer transition-colors leading-tight"
           >
             {product.title}
           </h3>
 
-          <p className="text-xs text-stone-600 line-clamp-2 leading-relaxed">
+          <p className="text-sm text-stone-600 line-clamp-2 leading-relaxed mb-0">
             {product.shortDescription}
           </p>
         </div>
 
-        {/* Format Selector */}
+        {/* Sélecteur de Format */}
         {allFormats.length > 0 && (
-          <div className="pt-2 border-t border-stone-100">
-            <span className="text-[11px] font-semibold text-stone-500 block mb-1.5">
-              {isEn ? "Format :" : "Format :"}
+          <div className="pt-3 border-t border-stone-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-stone-500 block mb-2">
+              {isEn ? 'Format' : 'Format'}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {allFormats.map((fmt, fmtIdx) => {
@@ -139,10 +135,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                     key={`${product.id}-format-${fmt}-${fmtIdx}`}
                     type="button"
                     onClick={() => setSelectedFormat(fmt)}
-                    className={`px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                    className={`px-2.5 py-1.5 rounded-sm text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap ${
                       isSelected
-                        ? 'bg-[#3D684A] text-white shadow-xs'
-                        : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                        ? 'bg-[#3D684A] text-white'
+                        : 'bg-[#F6F7F5] text-stone-700 border border-stone-200 hover:border-[#5B9B6E]'
                     }`}
                   >
                     {fmt}
@@ -153,17 +149,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         )}
 
-        {/* Pricing */}
-        <div className="pt-3 border-t border-stone-100 flex items-baseline justify-between gap-2">
+        {/* Tarif */}
+        <div className="pt-3 border-t border-stone-200 flex items-baseline justify-between gap-2">
           <div>
-            <span className="text-[11px] text-stone-500 block">
-              {isEn ? "Price" : "Tarif"}
+            <span className="text-[11px] uppercase tracking-wider text-stone-500 font-semibold block">
+              {isEn ? 'Price' : 'Tarif'}
             </span>
-            <span className="text-lg font-extrabold text-[#1C3022] tabular-nums">
+            <span className="font-display text-2xl font-bold text-[#1C3022] tabular-nums">
               {displayPriceLabel()}
             </span>
           </div>
-          <span className="text-[11px] text-stone-500 font-medium truncate max-w-[130px]">
+          <span className="text-xs text-stone-500 font-semibold truncate max-w-[130px]">
             {selectedFormat}
           </span>
         </div>
@@ -173,23 +169,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <button
             id={`btn-detail-${product.id}`}
             onClick={() => onSelectProduct(product)}
-            className="w-full py-2.5 px-3 rounded-lg bg-[#1C3022] hover:bg-[#2A4833] text-white font-semibold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+            className="w-full py-2.5 px-3 rounded-sm bg-[#1C3022] hover:bg-[#2A4833] text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
           >
             <Info className="w-3.5 h-3.5 text-[#76BD43]" />
-            <span>{isEn ? "Details" : "Détails"}</span>
+            <span>{isEn ? 'Details' : 'Détails'}</span>
           </button>
 
           <a
             href={`https://wa.me/50938346371?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-2.5 px-3 rounded-lg bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+            className="w-full py-2.5 px-3 rounded-sm bg-[#3D684A] hover:bg-[#5B9B6E] text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
           >
             <MessageCircle className="w-3.5 h-3.5 text-white" />
             <span>WhatsApp</span>
           </a>
         </div>
       </div>
-    </div>
+    </article>
   );
 };

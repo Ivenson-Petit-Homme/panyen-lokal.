@@ -5,11 +5,7 @@ import fondChamp1 from '../assets/images/fond_champ_agricole_1_1786847528994.jpg
 import fondChamp2 from '../assets/images/fond_champ_agricole_2_1786847542034.jpg';
 import fondChamp3 from '../assets/images/fond_champ_agricole_3_1786847552367.jpg';
 import { motion } from 'motion/react';
-import { 
-  ArrowRight, 
-  ChevronRight,
-  ChevronLeft
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface HeroRicinProps {
   ricinProduct: Product;
@@ -41,11 +37,11 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
   }, [backgroundSlides.length]);
 
   return (
-    <section 
-      id="hero-enterprise-section" 
-      className="relative overflow-hidden text-white min-h-[72vh] sm:min-h-[80vh] flex items-center justify-center"
+    <section
+      id="hero-enterprise-section"
+      className="relative overflow-hidden text-white min-h-[76vh] sm:min-h-[82vh] flex items-center bg-[#1C3022]"
     >
-      {/* Photographies d'arrière-plan naturelles */}
+      {/* Photographie plein écran style WWF.fr */}
       <div className="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
         {backgroundSlides.map((slide, index) => {
           const isActive = index === currentBgIndex;
@@ -53,13 +49,13 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
             <motion.div
               key={slide.id}
               initial={false}
-              animate={{ 
+              animate={{
                 opacity: isActive ? 1 : 0,
-                scale: isActive ? 1.04 : 1
+                scale: isActive ? 1.03 : 1
               }}
-              transition={{ 
-                opacity: { duration: 1.4, ease: "easeInOut" },
-                scale: { duration: 8, ease: "easeOut" }
+              transition={{
+                opacity: { duration: 1.2, ease: 'easeInOut' },
+                scale: { duration: 8, ease: 'easeOut' }
               }}
               className="absolute inset-0"
             >
@@ -73,111 +69,99 @@ export const HeroRicin: React.FC<HeroRicinProps> = ({
           );
         })}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1C3022]/95 via-[#1C3022]/75 to-[#1C3022]/45 z-1" />
+        {/* Dégradé latéral et bas pour lisibilité éditoriale maximale */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1C3022]/90 via-[#1C3022]/60 to-[#1C3022]/25 z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1C3022]/75 via-transparent to-transparent z-1" />
       </div>
 
-      {/* Contenu Principal Épuré (Sans répétition de noms de produits ni de boîtes surchargées) */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-6 py-14">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-xs sm:text-sm font-semibold tracking-[0.22em] text-[#76BD43] uppercase"
-        >
-          {isEn ? "Haitian Agro-Industry · North-East" : "Agro-Industrie Haïtienne · Nord-Est"}
-        </motion.p>
-
-        <motion.h1 
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-serif text-white tracking-tight leading-[1.15] drop-shadow-lg text-balance"
-        >
-          {t('hero.title_line1')}{' '}
-          <span className="text-white italic font-normal block mt-2 text-2xl sm:text-4xl lg:text-5xl">
-            {t('hero.title_line2')}
-          </span>
-        </motion.h1>
-
-        <motion.p 
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg text-white/90 font-normal max-w-2xl mx-auto leading-relaxed"
-        >
-          {isEn
-            ? "From Haitian soil to international markets: refined agricultural treasures crafted under strict quality standards."
-            : "De la terre haïtienne aux marchés internationaux : une filière intégrée dédiée à l'excellence de nos terroirs."}
-        </motion.p>
-
-        {/* Deux Boutons d'Action Clairs */}
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-          <button
-            id="btn-hero-view-products"
-            onClick={() => {
-              const el = document.getElementById('featured-products-section');
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                setCurrentRoute('produits');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
-            className="px-7 py-3.5 rounded-xl bg-[#E59500] hover:bg-[#D97706] text-stone-950 font-bold text-sm shadow-xl transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap"
+      {/* Bloc Éditorial Aligné à Gauche (Architecture WWF.fr) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 sm:py-24">
+        <div className="max-w-3xl space-y-6">
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="text-xs sm:text-[13px] font-bold tracking-[0.2em] text-[#76BD43] uppercase mb-0 text-left"
           >
-            <span>{isEn ? "Explore Collection" : "Explorer la Collection"}</span>
-            <ArrowRight className="w-4 h-4 text-stone-950" />
-          </button>
+            {isEn ? 'Haitian Agro-Industry · North-East' : 'Agro-Industrie Haïtienne · Nord-Est'}
+          </motion.p>
 
-          <button
-            id="btn-hero-discover-company"
-            onClick={() => {
-              const el = document.getElementById('presentation-section');
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                setCurrentRoute('a-propos');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
-            className="px-7 py-3.5 rounded-xl bg-[#2A4833]/90 hover:bg-[#3D684A] text-white font-semibold text-sm shadow-lg transition-all border border-[#5B9B6E] cursor-pointer whitespace-nowrap"
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="font-display text-4xl sm:text-6xl lg:text-[68px] font-bold uppercase text-white tracking-tight leading-[1.03] text-balance text-left"
           >
-            <span>{t('hero.btn.discover')}</span>
-          </button>
+            {t('hero.title_line1')}{' '}
+            <span className="text-[#76BD43] block mt-1">
+              {t('hero.title_line2')}
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.16 }}
+            className="text-base sm:text-[19px] text-white/95 font-normal max-w-xl leading-relaxed text-left"
+          >
+            {isEn
+              ? 'From Haitian soil to international markets: an integrated agricultural chain dedicated to the excellence of our terroirs.'
+              : "De la terre haïtienne aux marchés internationaux : une filière intégrée dédiée à l'excellence de nos terroirs."}
+          </motion.p>
+
+          {/* Bouton Principal Style WWF.fr + Lien Secondaire */}
+          <div className="flex flex-wrap items-center gap-6 pt-2">
+            <button
+              id="btn-hero-view-products"
+              onClick={() => {
+                const el = document.getElementById('featured-products-section');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  setCurrentRoute('produits');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="px-8 py-4 rounded-sm bg-[#76BD43] hover:bg-[#5B9B6E] text-[#1C3022] hover:text-white font-bold text-sm uppercase tracking-wider transition-colors flex items-center gap-2.5 cursor-pointer whitespace-nowrap shadow-md"
+            >
+              <span>{isEn ? 'Explore Collection' : 'Explorer la Collection'}</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <button
+              id="btn-hero-discover-company"
+              onClick={() => {
+                const el = document.getElementById('presentation-section');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  setCurrentRoute('a-propos');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="text-sm font-bold uppercase tracking-wider text-white border-b-2 border-[#76BD43] pb-1 hover:text-[#76BD43] transition-colors cursor-pointer whitespace-nowrap"
+            >
+              {t('hero.btn.discover')}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Points de Navigation Discrets */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-[#1C3022]/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#3D684A]">
-        <button
-          onClick={() => setCurrentBgIndex((prev) => (prev === 0 ? backgroundSlides.length - 1 : prev - 1))}
-          className="text-white/70 hover:text-white p-0.5 transition-colors cursor-pointer"
-          aria-label="Photo précédente"
-        >
-          <ChevronLeft className="w-3.5 h-3.5" />
-        </button>
-
+      {/* Indicateurs de Diapositive Discrets (Barre Bas Droite) */}
+      <div className="absolute bottom-6 right-6 sm:right-10 z-20 flex items-center gap-2">
         {backgroundSlides.map((slide, idx) => (
           <button
             key={slide.id}
             id={`hero-dot-${idx}`}
             onClick={() => setCurrentBgIndex(idx)}
-            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`h-1.5 transition-all duration-300 cursor-pointer ${
               currentBgIndex === idx
-                ? 'w-6 bg-[#E59500]'
-                : 'w-2 bg-white/40 hover:bg-white/70'
+                ? 'w-10 bg-[#76BD43]'
+                : 'w-5 bg-white/45 hover:bg-white/80'
             }`}
             aria-label={`Photo ${idx + 1}`}
           />
         ))}
-
-        <button
-          onClick={() => setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length)}
-          className="text-white/70 hover:text-white p-0.5 transition-colors cursor-pointer"
-          aria-label="Photo suivante"
-        >
-          <ChevronRight className="w-3.5 h-3.5" />
-        </button>
       </div>
     </section>
   );

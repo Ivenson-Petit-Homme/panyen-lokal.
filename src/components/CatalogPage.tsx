@@ -91,18 +91,18 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
   }, [products, selectedCategory, searchQuery, inStockOnly, sortBy]);
 
   return (
-    <div id="catalog-page" className="min-h-screen bg-[#FDFBF7] py-12 px-4 sm:px-6 lg:px-8">
+    <div id="catalog-page" className="min-h-screen bg-[#F6F7F5] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <FadeInSection direction="down">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2A4833] text-white shadow-sm border border-[#5B9B6E] text-xs font-black uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#E59500]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-[#1C3022] text-white text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-[#76BD43]" />
               <span className="text-white">{t('catalog.tag')}</span>
             </div>
           </FadeInSection>
           <FadeInSection direction="none" delay={0.1}>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#1F2937]">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-[#1C3022]">
               {t('catalog.title')}
             </h1>
           </FadeInSection>
@@ -114,42 +114,42 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
 
           {/* Quick Bar */}
           <FadeInSection direction="up" delay={0.3}>
-            <div className="inline-flex flex-wrap items-center justify-center gap-2 p-2 rounded-2xl bg-[#2A4833] text-white text-xs shadow-md">
-              <span className="text-[#E59500] font-bold px-2">📍 {t('catalog.location_prefix')}</span>
+            <div className="inline-flex flex-wrap items-center justify-center gap-2 p-2 rounded-sm bg-[#1C3022] text-white text-xs shadow-sm">
+              <span className="text-[#76BD43] font-bold px-2">{t('catalog.location_prefix')}</span>
               <button 
                 type="button"
                 onClick={() => setSelectedCategory('all')} 
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer transition-colors ${selectedCategory === 'all' ? 'bg-[#E59500] text-[#1C3022]' : 'bg-white/10 hover:bg-white/20 text-white'}`}
+                className={`px-3 py-1.5 rounded-sm text-xs font-semibold cursor-pointer transition-colors ${selectedCategory === 'all' ? 'bg-[#76BD43] text-[#1C3022] font-bold' : 'bg-white/10 hover:bg-white/20 text-white'}`}
               >
-                ✨ {isEn ? "All Products" : "Tous les Produits"} ({products.length})
+                {isEn ? "All Products" : "Tous les Produits"} ({products.length})
               </button>
               <button 
                 type="button"
                 onClick={() => setSelectedCategory('Huiles & Soins Naturels')} 
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer transition-colors ${selectedCategory === 'Huiles & Soins Naturels' ? 'bg-[#E59500] text-[#1C3022]' : 'bg-white/10 hover:bg-white/20 text-white'}`}
+                className={`px-3 py-1.5 rounded-sm text-xs font-semibold cursor-pointer transition-colors ${selectedCategory === 'Huiles & Soins Naturels' ? 'bg-[#76BD43] text-[#1C3022] font-bold' : 'bg-white/10 hover:bg-white/20 text-white'}`}
               >
-                🌿 {t('catalog.cat_oils')}
+                {t('catalog.cat_oils')}
               </button>
               <button 
                 type="button"
                 onClick={() => setSelectedCategory('Boissons & Liqueurs')} 
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer transition-colors ${selectedCategory === 'Boissons & Liqueurs' ? 'bg-[#E59500] text-[#1C3022]' : 'bg-white/10 hover:bg-white/20 text-white'}`}
+                className={`px-3 py-1.5 rounded-sm text-xs font-semibold cursor-pointer transition-colors ${selectedCategory === 'Boissons & Liqueurs' ? 'bg-[#76BD43] text-[#1C3022] font-bold' : 'bg-white/10 hover:bg-white/20 text-white'}`}
               >
-                🍷 {t('catalog.cat_beverages')}
+                {t('catalog.cat_beverages')}
               </button>
               <button 
                 type="button"
                 onClick={() => setSelectedCategory('Épicerie & Alimentaire')} 
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer transition-colors ${selectedCategory === 'Épicerie & Alimentaire' ? 'bg-[#E59500] text-[#1C3022]' : 'bg-white/10 hover:bg-white/20 text-white'}`}
+                className={`px-3 py-1.5 rounded-sm text-xs font-semibold cursor-pointer transition-colors ${selectedCategory === 'Épicerie & Alimentaire' ? 'bg-[#76BD43] text-[#1C3022] font-bold' : 'bg-white/10 hover:bg-white/20 text-white'}`}
               >
-                🍫 {t('catalog.cat_grocery')}
+                {t('catalog.cat_grocery')}
               </button>
             </div>
           </FadeInSection>
         </div>
 
         {/* Search, Filter & Categories Bar */}
-        <div className="bg-white p-4 sm:p-6 rounded-3xl border border-stone-200 shadow-sm space-y-4">
+        <div className="bg-white p-4 sm:p-6 rounded-sm border border-stone-200 shadow-sm space-y-4">
           {/* Search Input and Sort Selection */}
           <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
             <div className="relative w-full sm:max-w-md">
