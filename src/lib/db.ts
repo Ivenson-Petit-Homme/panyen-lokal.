@@ -144,32 +144,32 @@ function getInitialProducts(): { products: any[]; formats: any[] } {
     },
     {
       id: 'tiz-vin-de-miel',
-      title: 'Tiz Vin de Miel (Hydromel Artisanal)',
+      title: 'La Cerisière — Vin de Miel',
       slug: 'tiz-vin-de-miel',
-      slogan: 'L\'Élixir d\'Or des Terroirs Sauvages',
+      slogan: 'Une production de Panyen Lokal S.A. · Macération de cerise, griottes & siwo myèl',
       category: 'Boissons & Liqueurs',
-      short_description: 'Hydromel ancestral fermenté à base de miel brut de fleurs sauvages, d\'eau de source et d\'écorces d\'oranges amères (bigarade).',
-      description: "Tiz Vin de Miel est un hommage vibrant aux recettes d'hydromel traditionnelles des Caraïbes. La fermentation naturelle et lente de miels bruts récoltés par nos apiculteurs partenaires confère à cette cuvée une robe dorée chatoyante, un nez floral éclatant et une bouche miellée délicatement balancée par l'acidité noble de la bigarade locale.",
-      image_url: '/src/assets/images/vin_de_miel_bottle_1794516761155.jpg',
+      short_description: 'La Cerisière Vin de Miel : macération de cerise et de notre propre siwo myèl pur issu de notre élevage d’abeilles, avec griottes et bigarade.',
+      description: "La Cerisière — Vin de Miel est une macération de cerise et de notre propre siwo myèl pur issu de notre élevage d'abeilles, avec des griottes. Un nez de fruit de bigarade aromatiquement très poivré, porté par une belle complexité de tanins soyeux, qui donne au final une bouche acidulée, charnue et désaltérante.",
+      image_url: '/assets/aistudio/Vin_de_Miel_Panyen_Lokal_sa_092032_861f063b.jpg',
       is_featured: 1,
       in_stock: 1,
-      origin: 'Haïti (Massif du Nord & Plateau Central)',
-      terroir_location: 'Réseau Apicole Panyen Lokal (Région Centre & Nord)',
-      badge: 'CRU ARTISANAL',
+      origin: 'B6 39H Caracol, Cap-Haïtien & Morne-à-Casse (Nord-Est), Haïti',
+      terroir_location: 'Ruchers & Élevage Apicole Panyen Lokal (Siwo Myèl)',
+      badge: 'CRÉATION NATURELLE',
       highlights: JSON.stringify([
-        'Fermentation 100% naturelle sans sulfites ajoutés',
-        'Miel polyfloral de fleurs de campêche et d\'oranger sauvage',
-        '12.5% Vol. d\'Alcool — Équilibre subtil doux et sec'
+        'Siwo myèl pur issu directement de notre propre élevage d’abeilles',
+        'Macération de cerise et griottes avec nez poivré de fruit de bigarade',
+        'Tanins soyeux, bouche acidulée, charnue et désaltérante'
       ]),
       ingredients: JSON.stringify([
-        'Eau de source filtrée',
-        'Miel brut d\'abeilles sauvages haïtiennes',
-        'Levures indigènes sélectionnées',
-        'Zestes d\'oranges amères (Citrus aurantium)'
+        'Siwo myèl pur (miel brut issu de nos propres ruchers)',
+        'Cerises et griottes macérées',
+        'Fruit de bigarade (orange amère aromatique)',
+        'Eau de source purifiée'
       ]),
       usage_instructions: JSON.stringify([
         'Servir très frais entre 8°C et 10°C.',
-        'Accompagne à merveille les fromages affinés, les desserts à base de fruits ou en cocktail de fête.'
+        'Accompagne à merveille les fromages affinés, les desserts à base de fruits ou en apéritif.'
       ]),
       technical_specs: JSON.stringify({
         'Alcool': '12.5% Vol.',
@@ -178,11 +178,11 @@ function getInitialProducts(): { products: any[]; formats: any[] } {
         'Bouteille': 'Verre teinté protecteur UV'
       }),
       certifications: JSON.stringify([
-        'Apiculture Responsable & Préservation de la Biodiversité',
+        'Apiculture Responsable & Élevage Panyen Lokal',
         '100% Produit Artisanal Haïtien'
       ]),
       gallery: JSON.stringify([
-        '/src/assets/images/vin_de_miel_bottle_1794516761155.jpg'
+        '/assets/aistudio/Vin_de_Miel_Panyen_Lokal_sa_092032_861f063b.jpg'
       ]),
       created_at: new Date('2026-01-03T00:00:00Z').toISOString(),
       updated_at: new Date().toISOString()

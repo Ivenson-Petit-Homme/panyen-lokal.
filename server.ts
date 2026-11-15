@@ -701,7 +701,12 @@ app.post('/api/admin/upload', isAdmin as any, upload.single('image') as any, (re
 
 // Vite middleware configuration for Development & Production
 async function start() {
-  if (process.env.NODE_ENV !== 'production') {
+  const isBundledServer =
+    (typeof __filename === 'string' && __filename.endsWith('.cjs')) ||
+    Boolean(process.argv[1]?.endsWith('server.cjs'));
+  const isProduction = process.env.NODE_ENV === 'production' || isBundledServer;
+
+  if (!isProduction) {
     const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },

@@ -177,14 +177,14 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
       id: 'apiculture-miel',
       kicker: isEn ? 'Beekeeping & Apiculture' : 'Élevage d’Abeilles & Siwo Myèl',
       title: isEn
-        ? 'Own Apiaries Producing Pure Honey & Tiz Vin de Miel'
-        : 'Élevage Apicole : Du Siwo Myèl Pur au Tiz Vin de Miel',
+        ? 'Own Apiaries Producing Pure Honey & La Cerisière Vin de Miel'
+        : 'Élevage Apicole : Du Siwo Myèl Pur à La Cerisière — Vin de Miel',
       desc: isEn
-        ? 'Panyen Lokal manages its own beekeeping operation to harvest pure natural Haitian honey (siwo myèl). That raw honey serves directly as the core fermentation base for crafting our signature Tiz Vin de Miel.'
-        : "Nous gérons notre propre élevage d'abeilles (apiculture) pour récolter un siwo myèl pur et naturel d'Haïti. Ce miel brut constitue directement la matière première de base qui permet de fermenter notre Tiz Vin de Miel.",
+        ? 'Panyen Lokal manages its own beekeeping operation to harvest pure natural Haitian honey (siwo myèl). That raw honey serves directly as the core fermentation base for crafting our signature La Cerisière — Vin de Miel (Tiz Vin de Miel).'
+        : "Nous gérons notre propre élevage d'abeilles (apiculture) pour récolter un siwo myèl pur et naturel d'Haïti. Ce miel brut constitue directement la matière première de base qui permet d'élaborer notre cuvée La Cerisière — Vin de Miel (Tiz Vin de Miel).",
       image: apicultureMielImg,
       icon: Droplets,
-      metric: isEn ? 'Pure Honey Base for Tiz Wine' : 'Base Siwo Myèl pour Tiz Vin de Miel'
+      metric: isEn ? 'Pure Honey Base for Vin de Miel' : 'Base Siwo Myèl · La Cerisière'
     },
     {
       id: 'sept-cultures-tamar',

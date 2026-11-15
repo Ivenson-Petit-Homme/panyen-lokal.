@@ -53,6 +53,10 @@ export const ImageWithSkeleton: React.FC<ImageWithSkeletonProps> = ({
         }
         return;
       }
+      if (typeof currentSrc === 'string' && (currentSrc.includes('vin') || currentSrc.includes('miel') || currentSrc.includes('cerisiere'))) {
+        setCurrentSrc('/assets/aistudio/Vin_de_Miel_Panyen_Lokal_sa_092032_861f063b.jpg');
+        return;
+      }
     }
     setHasError(true);
     setIsLoaded(true);

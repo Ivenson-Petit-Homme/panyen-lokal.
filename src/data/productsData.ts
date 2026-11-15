@@ -4,7 +4,7 @@ import grandTamarFrontImg from '../assets/images/grand_tamar_face_exact_17899703
 import grandTamarBackImg from '../assets/images/grand_tamar_back_exact_1789970411487.jpg';
 import cassaveNordBoxImg from '../assets/images/cassave_nord_box_1786934328091.jpg';
 import chocolatChaudPanyenImg from '../assets/images/chocolat_chaud_doypack_panyen_1789937953070.jpg';
-import vinDeMielImg from '../assets/images/vin_de_miel_bottle_1794516761155.jpg';
+const vinDeMielImg = '/assets/aistudio/Vin_de_Miel_Panyen_Lokal_sa_092032_861f063b.jpg';
 import mambaImg from '../assets/images/mamba_panyen_lokal_1787235664496.jpg';
 import panyenLokalLogoClean from '../assets/images/LOGO_PANYEN.png';
 import panyenLokalOfficialLogo from '../assets/images/LOGO_PANYEN.png';
@@ -21,6 +21,7 @@ export {
   grandTamarBackImg,
   cassaveNordBoxImg,
   chocolatChaudPanyenImg,
+  vinDeMielImg,
   mambaImg,
   recolteRicinImg,
   laboratoireImg,
@@ -143,30 +144,31 @@ export const PRODUCTS_DATA: Product[] = [
   },
   {
     id: "tiz-vin-de-miel",
-    title: "Tiz Vin de Miel (Hydromel Artisanal)",
+    title: "La Cerisière — Vin de Miel",
     slug: "tiz-vin-de-miel",
-    slogan: "L'hydromel noble des mornes haïtiennes",
+    slogan: "Une production de Panyen Lokal S.A. · Macération de cerise, griottes & siwo myèl",
     isFeatured: true,
     category: "Boissons & Liqueurs",
     badge: "CRÉATION NATURELLE",
-    shortDescription: "Vin de miel artisanal élaboré directement à base de notre propre miel pur (siwo myèl) issu de notre élevage d'abeilles.",
-    description: "Issu directement de notre élevage d'abeilles (apiculture) produisant un siwo myèl pur et naturel, notre Tiz Vin de Miel utilise ce miel brut comme matière première de base, sublimé par la bigarade locale. Cet hydromel d'apéritif équilibré et parfumé est fermenté et clarifié selon un procédé maîtrisé dans le Nord-Est.",
+    shortDescription: "La Cerisière Vin de Miel : macération de cerise, griottes et notre propre siwo myèl pur (élevage d'abeilles) au nez de fruit de bigarade.",
+    description: "La Cerisière — Vin de Miel (Tiz Vin de Miel) est une macération de cerise et de notre propre miel pur (siwo myèl) issu de notre élevage d'abeilles, accompagnée de griottes. Un nez de fruit de bigarade aromatiquement très poivré, porté par une belle complexité aux tanins soyeux, qui donne au final un potentiel et magnifiquement une bouche acidulée, charnue et désaltérante.",
     formats: ["750ml"],
     image: vinDeMielImg,
+    gallery: [vinDeMielImg],
     inStock: true,
-    origin: "Morne-à-Casse, Fort-Liberté & Caracol (Nord-Est), Haïti",
+    origin: "B6 39H Caracol, Cap-Haïtien & Morne-à-Casse (Fort-Liberté), Haïti",
     terroirLocation: "Ruchers & Élevage Apicole Panyen Lokal (Siwo Myèl)",
     highlights: [
       "Élaboré à partir de notre propre élevage d'abeilles et récolte de siwo myèl pur",
-      "Aromatisé à la bigarade sauvage (orange amère locale)",
-      "Fermentation lente et clarification naturelle sur cuve",
-      "Texture soyeuse et finale florale très persistante"
+      "Macération de cerise et du miel avec des griottes, nez de fruit de bigarade poivré",
+      "Belle complexité de tanins soyeux et bouche acidulée, charnue et désaltérante",
+      "Production officielle Panyen Lokal S.A. (B6 39H Caracol, Cap-Haïtien, Haïti)"
     ],
     ingredients: [
-      "Siwo myèl pur (miel brut polyfloral issu de nos propres ruchers)",
-      "Eau de source purifiée",
-      "Jus et macération d'oranges amères (bigarade)",
-      "Levures nobles de fermentation"
+      "Siwo myèl pur (miel brut issu de notre propre élevage d'abeilles)",
+      "Macération de cerises et griottes du terroir",
+      "Fruit de bigarade (orange amère aromatique)",
+      "Eau de source purifiée & fermentation maîtrisée"
     ],
     usageInstructions: [
       "Apéritif : Servir très frais entre 6°C et 8°C.",

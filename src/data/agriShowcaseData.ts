@@ -20,7 +20,7 @@ import ricinFlaconImg from '../assets/images/huile_ricin_flacon_1786847591002.jp
 import grandTamarFrontImg from '../assets/images/grand_tamar_face_exact_1789970399816.jpg';
 import cassaveNordBoxImg from '../assets/images/cassave_nord_box_1786934328091.jpg';
 import chocolatChaudPanyenImg from '../assets/images/chocolat_chaud_doypack_panyen_1789937953070.jpg';
-import vinDeMielImg from '../assets/images/vin_de_miel_bottle_1794516761155.jpg';
+const vinDeMielImg = '/assets/aistudio/Vin_de_Miel_Panyen_Lokal_sa_092032_861f063b.jpg';
 import champImg from '../assets/images/champ_panyen_lokal_1786858968582.jpg';
 import complexeImg from '../assets/images/complexe_ekam_caracol_1786858981077.jpg';
 import usineExtImg from '../assets/images/usine_exterieur_ekam_1786859382526.jpg';
@@ -256,11 +256,11 @@ export const getFlagshipProducts = (isEn: boolean): FlagshipProductData[] => [
   },
   {
     id: 'tiz-vin-de-miel',
-    title: 'Tiz Vin de Miel (Mead)',
+    title: 'La Cerisière — Vin de Miel',
     category: isEn ? 'Beekeeping & Terroir Wines' : 'Élevage Apicole & Vins de Terroir',
     desc: isEn 
-      ? 'Refined honey wine fermented directly from pure honey (siwo myèl) harvested at our own apiaries.' 
-      : 'Hydromel raffiné élaboré à base de notre siwo myèl pur issu de notre élevage d’abeilles, avec notes de bigarade.',
+      ? 'Cherry & morello maceration fermented from our own pure honey (siwo myèl) with spiced bitter orange notes.' 
+      : 'Macération de cerise, griottes et de notre siwo myèl pur issu de notre élevage d’abeilles, au nez poivré de bigarade.',
     image: vinDeMielImg,
     icon: Sparkles,
     badge: isEn ? 'Pure Honey Base' : 'Base Siwo Myèl Pur'
