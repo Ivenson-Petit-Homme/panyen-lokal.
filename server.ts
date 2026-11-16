@@ -750,6 +750,51 @@ app.get(/^\/google([A-Za-z0-9_-]+)\.html$/, (req, res, next) => {
   return next();
 });
 
+const SERVER_PAGE_SEO: Record<string, { title: string; description: string; noindex?: boolean }> = {
+  '/': {
+    title: 'Panyen Lokal S.A. – Huile de Ricin & Agro-Industrie Haïti',
+    description: 'Découvrez Panyen Lokal S.A. en Haïti : huile de ricin pure, Grand Tamar Cognac, La Cerisière Vin de Miel, chocolat pur cacao et export B2B.'
+  },
+  '/produits': {
+    title: 'Catalogue Produits Terroir – Panyen Lokal S.A. Haïti',
+    description: 'Commandez nos produits d’Haïti : Huile de Ricin Pure, Grand Tamar Cognac 43%, La Cerisière Vin de Miel et Chocolat Artisanal pur cacao.'
+  },
+  '/a-propos': {
+    title: 'À Propos & Impact Rural – Panyen Lokal S.A. Haïti',
+    description: 'Plantation de 100 hectares et usine à Morne-à-Casse (Fort-Liberté), bureau à Caracol : création d’emplois et souveraineté agricole en Haïti.'
+  },
+  '/marches-export': {
+    title: 'Export B2B & Devis Pro – Panyen Lokal S.A. Haïti',
+    description: 'Importez nos produits agro-industriels d’Haïti en gros : fûts d’huile de ricin, caisses export et logistique vers les États-Unis et l’international.'
+  },
+  '/partenariats': {
+    title: 'Partenariats & Coopératives – Panyen Lokal S.A. Haïti',
+    description: 'Collaborez avec Panyen Lokal S.A. pour le développement agricole, l’apiculture, la transformation locale et l’exportation internationale.'
+  },
+  '/contact': {
+    title: 'Contact & Bureaux Haïti / USA – Panyen Lokal S.A.',
+    description: 'Contactez Panyen Lokal S.A. à Caracol (Village EKAM, Haïti), Morne-à-Casse (Fort-Liberté) ou Lauderhill, Floride (USA).'
+  },
+  '/mon-compte': {
+    title: 'Mon Compte Client – Panyen Lokal S.A.',
+    description: 'Consultez vos commandes et paramètres de livraison avec Panyen Lokal S.A.',
+    noindex: true
+  },
+  '/admin': {
+    title: 'Administration – Panyen Lokal S.A.',
+    description: 'Portail de gestion interne Panyen Lokal S.A.',
+    noindex: true
+  }
+};
+
+function escapeHtmlAttr(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 // Vite middleware configuration for Development & Production
 async function start() {
   const isBundledServer =
@@ -770,24 +815,60 @@ async function start() {
     app.get('*', (req, res, next) => {
       const indexPath = path.join(distPath, 'index.html');
       if (fs.existsSync(indexPath)) {
-        const verificationToken = process.env.GOOGLE_SITE_VERIFICATION?.trim();
-        if (verificationToken) {
-          try {
+        try {
+          const cleanPath = req.path.replace(/\/+$/, '') || '/';
+          const seo = SERVER_PAGE_SEO[cleanPath] || SERVER_PAGE_SEO['/'];
+          const baseUrl = getSiteBaseUrl(req);
+          const canonicalUrl = `${baseUrl}${cleanPath === '/' ? '/' : cleanPath}`;
+          const safeTitle = escapeHtmlAttr(seo.title);
+          const safeDesc = escapeHtmlAttr(seo.description);
+          const safeCanonical = escapeHtmlAttr(canonicalUrl);
+          const robotsValue = seo.noindex ? 'noindex, nofollow' : 'index, follow';
+
+          let html = fs.readFileSync(indexPath, 'utf-8');
+          html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${safeTitle}</title>`);
+          html = html.replace(
+            /<meta\s+name=["']description["'][^>]*>/i,
+            `<meta name="description" content="${safeDesc}" />`
+          );
+          html = html.replace(
+            /<meta\s+name=["']robots["'][^>]*>/i,
+            `<meta name="robots" content="${robotsValue}" />`
+          );
+          html = html.replace(
+            /<link\s+rel=["']canonical["'][^>]*>/i,
+            `<link rel="canonical" href="${safeCanonical}" />`
+          );
+          html = html.replace(
+            /<meta\s+property=["']og:url["'][^>]*>/i,
+            `<meta property="og:url" content="${safeCanonical}" />`
+          );
+          html = html.replace(
+            /<meta\s+property=["']og:title["'][^>]*>/i,
+            `<meta property="og:title" content="${safeTitle}" />`
+          );
+          html = html.replace(
+            /<meta\s+property=["']og:description["'][^>]*>/i,
+            `<meta property="og:description" content="${safeDesc}" />`
+          );
+
+          const verificationToken = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+          if (verificationToken && !html.includes('google-site-verification')) {
             const cleanToken = verificationToken.replace(/^google/, '').replace(/\.html$/, '');
-            const html = fs.readFileSync(indexPath, 'utf-8').replace(
+            html = html.replace(
               '</head>',
               `  <meta name="google-site-verification" content="${cleanToken}" />\n  </head>`
             );
-            return res.type('text/html').send(html);
-          } catch {
-            // Fall back to sendFile below
           }
+
+          return res.type('text/html').send(html);
+        } catch {
+          res.sendFile(indexPath, (err) => {
+            if (err && !res.headersSent) {
+              next();
+            }
+          });
         }
-        res.sendFile(indexPath, (err) => {
-          if (err && !res.headersSent) {
-            next();
-          }
-        });
       } else {
         res.status(200).send('<!doctype html><html><body><h1>Panyen Lokal S.A.</h1><p>Application ready.</p></body></html>');
       }
