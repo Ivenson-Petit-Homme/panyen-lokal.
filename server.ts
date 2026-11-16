@@ -699,6 +699,57 @@ app.post('/api/admin/upload', isAdmin as any, upload.single('image') as any, (re
   res.json({ success: true, url: fileUrl });
 });
 
+// SEO & Google Search Console endpoints (/robots.txt, /sitemap.xml, verification file)
+function getSiteBaseUrl(req?: express.Request): string {
+  const configured = process.env.APP_URL?.trim();
+  if (configured) return configured.replace(/\/+$/, '');
+  if (req) {
+    const proto = (req.headers['x-forwarded-proto'] as string) || req.protocol || 'https';
+    const host = req.get('host');
+    if (host) return `${proto}://${host}`.replace(/\/+$/, '');
+  }
+  return 'https://panyenlokal.com';
+}
+
+app.get('/robots.txt', (req, res) => {
+  const baseUrl = getSiteBaseUrl(req);
+  res.type('text/plain').send(
+    `User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin\nDisallow: /mon-compte\n\nSitemap: ${baseUrl}/sitemap.xml\n`
+  );
+});
+
+app.get('/sitemap.xml', (req, res) => {
+  const baseUrl = getSiteBaseUrl(req);
+  const lastMod = new Date().toISOString().split('T')[0];
+  const pages = [
+    { path: '/', changefreq: 'weekly', priority: '1.0' },
+    { path: '/produits', changefreq: 'weekly', priority: '0.9' },
+    { path: '/a-propos', changefreq: 'monthly', priority: '0.8' },
+    { path: '/marches-export', changefreq: 'weekly', priority: '0.8' },
+    { path: '/partenariats', changefreq: 'monthly', priority: '0.8' },
+    { path: '/contact', changefreq: 'monthly', priority: '0.8' },
+  ];
+  const urlsXml = pages
+    .map(
+      (p) =>
+        `  <url>\n    <loc>${baseUrl}${p.path}</loc>\n    <lastmod>${lastMod}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`
+    )
+    .join('\n');
+  res.type('application/xml').send(
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlsXml}\n</urlset>\n`
+  );
+});
+
+app.get(/^\/google([A-Za-z0-9_-]+)\.html$/, (req, res, next) => {
+  const rawToken = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+  if (!rawToken) return next();
+  const normalizedToken = rawToken.replace(/^google/, '').replace(/\.html$/, '');
+  if (req.params[0] === normalizedToken) {
+    return res.type('text/html').send(`google-site-verification: google${normalizedToken}.html`);
+  }
+  return next();
+});
+
 // Vite middleware configuration for Development & Production
 async function start() {
   const isBundledServer =
@@ -719,6 +770,19 @@ async function start() {
     app.get('*', (req, res, next) => {
       const indexPath = path.join(distPath, 'index.html');
       if (fs.existsSync(indexPath)) {
+        const verificationToken = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+        if (verificationToken) {
+          try {
+            const cleanToken = verificationToken.replace(/^google/, '').replace(/\.html$/, '');
+            const html = fs.readFileSync(indexPath, 'utf-8').replace(
+              '</head>',
+              `  <meta name="google-site-verification" content="${cleanToken}" />\n  </head>`
+            );
+            return res.type('text/html').send(html);
+          } catch {
+            // Fall back to sendFile below
+          }
+        }
         res.sendFile(indexPath, (err) => {
           if (err && !res.headersSent) {
             next();

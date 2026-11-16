@@ -40,12 +40,128 @@ import { AdminProducts } from './components/admin/AdminProducts';
 import { AdminQuotes } from './components/admin/AdminQuotes';
 import { AdminUsers } from './components/admin/AdminUsers';
 
+const ROUTE_PATHS: Record<PageRoute, string> = {
+  'home': '/',
+  'produits': '/produits',
+  'product-detail': '/produits',
+  'a-propos': '/a-propos',
+  'marches-export': '/marches-export',
+  'partenariats': '/partenariats',
+  'contact': '/contact',
+  'mon-compte': '/mon-compte',
+  'admin': '/admin',
+};
+
+const ROUTE_SEO: Record<PageRoute, { title: string; description: string; noindex?: boolean }> = {
+  'home': {
+    title: 'Panyen Lokal S.A. – Huile de Ricin & Agro-Industrie Haïti',
+    description: 'Découvrez Panyen Lokal S.A. en Haïti : huile de ricin pure, Grand Tamar Cognac, La Cerisière Vin de Miel, chocolat pur cacao et export B2B.'
+  },
+  'produits': {
+    title: 'Catalogue Produits Terroir – Panyen Lokal S.A. Haïti',
+    description: 'Commandez nos produits d’Haïti : Huile de Ricin Pure, Grand Tamar Cognac 43%, La Cerisière Vin de Miel et Chocolat Artisanal pur cacao.'
+  },
+  'product-detail': {
+    title: 'Détail Produit – Panyen Lokal S.A. Haïti',
+    description: 'Spécifications, origines et formats détail ou export des produits agro-industriels Panyen Lokal S.A.'
+  },
+  'a-propos': {
+    title: 'À Propos & Impact Rural – Panyen Lokal S.A. Haïti',
+    description: 'Plantation de 100 hectares et usine à Morne-à-Casse (Fort-Liberté), bureau à Caracol : création d’emplois et souveraineté agricole en Haïti.'
+  },
+  'marches-export': {
+    title: 'Export B2B & Devis Pro – Panyen Lokal S.A. Haïti',
+    description: 'Importez nos produits agro-industriels d’Haïti en gros : fûts d’huile de ricin, caisses export et logistique vers les États-Unis et l’international.'
+  },
+  'partenariats': {
+    title: 'Partenariats & Coopératives – Panyen Lokal S.A. Haïti',
+    description: 'Collaborez avec Panyen Lokal S.A. pour le développement agricole, l’apiculture, la transformation locale et l’exportation internationale.'
+  },
+  'contact': {
+    title: 'Contact & Bureaux Haïti / USA – Panyen Lokal S.A.',
+    description: 'Contactez Panyen Lokal S.A. à Caracol (Village EKAM, Haïti), Morne-à-Casse (Fort-Liberté) ou Lauderhill, Floride (USA).'
+  },
+  'mon-compte': {
+    title: 'Mon Compte Client – Panyen Lokal S.A.',
+    description: 'Consultez vos commandes et paramètres de livraison avec Panyen Lokal S.A.',
+    noindex: true
+  },
+  'admin': {
+    title: 'Administration – Panyen Lokal S.A.',
+    description: 'Portail de gestion interne Panyen Lokal S.A.',
+    noindex: true
+  }
+};
+
+function getInitialRouteFromUrl(): PageRoute {
+  if (typeof window === 'undefined') return 'home';
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const match = (Object.entries(ROUTE_PATHS) as [PageRoute, string][]).find(
+    ([route, routePath]) => route !== 'product-detail' && routePath === path
+  );
+  return match ? match[0] : 'home';
+}
+
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState<PageRoute>('home');
+  const [currentRoute, setCurrentRouteState] = useState<PageRoute>(getInitialRouteFromUrl);
   const [activeAdminTab, setActiveAdminTab] = useState<string>('dashboard');
   const [products, setProducts] = useState<Product[]>(PRODUCTS_DATA);
   const [loadingProducts, setLoadingProducts] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const setCurrentRoute = (route: PageRoute) => {
+    setCurrentRouteState(route);
+    if (typeof window !== 'undefined') {
+      const targetPath = ROUTE_PATHS[route] || '/';
+      if (window.location.pathname !== targetPath) {
+        window.history.pushState({ route }, '', targetPath);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handlePopState = () => {
+      setCurrentRouteState(getInitialRouteFromUrl());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update per-route document title, canonical URL, OpenGraph, and robots tag for Google Search Console
+  useEffect(() => {
+    if (typeof document === 'undefined' || typeof window === 'undefined') return;
+    const seo = ROUTE_SEO[currentRoute] || ROUTE_SEO.home;
+    const canonicalUrl = `${window.location.origin}${window.location.pathname}`;
+
+    document.title = seo.title;
+
+    const setMeta = (attr: 'name' | 'property', key: string, value: string) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', value);
+    };
+
+    setMeta('name', 'description', seo.description);
+    setMeta('name', 'robots', seo.noindex ? 'noindex, nofollow' : 'index, follow');
+    setMeta('property', 'og:title', seo.title);
+    setMeta('property', 'og:description', seo.description);
+    setMeta('property', 'og:url', canonicalUrl);
+    setMeta('name', 'twitter:title', seo.title);
+    setMeta('name', 'twitter:description', seo.description);
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', canonicalUrl);
+  }, [currentRoute]);
 
   // Fetch products from DB if available
   useEffect(() => {
