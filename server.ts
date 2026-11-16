@@ -811,7 +811,7 @@ async function start() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath, { fallthrough: true }));
+    app.use(express.static(distPath, { fallthrough: true, redirect: false }));
     app.get('*', (req, res, next) => {
       const indexPath = path.join(distPath, 'index.html');
       if (fs.existsSync(indexPath)) {
