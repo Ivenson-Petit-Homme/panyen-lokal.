@@ -1,4 +1,4 @@
--- Panyen Lokal S.A. - MySQL Database Schema
+-- Panyen Lokal - MySQL Database Schema
 -- Version: 2.1 (MySQL / MariaDB)
 -- Created: 2026-09-14
 

@@ -67,7 +67,7 @@ function getAIClient() {
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
-    company: 'PANYEN LOKAL S.A.',
+    company: 'PANYEN LOKAL',
     version: '2.0',
     timestamp: new Date().toISOString()
   });
@@ -83,7 +83,7 @@ app.post('/api/ai/advisor', async (req, res) => {
       return res.json({
         success: true,
         source: 'local_expert',
-        reply: `🌿 **Conseil Panyen Lokal S.A. :**
+        reply: `🌿 **Conseil Panyen Lokal :**
 Pour votre demande concernant *"${query || 'nos produits'}"* :
 - **Huile de Ricin Pure (Lwil Maskriti)** : Pour les soins capillaires, appliquez en bain d'huile tiède 1 à 2 fois par semaine sur le cuir chevelu. Pour la peau, massez quelques gouttes le soir.
 - **Cognac Grand Tamar & Tiz Vin de Miel** : Servir frais (12-14°C) en apéritif ou digestif. Accompagne idéalement nos cassaves artisanales du terroir.
@@ -91,10 +91,10 @@ Pour votre demande concernant *"${query || 'nos produits'}"* :
       });
     }
 
-    const systemPrompt = `Tu es l'expert agronome et conseiller commercial officiel de l'entreprise agro-industrielle haïtienne PANYEN LOKAL S.A. (Village EKAM, Caracol, Nord-Est, Haïti).
+    const systemPrompt = `Tu es l'expert agronome et conseiller commercial officiel de l'entreprise agro-industrielle haïtienne PANYEN LOKAL (Village EKAM, Caracol, Nord-Est, Haïti).
 Tu es chaleureux, professionnel, fier du terroir haïtien et rigoureux sur les procédés de fabrication naturels et agro-industriels.
 
-Informations clés sur Panyen Lokal S.A. et ses 5 produits officiels :
+Informations clés sur Panyen Lokal et ses 5 produits officiels :
 - Produit Phare N°1 : Huile de Ricin Pure d'Haïti (Lwil Maskriti / Lwil Risen) extraite sans solvants chimiques (chauffage traditionnel + pressage semi-industriel). Formats disponibles : Détail (2oz, 4oz, 250ml, 500ml, 1L), Gros/Export (1 Gallon, Baril Export 54 Gallons / 204L).
 - Autres produits officiels : 
   1. Cognac Grand Tamar (Spiritueux d'exception 43% Alc. au tamarin sauvage de Caracol, bouteille 750ml).
@@ -126,7 +126,7 @@ Réponds de manière concise, structurée en markdown, conviviale et élégante.
     res.status(500).json({
       success: false,
       error: error.message || 'Erreur lors de la génération de conseil',
-      fallback: 'L\'équipe technique et commerciale de Panyen Lokal S.A. reste joignable au Village EKAM, Caracol, Nord-Est ou par email à contact@panyenlokal.com.'
+      fallback: 'L\'équipe technique et commerciale de Panyen Lokal reste joignable au Village EKAM, Caracol, Nord-Est ou par email à contact@panyenlokal.com.'
     });
   }
 });
@@ -183,7 +183,7 @@ app.post('/api/auth/register', async (req, res) => {
       success: true,
       user: userSafe,
       token: `pl_tok_${id}`,
-      message: 'Votre compte a été créé avec succès sur Panyen Lokal S.A. !'
+      message: 'Votre compte a été créé avec succès sur Panyen Lokal !'
     });
   } catch (error) {
     console.error('Registration error:', error);
@@ -327,7 +327,7 @@ app.post('/api/orders', async (req, res) => {
     res.json({
       success: true,
       order: { ...orderData, id, orderNumber, estimatedDelivery, status: 'en_preparation' },
-      message: 'Votre commande a été enregistrée pour préparation avec succès au centre de distribution Panyen Lokal S.A.'
+      message: 'Votre commande a été enregistrée pour préparation avec succès au centre de distribution Panyen Lokal.'
     });
   } catch (error) {
     console.error('Order creation error:', error);
@@ -418,7 +418,7 @@ app.post('/api/contact', (req, res) => {
   res.json({
     success: true,
     reference: `PL-MSG-${Date.now().toString().slice(-6)}`,
-    message: 'Merci pour votre message. L\'équipe PANYEN LOKAL S.A. vous répondra dans les plus brefs délais.'
+    message: 'Merci pour votre message. L\'équipe PANYEN LOKAL vous répondra dans les plus brefs délais.'
   });
 });
 
@@ -752,37 +752,37 @@ app.get(/^\/google([A-Za-z0-9_-]+)\.html$/, (req, res, next) => {
 
 const SERVER_PAGE_SEO: Record<string, { title: string; description: string; noindex?: boolean }> = {
   '/': {
-    title: 'Panyen Lokal S.A. – Huile de Ricin & Agro-Industrie Haïti',
-    description: 'Découvrez Panyen Lokal S.A. en Haïti : huile de ricin pure, Grand Tamar Cognac, La Cerisière Vin de Miel, chocolat pur cacao et export B2B.'
+    title: 'Panyen Lokal – Huile de Ricin & Agro-Industrie Haïti',
+    description: 'Découvrez Panyen Lokal en Haïti : huile de ricin pure, Grand Tamar Cognac, La Cerisière Vin de Miel, chocolat pur cacao et export B2B.'
   },
   '/produits': {
-    title: 'Catalogue Produits Terroir – Panyen Lokal S.A. Haïti',
+    title: 'Catalogue Produits Terroir – Panyen Lokal Haïti',
     description: 'Commandez nos produits d’Haïti : Huile de Ricin Pure, Grand Tamar Cognac 43%, La Cerisière Vin de Miel et Chocolat Artisanal pur cacao.'
   },
   '/a-propos': {
-    title: 'À Propos & Impact Rural – Panyen Lokal S.A. Haïti',
+    title: 'À Propos & Impact Rural – Panyen Lokal Haïti',
     description: 'Plantation de 100 hectares et usine à Morne-à-Casse (Fort-Liberté), bureau à Caracol : création d’emplois et souveraineté agricole en Haïti.'
   },
   '/marches-export': {
-    title: 'Export B2B & Devis Pro – Panyen Lokal S.A. Haïti',
+    title: 'Export B2B & Devis Pro – Panyen Lokal Haïti',
     description: 'Importez nos produits agro-industriels d’Haïti en gros : fûts d’huile de ricin, caisses export et logistique vers les États-Unis et l’international.'
   },
   '/partenariats': {
-    title: 'Partenariats & Coopératives – Panyen Lokal S.A. Haïti',
-    description: 'Collaborez avec Panyen Lokal S.A. pour le développement agricole, l’apiculture, la transformation locale et l’exportation internationale.'
+    title: 'Partenariats & Coopératives – Panyen Lokal Haïti',
+    description: 'Collaborez avec Panyen Lokal pour le développement agricole, l’apiculture, la transformation locale et l’exportation internationale.'
   },
   '/contact': {
-    title: 'Contact & Bureaux Haïti / USA – Panyen Lokal S.A.',
-    description: 'Contactez Panyen Lokal S.A. à Caracol (Village EKAM, Haïti), Morne-à-Casse (Fort-Liberté) ou Lauderhill, Floride (USA).'
+    title: 'Contact & Bureaux Haïti / USA – Panyen Lokal',
+    description: 'Contactez Panyen Lokal à Caracol (Village EKAM, Haïti), Morne-à-Casse (Fort-Liberté) ou Lauderhill, Floride (USA).'
   },
   '/mon-compte': {
-    title: 'Mon Compte Client – Panyen Lokal S.A.',
-    description: 'Consultez vos commandes et paramètres de livraison avec Panyen Lokal S.A.',
+    title: 'Mon Compte Client – Panyen Lokal',
+    description: 'Consultez vos commandes et paramètres de livraison avec Panyen Lokal.',
     noindex: true
   },
   '/admin': {
-    title: 'Administration – Panyen Lokal S.A.',
-    description: 'Portail de gestion interne Panyen Lokal S.A.',
+    title: 'Administration – Panyen Lokal',
+    description: 'Portail de gestion interne Panyen Lokal.',
     noindex: true
   }
 };
@@ -870,7 +870,7 @@ async function start() {
           });
         }
       } else {
-        res.status(200).send('<!doctype html><html><body><h1>Panyen Lokal S.A.</h1><p>Application ready.</p></body></html>');
+        res.status(200).send('<!doctype html><html><body><h1>Panyen Lokal</h1><p>Application ready.</p></body></html>');
       }
     });
   }
@@ -888,7 +888,7 @@ async function start() {
   });
 
   app.listen(PORT, '0.0.0.0', async () => {
-    console.log(`🌿 Serveur Panyen Lokal S.A. opérationnel sur http://localhost:${PORT}`);
+    console.log(`🌿 Serveur Panyen Lokal opérationnel sur http://localhost:${PORT}`);
 
     // Initialisation et vérification de la base de données (MySQL ou local persistant)
     try {

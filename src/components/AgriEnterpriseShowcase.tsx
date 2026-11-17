@@ -353,7 +353,7 @@ export const AgriEnterpriseShowcase: React.FC<AgriEnterpriseShowcaseProps> = ({
                         {isEn ? 'National Agro-Industrial Enterprise' : 'Entreprise Agro-Industrielle Nationale'}
                       </p>
                       <h2 className="font-display text-3xl sm:text-4xl font-bold uppercase text-[#1C3022] tracking-tight text-left">
-                        PANYEN LOKAL S.A.
+                        PANYEN LOKAL
                       </h2>
                     </div>
                   </div>

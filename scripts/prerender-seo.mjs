@@ -15,33 +15,33 @@ const baseUrl = (process.env.APP_URL || 'https://panyenlokal.com').replace(/\/+$
 const routes = [
   {
     routePath: '/produits',
-    title: 'Catalogue Produits Terroir – Panyen Lokal S.A. Haïti',
+    title: 'Catalogue Produits Terroir – Panyen Lokal Haïti',
     description:
       'Commandez nos produits d’Haïti : Huile de Ricin Pure, Grand Tamar Cognac 43%, La Cerisière Vin de Miel et Chocolat Artisanal pur cacao.'
   },
   {
     routePath: '/a-propos',
-    title: 'À Propos & Impact Rural – Panyen Lokal S.A. Haïti',
+    title: 'À Propos & Impact Rural – Panyen Lokal Haïti',
     description:
       'Plantation de 100 hectares et usine à Morne-à-Casse (Fort-Liberté), bureau à Caracol : création d’emplois et souveraineté agricole en Haïti.'
   },
   {
     routePath: '/marches-export',
-    title: 'Export B2B & Devis Pro – Panyen Lokal S.A. Haïti',
+    title: 'Export B2B & Devis Pro – Panyen Lokal Haïti',
     description:
       'Importez nos produits agro-industriels d’Haïti en gros : fûts d’huile de ricin, caisses export et logistique vers les États-Unis et l’international.'
   },
   {
     routePath: '/partenariats',
-    title: 'Partenariats & Coopératives – Panyen Lokal S.A. Haïti',
+    title: 'Partenariats & Coopératives – Panyen Lokal Haïti',
     description:
-      'Collaborez avec Panyen Lokal S.A. pour le développement agricole, l’apiculture, la transformation locale et l’exportation internationale.'
+      'Collaborez avec Panyen Lokal pour le développement agricole, l’apiculture, la transformation locale et l’exportation internationale.'
   },
   {
     routePath: '/contact',
-    title: 'Contact & Bureaux Haïti / USA – Panyen Lokal S.A.',
+    title: 'Contact & Bureaux Haïti / USA – Panyen Lokal',
     description:
-      'Contactez Panyen Lokal S.A. à Caracol (Village EKAM, Haïti), Morne-à-Casse (Fort-Liberté) ou Lauderhill, Floride (USA).'
+      'Contactez Panyen Lokal à Caracol (Village EKAM, Haïti), Morne-à-Casse (Fort-Liberté) ou Lauderhill, Floride (USA).'
   }
 ];
 

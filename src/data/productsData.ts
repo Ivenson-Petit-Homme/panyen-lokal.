@@ -146,7 +146,7 @@ export const PRODUCTS_DATA: Product[] = [
     id: "tiz-vin-de-miel",
     title: "La Cerisière — Vin de Miel",
     slug: "tiz-vin-de-miel",
-    slogan: "Une production de Panyen Lokal S.A. · Macération de cerise, griottes & siwo myèl",
+    slogan: "Une production de Panyen Lokal · Macération de cerise, griottes & siwo myèl",
     isFeatured: true,
     category: "Boissons & Liqueurs",
     badge: "CRÉATION NATURELLE",
@@ -162,7 +162,7 @@ export const PRODUCTS_DATA: Product[] = [
       "Élaboré à partir de notre propre élevage d'abeilles et récolte de siwo myèl pur",
       "Macération de cerise et du miel avec des griottes, nez de fruit de bigarade poivré",
       "Belle complexité de tanins soyeux et bouche acidulée, charnue et désaltérante",
-      "Production officielle Panyen Lokal S.A. (B6 39H Caracol, Cap-Haïtien, Haïti)"
+      "Production officielle Panyen Lokal (B6 39H Caracol, Cap-Haïtien, Haïti)"
     ],
     ingredients: [
       "Siwo myèl pur (miel brut issu de notre propre élevage d'abeilles)",
@@ -266,7 +266,7 @@ export const HAITI_DEPARTMENTS_ORCHARDS: DepartmentOrchard[] = [
 export const COMPANY_INFO = {
   name: "PANYEN LOKAL",
   tagline: "Agro-industrie durable & Trésors naturels d'Haïti",
-  legalForm: "Entreprise Agro-Industrielle (Haïti: PANYEN LOKAL S.A. • USA: PANYEN LOKAL INC)",
+  legalForm: "Entreprise Agro-Industrielle (Haïti: PANYEN LOKAL • USA: PANYEN LOKAL INC)",
   address: "B6-39, Village Ekam, Caracol, Haïti",
   addressHaiti: "B6-39, Village Ekam, Caracol, Haïti",
   addressUSA: "7400 W Oakland Park Blvd, Unit 1125, Lauderhill, Florida 33319",

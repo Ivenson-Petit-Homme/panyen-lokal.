@@ -169,7 +169,7 @@ export const OfficialBannerSection: React.FC<OfficialBannerSectionProps> = ({
                 <div className="w-full h-12 bg-gradient-to-b from-stone-300 via-stone-400 to-stone-200 rounded-b-md mt-2 shadow-xl relative overflow-hidden flex flex-col items-center justify-center">
                   <div className="w-full h-px bg-white/20 absolute top-0" />
                   <div className="w-3/4 h-2 bg-stone-500/20 rounded-full mb-1" />
-                  <span className="text-[8px] font-black text-stone-800 uppercase tracking-widest opacity-60">PANYEN LOKAL S.A. OFFICIAL DISPLAY</span>
+                  <span className="text-[8px] font-black text-stone-800 uppercase tracking-widest opacity-60">PANYEN LOKAL OFFICIAL DISPLAY</span>
                 </div>
               </motion.div>
 

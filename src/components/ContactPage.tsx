@@ -85,7 +85,7 @@ export const ContactPage: React.FC = () => {
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#3D684A] block">
                       {isEn ? 'Haiti — Corporate Office' : 'Haïti — Bureau Administratif'}
                     </span>
-                    <strong className="block text-[#1C3022] text-sm">Biwo Caracol — PANYEN LOKAL S.A.</strong>
+                    <strong className="block text-[#1C3022] text-sm">Biwo Caracol — PANYEN LOKAL</strong>
                     <div className="flex items-start gap-2 pt-1">
                       <MapPin className="w-4 h-4 text-[#3D684A] shrink-0 mt-0.5" />
                       <span>{COMPANY_INFO.addressHaiti}</span>

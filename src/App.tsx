@@ -54,41 +54,41 @@ const ROUTE_PATHS: Record<PageRoute, string> = {
 
 const ROUTE_SEO: Record<PageRoute, { title: string; description: string; noindex?: boolean }> = {
   'home': {
-    title: 'Panyen Lokal S.A. – Huile de Ricin & Agro-Industrie Haïti',
-    description: 'Découvrez Panyen Lokal S.A. en Haïti : huile de ricin pure, Grand Tamar Cognac, La Cerisière Vin de Miel, chocolat pur cacao et export B2B.'
+    title: 'Panyen Lokal – Huile de Ricin & Agro-Industrie Haïti',
+    description: 'Découvrez Panyen Lokal en Haïti : huile de ricin pure, Grand Tamar Cognac, La Cerisière Vin de Miel, chocolat pur cacao et export B2B.'
   },
   'produits': {
-    title: 'Catalogue Produits Terroir – Panyen Lokal S.A. Haïti',
+    title: 'Catalogue Produits Terroir – Panyen Lokal Haïti',
     description: 'Commandez nos produits d’Haïti : Huile de Ricin Pure, Grand Tamar Cognac 43%, La Cerisière Vin de Miel et Chocolat Artisanal pur cacao.'
   },
   'product-detail': {
-    title: 'Détail Produit – Panyen Lokal S.A. Haïti',
-    description: 'Spécifications, origines et formats détail ou export des produits agro-industriels Panyen Lokal S.A.'
+    title: 'Détail Produit – Panyen Lokal Haïti',
+    description: 'Spécifications, origines et formats détail ou export des produits agro-industriels Panyen Lokal.'
   },
   'a-propos': {
-    title: 'À Propos & Impact Rural – Panyen Lokal S.A. Haïti',
+    title: 'À Propos & Impact Rural – Panyen Lokal Haïti',
     description: 'Plantation de 100 hectares et usine à Morne-à-Casse (Fort-Liberté), bureau à Caracol : création d’emplois et souveraineté agricole en Haïti.'
   },
   'marches-export': {
-    title: 'Export B2B & Devis Pro – Panyen Lokal S.A. Haïti',
+    title: 'Export B2B & Devis Pro – Panyen Lokal Haïti',
     description: 'Importez nos produits agro-industriels d’Haïti en gros : fûts d’huile de ricin, caisses export et logistique vers les États-Unis et l’international.'
   },
   'partenariats': {
-    title: 'Partenariats & Coopératives – Panyen Lokal S.A. Haïti',
-    description: 'Collaborez avec Panyen Lokal S.A. pour le développement agricole, l’apiculture, la transformation locale et l’exportation internationale.'
+    title: 'Partenariats & Coopératives – Panyen Lokal Haïti',
+    description: 'Collaborez avec Panyen Lokal pour le développement agricole, l’apiculture, la transformation locale et l’exportation internationale.'
   },
   'contact': {
-    title: 'Contact & Bureaux Haïti / USA – Panyen Lokal S.A.',
-    description: 'Contactez Panyen Lokal S.A. à Caracol (Village EKAM, Haïti), Morne-à-Casse (Fort-Liberté) ou Lauderhill, Floride (USA).'
+    title: 'Contact & Bureaux Haïti / USA – Panyen Lokal',
+    description: 'Contactez Panyen Lokal à Caracol (Village EKAM, Haïti), Morne-à-Casse (Fort-Liberté) ou Lauderhill, Floride (USA).'
   },
   'mon-compte': {
-    title: 'Mon Compte Client – Panyen Lokal S.A.',
-    description: 'Consultez vos commandes et paramètres de livraison avec Panyen Lokal S.A.',
+    title: 'Mon Compte Client – Panyen Lokal',
+    description: 'Consultez vos commandes et paramètres de livraison avec Panyen Lokal.',
     noindex: true
   },
   'admin': {
-    title: 'Administration – Panyen Lokal S.A.',
-    description: 'Portail de gestion interne Panyen Lokal S.A.',
+    title: 'Administration – Panyen Lokal',
+    description: 'Portail de gestion interne Panyen Lokal.',
     noindex: true
   }
 };
